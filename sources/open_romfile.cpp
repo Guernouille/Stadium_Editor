@@ -68,9 +68,9 @@ void MainWindow::on_actionOpen_triggered() {
                 // Types names
                 read_type_names(romfile);
 
-                // Types data
+                // Types data - Weaknesses and Resistances
 
-                // Misc data
+                // Experience data
                 read_experience_data(romfile);
 
                 // CPU Trainers / Rentals data
