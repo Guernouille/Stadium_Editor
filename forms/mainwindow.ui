@@ -1,0 +1,4324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>720</width>
+    <height>636</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Pokémon Stadium Editor</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <property name="minimumSize">
+    <size>
+     <width>720</width>
+     <height>615</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>720</width>
+     <height>615</height>
+    </size>
+   </property>
+   <widget class="QTabWidget" name="tabWidget">
+    <property name="geometry">
+     <rect>
+      <x>3</x>
+      <y>3</y>
+      <width>715</width>
+      <height>610</height>
+     </rect>
+    </property>
+    <property name="currentIndex">
+     <number>1</number>
+    </property>
+    <widget class="QWidget" name="tab_ROM_Info">
+     <attribute name="title">
+      <string>ROM info</string>
+     </attribute>
+     <widget class="QLabel" name="label_rom_debug">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>121</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>ROM debug</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label">
+      <property name="geometry">
+       <rect>
+        <x>450</x>
+        <y>10</y>
+        <width>101</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>13</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+        <underline>true</underline>
+       </font>
+      </property>
+      <property name="text">
+       <string>Debug:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_debug_pkm_names_txt">
+      <property name="geometry">
+       <rect>
+        <x>450</x>
+        <y>60</y>
+        <width>91</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Pokémon names:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_debug_pkm_names_val">
+      <property name="geometry">
+       <rect>
+        <x>550</x>
+        <y>60</y>
+        <width>31</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_debug_move_names_txt">
+      <property name="geometry">
+       <rect>
+        <x>450</x>
+        <y>80</y>
+        <width>91</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Move names:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_debug_move_names_val">
+      <property name="geometry">
+       <rect>
+        <x>550</x>
+        <y>80</y>
+        <width>31</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_debug_type_names_txt">
+      <property name="geometry">
+       <rect>
+        <x>450</x>
+        <y>100</y>
+        <width>91</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Type names:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_debug_type_names_val">
+      <property name="geometry">
+       <rect>
+        <x>550</x>
+        <y>100</y>
+        <width>31</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_debug_pokedex_entries_val">
+      <property name="geometry">
+       <rect>
+        <x>550</x>
+        <y>120</y>
+        <width>31</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_debug_pokedex_entries_txt">
+      <property name="geometry">
+       <rect>
+        <x>450</x>
+        <y>120</y>
+        <width>91</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Pokédex entries:</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_CPU_Teams">
+     <attribute name="title">
+      <string>CPU Teams</string>
+     </attribute>
+     <widget class="QGroupBox" name="groupBox_CPU_Pkmn_1">
+      <property name="geometry">
+       <rect>
+        <x>99</x>
+        <y>1</y>
+        <width>302</width>
+        <height>196</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Pokémon #1</string>
+      </property>
+      <widget class="QComboBox" name="comboBox_Pkmn_1">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>16</y>
+         <width>101</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="spinBox_Lv_1">
+       <property name="geometry">
+        <rect>
+         <x>139</x>
+         <y>17</y>
+         <width>42</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="minimum">
+        <number>1</number>
+       </property>
+       <property name="maximum">
+        <number>100</number>
+       </property>
+       <property name="value">
+        <number>100</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_Lv_1">
+       <property name="geometry">
+        <rect>
+         <x>121</x>
+         <y>20</y>
+         <width>20</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Lv.</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit_Nickname_1">
+       <property name="geometry">
+        <rect>
+         <x>190</x>
+         <y>17</y>
+         <width>101</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QGroupBox" name="groupBox_IVEV_1">
+       <property name="geometry">
+        <rect>
+         <x>162</x>
+         <y>40</y>
+         <width>135</width>
+         <height>151</height>
+        </rect>
+       </property>
+       <property name="title">
+        <string>IVs and EVs</string>
+       </property>
+       <widget class="QSpinBox" name="spinBox_EV_Defense_1">
+        <property name="geometry">
+         <rect>
+          <x>78</x>
+          <y>70</y>
+          <width>51</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>65535</number>
+        </property>
+        <property name="value">
+         <number>65535</number>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_IV_Defense_1">
+        <property name="geometry">
+         <rect>
+          <x>31</x>
+          <y>70</y>
+          <width>41</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>15</number>
+        </property>
+        <property name="value">
+         <number>15</number>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_IVEV_HP_1">
+        <property name="geometry">
+         <rect>
+          <x>11</x>
+          <y>19</y>
+          <width>21</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="toolTip">
+         <string>Hit Points</string>
+        </property>
+        <property name="text">
+         <string>HP:</string>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_IV_Speed_1">
+        <property name="geometry">
+         <rect>
+          <x>31</x>
+          <y>124</y>
+          <width>41</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>15</number>
+        </property>
+        <property name="value">
+         <number>15</number>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_IV_Attack_1">
+        <property name="geometry">
+         <rect>
+          <x>31</x>
+          <y>43</y>
+          <width>41</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>15</number>
+        </property>
+        <property name="value">
+         <number>15</number>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_IV_HP_1">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>31</x>
+          <y>16</y>
+          <width>41</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>15</number>
+        </property>
+        <property name="value">
+         <number>15</number>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_IVEV_Defense_1">
+        <property name="geometry">
+         <rect>
+          <x>5</x>
+          <y>73</y>
+          <width>27</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="toolTip">
+         <string>Defense</string>
+        </property>
+        <property name="text">
+         <string>DEF:</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_IVEV_Speed_1">
+        <property name="geometry">
+         <rect>
+          <x>5</x>
+          <y>127</y>
+          <width>27</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="toolTip">
+         <string>Speed</string>
+        </property>
+        <property name="text">
+         <string>SPD:</string>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_EV_Speed_1">
+        <property name="geometry">
+         <rect>
+          <x>78</x>
+          <y>124</y>
+          <width>51</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>65535</number>
+        </property>
+        <property name="value">
+         <number>65535</number>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_EV_HP_1">
+        <property name="geometry">
+         <rect>
+          <x>78</x>
+          <y>16</y>
+          <width>51</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>65535</number>
+        </property>
+        <property name="value">
+         <number>65535</number>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_IVEV_Attack_1">
+        <property name="geometry">
+         <rect>
+          <x>5</x>
+          <y>46</y>
+          <width>27</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="toolTip">
+         <string>Attack</string>
+        </property>
+        <property name="text">
+         <string>ATK:</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_IVEV_Special_1">
+        <property name="geometry">
+         <rect>
+          <x>5</x>
+          <y>100</y>
+          <width>27</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="toolTip">
+         <string>Special</string>
+        </property>
+        <property name="text">
+         <string>SPC:</string>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_IV_Special_1">
+        <property name="geometry">
+         <rect>
+          <x>31</x>
+          <y>97</y>
+          <width>41</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>15</number>
+        </property>
+        <property name="value">
+         <number>15</number>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_EV_Special_1">
+        <property name="geometry">
+         <rect>
+          <x>78</x>
+          <y>97</y>
+          <width>51</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>65535</number>
+        </property>
+        <property name="value">
+         <number>65535</number>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_EV_Attack_1">
+        <property name="geometry">
+         <rect>
+          <x>78</x>
+          <y>43</y>
+          <width>51</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>65535</number>
+        </property>
+        <property name="value">
+         <number>65535</number>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QGroupBox" name="groupBox_MovesPP_1">
+       <property name="geometry">
+        <rect>
+         <x>5</x>
+         <y>40</y>
+         <width>155</width>
+         <height>151</height>
+        </rect>
+       </property>
+       <property name="title">
+        <string>Moves and PP Ups</string>
+       </property>
+       <widget class="QComboBox" name="comboBox_Move1_1">
+        <property name="geometry">
+         <rect>
+          <x>5</x>
+          <y>17</y>
+          <width>111</width>
+          <height>22</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="comboBox_Move2_1">
+        <property name="geometry">
+         <rect>
+          <x>5</x>
+          <y>45</y>
+          <width>111</width>
+          <height>22</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="comboBox_Move3_1">
+        <property name="geometry">
+         <rect>
+          <x>5</x>
+          <y>73</y>
+          <width>111</width>
+          <height>22</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="comboBox_Move4_1">
+        <property name="geometry">
+         <rect>
+          <x>5</x>
+          <y>101</y>
+          <width>111</width>
+          <height>22</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_PPUp1_1">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>17</y>
+          <width>31</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>3</number>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_PPUp2_1">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>45</y>
+          <width>31</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>3</number>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_PPUp3_1">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>73</y>
+          <width>31</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>3</number>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_PPUp4_1">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>101</y>
+          <width>31</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>3</number>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="checkBox_ValidMoves_1">
+        <property name="geometry">
+         <rect>
+          <x>5</x>
+          <y>127</y>
+          <width>111</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Only valid moves</string>
+        </property>
+       </widget>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_CPU_Pkmn_2">
+      <property name="geometry">
+       <rect>
+        <x>405</x>
+        <y>1</y>
+        <width>302</width>
+        <height>196</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Pokémon #2</string>
+      </property>
+      <widget class="QComboBox" name="comboBox_Pkmn_2">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>16</y>
+         <width>101</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="spinBox_Lv_2">
+       <property name="geometry">
+        <rect>
+         <x>139</x>
+         <y>17</y>
+         <width>42</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="minimum">
+        <number>1</number>
+       </property>
+       <property name="maximum">
+        <number>100</number>
+       </property>
+       <property name="value">
+        <number>100</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_Lv_2">
+       <property name="geometry">
+        <rect>
+         <x>121</x>
+         <y>20</y>
+         <width>20</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Lv.</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit_Nickname_2">
+       <property name="geometry">
+        <rect>
+         <x>190</x>
+         <y>17</y>
+         <width>101</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QGroupBox" name="groupBox_IVEV_2">
+       <property name="geometry">
+        <rect>
+         <x>162</x>
+         <y>40</y>
+         <width>135</width>
+         <height>151</height>
+        </rect>
+       </property>
+       <property name="title">
+        <string>IVs and EVs</string>
+       </property>
+       <widget class="QSpinBox" name="spinBox_EV_Defense_2">
+        <property name="geometry">
+         <rect>
+          <x>78</x>
+          <y>70</y>
+          <width>51</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>65535</number>
+        </property>
+        <property name="value">
+         <number>65535</number>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_IV_Defense_2">
+        <property name="geometry">
+         <rect>
+          <x>31</x>
+          <y>70</y>
+          <width>41</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>15</number>
+        </property>
+        <property name="value">
+         <number>15</number>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_IVEV_HP_2">
+        <property name="geometry">
+         <rect>
+          <x>11</x>
+          <y>19</y>
+          <width>21</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="toolTip">
+         <string>Hit Points</string>
+        </property>
+        <property name="text">
+         <string>HP:</string>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_IV_Speed_2">
+        <property name="geometry">
+         <rect>
+          <x>31</x>
+          <y>124</y>
+          <width>41</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>15</number>
+        </property>
+        <property name="value">
+         <number>15</number>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_IV_Attack_2">
+        <property name="geometry">
+         <rect>
+          <x>31</x>
+          <y>43</y>
+          <width>41</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>15</number>
+        </property>
+        <property name="value">
+         <number>15</number>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_IV_HP_2">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>31</x>
+          <y>16</y>
+          <width>41</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>15</number>
+        </property>
+        <property name="value">
+         <number>15</number>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_IVEV_Defense_2">
+        <property name="geometry">
+         <rect>
+          <x>5</x>
+          <y>73</y>
+          <width>27</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="toolTip">
+         <string>Defense</string>
+        </property>
+        <property name="text">
+         <string>DEF:</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_IVEV_Speed_2">
+        <property name="geometry">
+         <rect>
+          <x>5</x>
+          <y>127</y>
+          <width>27</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="toolTip">
+         <string>Speed</string>
+        </property>
+        <property name="text">
+         <string>SPD:</string>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_EV_Speed_2">
+        <property name="geometry">
+         <rect>
+          <x>78</x>
+          <y>124</y>
+          <width>51</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>65535</number>
+        </property>
+        <property name="value">
+         <number>65535</number>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_EV_HP_2">
+        <property name="geometry">
+         <rect>
+          <x>78</x>
+          <y>16</y>
+          <width>51</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>65535</number>
+        </property>
+        <property name="value">
+         <number>65535</number>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_IVEV_Attack_2">
+        <property name="geometry">
+         <rect>
+          <x>5</x>
+          <y>46</y>
+          <width>27</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="toolTip">
+         <string>Attack</string>
+        </property>
+        <property name="text">
+         <string>ATK:</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_IVEV_Special_2">
+        <property name="geometry">
+         <rect>
+          <x>5</x>
+          <y>100</y>
+          <width>27</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="toolTip">
+         <string>Special</string>
+        </property>
+        <property name="text">
+         <string>SPC:</string>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_IV_Special_2">
+        <property name="geometry">
+         <rect>
+          <x>31</x>
+          <y>97</y>
+          <width>41</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>15</number>
+        </property>
+        <property name="value">
+         <number>15</number>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_EV_Special_2">
+        <property name="geometry">
+         <rect>
+          <x>78</x>
+          <y>97</y>
+          <width>51</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>65535</number>
+        </property>
+        <property name="value">
+         <number>65535</number>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_EV_Attack_2">
+        <property name="geometry">
+         <rect>
+          <x>78</x>
+          <y>43</y>
+          <width>51</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>65535</number>
+        </property>
+        <property name="value">
+         <number>65535</number>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QGroupBox" name="groupBox_MovesPP_2">
+       <property name="geometry">
+        <rect>
+         <x>5</x>
+         <y>40</y>
+         <width>155</width>
+         <height>151</height>
+        </rect>
+       </property>
+       <property name="title">
+        <string>Moves and PP Ups</string>
+       </property>
+       <widget class="QComboBox" name="comboBox_Move1_2">
+        <property name="geometry">
+         <rect>
+          <x>5</x>
+          <y>17</y>
+          <width>111</width>
+          <height>22</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="comboBox_Move2_2">
+        <property name="geometry">
+         <rect>
+          <x>5</x>
+          <y>45</y>
+          <width>111</width>
+          <height>22</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="comboBox_Move3_2">
+        <property name="geometry">
+         <rect>
+          <x>5</x>
+          <y>73</y>
+          <width>111</width>
+          <height>22</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="comboBox_Move4_2">
+        <property name="geometry">
+         <rect>
+          <x>5</x>
+          <y>101</y>
+          <width>111</width>
+          <height>22</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_PPUp1_2">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>17</y>
+          <width>31</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>3</number>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_PPUp2_2">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>45</y>
+          <width>31</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>3</number>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_PPUp3_2">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>73</y>
+          <width>31</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>3</number>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_PPUp4_2">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>101</y>
+          <width>31</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>3</number>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="checkBox_ValidMoves_2">
+        <property name="geometry">
+         <rect>
+          <x>5</x>
+          <y>127</y>
+          <width>111</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Only valid moves</string>
+        </property>
+       </widget>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_CPU_Pkmn_3">
+      <property name="geometry">
+       <rect>
+        <x>99</x>
+        <y>194</y>
+        <width>302</width>
+        <height>196</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Pokémon #3</string>
+      </property>
+      <widget class="QComboBox" name="comboBox_Pkmn_3">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>16</y>
+         <width>101</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="spinBox_Lv_3">
+       <property name="geometry">
+        <rect>
+         <x>139</x>
+         <y>17</y>
+         <width>42</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="minimum">
+        <number>1</number>
+       </property>
+       <property name="maximum">
+        <number>100</number>
+       </property>
+       <property name="value">
+        <number>100</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_Lv_3">
+       <property name="geometry">
+        <rect>
+         <x>121</x>
+         <y>20</y>
+         <width>20</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Lv.</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit_Nickname_3">
+       <property name="geometry">
+        <rect>
+         <x>190</x>
+         <y>17</y>
+         <width>101</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QGroupBox" name="groupBox_IVEV_3">
+       <property name="geometry">
+        <rect>
+         <x>162</x>
+         <y>40</y>
+         <width>135</width>
+         <height>151</height>
+        </rect>
+       </property>
+       <property name="title">
+        <string>IVs and EVs</string>
+       </property>
+       <widget class="QSpinBox" name="spinBox_EV_Defense_3">
+        <property name="geometry">
+         <rect>
+          <x>78</x>
+          <y>70</y>
+          <width>51</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>65535</number>
+        </property>
+        <property name="value">
+         <number>65535</number>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_IV_Defense_3">
+        <property name="geometry">
+         <rect>
+          <x>31</x>
+          <y>70</y>
+          <width>41</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>15</number>
+        </property>
+        <property name="value">
+         <number>15</number>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_IVEV_HP_3">
+        <property name="geometry">
+         <rect>
+          <x>11</x>
+          <y>19</y>
+          <width>21</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="toolTip">
+         <string>Hit Points</string>
+        </property>
+        <property name="text">
+         <string>HP:</string>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_IV_Speed_3">
+        <property name="geometry">
+         <rect>
+          <x>31</x>
+          <y>124</y>
+          <width>41</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>15</number>
+        </property>
+        <property name="value">
+         <number>15</number>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_IV_Attack_3">
+        <property name="geometry">
+         <rect>
+          <x>31</x>
+          <y>43</y>
+          <width>41</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>15</number>
+        </property>
+        <property name="value">
+         <number>15</number>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_IV_HP_3">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>31</x>
+          <y>16</y>
+          <width>41</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>15</number>
+        </property>
+        <property name="value">
+         <number>15</number>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_IVEV_Defense_3">
+        <property name="geometry">
+         <rect>
+          <x>5</x>
+          <y>73</y>
+          <width>27</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="toolTip">
+         <string>Defense</string>
+        </property>
+        <property name="text">
+         <string>DEF:</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_IVEV_Speed_3">
+        <property name="geometry">
+         <rect>
+          <x>5</x>
+          <y>127</y>
+          <width>27</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="toolTip">
+         <string>Speed</string>
+        </property>
+        <property name="text">
+         <string>SPD:</string>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_EV_Speed_3">
+        <property name="geometry">
+         <rect>
+          <x>78</x>
+          <y>124</y>
+          <width>51</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>65535</number>
+        </property>
+        <property name="value">
+         <number>65535</number>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_EV_HP_3">
+        <property name="geometry">
+         <rect>
+          <x>78</x>
+          <y>16</y>
+          <width>51</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>65535</number>
+        </property>
+        <property name="value">
+         <number>65535</number>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_IVEV_Attack_3">
+        <property name="geometry">
+         <rect>
+          <x>5</x>
+          <y>46</y>
+          <width>27</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="toolTip">
+         <string>Attack</string>
+        </property>
+        <property name="text">
+         <string>ATK:</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_IVEV_Special_3">
+        <property name="geometry">
+         <rect>
+          <x>5</x>
+          <y>100</y>
+          <width>27</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="toolTip">
+         <string>Special</string>
+        </property>
+        <property name="text">
+         <string>SPC:</string>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_IV_Special_3">
+        <property name="geometry">
+         <rect>
+          <x>31</x>
+          <y>97</y>
+          <width>41</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>15</number>
+        </property>
+        <property name="value">
+         <number>15</number>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_EV_Special_3">
+        <property name="geometry">
+         <rect>
+          <x>78</x>
+          <y>97</y>
+          <width>51</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>65535</number>
+        </property>
+        <property name="value">
+         <number>65535</number>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_EV_Attack_3">
+        <property name="geometry">
+         <rect>
+          <x>78</x>
+          <y>43</y>
+          <width>51</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>65535</number>
+        </property>
+        <property name="value">
+         <number>65535</number>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QGroupBox" name="groupBox_MovesPP_3">
+       <property name="geometry">
+        <rect>
+         <x>5</x>
+         <y>40</y>
+         <width>155</width>
+         <height>151</height>
+        </rect>
+       </property>
+       <property name="title">
+        <string>Moves and PP Ups</string>
+       </property>
+       <widget class="QComboBox" name="comboBox_Move1_3">
+        <property name="geometry">
+         <rect>
+          <x>5</x>
+          <y>17</y>
+          <width>111</width>
+          <height>22</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="comboBox_Move2_3">
+        <property name="geometry">
+         <rect>
+          <x>5</x>
+          <y>45</y>
+          <width>111</width>
+          <height>22</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="comboBox_Move3_3">
+        <property name="geometry">
+         <rect>
+          <x>5</x>
+          <y>73</y>
+          <width>111</width>
+          <height>22</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="comboBox_Move4_3">
+        <property name="geometry">
+         <rect>
+          <x>5</x>
+          <y>101</y>
+          <width>111</width>
+          <height>22</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_PPUp1_3">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>17</y>
+          <width>31</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>3</number>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_PPUp2_3">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>45</y>
+          <width>31</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>3</number>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_PPUp3_3">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>73</y>
+          <width>31</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>3</number>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_PPUp4_3">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>101</y>
+          <width>31</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>3</number>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="checkBox_ValidMoves_3">
+        <property name="geometry">
+         <rect>
+          <x>5</x>
+          <y>127</y>
+          <width>111</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Only valid moves</string>
+        </property>
+       </widget>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_CPU_Pkmn_4">
+      <property name="geometry">
+       <rect>
+        <x>405</x>
+        <y>194</y>
+        <width>302</width>
+        <height>196</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Pokémon #4</string>
+      </property>
+      <widget class="QComboBox" name="comboBox_Pkmn_4">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>16</y>
+         <width>101</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="spinBox_Lv_4">
+       <property name="geometry">
+        <rect>
+         <x>139</x>
+         <y>17</y>
+         <width>42</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="minimum">
+        <number>1</number>
+       </property>
+       <property name="maximum">
+        <number>100</number>
+       </property>
+       <property name="value">
+        <number>100</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_Lv_4">
+       <property name="geometry">
+        <rect>
+         <x>121</x>
+         <y>20</y>
+         <width>20</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Lv.</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit_Nickname_4">
+       <property name="geometry">
+        <rect>
+         <x>190</x>
+         <y>17</y>
+         <width>101</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QGroupBox" name="groupBox_IVEV_4">
+       <property name="geometry">
+        <rect>
+         <x>162</x>
+         <y>40</y>
+         <width>135</width>
+         <height>151</height>
+        </rect>
+       </property>
+       <property name="title">
+        <string>IVs and EVs</string>
+       </property>
+       <widget class="QSpinBox" name="spinBox_EV_Defense_4">
+        <property name="geometry">
+         <rect>
+          <x>78</x>
+          <y>70</y>
+          <width>51</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>65535</number>
+        </property>
+        <property name="value">
+         <number>65535</number>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_IV_Defense_4">
+        <property name="geometry">
+         <rect>
+          <x>31</x>
+          <y>70</y>
+          <width>41</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>15</number>
+        </property>
+        <property name="value">
+         <number>15</number>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_IVEV_HP_4">
+        <property name="geometry">
+         <rect>
+          <x>11</x>
+          <y>19</y>
+          <width>21</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="toolTip">
+         <string>Hit Points</string>
+        </property>
+        <property name="text">
+         <string>HP:</string>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_IV_Speed_4">
+        <property name="geometry">
+         <rect>
+          <x>31</x>
+          <y>124</y>
+          <width>41</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>15</number>
+        </property>
+        <property name="value">
+         <number>15</number>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_IV_Attack_4">
+        <property name="geometry">
+         <rect>
+          <x>31</x>
+          <y>43</y>
+          <width>41</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>15</number>
+        </property>
+        <property name="value">
+         <number>15</number>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_IV_HP_4">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>31</x>
+          <y>16</y>
+          <width>41</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>15</number>
+        </property>
+        <property name="value">
+         <number>15</number>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_IVEV_Defense_4">
+        <property name="geometry">
+         <rect>
+          <x>5</x>
+          <y>73</y>
+          <width>27</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="toolTip">
+         <string>Defense</string>
+        </property>
+        <property name="text">
+         <string>DEF:</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_IVEV_Speed_4">
+        <property name="geometry">
+         <rect>
+          <x>5</x>
+          <y>127</y>
+          <width>27</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="toolTip">
+         <string>Speed</string>
+        </property>
+        <property name="text">
+         <string>SPD:</string>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_EV_Speed_4">
+        <property name="geometry">
+         <rect>
+          <x>78</x>
+          <y>124</y>
+          <width>51</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>65535</number>
+        </property>
+        <property name="value">
+         <number>65535</number>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_EV_HP_4">
+        <property name="geometry">
+         <rect>
+          <x>78</x>
+          <y>16</y>
+          <width>51</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>65535</number>
+        </property>
+        <property name="value">
+         <number>65535</number>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_IVEV_Attack_4">
+        <property name="geometry">
+         <rect>
+          <x>5</x>
+          <y>46</y>
+          <width>27</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="toolTip">
+         <string>Attack</string>
+        </property>
+        <property name="text">
+         <string>ATK:</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_IVEV_Special_4">
+        <property name="geometry">
+         <rect>
+          <x>5</x>
+          <y>100</y>
+          <width>27</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="toolTip">
+         <string>Special</string>
+        </property>
+        <property name="text">
+         <string>SPC:</string>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_IV_Special_4">
+        <property name="geometry">
+         <rect>
+          <x>31</x>
+          <y>97</y>
+          <width>41</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>15</number>
+        </property>
+        <property name="value">
+         <number>15</number>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_EV_Special_4">
+        <property name="geometry">
+         <rect>
+          <x>78</x>
+          <y>97</y>
+          <width>51</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>65535</number>
+        </property>
+        <property name="value">
+         <number>65535</number>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_EV_Attack_4">
+        <property name="geometry">
+         <rect>
+          <x>78</x>
+          <y>43</y>
+          <width>51</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>65535</number>
+        </property>
+        <property name="value">
+         <number>65535</number>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QGroupBox" name="groupBox_MovesPP_4">
+       <property name="geometry">
+        <rect>
+         <x>5</x>
+         <y>40</y>
+         <width>155</width>
+         <height>151</height>
+        </rect>
+       </property>
+       <property name="title">
+        <string>Moves and PP Ups</string>
+       </property>
+       <widget class="QComboBox" name="comboBox_Move1_4">
+        <property name="geometry">
+         <rect>
+          <x>5</x>
+          <y>17</y>
+          <width>111</width>
+          <height>22</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="comboBox_Move2_4">
+        <property name="geometry">
+         <rect>
+          <x>5</x>
+          <y>45</y>
+          <width>111</width>
+          <height>22</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="comboBox_Move3_4">
+        <property name="geometry">
+         <rect>
+          <x>5</x>
+          <y>73</y>
+          <width>111</width>
+          <height>22</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="comboBox_Move4_4">
+        <property name="geometry">
+         <rect>
+          <x>5</x>
+          <y>101</y>
+          <width>111</width>
+          <height>22</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_PPUp1_4">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>17</y>
+          <width>31</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>3</number>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_PPUp2_4">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>45</y>
+          <width>31</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>3</number>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_PPUp3_4">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>73</y>
+          <width>31</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>3</number>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_PPUp4_4">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>101</y>
+          <width>31</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>3</number>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="checkBox_ValidMoves_4">
+        <property name="geometry">
+         <rect>
+          <x>5</x>
+          <y>127</y>
+          <width>111</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Only valid moves</string>
+        </property>
+       </widget>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_CPU_Pkmn_5">
+      <property name="geometry">
+       <rect>
+        <x>99</x>
+        <y>387</y>
+        <width>302</width>
+        <height>196</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Pokémon #5</string>
+      </property>
+      <widget class="QComboBox" name="comboBox_Pkmn_5">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>16</y>
+         <width>101</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="spinBox_Lv_5">
+       <property name="geometry">
+        <rect>
+         <x>139</x>
+         <y>17</y>
+         <width>42</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="minimum">
+        <number>1</number>
+       </property>
+       <property name="maximum">
+        <number>100</number>
+       </property>
+       <property name="value">
+        <number>100</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_Lv_5">
+       <property name="geometry">
+        <rect>
+         <x>121</x>
+         <y>20</y>
+         <width>20</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Lv.</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit_Nickname_5">
+       <property name="geometry">
+        <rect>
+         <x>190</x>
+         <y>17</y>
+         <width>101</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QGroupBox" name="groupBox_IVEV_5">
+       <property name="geometry">
+        <rect>
+         <x>162</x>
+         <y>40</y>
+         <width>135</width>
+         <height>151</height>
+        </rect>
+       </property>
+       <property name="title">
+        <string>IVs and EVs</string>
+       </property>
+       <widget class="QSpinBox" name="spinBox_EV_Defense_5">
+        <property name="geometry">
+         <rect>
+          <x>78</x>
+          <y>70</y>
+          <width>51</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>65535</number>
+        </property>
+        <property name="value">
+         <number>65535</number>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_IV_Defense_5">
+        <property name="geometry">
+         <rect>
+          <x>31</x>
+          <y>70</y>
+          <width>41</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>15</number>
+        </property>
+        <property name="value">
+         <number>15</number>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_IVEV_HP_5">
+        <property name="geometry">
+         <rect>
+          <x>11</x>
+          <y>19</y>
+          <width>21</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="toolTip">
+         <string>Hit Points</string>
+        </property>
+        <property name="text">
+         <string>HP:</string>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_IV_Speed_5">
+        <property name="geometry">
+         <rect>
+          <x>31</x>
+          <y>124</y>
+          <width>41</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>15</number>
+        </property>
+        <property name="value">
+         <number>15</number>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_IV_Attack_5">
+        <property name="geometry">
+         <rect>
+          <x>31</x>
+          <y>43</y>
+          <width>41</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>15</number>
+        </property>
+        <property name="value">
+         <number>15</number>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_IV_HP_5">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>31</x>
+          <y>16</y>
+          <width>41</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>15</number>
+        </property>
+        <property name="value">
+         <number>15</number>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_IVEV_Defense_5">
+        <property name="geometry">
+         <rect>
+          <x>5</x>
+          <y>73</y>
+          <width>27</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="toolTip">
+         <string>Defense</string>
+        </property>
+        <property name="text">
+         <string>DEF:</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_IVEV_Speed_5">
+        <property name="geometry">
+         <rect>
+          <x>5</x>
+          <y>127</y>
+          <width>27</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="toolTip">
+         <string>Speed</string>
+        </property>
+        <property name="text">
+         <string>SPD:</string>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_EV_Speed_5">
+        <property name="geometry">
+         <rect>
+          <x>78</x>
+          <y>124</y>
+          <width>51</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>65535</number>
+        </property>
+        <property name="value">
+         <number>65535</number>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_EV_HP_5">
+        <property name="geometry">
+         <rect>
+          <x>78</x>
+          <y>16</y>
+          <width>51</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>65535</number>
+        </property>
+        <property name="value">
+         <number>65535</number>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_IVEV_Attack_5">
+        <property name="geometry">
+         <rect>
+          <x>5</x>
+          <y>46</y>
+          <width>27</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="toolTip">
+         <string>Attack</string>
+        </property>
+        <property name="text">
+         <string>ATK:</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_IVEV_Special_5">
+        <property name="geometry">
+         <rect>
+          <x>5</x>
+          <y>100</y>
+          <width>27</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="toolTip">
+         <string>Special</string>
+        </property>
+        <property name="text">
+         <string>SPC:</string>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_IV_Special_5">
+        <property name="geometry">
+         <rect>
+          <x>31</x>
+          <y>97</y>
+          <width>41</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>15</number>
+        </property>
+        <property name="value">
+         <number>15</number>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_EV_Special_5">
+        <property name="geometry">
+         <rect>
+          <x>78</x>
+          <y>97</y>
+          <width>51</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>65535</number>
+        </property>
+        <property name="value">
+         <number>65535</number>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_EV_Attack_5">
+        <property name="geometry">
+         <rect>
+          <x>78</x>
+          <y>43</y>
+          <width>51</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>65535</number>
+        </property>
+        <property name="value">
+         <number>65535</number>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QGroupBox" name="groupBox_MovesPP_5">
+       <property name="geometry">
+        <rect>
+         <x>5</x>
+         <y>40</y>
+         <width>155</width>
+         <height>151</height>
+        </rect>
+       </property>
+       <property name="title">
+        <string>Moves and PP Ups</string>
+       </property>
+       <widget class="QComboBox" name="comboBox_Move1_5">
+        <property name="geometry">
+         <rect>
+          <x>5</x>
+          <y>17</y>
+          <width>111</width>
+          <height>22</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="comboBox_Move2_5">
+        <property name="geometry">
+         <rect>
+          <x>5</x>
+          <y>45</y>
+          <width>111</width>
+          <height>22</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="comboBox_Move3_5">
+        <property name="geometry">
+         <rect>
+          <x>5</x>
+          <y>73</y>
+          <width>111</width>
+          <height>22</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="comboBox_Move4_5">
+        <property name="geometry">
+         <rect>
+          <x>5</x>
+          <y>101</y>
+          <width>111</width>
+          <height>22</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_PPUp1_5">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>17</y>
+          <width>31</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>3</number>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_PPUp2_5">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>45</y>
+          <width>31</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>3</number>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_PPUp3_5">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>73</y>
+          <width>31</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>3</number>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_PPUp4_5">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>101</y>
+          <width>31</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>3</number>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="checkBox_ValidMoves_5">
+        <property name="geometry">
+         <rect>
+          <x>5</x>
+          <y>127</y>
+          <width>111</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Only valid moves</string>
+        </property>
+       </widget>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_CPU_Pkmn_6">
+      <property name="geometry">
+       <rect>
+        <x>405</x>
+        <y>387</y>
+        <width>302</width>
+        <height>196</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Pokémon #6</string>
+      </property>
+      <widget class="QComboBox" name="comboBox_Pkmn_6">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>16</y>
+         <width>101</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="spinBox_Lv_6">
+       <property name="geometry">
+        <rect>
+         <x>139</x>
+         <y>17</y>
+         <width>42</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="minimum">
+        <number>1</number>
+       </property>
+       <property name="maximum">
+        <number>100</number>
+       </property>
+       <property name="value">
+        <number>100</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_Lv_6">
+       <property name="geometry">
+        <rect>
+         <x>121</x>
+         <y>20</y>
+         <width>20</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Lv.</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit_Nickname_6">
+       <property name="geometry">
+        <rect>
+         <x>190</x>
+         <y>17</y>
+         <width>101</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QGroupBox" name="groupBox_IVEV_6">
+       <property name="geometry">
+        <rect>
+         <x>162</x>
+         <y>40</y>
+         <width>135</width>
+         <height>151</height>
+        </rect>
+       </property>
+       <property name="title">
+        <string>IVs and EVs</string>
+       </property>
+       <widget class="QSpinBox" name="spinBox_EV_Defense_6">
+        <property name="geometry">
+         <rect>
+          <x>78</x>
+          <y>70</y>
+          <width>51</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>65535</number>
+        </property>
+        <property name="value">
+         <number>65535</number>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_IV_Defense_6">
+        <property name="geometry">
+         <rect>
+          <x>31</x>
+          <y>70</y>
+          <width>41</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>15</number>
+        </property>
+        <property name="value">
+         <number>15</number>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_IVEV_HP_6">
+        <property name="geometry">
+         <rect>
+          <x>11</x>
+          <y>19</y>
+          <width>21</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="toolTip">
+         <string>Hit Points</string>
+        </property>
+        <property name="text">
+         <string>HP:</string>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_IV_Speed_6">
+        <property name="geometry">
+         <rect>
+          <x>31</x>
+          <y>124</y>
+          <width>41</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>15</number>
+        </property>
+        <property name="value">
+         <number>15</number>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_IV_Attack_6">
+        <property name="geometry">
+         <rect>
+          <x>31</x>
+          <y>43</y>
+          <width>41</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>15</number>
+        </property>
+        <property name="value">
+         <number>15</number>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_IV_HP_6">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>31</x>
+          <y>16</y>
+          <width>41</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>15</number>
+        </property>
+        <property name="value">
+         <number>15</number>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_IVEV_Defense_6">
+        <property name="geometry">
+         <rect>
+          <x>5</x>
+          <y>73</y>
+          <width>27</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="toolTip">
+         <string>Defense</string>
+        </property>
+        <property name="text">
+         <string>DEF:</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_IVEV_Speed_6">
+        <property name="geometry">
+         <rect>
+          <x>5</x>
+          <y>127</y>
+          <width>27</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="toolTip">
+         <string>Speed</string>
+        </property>
+        <property name="text">
+         <string>SPD:</string>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_EV_Speed_6">
+        <property name="geometry">
+         <rect>
+          <x>78</x>
+          <y>124</y>
+          <width>51</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>65535</number>
+        </property>
+        <property name="value">
+         <number>65535</number>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_EV_HP_6">
+        <property name="geometry">
+         <rect>
+          <x>78</x>
+          <y>16</y>
+          <width>51</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>65535</number>
+        </property>
+        <property name="value">
+         <number>65535</number>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_IVEV_Attack_6">
+        <property name="geometry">
+         <rect>
+          <x>5</x>
+          <y>46</y>
+          <width>27</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="toolTip">
+         <string>Attack</string>
+        </property>
+        <property name="text">
+         <string>ATK:</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_IVEV_Special_6">
+        <property name="geometry">
+         <rect>
+          <x>5</x>
+          <y>100</y>
+          <width>27</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="toolTip">
+         <string>Special</string>
+        </property>
+        <property name="text">
+         <string>SPC:</string>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_IV_Special_6">
+        <property name="geometry">
+         <rect>
+          <x>31</x>
+          <y>97</y>
+          <width>41</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>15</number>
+        </property>
+        <property name="value">
+         <number>15</number>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_EV_Special_6">
+        <property name="geometry">
+         <rect>
+          <x>78</x>
+          <y>97</y>
+          <width>51</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>65535</number>
+        </property>
+        <property name="value">
+         <number>65535</number>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_EV_Attack_6">
+        <property name="geometry">
+         <rect>
+          <x>78</x>
+          <y>43</y>
+          <width>51</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>65535</number>
+        </property>
+        <property name="value">
+         <number>65535</number>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QGroupBox" name="groupBox_MovesPP_6">
+       <property name="geometry">
+        <rect>
+         <x>5</x>
+         <y>40</y>
+         <width>155</width>
+         <height>151</height>
+        </rect>
+       </property>
+       <property name="title">
+        <string>Moves and PP Ups</string>
+       </property>
+       <widget class="QComboBox" name="comboBox_Move1_6">
+        <property name="geometry">
+         <rect>
+          <x>5</x>
+          <y>17</y>
+          <width>111</width>
+          <height>22</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="comboBox_Move2_6">
+        <property name="geometry">
+         <rect>
+          <x>5</x>
+          <y>45</y>
+          <width>111</width>
+          <height>22</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="comboBox_Move3_6">
+        <property name="geometry">
+         <rect>
+          <x>5</x>
+          <y>73</y>
+          <width>111</width>
+          <height>22</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="comboBox_Move4_6">
+        <property name="geometry">
+         <rect>
+          <x>5</x>
+          <y>101</y>
+          <width>111</width>
+          <height>22</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_PPUp1_6">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>17</y>
+          <width>31</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>3</number>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_PPUp2_6">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>45</y>
+          <width>31</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>3</number>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_PPUp3_6">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>73</y>
+          <width>31</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>3</number>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_PPUp4_6">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>101</y>
+          <width>31</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <number>3</number>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="checkBox_ValidMoves_6">
+        <property name="geometry">
+         <rect>
+          <x>5</x>
+          <y>127</y>
+          <width>111</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Only valid moves</string>
+        </property>
+       </widget>
+      </widget>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_CPU_TrainerName">
+      <property name="geometry">
+       <rect>
+        <x>5</x>
+        <y>80</y>
+        <width>90</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Courier New</family>
+       </font>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_TrainerSpriteID">
+      <property name="geometry">
+       <rect>
+        <x>63</x>
+        <y>120</y>
+        <width>36</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="maximum">
+       <number>53</number>
+      </property>
+      <property name="value">
+       <number>0</number>
+      </property>
+     </widget>
+     <widget class="QLabel" name="img_TrainerSprite">
+      <property name="geometry">
+       <rect>
+        <x>5</x>
+        <y>105</y>
+        <width>56</width>
+        <height>56</height>
+       </rect>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_CPU_Round">
+      <property name="geometry">
+       <rect>
+        <x>5</x>
+        <y>5</y>
+        <width>90</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>Round 1</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Round 2</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QComboBox" name="comboBox_CPU_Cup">
+      <property name="geometry">
+       <rect>
+        <x>5</x>
+        <y>30</y>
+        <width>90</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>Petit Cup</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Pika Cup</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Prime Cup 1</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Prime Cup 2</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Prime Cup 3</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Prime Cup 4</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Poké Cup 1</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Poké Cup 2</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Poké Cup 3</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Poké Cup 4</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Gym Leader Castle</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>VS Mewtwo</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QComboBox" name="comboBox_CPU_Trainer">
+      <property name="geometry">
+       <rect>
+        <x>5</x>
+        <y>55</y>
+        <width>90</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_Randomize_CPU_Team">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>170</y>
+        <width>75</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Randomize</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_Clear_CPU_Team">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>195</y>
+        <width>75</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Clear</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_Rental_Pokemon">
+     <attribute name="title">
+      <string>Rental Pokémon</string>
+     </attribute>
+    </widget>
+    <widget class="QWidget" name="tab_Pokemon_Data">
+     <attribute name="title">
+      <string>Pokémon data</string>
+     </attribute>
+     <widget class="QGroupBox" name="groupBox_PokemonData">
+      <property name="geometry">
+       <rect>
+        <x>4</x>
+        <y>1</y>
+        <width>696</width>
+        <height>296</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Pokémon Data</string>
+      </property>
+      <widget class="QTableWidget" name="tableWidget_MoveTM">
+       <property name="geometry">
+        <rect>
+         <x>520</x>
+         <y>73</y>
+         <width>168</width>
+         <height>215</height>
+        </rect>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>55555</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="showGrid">
+        <bool>false</bool>
+       </property>
+       <attribute name="horizontalHeaderDefaultSectionSize">
+        <number>83</number>
+       </attribute>
+       <column>
+        <property name="text">
+         <string/>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>TM HM Moves</string>
+        </property>
+       </column>
+      </widget>
+      <widget class="QTableWidget" name="tableWidget_MoveLevel_RB">
+       <property name="geometry">
+        <rect>
+         <x>174</x>
+         <y>73</y>
+         <width>168</width>
+         <height>215</height>
+        </rect>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>4444</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="showGrid">
+        <bool>false</bool>
+       </property>
+       <attribute name="horizontalHeaderDefaultSectionSize">
+        <number>83</number>
+       </attribute>
+       <column>
+        <property name="text">
+         <string>Lv</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>RB Level Moves</string>
+        </property>
+       </column>
+      </widget>
+      <widget class="QTableWidget" name="tableWidget_MoveLevel_Y">
+       <property name="geometry">
+        <rect>
+         <x>347</x>
+         <y>73</y>
+         <width>168</width>
+         <height>215</height>
+        </rect>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>4444</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="showGrid">
+        <bool>false</bool>
+       </property>
+       <attribute name="horizontalHeaderDefaultSectionSize">
+        <number>83</number>
+       </attribute>
+       <column>
+        <property name="text">
+         <string>Lv</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Y Level Moves</string>
+        </property>
+       </column>
+      </widget>
+      <widget class="QLabel" name="label_Base_Attack">
+       <property name="geometry">
+        <rect>
+         <x>110</x>
+         <y>43</y>
+         <width>25</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>ATK:</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="comboBox_Pokemon_Type_1">
+       <property name="geometry">
+        <rect>
+         <x>8</x>
+         <y>90</y>
+         <width>95</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QTableWidget" name="tableWidget_StartingMoves">
+       <property name="geometry">
+        <rect>
+         <x>8</x>
+         <y>187</y>
+         <width>161</width>
+         <height>101</height>
+        </rect>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>444</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="showGrid">
+        <bool>false</bool>
+       </property>
+       <attribute name="horizontalHeaderDefaultSectionSize">
+        <number>159</number>
+       </attribute>
+       <column>
+        <property name="text">
+         <string>Starting Moves</string>
+        </property>
+       </column>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit_Pokemon_Specie">
+       <property name="geometry">
+        <rect>
+         <x>8</x>
+         <y>40</y>
+         <width>95</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="spinBox_BaseExperience">
+       <property name="geometry">
+        <rect>
+         <x>57</x>
+         <y>163</y>
+         <width>39</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="maximum">
+        <number>255</number>
+       </property>
+       <property name="value">
+        <number>0</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_Base_Defense">
+       <property name="geometry">
+        <rect>
+         <x>110</x>
+         <y>68</y>
+         <width>25</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>DEF:</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_Base_HP">
+       <property name="geometry">
+        <rect>
+         <x>115</x>
+         <y>17</y>
+         <width>21</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>HP:</string>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="spinBox_Base_Defense">
+       <property name="geometry">
+        <rect>
+         <x>132</x>
+         <y>65</y>
+         <width>40</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="maximum">
+        <number>255</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_CatchRate">
+       <property name="geometry">
+        <rect>
+         <x>99</x>
+         <y>167</y>
+         <width>34</width>
+         <height>13</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Catch:</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_Base_Speed">
+       <property name="geometry">
+        <rect>
+         <x>110</x>
+         <y>118</y>
+         <width>25</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>SPD:</string>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="spinBox_CatchRate">
+       <property name="geometry">
+        <rect>
+         <x>132</x>
+         <y>163</y>
+         <width>39</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="maximum">
+        <number>255</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_BaseExperience">
+       <property name="geometry">
+        <rect>
+         <x>8</x>
+         <y>167</y>
+         <width>47</width>
+         <height>13</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Base Exp:</string>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="spinBox_Base_Special">
+       <property name="geometry">
+        <rect>
+         <x>132</x>
+         <y>90</y>
+         <width>40</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="maximum">
+        <number>255</number>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="spinBox_PokemonSpecie_Pointer">
+       <property name="geometry">
+        <rect>
+         <x>51</x>
+         <y>64</y>
+         <width>52</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="prefix">
+        <string>0x</string>
+       </property>
+       <property name="maximum">
+        <number>1872</number>
+       </property>
+       <property name="value">
+        <number>0</number>
+       </property>
+       <property name="displayIntegerBase">
+        <number>16</number>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="spinBox_Base_Attack">
+       <property name="geometry">
+        <rect>
+         <x>132</x>
+         <y>40</y>
+         <width>40</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="maximum">
+        <number>255</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_Base_Special">
+       <property name="geometry">
+        <rect>
+         <x>110</x>
+         <y>93</y>
+         <width>25</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>SPC:</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_PokemonSpecie_Pointer">
+       <property name="geometry">
+        <rect>
+         <x>8</x>
+         <y>67</y>
+         <width>39</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Offset:</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="comboBox_GrowthRate">
+       <property name="geometry">
+        <rect>
+         <x>8</x>
+         <y>140</y>
+         <width>162</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Courier New</family>
+        </font>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="spinBox_Base_HP">
+       <property name="geometry">
+        <rect>
+         <x>132</x>
+         <y>14</y>
+         <width>40</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="maximum">
+        <number>255</number>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="comboBox_Pokemon_Type_2">
+       <property name="geometry">
+        <rect>
+         <x>8</x>
+         <y>115</y>
+         <width>95</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="comboBox_PokemonSpecies">
+       <property name="geometry">
+        <rect>
+         <x>8</x>
+         <y>15</y>
+         <width>95</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="spinBox_Base_Speed">
+       <property name="geometry">
+        <rect>
+         <x>132</x>
+         <y>115</y>
+         <width>40</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="maximum">
+        <number>255</number>
+       </property>
+      </widget>
+      <widget class="QTextEdit" name="textEdit_PokedexEntry">
+       <property name="geometry">
+        <rect>
+         <x>174</x>
+         <y>13</y>
+         <width>351</width>
+         <height>53</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Courier New</family>
+        </font>
+       </property>
+       <property name="html">
+        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Courier New'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_Pokedex_Pointer">
+       <property name="geometry">
+        <rect>
+         <x>530</x>
+         <y>15</y>
+         <width>39</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Offset:</string>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="spinBox_Pokedex_Pointer">
+       <property name="geometry">
+        <rect>
+         <x>570</x>
+         <y>13</y>
+         <width>61</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="prefix">
+        <string>0x</string>
+       </property>
+       <property name="maximum">
+        <number>17587</number>
+       </property>
+       <property name="value">
+        <number>0</number>
+       </property>
+       <property name="displayIntegerBase">
+        <number>16</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_Pokemon_Sprite">
+       <property name="geometry">
+        <rect>
+         <x>632</x>
+         <y>10</y>
+         <width>56</width>
+         <height>56</height>
+        </rect>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_MovesData">
+      <property name="geometry">
+       <rect>
+        <x>4</x>
+        <y>295</y>
+        <width>696</width>
+        <height>141</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Moves Data</string>
+      </property>
+      <widget class="QComboBox" name="comboBox_MovesList">
+       <property name="geometry">
+        <rect>
+         <x>8</x>
+         <y>15</y>
+         <width>115</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit_Move_Name">
+       <property name="geometry">
+        <rect>
+         <x>8</x>
+         <y>40</y>
+         <width>115</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="spinBox_MoveName_Pointer">
+       <property name="geometry">
+        <rect>
+         <x>58</x>
+         <y>64</y>
+         <width>52</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="prefix">
+        <string>0x</string>
+       </property>
+       <property name="maximum">
+        <number>2224</number>
+       </property>
+       <property name="displayIntegerBase">
+        <number>16</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_MoveName_Pointer">
+       <property name="geometry">
+        <rect>
+         <x>8</x>
+         <y>67</y>
+         <width>41</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Offset:</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="comboBox_MoveEffect">
+       <property name="geometry">
+        <rect>
+         <x>8</x>
+         <y>110</y>
+         <width>210</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <item>
+        <property name="text">
+         <string>00 - No effect</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>01 -</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>02 - 77/256 chance of Poison</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>03 - Drain 50% of damage</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>04 - 26/256 chance of Burn</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>05 - 26/256 chance of Freeze</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>06 - 26/256 chance of Paralysis</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>07 - User faints, Defense halved</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>08 - Drain 50% of damage if asleep</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>09 - Mirror Move</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>0A - Attack +1</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>0B - Defense +1</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>0C - Speed +1</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>0D - Special +1</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>0E - Accuracy +1</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>0F - Evasion +1</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>10 - Drops money (no effect)</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>11 - Never misses</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>12 - Attack -1</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>13 - Defense - 1</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>14 - Speed - 1</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>15 - Special -1</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>16 - Accuracy -1</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>17 - Evasion -1</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>18 - Change Type</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>19 - Clear Stats changes and Status</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>1A - Bide</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>1B - Attack 2~3 turns, then confused</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>1C - Ends wild battle (no effect)</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>1D - 2~5 hits</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>1E -</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>1F - 26/256 chance of Flinch</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>20 - Put the target to Sleep</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>21 - 102/256 chance of Poison</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>22 - 77/256 chance of Burn</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>23 - 26/256 chance of Freeze</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>24 - 77/256 chance of Paralysis</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>25 - 77/256 chance of Flinch</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>26 - OHKO</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>27 - Charge turn 1, attack turn 2</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>28 - Deals 50% of HP in damage</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>29 - Deals set damage</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>2A - Attack 2~5 times, immobilize foe</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>2B - Invulnerable turn 1, attack turn 2</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>2C - 2 hits</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>2D - If it misses, take recoil damage</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>2E - Prevents Stat redution</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>2F - Increase Critical Hit rate</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>30 - 25% recoil damage</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>31 - Confusion</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>32 - Attack +2</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>33 - Defense +2</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>34 - Speed +2</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>35 - Special +2</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>36 - Accuracy +2</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>37 - Evasion +2</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>38 - Recover HP</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>39 - Transform into opponent</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>3A - Attack -2</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>3B - Defense -2</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>3C - Speed -2</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>3D - Special -2</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>3E - Accuracy -2</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>3F - Evasion -2</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>40 - Special ×2 when attacked</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>41 - Defense ×2 when attacked</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>42 - Poison</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>43 - Paralysis</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>44 - 85/256 chance of Attack -1</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>45 - 85/256 chance of Defense -1</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>46 - 85/256 chance of Speed -1</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>47 - 85/256 chance of Special -1</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>48 - 85/256 chance of Accuracy -1</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>49 - 85/256 chance of Evasion -1</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>4A -</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>4B -</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>4C - 26/256 chance of Confusion</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>4D - 2 hits, 51/256 chance of Poison</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>4E - </string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>4F - Substitute</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>50 - Cannot attack next turn</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>51 - Rage</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>52 - Mimic</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>53 - Use a random move</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>54 - Absorb 1/16 HP each turn</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>55 - Splash</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>56 - Disable a move for 1~6 turns</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QSpinBox" name="spinBox_MoveAccuracy">
+       <property name="geometry">
+        <rect>
+         <x>176</x>
+         <y>62</y>
+         <width>42</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="maximum">
+        <number>256</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_MoveAccuracy">
+       <property name="geometry">
+        <rect>
+         <x>128</x>
+         <y>63</y>
+         <width>51</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Accuracy:</string>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="spinBox_MovePower">
+       <property name="geometry">
+        <rect>
+         <x>176</x>
+         <y>39</y>
+         <width>42</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="maximum">
+        <number>256</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_MovePower">
+       <property name="geometry">
+        <rect>
+         <x>128</x>
+         <y>41</y>
+         <width>41</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Power:</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="comboBox_MoveType">
+       <property name="geometry">
+        <rect>
+         <x>125</x>
+         <y>15</y>
+         <width>95</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QTextEdit" name="textEdit_MoveDescrText">
+       <property name="geometry">
+        <rect>
+         <x>226</x>
+         <y>15</y>
+         <width>293</width>
+         <height>53</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Courier New</family>
+        </font>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_MovePP">
+       <property name="geometry">
+        <rect>
+         <x>130</x>
+         <y>90</y>
+         <width>18</width>
+         <height>13</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>PP:</string>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="spinBox_MovePP">
+       <property name="geometry">
+        <rect>
+         <x>176</x>
+         <y>85</y>
+         <width>42</width>
+         <height>22</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="spinBox_MoveID">
+       <property name="geometry">
+        <rect>
+         <x>58</x>
+         <y>86</y>
+         <width>52</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="prefix">
+        <string>0x</string>
+       </property>
+       <property name="maximum">
+        <number>255</number>
+       </property>
+       <property name="displayIntegerBase">
+        <number>16</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_MoveID">
+       <property name="geometry">
+        <rect>
+         <x>8</x>
+         <y>89</y>
+         <width>43</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Move ID:</string>
+       </property>
+      </widget>
+      <widget class="QGroupBox" name="groupBox">
+       <property name="geometry">
+        <rect>
+         <x>220</x>
+         <y>68</y>
+         <width>412</width>
+         <height>68</height>
+        </rect>
+       </property>
+       <property name="title">
+        <string>TMs &amp;&amp; HMs</string>
+       </property>
+       <widget class="QTextEdit" name="textEdit_MoveTMHMText">
+        <property name="geometry">
+         <rect>
+          <x>111</x>
+          <y>15</y>
+          <width>293</width>
+          <height>37</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Courier New</family>
+         </font>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="comboBox_4">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>15</y>
+          <width>95</width>
+          <height>22</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="comboBox_5">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>40</y>
+          <width>95</width>
+          <height>22</height>
+         </rect>
+        </property>
+       </widget>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_Moves_Data">
+     <attribute name="title">
+      <string>Moves data</string>
+     </attribute>
+    </widget>
+    <widget class="QWidget" name="tab_Types_Data">
+     <attribute name="title">
+      <string>Text strings</string>
+     </attribute>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>720</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionOpen"/>
+    <addaction name="actionSave"/>
+    <addaction name="actionSave_as"/>
+   </widget>
+   <addaction name="menuFile"/>
+  </widget>
+  <action name="actionOpen">
+   <property name="text">
+    <string>Open</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="actionSave">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Save</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="actionSave_as">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Save as...</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+S</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <tabstops>
+  <tabstop>tabWidget</tabstop>
+  <tabstop>comboBox_Pkmn_1</tabstop>
+  <tabstop>spinBox_Lv_1</tabstop>
+  <tabstop>lineEdit_Nickname_1</tabstop>
+  <tabstop>comboBox_Move1_1</tabstop>
+  <tabstop>comboBox_Move2_1</tabstop>
+  <tabstop>comboBox_Move3_1</tabstop>
+  <tabstop>comboBox_Move4_1</tabstop>
+  <tabstop>spinBox_IV_HP_1</tabstop>
+  <tabstop>spinBox_EV_HP_1</tabstop>
+  <tabstop>spinBox_IV_Attack_1</tabstop>
+  <tabstop>spinBox_EV_Attack_1</tabstop>
+  <tabstop>spinBox_IV_Defense_1</tabstop>
+  <tabstop>spinBox_EV_Defense_1</tabstop>
+  <tabstop>spinBox_IV_Special_1</tabstop>
+  <tabstop>spinBox_EV_Special_1</tabstop>
+  <tabstop>spinBox_IV_Speed_1</tabstop>
+  <tabstop>spinBox_EV_Speed_1</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>
