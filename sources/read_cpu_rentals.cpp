@@ -7,6 +7,7 @@ void MainWindow::read_cpu_rentals(QFile &romfile)
     std::set<int> cpu_rentals_pointers;
 
     rom_offset = 0x89800F;
+    romfile.seek(rom_offset);
     read>>total_cpu_rentals_array;
 
 
