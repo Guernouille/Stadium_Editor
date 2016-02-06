@@ -43,6 +43,7 @@ void MainWindow::read_type_names(QFile &romfile)
                 read>>buf8;
             }
 
+            // To distinguish between real and unused Flying-type
             if(type_name[6]=="Flying"){
                 type_name[6]="Bird";
             }
