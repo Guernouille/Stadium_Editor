@@ -21,13 +21,17 @@ SOURCES += main.cpp\
     initialize_char_table.cpp \
     read_type_data.cpp \
     display_pkm_data.cpp \
-    autoconnect.cpp \
     display_move_data.cpp \
     open_romfile.cpp \
     read_cpu_rentals.cpp \
     display_cpu_rentals.cpp \
     read_experience_data.cpp \
-    display_experience_data.cpp
+    display_experience_data.cpp \
+    initialize_data.cpp \
+    autoconnect_display.cpp \
+    autoconnect_edit_cputrainer.cpp \
+    autoconnect_edit_movedata.cpp \
+    write_experience_data.cpp
 
 HEADERS  += mainwindow.h \
     common.cpp
