@@ -10,18 +10,7 @@ void MainWindow::read_cpu_rentals(QFile &romfile)
     romfile.seek(rom_offset);
     read>>total_cpu_rentals_array;
 
-
-    for(short i=0;i<256;i++){
-        cpu_tname[i]="";
-        for(short j=0;j<6;j++){
-            cpu_pkm_nickname[i][j]="";
-        }
-    }
-    for(short i=0;i<1024;i++){
-        rental_pkm_nickname[i]="";
-    }
-
-    for(short i=0;i<=total_cpu_rentals_array;i++){
+    for(short i=0;i<total_cpu_rentals_array;i++){
         rom_offset = 0x898010 + i*16;
         romfile.seek(rom_offset);
         read>>cpu_rentals_pointer[i];
@@ -32,8 +21,8 @@ void MainWindow::read_cpu_rentals(QFile &romfile)
         // read>>cpu_rentals_arraylen[i];
     }
 
-    short current_rentals_number = 0;
-    short current_cpu_trainers_number = 0;
+    current_rentals_number = 0;
+    current_cpu_trainers_number = 0;
 
     std::set<int>::const_iterator set_iter(cpu_rentals_pointers.begin()), set_end(cpu_rentals_pointers.end());
 
@@ -108,13 +97,16 @@ void MainWindow::read_cpu_rentals(QFile &romfile)
                 romfile.seek(rom_offset);
                 read>>cpu_sprite_id[i];
 
+                // CPU AI id
+                read>>cpu_ai_id[i];
+
                 // CPU Trainer party size
                 rom_offset = 0x89803B + (i-current_cpu_trainers_number)*560 + *set_iter;
                 romfile.seek(rom_offset);
                 read>>cpu_party_size[i];
 
                 // CPU Trainer Pokémon data
-                for(short j=0;j<cpu_party_size[i];j++){
+                for(short j=0;j<6;j++){
                     rom_offset = 0x89803C + (i-current_cpu_trainers_number)*560 + j*84 + *set_iter;
                     romfile.seek(rom_offset);
                     read>>cpu_pkm_id[i][j];
