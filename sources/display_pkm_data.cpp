@@ -18,6 +18,7 @@ void MainWindow::display_pkm_data(quint8 pkm_id) {
 
     ui->comboBox_Pokemon_Type_1->setCurrentIndex(pkm_type_1[pkm_id]);
     ui->comboBox_Pokemon_Type_2->setCurrentIndex(pkm_type_2[pkm_id]);
+    ui->comboBox_GrowthRate->setCurrentIndex(pkm_growth_rate[pkm_id]);
 
     ui->tableWidget_StartingMoves->setItem(0,0,new QTableWidgetItem(move_name[pkm_start_move_1[pkm_id]]));
     ui->tableWidget_StartingMoves->setItem(1,0,new QTableWidgetItem(move_name[pkm_start_move_2[pkm_id]]));
@@ -66,26 +67,24 @@ void MainWindow::display_pkm_data(quint8 pkm_id) {
     ui->tableWidget_MoveLevel_Y->setItem(8,1,new QTableWidgetItem(move_name[pkm_y_move[pkm_id][8]]));
     ui->tableWidget_MoveLevel_Y->setItem(9,1,new QTableWidgetItem(move_name[pkm_y_move[pkm_id][9]]));
 
-    tmhm_byte = 0;
-    tmhm_flag = 0;
+    move_tmhm_byte = 0;
+    move_tmhm_flag = 0;
 
     for(short i=1;i<56;i++){
-        tmhm_flag = (i-1)%8;
-        tmhm_byte = (i-1)/8;
+        move_tmhm_flag = (i-1)%8;
+        move_tmhm_byte = (i-1)/8;
 
-        QCheckBox *tmhm_chkboxs = qobject_cast<QCheckBox *>(ui->tableWidget_MoveTM->cellWidget(i-1,0));
+        QCheckBox *move_tmhm_chkboxs = qobject_cast<QCheckBox *>(ui->tableWidget_MoveTM->cellWidget(i-1,0));
 
-        if((1<<tmhm_flag) & pkm_tmhm_flags[pkm_id][tmhm_byte]){
-            tmhm_chkboxs->setChecked(true);
+        if((1<<move_tmhm_flag) & pkm_tmhm_flags[pkm_id][move_tmhm_byte]){
+            move_tmhm_chkboxs->setChecked(true);
         }
         else{
-            tmhm_chkboxs->setChecked(false);
+            move_tmhm_chkboxs->setChecked(false);
         }
     }
-
 
     ui->textEdit_PokedexEntry->setText(pokedex_entry[pkm_id]);
     ui->spinBox_Pokedex_Pointer->setValue(pokedex_entry_pointer[pkm_id]);
 
-    ui->comboBox_GrowthRate->setCurrentIndex(pkm_growth_rate[pkm_id]);
 }
