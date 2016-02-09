@@ -53,6 +53,8 @@ void MainWindow::initialize_data()
             pkm_y_lvl[i][j] = 0;
             pkm_y_move[i][j] = 0;
         }
+        
+        type_name[i] = "";
     }
 
     for(short i=0;i<1024;i++){
