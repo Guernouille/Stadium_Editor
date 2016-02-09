@@ -3,6 +3,7 @@
 
 void MainWindow::initialize_widgets()
 {
+    ui->tabWidget->setEnabled(false);
     // Clear widgets
     ui->comboBox_Pkmn_1->clear();
     ui->comboBox_Pkmn_2->clear();
@@ -37,6 +38,10 @@ void MainWindow::initialize_widgets()
     ui->comboBox_Move3_6->clear();
     ui->comboBox_Move4_6->clear();
     ui->comboBox_MovesList->clear();
+    ui->comboBox_HighCH_MovesList_1->clear();
+    ui->comboBox_HighCH_MovesList_2->clear();
+    ui->comboBox_HighCH_MovesList_3->clear();
+    ui->comboBox_HighCH_MovesList_4->clear();
 
     ui->comboBox_Pokemon_Type_1->clear();
     ui->comboBox_Pokemon_Type_2->clear();
@@ -48,6 +53,7 @@ void MainWindow::initialize_widgets()
 
     ui->spinBox_TrainerSpriteID->setValue(0);
     ui->img_TrainerSprite->clear();
+    ui->spinBox_CPU_PartySize->setValue(1);
 
     ui->label_Pokemon_Sprite->clear();
     ui->spinBox_PokemonSpecie_Pointer->setValue(0);
@@ -70,6 +76,8 @@ void MainWindow::initialize_widgets()
 
     // If the ROM is valid, populate the widgets
     if(this->romtype != INVALID){
+        ui->tabWidget->setEnabled(true);
+
         // CPU Trainers
         ui->comboBox_CPU_Trainer->clear();
 
@@ -115,6 +123,10 @@ void MainWindow::initialize_widgets()
         ui->comboBox_Move2_6->addItem("-");
         ui->comboBox_Move3_6->addItem("-");
         ui->comboBox_Move4_6->addItem("-");
+        ui->comboBox_HighCH_MovesList_1->addItem("-");
+        ui->comboBox_HighCH_MovesList_2->addItem("-");
+        ui->comboBox_HighCH_MovesList_3->addItem("-");
+        ui->comboBox_HighCH_MovesList_4->addItem("-");
 
         for (short i=1;i<=total_move_name;i++){
             ui->comboBox_Move1_1->addItem(move_name[i]);
@@ -142,6 +154,10 @@ void MainWindow::initialize_widgets()
             ui->comboBox_Move3_6->addItem(move_name[i]);
             ui->comboBox_Move4_6->addItem(move_name[i]);
             ui->comboBox_MovesList->addItem(move_name[i]);
+            ui->comboBox_HighCH_MovesList_1->addItem(move_name[i]);
+            ui->comboBox_HighCH_MovesList_2->addItem(move_name[i]);
+            ui->comboBox_HighCH_MovesList_3->addItem(move_name[i]);
+            ui->comboBox_HighCH_MovesList_4->addItem(move_name[i]);
         }
 
         ui->lineEdit_Move_Name->setText(move_name[1]);
@@ -152,7 +168,6 @@ void MainWindow::initialize_widgets()
         ui->spinBox_MovePP->setValue(move_pp[1]);
         ui->comboBox_MoveType->setCurrentIndex(move_type[1]);
         ui->comboBox_MoveEffect->setCurrentIndex(move_effect[1]);
-
 
 
         // Types
@@ -241,28 +256,33 @@ void MainWindow::initialize_widgets()
         ui->tableWidget_MoveLevel_Y->setItem(8,1,new QTableWidgetItem(move_name[pkm_y_move[1][8]]));
         ui->tableWidget_MoveLevel_Y->setItem(9,1,new QTableWidgetItem(move_name[pkm_y_move[1][9]]));
 
-        tmhm_byte = 0;
-        tmhm_flag = 0;
-
         // TM HM names and checkboxes
         for(short i=1;i<56;i++){
-            ui->tableWidget_MoveTM->setItem(i-1,1,new QTableWidgetItem(move_name[tmhm[i]]));
+            ui->tableWidget_MoveTM->setItem(i-1,1,new QTableWidgetItem(move_name[move_tmhm[i]]));
 
-            tmhm_flag = (i-1)%8;
-            tmhm_byte = (i-1)/8;
+            move_tmhm_flag = (i-1)%8;
+            move_tmhm_byte = (i-1)/8;
 
-            QCheckBox *tmhm_chkbox = qobject_cast<QCheckBox *>(ui->tableWidget_MoveTM->cellWidget(i-1,0));
+            QCheckBox *move_tmhm_chkbox = qobject_cast<QCheckBox *>(ui->tableWidget_MoveTM->cellWidget(i-1,0));
 
-            if((1<<tmhm_flag) & pkm_tmhm_flags[1][tmhm_byte]){
-                tmhm_chkbox->setChecked(true);
+            if((1<<move_tmhm_flag) & pkm_tmhm_flags[1][move_tmhm_byte]){
+                move_tmhm_chkbox->setChecked(true);
             }
             else{
-                tmhm_chkbox->setChecked(false);
+                move_tmhm_chkbox->setChecked(false);
             }
         }
 
         ui->textEdit_MoveTMHMText->setText(move_tmhm_text[1]);
         ui->textEdit_MoveDescrText->setText(move_description[1]);
+
+
+        ui->comboBox_HighCH_MovesList_1->setCurrentIndex(move_high_ch[0]);
+        ui->comboBox_HighCH_MovesList_2->setCurrentIndex(move_high_ch[1]);
+        ui->comboBox_HighCH_MovesList_3->setCurrentIndex(move_high_ch[2]);
+        ui->comboBox_HighCH_MovesList_4->setCurrentIndex(move_high_ch[3]);
+
+
 
         // Misc data
         for (short i=0;i<6;i++){
@@ -278,6 +298,7 @@ void MainWindow::initialize_widgets()
             widget_text += " Exp";
             ui->comboBox_GrowthRate->addItem(widget_text);
         }
+        ui->comboBox_GrowthRate->setCurrentIndex(pkm_growth_rate[1]);
 
         // Pokédex data
         ui->textEdit_PokedexEntry->setText(pokedex_entry[1]);
@@ -296,7 +317,7 @@ void MainWindow::initialize_widgets()
 
 
         // CPU Team initialization
-        for(short i=0;i<256;i++){
+        for(short i=0;i<current_cpu_trainers_number;i++){
             ui->comboBox_CPU_Trainer->addItem(cpu_tname[i]);
         }
         ui->lineEdit_CPU_TrainerName->setText(cpu_tname[0]);
@@ -304,6 +325,8 @@ void MainWindow::initialize_widgets()
         img_path = ":/trainer_sprites/";
         img_path += QString::number(cpu_sprite_id[0]);
         ui->img_TrainerSprite->setPixmap(QPixmap(img_path));
+        ui->spinBox_CPU_PartySize->setValue(cpu_party_size[0]);
+        ui->spinBox_CPU_AI->setValue(cpu_ai_id[0]);
 
         ui->comboBox_Pkmn_1->setCurrentIndex(cpu_pkm_id[0][0]);
         ui->comboBox_Pkmn_2->setCurrentIndex(cpu_pkm_id[0][1]);
