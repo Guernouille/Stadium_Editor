@@ -12,8 +12,6 @@ void MainWindow::read_type_names(QFile &romfile)
     romfile.seek(0x7960B3);
     read>>total_type_name;
 
-    ui->label_debug_type_names_val->setText(QString::number(total_type_name));
-
     // ***** Retrieve type names *****
     for(short i=0;i<total_type_name;i++){
         // Retrieve string pointer
