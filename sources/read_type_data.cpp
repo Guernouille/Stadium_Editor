@@ -2,11 +2,6 @@
 
 void MainWindow::read_type_names(QFile &romfile)
 {
-    // ***** Initialize type names *****
-    for (short i=0;i<256;i++){
-        type_name[i] = "";
-    }
-
     // ***** Retrieve number of type names *****
     QDataStream read(&romfile);
     romfile.seek(0x7960B3);
