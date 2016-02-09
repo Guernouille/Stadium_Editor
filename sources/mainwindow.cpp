@@ -30,7 +30,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->tableWidget_MoveTM->setColumnCount(2);
     ui->tableWidget_MoveTM->setHorizontalHeaderItem(1, new QTableWidgetItem("TM HM Moves"));
     ui->tableWidget_MoveTM->verticalHeader()->setVisible(false);
-    
     for(short i=1;i<56;i++){
         ui->tableWidget_MoveTM->setCellWidget(i-1,0, new QCheckBox);
     }
