@@ -36,4 +36,3 @@ void MainWindow::display_experience_data() {
         ui->comboBox_GrowthRate->addItem(widget_text);
     }
 }
-
