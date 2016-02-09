@@ -8,6 +8,8 @@ void MainWindow::display_cpu_trainer_pkmn(quint8 cpu_trainer_id)
     img_path = ":/trainer_sprites/";
     img_path += QString::number(cpu_sprite_id[cpu_trainer_id]);
     ui->img_TrainerSprite->setPixmap(QPixmap(img_path));
+    ui->spinBox_CPU_PartySize->setValue(cpu_party_size[cpu_trainer_id]);
+    ui->spinBox_CPU_AI->setValue(cpu_ai_id[cpu_trainer_id]);
 
     ui->comboBox_Pkmn_1->setCurrentIndex(cpu_pkm_id[cpu_trainer_id][0]);
     ui->comboBox_Pkmn_2->setCurrentIndex(cpu_pkm_id[cpu_trainer_id][1]);
