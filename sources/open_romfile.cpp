@@ -2,7 +2,7 @@
 #include "ui_mainwindow.h"
 
 void MainWindow::on_actionOpen_triggered() {
-    QString filename = QFileDialog::getOpenFileName(this, "Open Stadium ROM", QString(), "Pokémon Stadium ROM (*.n64 *.v64 *.z64)");
+    QString filename = QFileDialog::getOpenFileName(this, "Open Stadium ROM", QString(), "Pokémon Stadium ROM (*.z64)");
 
     // ROM opening
     if(!filename.isEmpty()){
@@ -50,6 +50,9 @@ void MainWindow::on_actionOpen_triggered() {
                 // Initialize Character table
                 initialize_char_table();
 
+                // Initialize data
+                initialize_data();
+
                 // ***** Reads the ROM data *****
 
                 // Pokémon names
@@ -68,7 +71,7 @@ void MainWindow::on_actionOpen_triggered() {
                 // Types names
                 read_type_names(romfile);
 
-                // Types data - Weaknesses and Resistances
+                // Types data
 
                 // Experience data
                 read_experience_data(romfile);
@@ -86,11 +89,6 @@ void MainWindow::on_actionOpen_triggered() {
             messageBox.setText("This is not a valid Pokémon Stadium ROM.");
             messageBox.setWindowTitle("Invalid ROM");
             messageBox.exec();
-
-            ui->label_debug_pkm_names_val->setText(QString::number(0));
-            ui->label_debug_move_names_val->setText(QString::number(0));
-            ui->label_debug_type_names_val->setText(QString::number(0));
-            ui->label_debug_pokedex_entries_val->setText(QString::number(0));
         }
         initialize_widgets();
     }
