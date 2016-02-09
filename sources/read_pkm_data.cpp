@@ -2,38 +2,6 @@
 
 void MainWindow::read_pkm_data(QFile &romfile)
 {
-    // ***** Initialize Pokémon data *****
-    for (short i=0;i<256;i++){
-        pkm_base_hp[i] = 0;
-        pkm_base_atk[i] = 0;
-        pkm_base_def[i] = 0;
-        pkm_base_speed[i] = 0;
-        pkm_base_spc[i] = 0;
-        pkm_type_1[i] = 0;
-        pkm_type_2[i] = 0;
-        pkm_catch_rate[i] = 0;
-        pkm_base_experience[i] = 0;
-        pkm_start_move_1[i] = 0;
-        pkm_start_move_2[i] = 0;
-        pkm_start_move_3[i] = 0;
-        pkm_start_move_4[i] = 0;
-        pkm_growth_rate[i] = 0;
-        pkm_tmhm_flags[i][0] = 0;
-        pkm_tmhm_flags[i][1] = 0;
-        pkm_tmhm_flags[i][2] = 0;
-        pkm_tmhm_flags[i][3] = 0;
-        pkm_tmhm_flags[i][4] = 0;
-        pkm_tmhm_flags[i][5] = 0;
-        pkm_tmhm_flags[i][6] = 0;
-
-        for(short j=0;j<10;j++){
-            pkm_rb_lvl[i][j] = 0;
-            pkm_rb_move[i][j] = 0;
-            pkm_y_lvl[i][j] = 0;
-            pkm_y_move[i][j] = 0;
-        }
-    }
-
     QDataStream read(&romfile);
 
     for(short i=1;i<=total_pkm_name;i++){
@@ -106,8 +74,6 @@ void MainWindow::read_pkm_names(QFile &romfile)
     romfile.seek(0x7950B3);
     read>>total_pkm_name;
 
-    ui->label_debug_pkm_names_val->setText(QString::number(total_pkm_name));
-
     if(total_pkm_name == 255){
         this->romtype=INVALID;
         ui->label_rom_debug->setText("Corrupted ROM");
@@ -164,7 +130,6 @@ void MainWindow::read_pokedex_data(QFile &romfile)
     QDataStream read(&romfile);
     romfile.seek(0x785843);
     read>>total_pokedex_entry;
-    ui->label_debug_pokedex_entries_val->setText(QString::number(total_pokedex_entry));
 
     if(total_pokedex_entry == 255){
         this->romtype=INVALID;
