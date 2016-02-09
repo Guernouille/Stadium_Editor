@@ -27,6 +27,9 @@
     </size>
    </property>
    <widget class="QTabWidget" name="tabWidget">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>3</x>
@@ -60,7 +63,7 @@
        <string>ROM debug</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label">
+     <widget class="QLabel" name="label_Debug">
       <property name="geometry">
        <rect>
         <x>450</x>
@@ -81,108 +84,33 @@
        <string>Debug:</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_debug_pkm_names_txt">
+     <widget class="QLabel" name="label_debug_experience_txt">
       <property name="geometry">
        <rect>
         <x>450</x>
         <y>60</y>
-        <width>91</width>
+        <width>61</width>
         <height>16</height>
        </rect>
       </property>
       <property name="text">
-       <string>Pokémon names:</string>
+       <string>Experience:</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_debug_pkm_names_val">
+     <widget class="QLabel" name="label_debug_experience_val">
       <property name="geometry">
        <rect>
-        <x>550</x>
+        <x>511</x>
         <y>60</y>
-        <width>31</width>
+        <width>61</width>
         <height>16</height>
        </rect>
       </property>
       <property name="text">
        <string>0</string>
       </property>
-     </widget>
-     <widget class="QLabel" name="label_debug_move_names_txt">
-      <property name="geometry">
-       <rect>
-        <x>450</x>
-        <y>80</y>
-        <width>91</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Move names:</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_debug_move_names_val">
-      <property name="geometry">
-       <rect>
-        <x>550</x>
-        <y>80</y>
-        <width>31</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>0</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_debug_type_names_txt">
-      <property name="geometry">
-       <rect>
-        <x>450</x>
-        <y>100</y>
-        <width>91</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Type names:</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_debug_type_names_val">
-      <property name="geometry">
-       <rect>
-        <x>550</x>
-        <y>100</y>
-        <width>31</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>0</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_debug_pokedex_entries_val">
-      <property name="geometry">
-       <rect>
-        <x>550</x>
-        <y>120</y>
-        <width>31</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>0</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_debug_pokedex_entries_txt">
-      <property name="geometry">
-       <rect>
-        <x>450</x>
-        <y>120</y>
-        <width>91</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Pokédex entries:</string>
+      <property name="alignment">
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
       </property>
      </widget>
     </widget>
@@ -222,13 +150,13 @@
         </rect>
        </property>
        <property name="minimum">
-        <number>1</number>
+        <number>2</number>
        </property>
        <property name="maximum">
         <number>100</number>
        </property>
        <property name="value">
-        <number>100</number>
+        <number>2</number>
        </property>
       </widget>
       <widget class="QLabel" name="label_Lv_1">
@@ -274,7 +202,7 @@
          <rect>
           <x>78</x>
           <y>70</y>
-          <width>51</width>
+          <width>52</width>
           <height>22</height>
          </rect>
         </property>
@@ -282,7 +210,7 @@
          <number>65535</number>
         </property>
         <property name="value">
-         <number>65535</number>
+         <number>0</number>
         </property>
        </widget>
        <widget class="QSpinBox" name="spinBox_IV_Defense_1">
@@ -298,7 +226,7 @@
          <number>15</number>
         </property>
         <property name="value">
-         <number>15</number>
+         <number>0</number>
         </property>
        </widget>
        <widget class="QLabel" name="label_IVEV_HP_1">
@@ -330,7 +258,7 @@
          <number>15</number>
         </property>
         <property name="value">
-         <number>15</number>
+         <number>0</number>
         </property>
        </widget>
        <widget class="QSpinBox" name="spinBox_IV_Attack_1">
@@ -346,7 +274,7 @@
          <number>15</number>
         </property>
         <property name="value">
-         <number>15</number>
+         <number>0</number>
         </property>
        </widget>
        <widget class="QSpinBox" name="spinBox_IV_HP_1">
@@ -365,7 +293,7 @@
          <number>15</number>
         </property>
         <property name="value">
-         <number>15</number>
+         <number>0</number>
         </property>
        </widget>
        <widget class="QLabel" name="label_IVEV_Defense_1">
@@ -405,7 +333,7 @@
          <rect>
           <x>78</x>
           <y>124</y>
-          <width>51</width>
+          <width>52</width>
           <height>22</height>
          </rect>
         </property>
@@ -413,7 +341,7 @@
          <number>65535</number>
         </property>
         <property name="value">
-         <number>65535</number>
+         <number>0</number>
         </property>
        </widget>
        <widget class="QSpinBox" name="spinBox_EV_HP_1">
@@ -421,7 +349,7 @@
          <rect>
           <x>78</x>
           <y>16</y>
-          <width>51</width>
+          <width>52</width>
           <height>22</height>
          </rect>
         </property>
@@ -429,7 +357,7 @@
          <number>65535</number>
         </property>
         <property name="value">
-         <number>65535</number>
+         <number>0</number>
         </property>
        </widget>
        <widget class="QLabel" name="label_IVEV_Attack_1">
@@ -477,7 +405,7 @@
          <number>15</number>
         </property>
         <property name="value">
-         <number>15</number>
+         <number>0</number>
         </property>
        </widget>
        <widget class="QSpinBox" name="spinBox_EV_Special_1">
@@ -485,7 +413,7 @@
          <rect>
           <x>78</x>
           <y>97</y>
-          <width>51</width>
+          <width>52</width>
           <height>22</height>
          </rect>
         </property>
@@ -493,7 +421,7 @@
          <number>65535</number>
         </property>
         <property name="value">
-         <number>65535</number>
+         <number>0</number>
         </property>
        </widget>
        <widget class="QSpinBox" name="spinBox_EV_Attack_1">
@@ -501,7 +429,7 @@
          <rect>
           <x>78</x>
           <y>43</y>
-          <width>51</width>
+          <width>52</width>
           <height>22</height>
          </rect>
         </property>
@@ -509,7 +437,7 @@
          <number>65535</number>
         </property>
         <property name="value">
-         <number>65535</number>
+         <number>0</number>
         </property>
        </widget>
       </widget>
@@ -664,13 +592,13 @@
         </rect>
        </property>
        <property name="minimum">
-        <number>1</number>
+        <number>2</number>
        </property>
        <property name="maximum">
         <number>100</number>
        </property>
        <property name="value">
-        <number>100</number>
+        <number>2</number>
        </property>
       </widget>
       <widget class="QLabel" name="label_Lv_2">
@@ -716,7 +644,7 @@
          <rect>
           <x>78</x>
           <y>70</y>
-          <width>51</width>
+          <width>52</width>
           <height>22</height>
          </rect>
         </property>
@@ -724,7 +652,7 @@
          <number>65535</number>
         </property>
         <property name="value">
-         <number>65535</number>
+         <number>0</number>
         </property>
        </widget>
        <widget class="QSpinBox" name="spinBox_IV_Defense_2">
@@ -740,7 +668,7 @@
          <number>15</number>
         </property>
         <property name="value">
-         <number>15</number>
+         <number>0</number>
         </property>
        </widget>
        <widget class="QLabel" name="label_IVEV_HP_2">
@@ -772,7 +700,7 @@
          <number>15</number>
         </property>
         <property name="value">
-         <number>15</number>
+         <number>0</number>
         </property>
        </widget>
        <widget class="QSpinBox" name="spinBox_IV_Attack_2">
@@ -788,7 +716,7 @@
          <number>15</number>
         </property>
         <property name="value">
-         <number>15</number>
+         <number>0</number>
         </property>
        </widget>
        <widget class="QSpinBox" name="spinBox_IV_HP_2">
@@ -807,7 +735,7 @@
          <number>15</number>
         </property>
         <property name="value">
-         <number>15</number>
+         <number>0</number>
         </property>
        </widget>
        <widget class="QLabel" name="label_IVEV_Defense_2">
@@ -847,7 +775,7 @@
          <rect>
           <x>78</x>
           <y>124</y>
-          <width>51</width>
+          <width>52</width>
           <height>22</height>
          </rect>
         </property>
@@ -855,7 +783,7 @@
          <number>65535</number>
         </property>
         <property name="value">
-         <number>65535</number>
+         <number>0</number>
         </property>
        </widget>
        <widget class="QSpinBox" name="spinBox_EV_HP_2">
@@ -863,7 +791,7 @@
          <rect>
           <x>78</x>
           <y>16</y>
-          <width>51</width>
+          <width>52</width>
           <height>22</height>
          </rect>
         </property>
@@ -871,7 +799,7 @@
          <number>65535</number>
         </property>
         <property name="value">
-         <number>65535</number>
+         <number>0</number>
         </property>
        </widget>
        <widget class="QLabel" name="label_IVEV_Attack_2">
@@ -919,7 +847,7 @@
          <number>15</number>
         </property>
         <property name="value">
-         <number>15</number>
+         <number>0</number>
         </property>
        </widget>
        <widget class="QSpinBox" name="spinBox_EV_Special_2">
@@ -927,7 +855,7 @@
          <rect>
           <x>78</x>
           <y>97</y>
-          <width>51</width>
+          <width>52</width>
           <height>22</height>
          </rect>
         </property>
@@ -935,7 +863,7 @@
          <number>65535</number>
         </property>
         <property name="value">
-         <number>65535</number>
+         <number>0</number>
         </property>
        </widget>
        <widget class="QSpinBox" name="spinBox_EV_Attack_2">
@@ -943,7 +871,7 @@
          <rect>
           <x>78</x>
           <y>43</y>
-          <width>51</width>
+          <width>52</width>
           <height>22</height>
          </rect>
         </property>
@@ -951,7 +879,7 @@
          <number>65535</number>
         </property>
         <property name="value">
-         <number>65535</number>
+         <number>0</number>
         </property>
        </widget>
       </widget>
@@ -1106,13 +1034,13 @@
         </rect>
        </property>
        <property name="minimum">
-        <number>1</number>
+        <number>2</number>
        </property>
        <property name="maximum">
         <number>100</number>
        </property>
        <property name="value">
-        <number>100</number>
+        <number>2</number>
        </property>
       </widget>
       <widget class="QLabel" name="label_Lv_3">
@@ -1158,7 +1086,7 @@
          <rect>
           <x>78</x>
           <y>70</y>
-          <width>51</width>
+          <width>52</width>
           <height>22</height>
          </rect>
         </property>
@@ -1166,7 +1094,7 @@
          <number>65535</number>
         </property>
         <property name="value">
-         <number>65535</number>
+         <number>0</number>
         </property>
        </widget>
        <widget class="QSpinBox" name="spinBox_IV_Defense_3">
@@ -1182,7 +1110,7 @@
          <number>15</number>
         </property>
         <property name="value">
-         <number>15</number>
+         <number>0</number>
         </property>
        </widget>
        <widget class="QLabel" name="label_IVEV_HP_3">
@@ -1214,7 +1142,7 @@
          <number>15</number>
         </property>
         <property name="value">
-         <number>15</number>
+         <number>0</number>
         </property>
        </widget>
        <widget class="QSpinBox" name="spinBox_IV_Attack_3">
@@ -1230,7 +1158,7 @@
          <number>15</number>
         </property>
         <property name="value">
-         <number>15</number>
+         <number>0</number>
         </property>
        </widget>
        <widget class="QSpinBox" name="spinBox_IV_HP_3">
@@ -1249,7 +1177,7 @@
          <number>15</number>
         </property>
         <property name="value">
-         <number>15</number>
+         <number>0</number>
         </property>
        </widget>
        <widget class="QLabel" name="label_IVEV_Defense_3">
@@ -1289,7 +1217,7 @@
          <rect>
           <x>78</x>
           <y>124</y>
-          <width>51</width>
+          <width>52</width>
           <height>22</height>
          </rect>
         </property>
@@ -1297,7 +1225,7 @@
          <number>65535</number>
         </property>
         <property name="value">
-         <number>65535</number>
+         <number>0</number>
         </property>
        </widget>
        <widget class="QSpinBox" name="spinBox_EV_HP_3">
@@ -1305,7 +1233,7 @@
          <rect>
           <x>78</x>
           <y>16</y>
-          <width>51</width>
+          <width>52</width>
           <height>22</height>
          </rect>
         </property>
@@ -1313,7 +1241,7 @@
          <number>65535</number>
         </property>
         <property name="value">
-         <number>65535</number>
+         <number>0</number>
         </property>
        </widget>
        <widget class="QLabel" name="label_IVEV_Attack_3">
@@ -1361,7 +1289,7 @@
          <number>15</number>
         </property>
         <property name="value">
-         <number>15</number>
+         <number>0</number>
         </property>
        </widget>
        <widget class="QSpinBox" name="spinBox_EV_Special_3">
@@ -1369,7 +1297,7 @@
          <rect>
           <x>78</x>
           <y>97</y>
-          <width>51</width>
+          <width>52</width>
           <height>22</height>
          </rect>
         </property>
@@ -1377,7 +1305,7 @@
          <number>65535</number>
         </property>
         <property name="value">
-         <number>65535</number>
+         <number>0</number>
         </property>
        </widget>
        <widget class="QSpinBox" name="spinBox_EV_Attack_3">
@@ -1385,7 +1313,7 @@
          <rect>
           <x>78</x>
           <y>43</y>
-          <width>51</width>
+          <width>52</width>
           <height>22</height>
          </rect>
         </property>
@@ -1393,7 +1321,7 @@
          <number>65535</number>
         </property>
         <property name="value">
-         <number>65535</number>
+         <number>0</number>
         </property>
        </widget>
       </widget>
@@ -1548,13 +1476,13 @@
         </rect>
        </property>
        <property name="minimum">
-        <number>1</number>
+        <number>2</number>
        </property>
        <property name="maximum">
         <number>100</number>
        </property>
        <property name="value">
-        <number>100</number>
+        <number>2</number>
        </property>
       </widget>
       <widget class="QLabel" name="label_Lv_4">
@@ -1600,7 +1528,7 @@
          <rect>
           <x>78</x>
           <y>70</y>
-          <width>51</width>
+          <width>52</width>
           <height>22</height>
          </rect>
         </property>
@@ -1608,7 +1536,7 @@
          <number>65535</number>
         </property>
         <property name="value">
-         <number>65535</number>
+         <number>0</number>
         </property>
        </widget>
        <widget class="QSpinBox" name="spinBox_IV_Defense_4">
@@ -1624,7 +1552,7 @@
          <number>15</number>
         </property>
         <property name="value">
-         <number>15</number>
+         <number>0</number>
         </property>
        </widget>
        <widget class="QLabel" name="label_IVEV_HP_4">
@@ -1656,7 +1584,7 @@
          <number>15</number>
         </property>
         <property name="value">
-         <number>15</number>
+         <number>0</number>
         </property>
        </widget>
        <widget class="QSpinBox" name="spinBox_IV_Attack_4">
@@ -1672,7 +1600,7 @@
          <number>15</number>
         </property>
         <property name="value">
-         <number>15</number>
+         <number>0</number>
         </property>
        </widget>
        <widget class="QSpinBox" name="spinBox_IV_HP_4">
@@ -1691,7 +1619,7 @@
          <number>15</number>
         </property>
         <property name="value">
-         <number>15</number>
+         <number>0</number>
         </property>
        </widget>
        <widget class="QLabel" name="label_IVEV_Defense_4">
@@ -1731,7 +1659,7 @@
          <rect>
           <x>78</x>
           <y>124</y>
-          <width>51</width>
+          <width>52</width>
           <height>22</height>
          </rect>
         </property>
@@ -1739,7 +1667,7 @@
          <number>65535</number>
         </property>
         <property name="value">
-         <number>65535</number>
+         <number>0</number>
         </property>
        </widget>
        <widget class="QSpinBox" name="spinBox_EV_HP_4">
@@ -1747,7 +1675,7 @@
          <rect>
           <x>78</x>
           <y>16</y>
-          <width>51</width>
+          <width>52</width>
           <height>22</height>
          </rect>
         </property>
@@ -1755,7 +1683,7 @@
          <number>65535</number>
         </property>
         <property name="value">
-         <number>65535</number>
+         <number>0</number>
         </property>
        </widget>
        <widget class="QLabel" name="label_IVEV_Attack_4">
@@ -1803,7 +1731,7 @@
          <number>15</number>
         </property>
         <property name="value">
-         <number>15</number>
+         <number>0</number>
         </property>
        </widget>
        <widget class="QSpinBox" name="spinBox_EV_Special_4">
@@ -1811,7 +1739,7 @@
          <rect>
           <x>78</x>
           <y>97</y>
-          <width>51</width>
+          <width>52</width>
           <height>22</height>
          </rect>
         </property>
@@ -1819,7 +1747,7 @@
          <number>65535</number>
         </property>
         <property name="value">
-         <number>65535</number>
+         <number>0</number>
         </property>
        </widget>
        <widget class="QSpinBox" name="spinBox_EV_Attack_4">
@@ -1827,7 +1755,7 @@
          <rect>
           <x>78</x>
           <y>43</y>
-          <width>51</width>
+          <width>52</width>
           <height>22</height>
          </rect>
         </property>
@@ -1835,7 +1763,7 @@
          <number>65535</number>
         </property>
         <property name="value">
-         <number>65535</number>
+         <number>0</number>
         </property>
        </widget>
       </widget>
@@ -1990,13 +1918,13 @@
         </rect>
        </property>
        <property name="minimum">
-        <number>1</number>
+        <number>2</number>
        </property>
        <property name="maximum">
         <number>100</number>
        </property>
        <property name="value">
-        <number>100</number>
+        <number>2</number>
        </property>
       </widget>
       <widget class="QLabel" name="label_Lv_5">
@@ -2042,7 +1970,7 @@
          <rect>
           <x>78</x>
           <y>70</y>
-          <width>51</width>
+          <width>52</width>
           <height>22</height>
          </rect>
         </property>
@@ -2050,7 +1978,7 @@
          <number>65535</number>
         </property>
         <property name="value">
-         <number>65535</number>
+         <number>0</number>
         </property>
        </widget>
        <widget class="QSpinBox" name="spinBox_IV_Defense_5">
@@ -2066,7 +1994,7 @@
          <number>15</number>
         </property>
         <property name="value">
-         <number>15</number>
+         <number>0</number>
         </property>
        </widget>
        <widget class="QLabel" name="label_IVEV_HP_5">
@@ -2098,7 +2026,7 @@
          <number>15</number>
         </property>
         <property name="value">
-         <number>15</number>
+         <number>0</number>
         </property>
        </widget>
        <widget class="QSpinBox" name="spinBox_IV_Attack_5">
@@ -2114,7 +2042,7 @@
          <number>15</number>
         </property>
         <property name="value">
-         <number>15</number>
+         <number>0</number>
         </property>
        </widget>
        <widget class="QSpinBox" name="spinBox_IV_HP_5">
@@ -2133,7 +2061,7 @@
          <number>15</number>
         </property>
         <property name="value">
-         <number>15</number>
+         <number>0</number>
         </property>
        </widget>
        <widget class="QLabel" name="label_IVEV_Defense_5">
@@ -2173,7 +2101,7 @@
          <rect>
           <x>78</x>
           <y>124</y>
-          <width>51</width>
+          <width>52</width>
           <height>22</height>
          </rect>
         </property>
@@ -2181,7 +2109,7 @@
          <number>65535</number>
         </property>
         <property name="value">
-         <number>65535</number>
+         <number>0</number>
         </property>
        </widget>
        <widget class="QSpinBox" name="spinBox_EV_HP_5">
@@ -2189,7 +2117,7 @@
          <rect>
           <x>78</x>
           <y>16</y>
-          <width>51</width>
+          <width>52</width>
           <height>22</height>
          </rect>
         </property>
@@ -2197,7 +2125,7 @@
          <number>65535</number>
         </property>
         <property name="value">
-         <number>65535</number>
+         <number>0</number>
         </property>
        </widget>
        <widget class="QLabel" name="label_IVEV_Attack_5">
@@ -2245,7 +2173,7 @@
          <number>15</number>
         </property>
         <property name="value">
-         <number>15</number>
+         <number>0</number>
         </property>
        </widget>
        <widget class="QSpinBox" name="spinBox_EV_Special_5">
@@ -2253,7 +2181,7 @@
          <rect>
           <x>78</x>
           <y>97</y>
-          <width>51</width>
+          <width>52</width>
           <height>22</height>
          </rect>
         </property>
@@ -2261,7 +2189,7 @@
          <number>65535</number>
         </property>
         <property name="value">
-         <number>65535</number>
+         <number>0</number>
         </property>
        </widget>
        <widget class="QSpinBox" name="spinBox_EV_Attack_5">
@@ -2269,7 +2197,7 @@
          <rect>
           <x>78</x>
           <y>43</y>
-          <width>51</width>
+          <width>52</width>
           <height>22</height>
          </rect>
         </property>
@@ -2277,7 +2205,7 @@
          <number>65535</number>
         </property>
         <property name="value">
-         <number>65535</number>
+         <number>0</number>
         </property>
        </widget>
       </widget>
@@ -2432,13 +2360,13 @@
         </rect>
        </property>
        <property name="minimum">
-        <number>1</number>
+        <number>2</number>
        </property>
        <property name="maximum">
         <number>100</number>
        </property>
        <property name="value">
-        <number>100</number>
+        <number>2</number>
        </property>
       </widget>
       <widget class="QLabel" name="label_Lv_6">
@@ -2484,7 +2412,7 @@
          <rect>
           <x>78</x>
           <y>70</y>
-          <width>51</width>
+          <width>52</width>
           <height>22</height>
          </rect>
         </property>
@@ -2492,7 +2420,7 @@
          <number>65535</number>
         </property>
         <property name="value">
-         <number>65535</number>
+         <number>0</number>
         </property>
        </widget>
        <widget class="QSpinBox" name="spinBox_IV_Defense_6">
@@ -2508,7 +2436,7 @@
          <number>15</number>
         </property>
         <property name="value">
-         <number>15</number>
+         <number>0</number>
         </property>
        </widget>
        <widget class="QLabel" name="label_IVEV_HP_6">
@@ -2540,7 +2468,7 @@
          <number>15</number>
         </property>
         <property name="value">
-         <number>15</number>
+         <number>0</number>
         </property>
        </widget>
        <widget class="QSpinBox" name="spinBox_IV_Attack_6">
@@ -2556,7 +2484,7 @@
          <number>15</number>
         </property>
         <property name="value">
-         <number>15</number>
+         <number>0</number>
         </property>
        </widget>
        <widget class="QSpinBox" name="spinBox_IV_HP_6">
@@ -2575,7 +2503,7 @@
          <number>15</number>
         </property>
         <property name="value">
-         <number>15</number>
+         <number>0</number>
         </property>
        </widget>
        <widget class="QLabel" name="label_IVEV_Defense_6">
@@ -2615,7 +2543,7 @@
          <rect>
           <x>78</x>
           <y>124</y>
-          <width>51</width>
+          <width>52</width>
           <height>22</height>
          </rect>
         </property>
@@ -2623,7 +2551,7 @@
          <number>65535</number>
         </property>
         <property name="value">
-         <number>65535</number>
+         <number>0</number>
         </property>
        </widget>
        <widget class="QSpinBox" name="spinBox_EV_HP_6">
@@ -2631,7 +2559,7 @@
          <rect>
           <x>78</x>
           <y>16</y>
-          <width>51</width>
+          <width>52</width>
           <height>22</height>
          </rect>
         </property>
@@ -2639,7 +2567,7 @@
          <number>65535</number>
         </property>
         <property name="value">
-         <number>65535</number>
+         <number>0</number>
         </property>
        </widget>
        <widget class="QLabel" name="label_IVEV_Attack_6">
@@ -2687,7 +2615,7 @@
          <number>15</number>
         </property>
         <property name="value">
-         <number>15</number>
+         <number>0</number>
         </property>
        </widget>
        <widget class="QSpinBox" name="spinBox_EV_Special_6">
@@ -2695,7 +2623,7 @@
          <rect>
           <x>78</x>
           <y>97</y>
-          <width>51</width>
+          <width>52</width>
           <height>22</height>
          </rect>
         </property>
@@ -2703,7 +2631,7 @@
          <number>65535</number>
         </property>
         <property name="value">
-         <number>65535</number>
+         <number>0</number>
         </property>
        </widget>
        <widget class="QSpinBox" name="spinBox_EV_Attack_6">
@@ -2711,7 +2639,7 @@
          <rect>
           <x>78</x>
           <y>43</y>
-          <width>51</width>
+          <width>52</width>
           <height>22</height>
          </rect>
         </property>
@@ -2719,7 +2647,7 @@
          <number>65535</number>
         </property>
         <property name="value">
-         <number>65535</number>
+         <number>0</number>
         </property>
        </widget>
       </widget>
@@ -2903,12 +2831,7 @@
       </property>
       <item>
        <property name="text">
-        <string>Round 1</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Round 2</string>
+        <string>Round</string>
        </property>
       </item>
      </widget>
@@ -2923,62 +2846,7 @@
       </property>
       <item>
        <property name="text">
-        <string>Petit Cup</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Pika Cup</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Prime Cup 1</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Prime Cup 2</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Prime Cup 3</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Prime Cup 4</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Poké Cup 1</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Poké Cup 2</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Poké Cup 3</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Poké Cup 4</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Gym Leader Castle</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>VS Mewtwo</string>
+        <string>Cup</string>
        </property>
       </item>
      </widget>
@@ -3018,6 +2886,73 @@
        <string>Clear</string>
       </property>
      </widget>
+     <widget class="QSpinBox" name="spinBox_CPU_PartySize">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>228</y>
+        <width>36</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="minimum">
+       <number>1</number>
+      </property>
+      <property name="maximum">
+       <number>6</number>
+      </property>
+      <property name="value">
+       <number>6</number>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_CPU_PartySize">
+      <property name="geometry">
+       <rect>
+        <x>5</x>
+        <y>233</y>
+        <width>51</width>
+        <height>13</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Party size:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_CPU_AI">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>256</y>
+        <width>16</width>
+        <height>13</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>AI:</string>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_CPU_AI">
+      <property name="geometry">
+       <rect>
+        <x>48</x>
+        <y>251</y>
+        <width>48</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="prefix">
+       <string>0x</string>
+      </property>
+      <property name="maximum">
+       <number>74</number>
+      </property>
+      <property name="value">
+       <number>0</number>
+      </property>
+      <property name="displayIntegerBase">
+       <number>16</number>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="tab_Rental_Pokemon">
      <attribute name="title">
@@ -3026,7 +2961,7 @@
     </widget>
     <widget class="QWidget" name="tab_Pokemon_Data">
      <attribute name="title">
-      <string>Pokémon data</string>
+      <string>Pokémon &amp;&amp; Moves data</string>
      </attribute>
      <widget class="QGroupBox" name="groupBox_PokemonData">
       <property name="geometry">
@@ -3547,7 +3482,7 @@ p, li { white-space: pre-wrap; }
        <rect>
         <x>4</x>
         <y>295</y>
-        <width>696</width>
+        <width>524</width>
         <height>141</height>
        </rect>
       </property>
@@ -4090,7 +4025,7 @@ p, li { white-space: pre-wrap; }
         </rect>
        </property>
        <property name="maximum">
-        <number>256</number>
+        <number>255</number>
        </property>
       </widget>
       <widget class="QLabel" name="label_MovePower">
@@ -4153,6 +4088,15 @@ p, li { white-space: pre-wrap; }
          <height>22</height>
         </rect>
        </property>
+       <property name="minimum">
+        <number>5</number>
+       </property>
+       <property name="maximum">
+        <number>45</number>
+       </property>
+       <property name="singleStep">
+        <number>5</number>
+       </property>
       </widget>
       <widget class="QSpinBox" name="spinBox_MoveID">
        <property name="geometry">
@@ -4189,62 +4133,328 @@ p, li { white-space: pre-wrap; }
       <widget class="QGroupBox" name="groupBox">
        <property name="geometry">
         <rect>
-         <x>220</x>
+         <x>222</x>
          <y>68</y>
-         <width>412</width>
+         <width>300</width>
          <height>68</height>
         </rect>
        </property>
        <property name="title">
-        <string>TMs &amp;&amp; HMs</string>
+        <string>High Critical Hit rate moves</string>
        </property>
-       <widget class="QTextEdit" name="textEdit_MoveTMHMText">
+       <widget class="QComboBox" name="comboBox_HighCH_MovesList_1">
         <property name="geometry">
          <rect>
-          <x>111</x>
+          <x>8</x>
           <y>15</y>
-          <width>293</width>
-          <height>37</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>Courier New</family>
-         </font>
-        </property>
-       </widget>
-       <widget class="QComboBox" name="comboBox_4">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>15</y>
-          <width>95</width>
+          <width>115</width>
           <height>22</height>
          </rect>
         </property>
        </widget>
-       <widget class="QComboBox" name="comboBox_5">
+       <widget class="QComboBox" name="comboBox_HighCH_MovesList_2">
         <property name="geometry">
          <rect>
-          <x>10</x>
+          <x>8</x>
           <y>40</y>
-          <width>95</width>
+          <width>115</width>
           <height>22</height>
          </rect>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="comboBox_HighCH_MovesList_3">
+        <property name="geometry">
+         <rect>
+          <x>130</x>
+          <y>15</y>
+          <width>115</width>
+          <height>22</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="comboBox_HighCH_MovesList_4">
+        <property name="geometry">
+         <rect>
+          <x>130</x>
+          <y>40</y>
+          <width>115</width>
+          <height>22</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_HighCH_multiplier">
+        <property name="geometry">
+         <rect>
+          <x>262</x>
+          <y>28</y>
+          <width>36</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="minimum">
+         <number>4</number>
+        </property>
+        <property name="maximum">
+         <number>32</number>
+        </property>
+        <property name="singleStep">
+         <number>4</number>
+        </property>
+        <property name="value">
+         <number>8</number>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_HighCH_multiplier">
+        <property name="geometry">
+         <rect>
+          <x>252</x>
+          <y>33</y>
+          <width>13</width>
+          <height>13</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>×</string>
         </property>
        </widget>
       </widget>
      </widget>
-    </widget>
-    <widget class="QWidget" name="tab_Moves_Data">
-     <attribute name="title">
-      <string>Moves data</string>
-     </attribute>
+     <widget class="QGroupBox" name="groupBox_Status_data">
+      <property name="geometry">
+       <rect>
+        <x>531</x>
+        <y>295</y>
+        <width>169</width>
+        <height>141</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Status</string>
+      </property>
+      <widget class="QLabel" name="label_Status_Sleep">
+       <property name="geometry">
+        <rect>
+         <x>25</x>
+         <y>20</y>
+         <width>33</width>
+         <height>13</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Sleep:</string>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="spinBox_Status_Sleep_turns">
+       <property name="geometry">
+        <rect>
+         <x>60</x>
+         <y>15</y>
+         <width>42</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="maximum">
+        <number>255</number>
+       </property>
+       <property name="value">
+        <number>3</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_Status_Sleep_turns">
+       <property name="geometry">
+        <rect>
+         <x>102</x>
+         <y>20</y>
+         <width>28</width>
+         <height>13</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>turns</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_Status_Paralysis">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>44</y>
+         <width>47</width>
+         <height>13</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Paralysis:</string>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="spinBox_Status_Paralysis_probability">
+       <property name="geometry">
+        <rect>
+         <x>60</x>
+         <y>39</y>
+         <width>42</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="maximum">
+        <number>255</number>
+       </property>
+       <property name="value">
+        <number>63</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_Status_Paralysis_probability">
+       <property name="geometry">
+        <rect>
+         <x>102</x>
+         <y>44</y>
+         <width>25</width>
+         <height>13</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>/256</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_CH_formula">
+      <property name="geometry">
+       <rect>
+        <x>4</x>
+        <y>435</y>
+        <width>351</width>
+        <height>80</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Critical Hit formula</string>
+      </property>
+      <widget class="QComboBox" name="comboBox_CH_formula_BaseStat">
+       <property name="geometry">
+        <rect>
+         <x>14</x>
+         <y>15</y>
+         <width>95</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="currentIndex">
+        <number>3</number>
+       </property>
+       <item>
+        <property name="text">
+         <string>Base HP</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Base ATTACK</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Base DEFENSE</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Base SPEED</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Base SPECIAL</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QLabel" name="label_CH_formula_add">
+       <property name="geometry">
+        <rect>
+         <x>110</x>
+         <y>20</y>
+         <width>13</width>
+         <height>13</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>+</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_CH_formula_parenth_1">
+       <property name="geometry">
+        <rect>
+         <x>8</x>
+         <y>20</y>
+         <width>8</width>
+         <height>13</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>(</string>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="spinBox">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>15</y>
+         <width>42</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="maximum">
+        <number>255</number>
+       </property>
+       <property name="value">
+        <number>76</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_CH_formula_parenth_2">
+       <property name="geometry">
+        <rect>
+         <x>162</x>
+         <y>20</y>
+         <width>8</width>
+         <height>13</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>)</string>
+       </property>
+      </widget>
+     </widget>
     </widget>
     <widget class="QWidget" name="tab_Types_Data">
      <attribute name="title">
       <string>Text strings</string>
      </attribute>
+     <widget class="QGroupBox" name="groupBox_2">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>0</y>
+        <width>471</width>
+        <height>161</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Items</string>
+      </property>
+      <widget class="QTextEdit" name="textEdit_MoveTMHMText">
+       <property name="geometry">
+        <rect>
+         <x>170</x>
+         <y>10</y>
+         <width>293</width>
+         <height>37</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Courier New</family>
+        </font>
+       </property>
+      </widget>
+     </widget>
     </widget>
    </widget>
   </widget>
