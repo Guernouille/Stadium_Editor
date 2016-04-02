@@ -1,8 +1,17 @@
 #include "mainwindow.h"
 
-
 void MainWindow::read_move_data(QFile &romfile)
 {
+    // ***** Retrieve High CH moves *****
+    for(short i=0;i<4;i++){
+        rom_offset = 0x37570C + i;
+
+        QDataStream read(&romfile);
+        romfile.seek(rom_offset);
+
+        read>>move_high_ch[i];
+    }
+
     // ***** Retrieve move data *****
     for(short i=1;i<=total_move_name;i++){
         rom_offset = 0x736FA + i*6;
@@ -18,16 +27,48 @@ void MainWindow::read_move_data(QFile &romfile)
         read>>move_pp[i];
 
         if(move_type[i]>19) move_type[i] -= 11;
-    }
 
-    // ***** Retrieve High CH moves *****
-    for(short i=0;i<4;i++){
-        rom_offset = 0x37570C + i;
-
-        QDataStream read(&romfile);
-        romfile.seek(rom_offset);
-
-        read>>move_high_ch[i];
+        // Useless moves: Bide, Constrict, Mist, Poison Gas, Poison Powder, Psywave, Roar, Splash, Teleport, Whirlwind
+        if(i==0x12||i==0x2E||i==0x36||i==0x4D||i==0x64||i==0x75||i==0x84||i==0x8B||i==0x95||i==0x96){
+            useless_move[i]=true;
+            // Temporary
+            weak_move[i]=true;
+        }
+        // Weak moves
+        if(move_effect[i]==0x08 || move_effect[i]==0x13 || move_effect[i]==0x1A || move_effect[i]==0x1C || move_effect[i]==0x2E || move_effect[i]==0x42 || move_effect[i]==0x51 || move_effect[i]==0x52 || move_effect[i]==0x54 || move_effect[i]==0x55 || move_effect[i]==0x56){
+            weak_move[i]=true;
+        }
+        else if(((move_effect[i]==0 || move_effect[i]==2 || move_effect[i]==10) && move_power[i]<=70) || ((move_effect[i]==3 || move_effect[i]==0x21) && move_power[i]<40) || ((move_effect[i]==4 || move_effect[i]==6 || move_effect[i]==0x1F || move_effect[i]==0x4C) && move_power[i]<=60)){
+            weak_move[i]=true;
+        }
+        else if((move_effect[i]==0 && move_accuracy[i]<=0xD8 && move_power[i]<=80) || (move_effect[i]==16 && move_accuracy[i]<=0xD8) || (move_effect[i]==31 && move_accuracy[i]<=0xD8)){
+            weak_move[i]=true;
+        }
+        else if((move_effect[i]==0x1D && move_type[i]==0 && move_power[i]<25) || (move_effect[i]==0x27 && move_power[i]<=100) || (move_effect[i]==0x46 && move_power[i]<=60)){
+            weak_move[i]=true;
+        }
+        else if(i==0x31 || i==0x52){
+            weak_move[i]=true;
+        }
+        // Strong moves
+        else if((move_accuracy[i]>=0xD8 && move_power[i]>=85 && move_effect[i]!=0x27) || (move_accuracy[i]>=0xCC && move_power[i]>=100 && move_effect[i]!=0x27) || (move_accuracy[i]>=0xE5 && move_power[i]>=75 && move_type[i]!=0 && move_effect[i]!=0x27)){
+            strong_move[i]=true;
+        }
+        else if(move_effect[i]==0xF || (move_effect[i]==0x20 && move_accuracy[i]==0xFF) || move_effect[i]==0x26 || move_effect[i]==0x2F || move_effect[i]==0x32 || move_effect[i]==0x34 || move_effect[i]==0x35 || move_effect[i]==0x38 || move_effect[i]==0x43 || move_effect[i]==0x4F){
+            strong_move[i]=true;
+        }
+        else if((move_effect[i]==0x1D && move_accuracy[i]>=0xE5 && move_power[i]>=25) || (move_effect[i]==0x2C && move_accuracy[i]>=0xE5 && move_power[i]>=40)){
+            strong_move[i]=true;
+        }
+        else if(i==0x44 || i==0x45 || i==0x65 || i==0xA2){
+            strong_move[i]=true;
+        }
+        for(short j=0;j<4;j++){
+            if(i==move_high_ch[j]){
+                weak_move[i]=false;
+                strong_move[i]=true;
+            }
+        }
     }
 }
 
