@@ -26,11 +26,11 @@ void MainWindow::randomize_init_pkmn(){
         pkm_ids_vector_petitcup.push_back(129);
         pkm_ids_vector_petitcup.push_back(132);
     }
-    short pkm_list_petitcup_toptier[] = {4,35,50,52,60,63,74,90,92,100,102};
+    short pkm_list_petitcup_toptier[] = {25,37,50,52,60,63,74,90,92,100,102};
     pkm_ids_vector_petitcup_toptier.assign(pkm_list_petitcup_toptier,pkm_list_petitcup_toptier+(sizeof(pkm_list_petitcup_toptier)/sizeof(*pkm_list_petitcup_toptier)));
-    // Add Growlithe if Dragon Rage is allowed
+    // Add Charmander if Dragon Rage is allowed
     if(ui->checkBox_Randomizer_CPU_NoDragonRage->isChecked()==false && ui->checkBox_Randomizer_CPU_NoIllegalMoves->isChecked()){
-        pkm_ids_vector_petitcup_toptier.push_back(58);
+        pkm_ids_vector_petitcup_toptier.push_back(4);
     }
     // TO DO: Generate Gambler Pokémon list depending on learned moves
     short pkm_list_petitcup_gambler[] = {23,27,32,35,50,63,66,74,90,92,98,100,102,104,109,118};
@@ -75,7 +75,7 @@ void MainWindow::randomize_init_pkmn(){
             pkm_ids_vector_pikacup.push_back(132);
         }
     }
-    short pkm_list_pikacup_toptier[] = {26,34,36,55,59,65,68,73,76,80,91,94,99,103,112,113,115,121,124,127,130,131};
+    short pkm_list_pikacup_toptier[] = {26,34,36,55,65,68,76,80,91,94,103,112,113,115,121,124,130,131};
     pkm_ids_vector_pikacup_toptier.assign(pkm_list_pikacup_toptier,pkm_list_pikacup_toptier+(sizeof(pkm_list_pikacup_toptier)/sizeof(*pkm_list_pikacup_toptier)));
     // TO DO: Generate Gambler Pokémon list depending on learned moves
     short pkm_list_pikacup_gambler[] = {31,34,36,51,62,65,68,76,80,87,89,91,94,95,97,99,101,103,108,112,113,115,122,124,125,126,127,131};
