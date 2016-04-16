@@ -158,3 +158,14 @@ void MainWindow::display_cpu_trainer_sprite(quint8 cpu_trainer_sprite_id)
     img_path += QString::number(cpu_trainer_sprite_id);
     ui->img_TrainerSprite->setPixmap(img_path);
 }
+
+
+void MainWindow::display_rental_pkmn(quint8 rental_pkm_offset)
+{
+    ui->comboBox_Rental_Pkmn_1->setCurrentIndex(rental_pkm_id[rental_pkm_offset]);
+    ui->comboBox_Rental_Pkmn_2->setCurrentIndex(rental_pkm_id[rental_pkm_offset+1]);
+    ui->comboBox_Rental_Pkmn_3->setCurrentIndex(rental_pkm_id[rental_pkm_offset+2]);
+    ui->comboBox_Rental_Pkmn_4->setCurrentIndex(rental_pkm_id[rental_pkm_offset+3]);
+    ui->comboBox_Rental_Pkmn_5->setCurrentIndex(rental_pkm_id[rental_pkm_offset+4]);
+    ui->comboBox_Rental_Pkmn_6->setCurrentIndex(rental_pkm_id[rental_pkm_offset+5]);
+}
