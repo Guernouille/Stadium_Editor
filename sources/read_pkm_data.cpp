@@ -10,8 +10,8 @@ void MainWindow::read_pkm_data(QFile &romfile)
         read>>pkm_base_hp[i];
         read>>pkm_base_atk[i];
         read>>pkm_base_def[i];
-        read>>pkm_base_spc[i];
         read>>pkm_base_speed[i];
+        read>>pkm_base_spc[i];
 
         read>>pkm_type_1[i];
         read>>pkm_type_2[i];
@@ -63,12 +63,6 @@ void MainWindow::read_pkm_data(QFile &romfile)
 
 void MainWindow::read_pkm_names(QFile &romfile)
 {
-    // ***** Initialize Pokémon names *****
-    for (short i=0;i<256;i++){
-        pkm_name[i] = "";
-        pkm_name_pointer[i] = 0;
-    }
-
     // ***** Retrieve number of Pokémon names *****
     QDataStream read(&romfile);
     romfile.seek(0x7950B3);
