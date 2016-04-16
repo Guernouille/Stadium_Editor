@@ -750,6 +750,8 @@ void MainWindow::randomize_cpu_pkmn()
 
             // Change Pokémon team
             for(unsigned short i=0;i<cpu_party_size[cpu_trainer_id];i++){
+                quint8 offset_vector_pkm = 0;
+
                 // Prime Cup Final (Mew check)
                 if(cpu_trainer_id==47 || cpu_trainer_id==173){
                     if(i==0 && ui->checkBox_Randomizer_CPU_MewPrimeCup->isChecked()){
@@ -821,6 +823,7 @@ void MainWindow::randomize_cpu_pkmn()
             // Change Pokémon team
             for(unsigned short i=0;i<cpu_party_size[cpu_trainer_id];i++){
                 quint8 offset_vector_pkm = 0;
+
                 // Poké Cup Final
                 if((cpu_trainer_id==71 || cpu_trainer_id==79 || cpu_trainer_id==197 || cpu_trainer_id==205) && strong_pkm_finals){
                     while(cpu_pkm_level[cpu_trainer_id][i]<pkm_min_level[pkm_ids_vector_pokecup_toptier[i+offset_vector_pkm]] && (i+offset_vector_pkm < pkm_ids_vector_pokecup_toptier.size())){
