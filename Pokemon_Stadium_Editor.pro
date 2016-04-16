@@ -26,17 +26,29 @@ SOURCES += main.cpp\
     read_cpu_rentals.cpp \
     display_cpu_rentals.cpp \
     read_experience_data.cpp \
-    display_experience_data.cpp \
     initialize_data.cpp \
-    autoconnect_display.cpp \
-    autoconnect_edit_cputrainer.cpp \
-    autoconnect_edit_movedata.cpp \
-    write_experience_data.cpp
+    randomize_cpu_teams.cpp \
+    calc_experience_data.cpp \
+    prng.cpp \
+    autoconn_randomizer.cpp \
+    autoconn_display_cpu_teams.cpp \
+    autoconn_edit_cpu_teams.cpp \
+    autoconn_display_move_data.cpp \
+    autoconn_display_pkm_data.cpp \
+    autoconn_edit_move_data.cpp \
+    autoconn_save.cpp \
+    write_pkm_data.cpp \
+    write_cpu_rentals.cpp \
+    initialize_nicknames.cpp \
+    initialize_min_levels.cpp
 
 HEADERS  += mainwindow.h \
-    common.cpp
+    common.cpp \
+    hexqspinbox.h
 
 FORMS    += mainwindow.ui
 
 RESOURCES += \
     resources.qrc
+
+CONFIG += c++14
