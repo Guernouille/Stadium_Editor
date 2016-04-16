@@ -11,6 +11,8 @@ void MainWindow::initialize_data()
 
     for (short i=0;i<256;i++){
         cpu_ai_id[i]=0;
+        cpu_cup_id[i]=0;
+        cpu_cup_offset[i]=0;
         cpu_tname[i]="";
         for(short j=0;j<6;j++){
             cpu_pkm_nickname[i][j]="";
@@ -29,6 +31,9 @@ void MainWindow::initialize_data()
         move_tmhm_text[i]="";
         move_type[i]=0;
 
+        pikacup_min_lvl[i] = 15;
+        pokecup_min_lvl[i] = 50;
+
         pkm_base_hp[i] = 0;
         pkm_base_atk[i] = 0;
         pkm_base_def[i] = 0;
@@ -43,9 +48,13 @@ void MainWindow::initialize_data()
         pkm_start_move_3[i] = 0;
         pkm_start_move_4[i] = 0;
         pkm_growth_rate[i] = 0;
+        pkm_min_level[i] = 2;
+        pkm_name[i] = "";
+        pkm_name_pointer[i] = 0;
         for(short j=0;j<7;j++){
             pkm_tmhm_flags[i][j] = 0;
         }
+
 
         for(short j=0;j<10;j++){
             pkm_rb_lvl[i][j] = 0;
@@ -53,7 +62,7 @@ void MainWindow::initialize_data()
             pkm_y_lvl[i][j] = 0;
             pkm_y_move[i][j] = 0;
         }
-        
+
         type_name[i] = "";
     }
 
@@ -68,6 +77,9 @@ void MainWindow::initialize_data()
 
     experience_calc=0;
 
+    glc_level_min=50;
+    glc_level_max=50;
+
     img_path="";
 
     move_high_ch_multiplier=0;
@@ -75,4 +87,35 @@ void MainWindow::initialize_data()
     move_tmhm_flag=0;
 
     rom_offset=0;
+
+    // Add Mewtwo Lv 70 for Gym Leader Castle, and initialize every pkm min lv ideally
+    pikacup_min_lvl[2] = 16;
+    pikacup_min_lvl[5] = 16;
+    pikacup_min_lvl[8] = 16;
+    pikacup_min_lvl[30] = 16;
+    pikacup_min_lvl[31] = 16;
+    pikacup_min_lvl[33] = 16;
+    pikacup_min_lvl[34] = 16;
+    pikacup_min_lvl[64] = 16;
+    pikacup_min_lvl[65] = 16;
+    pikacup_min_lvl[68] = 16;
+    pikacup_min_lvl[76] = 16;
+    pikacup_min_lvl[81] = 16;
+    pikacup_min_lvl[104] = 16;
+    pikacup_min_lvl[84] = 18;
+    pikacup_min_lvl[92] = 18;
+    pikacup_min_lvl[137] = 18;
+    pikacup_min_lvl[22] = 19;
+    pikacup_min_lvl[73] = 20;
+    pikacup_min_lvl[93] = 20;
+    pikacup_min_lvl[94] = 20;
+    pikacup_min_lvl[102] = 20;
+    pikacup_min_lvl[103] = 20;
+    pikacup_min_lvl[106] = 20;
+    pikacup_min_lvl[107] = 20;
+    pikacup_min_lvl[111] = 20;
+    pikacup_min_lvl[117] = 20;
+    pikacup_min_lvl[138] = 20;
+    pikacup_min_lvl[140] = 20;
+    pokecup_min_lvl[149] = 55;
 }
