@@ -95,7 +95,7 @@ void MainWindow::randomize_init_pkmn(){
     }
     else if(ui->checkBox_Randomizer_CPU_NoUselessPkmn->isChecked()){
         for(short i=1;i<=(total_pkm_name);i++){
-            if(i!=10 || i!=11 || i!=13 || i!=14 || i!=29 || i!=41 || i!=48 || i!=129 || i!=132){
+            if(i!=10 && i!=11 && i!=13 && i!=14 && i!=29 && i!=41 && i!=48 && i!=129 && i!=132){
                 pkm_ids_vector_primecup.push_back(i);
             }
         }
@@ -153,7 +153,7 @@ void MainWindow::randomize_init_pkmn(){
     }
     else if(ui->checkBox_Randomizer_CPU_NoUselessPkmn->isChecked()){
         for(short i=1;i<=(total_pkm_name);i++){
-            if(i!=10 || i!=11 || i!=13 || i!=14 || i!=29 || i!=41 || i!=48 || i!=129 || i!=132){
+            if(i!=10 && i!=11 && i!=13 && i!=14 && i!=29 && i!=41 && i!=48 && i!=129 && i!=132){
                 pkm_ids_vector_vs_mewtwo.push_back(i);
             }
         }
@@ -319,6 +319,7 @@ void MainWindow::randomize_cpu_moves()
     bool have_offensive_move = ui->checkBox_Randomizer_CPU_OffensiveMove->isChecked();
     bool have_stab_move = ui->checkBox_Randomizer_CPU_STABMove->isChecked();
     bool gambler_luck_moves = ui->checkBox_Randomizer_CPU_GamblerMoves->isChecked();
+    bool gym_leaders_pokemon = ui->checkBox_Randomizer_CPU_GLPkmn->isChecked();
 
     for(short cpu_trainer_id=0;cpu_trainer_id<current_cpu_trainers_number;cpu_trainer_id++){
         for(unsigned short i=0;i<cpu_party_size[cpu_trainer_id];i++){
@@ -329,23 +330,41 @@ void MainWindow::randomize_cpu_moves()
 
             // Starting Moves
             if(pkm_start_move_1[buf8]>0 && pkm_start_move_1[buf8]<total_move_name){
+                // Dragon Rage in Petit Cup and Pika Cup
                 if(pkm_start_move_1[buf8]==0x52 && no_dragon_rage==false && (cpu_cup_id[cpu_trainer_id]==0 || cpu_cup_id[cpu_trainer_id]==1 || cpu_cup_id[cpu_trainer_id]==22 || cpu_cup_id[cpu_trainer_id]==23)){
                     moves_ids_vector.push_back(pkm_start_move_1[buf8]);
                     strong_moves_ids_vector.push_back(pkm_start_move_1[buf8]);
                 }
+                // All moves
                 else if(no_weak_moves==false || weak_move[pkm_start_move_1[buf8]]==false){
                     if(no_useless_moves==false || useless_move[pkm_start_move_1[buf8]]==false){
                         moves_ids_vector.push_back(pkm_start_move_1[buf8]);
                     }
                 }
-                if(strong_move[pkm_start_move_1[buf8]] || (move_type[pkm_start_move_1[buf8]]==pkm_type_1[buf8] && move_power[pkm_start_move_1[buf8]]>=75) || (move_type[pkm_start_move_1[buf8]]== pkm_type_2[buf8] && move_power[pkm_start_move_1[buf8]]>=75)){
+                // Strong moves
+                /*
+                 * if(strong_move[pkm_start_move_1[buf8]]
+                        || ((move_type[pkm_start_move_1[buf8]]==pkm_type_1[buf8] || move_type[pkm_start_move_1[buf8]]==pkm_type_2[buf8])
+                        && move_power[pkm_start_move_1[buf8]]>=75
+                        && (move_type[pkm_start_move_1[buf8]]>8 || pkm_base_atk[buf8]>35)
+                        && (move_effect[pkm_start_move_1[buf8]]!=0x30 || (move_accuracy[pkm_start_move_1[buf8]]>=0xE5 && move_power[pkm_start_move_1[buf8]]>=90))))
+                */
+                if(strong_move[pkm_start_move_1[buf8]]
+                        && (move_power[pkm_start_move_1[buf8]]<=1
+                            || move_type[pkm_start_move_1[buf8]]>8
+                            || ((move_type[pkm_start_move_1[buf8]]==pkm_type_1[buf8] || move_type[pkm_start_move_1[buf8]]==pkm_type_2[buf8]) && pkm_base_atk[buf8]>30)
+                            || pkm_base_atk[buf8]>50)
+                        && (move_effect[pkm_start_move_1[buf8]] != 0x50
+                            || ((move_type[pkm_start_move_1[buf8]]==pkm_type_1[buf8] || move_type[pkm_start_move_1[buf8]]==pkm_type_2[buf8]) && pkm_base_atk[buf8]>60)))
+                {
                     strong_moves_ids_vector.push_back(pkm_start_move_1[buf8]);
                 }
+                // Gambler moves
                 if(gambler_luck_moves && cpu_sprite_id[cpu_trainer_id]==0x22){
                     if((move_effect[pkm_start_move_1[buf8]]==0xF && no_evasion_moves==false) || move_effect[pkm_start_move_1[buf8]]==7 || move_effect[pkm_start_move_1[buf8]]==0x24 || move_effect[pkm_start_move_1[buf8]]==0x26 || move_effect[pkm_start_move_1[buf8]]==0x34 || move_effect[pkm_start_move_1[buf8]]==0x43 || (move_effect[pkm_start_move_1[buf8]]==0x46 && move_power[pkm_start_move_1[buf8]]>=65) || move_effect[pkm_start_move_1[buf8]]==0x53 || (pkm_start_move_1[buf8]==95 && no_weak_moves==false)){
                         gambler_moves_ids_vector.push_back(pkm_start_move_1[buf8]);
                     }
-                    else if(move_accuracy[pkm_start_move_1[buf8]]<=0xD8 && move_power[pkm_start_move_1[buf8]]>=100 && (move_type[pkm_start_move_1[buf8]]>8 || pkm_base_atk[buf8]>50 || move_type[pkm_start_move_1[buf8]]==pkm_type_1[buf8] || move_type[pkm_start_move_1[buf8]]==pkm_type_2[buf8])){
+                    else if(move_accuracy[pkm_start_move_1[buf8]]<=0xD8 && move_power[pkm_start_move_1[buf8]]>=100 && (move_type[pkm_start_move_1[buf8]]>8 || pkm_base_atk[buf8]>50 || (move_type[pkm_start_move_1[buf8]]==pkm_type_1[buf8] && pkm_base_atk[buf8]>30) || (move_type[pkm_start_move_1[buf8]]==pkm_type_2[buf8] && pkm_base_atk[buf8]>30))){
                         gambler_moves_ids_vector.push_back(pkm_start_move_1[buf8]);
                     }
                     else if(pkm_start_move_1[buf8]==move_high_ch[0] || pkm_start_move_1[buf8]==move_high_ch[1] || pkm_start_move_1[buf8]==move_high_ch[2] || pkm_start_move_1[buf8]==move_high_ch[3]){
@@ -354,23 +373,33 @@ void MainWindow::randomize_cpu_moves()
                 }
             }
             if(pkm_start_move_2[buf8]>0 && pkm_start_move_2[buf8]<total_move_name){
+                // Dragon Rage in Petit Cup and Pika Cup
                 if(pkm_start_move_2[buf8]==0x52 && no_dragon_rage==false && (cpu_cup_id[cpu_trainer_id]==0 || cpu_cup_id[cpu_trainer_id]==1 || cpu_cup_id[cpu_trainer_id]==22 || cpu_cup_id[cpu_trainer_id]==23)){
                     moves_ids_vector.push_back(pkm_start_move_2[buf8]);
                     strong_moves_ids_vector.push_back(pkm_start_move_2[buf8]);
                 }
-                if(no_weak_moves==false || weak_move[pkm_start_move_2[buf8]]==false){
+                // All moves
+                else if(no_weak_moves==false || weak_move[pkm_start_move_2[buf8]]==false){
                     if(no_useless_moves==false || useless_move[pkm_start_move_2[buf8]]==false){
                         moves_ids_vector.push_back(pkm_start_move_2[buf8]);
                     }
                 }
-                if(strong_move[pkm_start_move_2[buf8]] || (move_type[pkm_start_move_2[buf8]]== pkm_type_1[buf8] && move_power[pkm_start_move_2[buf8]]>=75) || (move_type[pkm_start_move_2[buf8]]== pkm_type_2[buf8] && move_power[pkm_start_move_2[buf8]]>=75)){
+                // Strong moves
+                if(strong_move[pkm_start_move_2[buf8]]
+                        && (move_power[pkm_start_move_2[buf8]]<=1
+                            || move_type[pkm_start_move_2[buf8]]>8
+                            || ((move_type[pkm_start_move_2[buf8]]==pkm_type_1[buf8] || move_type[pkm_start_move_2[buf8]]==pkm_type_2[buf8]) && pkm_base_atk[buf8]>30)
+                            || pkm_base_atk[buf8]>50)
+                        && (move_effect[pkm_start_move_2[buf8]] != 0x50
+                            || ((move_type[pkm_start_move_2[buf8]]==pkm_type_1[buf8] || move_type[pkm_start_move_2[buf8]]==pkm_type_2[buf8]) && pkm_base_atk[buf8]>60)))
+                {
                     strong_moves_ids_vector.push_back(pkm_start_move_2[buf8]);
                 }
                 if(gambler_luck_moves && cpu_sprite_id[cpu_trainer_id]==0x22){
                     if((move_effect[pkm_start_move_2[buf8]]==0xF && no_evasion_moves==false) || move_effect[pkm_start_move_2[buf8]]==7 || move_effect[pkm_start_move_2[buf8]]==0x24 || move_effect[pkm_start_move_2[buf8]]==0x26 || move_effect[pkm_start_move_2[buf8]]==0x34 || move_effect[pkm_start_move_2[buf8]]==0x43 || (move_effect[pkm_start_move_2[buf8]]==0x46 && move_power[pkm_start_move_2[buf8]]>=65) || move_effect[pkm_start_move_2[buf8]]==0x53 || (pkm_start_move_2[buf8]==95 && no_weak_moves==false)){
                         gambler_moves_ids_vector.push_back(pkm_start_move_2[buf8]);
                     }
-                    else if(move_accuracy[pkm_start_move_2[buf8]]<=0xD8 && move_power[pkm_start_move_2[buf8]]>=100 && (move_type[pkm_start_move_2[buf8]]>8 || pkm_base_atk[buf8]>50 || move_type[pkm_start_move_2[buf8]]==pkm_type_1[buf8] || move_type[pkm_start_move_2[buf8]]==pkm_type_2[buf8])){
+                    else if(move_accuracy[pkm_start_move_2[buf8]]<=0xD8 && move_power[pkm_start_move_2[buf8]]>=100 && (move_type[pkm_start_move_2[buf8]]>8 || pkm_base_atk[buf8]>50 || (move_type[pkm_start_move_2[buf8]]==pkm_type_1[buf8] && pkm_base_atk[buf8]>30) || (move_type[pkm_start_move_2[buf8]]==pkm_type_2[buf8] && pkm_base_atk[buf8]>30))){
                         gambler_moves_ids_vector.push_back(pkm_start_move_2[buf8]);
                     }
                     else if(pkm_start_move_2[buf8]==move_high_ch[0] || pkm_start_move_2[buf8]==move_high_ch[1] || pkm_start_move_2[buf8]==move_high_ch[2] || pkm_start_move_2[buf8]==move_high_ch[3]){
@@ -379,23 +408,34 @@ void MainWindow::randomize_cpu_moves()
                 }
             }
             if(pkm_start_move_3[buf8]>0 && pkm_start_move_3[buf8]<total_move_name){
+                // Dragon Rage in Petit Cup and Pika Cup
                 if(pkm_start_move_3[buf8]==0x52 && no_dragon_rage==false && (cpu_cup_id[cpu_trainer_id]==0 || cpu_cup_id[cpu_trainer_id]==1 || cpu_cup_id[cpu_trainer_id]==22 || cpu_cup_id[cpu_trainer_id]==23)){
                     moves_ids_vector.push_back(pkm_start_move_3[buf8]);
                     strong_moves_ids_vector.push_back(pkm_start_move_3[buf8]);
                 }
-                if(no_weak_moves==false || weak_move[pkm_start_move_3[buf8]]==false){
+                // All moves
+                else if(no_weak_moves==false || weak_move[pkm_start_move_3[buf8]]==false){
                     if(no_useless_moves==false || useless_move[pkm_start_move_3[buf8]]==false){
                         moves_ids_vector.push_back(pkm_start_move_3[buf8]);
                     }
                 }
-                if(strong_move[pkm_start_move_3[buf8]] || (move_type[pkm_start_move_3[buf8]]== pkm_type_1[buf8] && move_power[pkm_start_move_3[buf8]]>=75) || (move_type[pkm_start_move_3[buf8]]== pkm_type_2[buf8] && move_power[pkm_start_move_3[buf8]]>=75)){
+                // Strong moves
+                if(strong_move[pkm_start_move_3[buf8]]
+                        && (move_power[pkm_start_move_3[buf8]]<=1
+                            || move_type[pkm_start_move_3[buf8]]>8
+                            || ((move_type[pkm_start_move_3[buf8]]==pkm_type_1[buf8] || move_type[pkm_start_move_3[buf8]]==pkm_type_2[buf8]) && pkm_base_atk[buf8]>30)
+                            || pkm_base_atk[buf8]>50)
+                        && (move_effect[pkm_start_move_3[buf8]] != 0x50
+                            || ((move_type[pkm_start_move_3[buf8]]==pkm_type_1[buf8] || move_type[pkm_start_move_3[buf8]]==pkm_type_2[buf8]) && pkm_base_atk[buf8]>60)))
+                {
                     strong_moves_ids_vector.push_back(pkm_start_move_3[buf8]);
                 }
+                // Gambler Moves
                 if(gambler_luck_moves && cpu_sprite_id[cpu_trainer_id]==0x22){
                     if((move_effect[pkm_start_move_3[buf8]]==0xF && no_evasion_moves==false) || move_effect[pkm_start_move_3[buf8]]==7 || move_effect[pkm_start_move_3[buf8]]==0x24 || move_effect[pkm_start_move_3[buf8]]==0x26 || move_effect[pkm_start_move_3[buf8]]==0x34 || move_effect[pkm_start_move_3[buf8]]==0x43 || (move_effect[pkm_start_move_3[buf8]]==0x46 && move_power[pkm_start_move_3[buf8]]>=65) || move_effect[pkm_start_move_3[buf8]]==0x53 || (pkm_start_move_3[buf8]==95 && no_weak_moves==false)){
                         gambler_moves_ids_vector.push_back(pkm_start_move_3[buf8]);
                     }
-                    else if(move_accuracy[pkm_start_move_3[buf8]]<=0xD8 && move_power[pkm_start_move_3[buf8]]>=100 && (move_type[pkm_start_move_3[buf8]]>8 || pkm_base_atk[buf8]>50 || move_type[pkm_start_move_3[buf8]]==pkm_type_1[buf8] || move_type[pkm_start_move_3[buf8]]==pkm_type_2[buf8])){
+                    else if(move_accuracy[pkm_start_move_3[buf8]]<=0xD8 && move_power[pkm_start_move_3[buf8]]>=100 && (move_type[pkm_start_move_3[buf8]]>8 || pkm_base_atk[buf8]>50 || (move_type[pkm_start_move_3[buf8]]==pkm_type_1[buf8] && pkm_base_atk[buf8]>30) || (move_type[pkm_start_move_3[buf8]]==pkm_type_2[buf8] && pkm_base_atk[buf8]>30))){
                         gambler_moves_ids_vector.push_back(pkm_start_move_3[buf8]);
                     }
                     else if(pkm_start_move_3[buf8]==move_high_ch[0] || pkm_start_move_3[buf8]==move_high_ch[1] || pkm_start_move_3[buf8]==move_high_ch[2] || pkm_start_move_3[buf8]==move_high_ch[3]){
@@ -404,23 +444,34 @@ void MainWindow::randomize_cpu_moves()
                 }
             }
             if(pkm_start_move_4[buf8]>0 && pkm_start_move_4[buf8]<total_move_name){
+                // Dragon Rage in Petit Cup and Pika Cup
                 if(pkm_start_move_4[buf8]==0x52 && no_dragon_rage==false && (cpu_cup_id[cpu_trainer_id]==0 || cpu_cup_id[cpu_trainer_id]==1 || cpu_cup_id[cpu_trainer_id]==22 || cpu_cup_id[cpu_trainer_id]==23)){
                     moves_ids_vector.push_back(pkm_start_move_4[buf8]);
                     strong_moves_ids_vector.push_back(pkm_start_move_4[buf8]);
                 }
-                if(no_weak_moves==false || weak_move[pkm_start_move_4[buf8]]==false){
+                // All moves
+                else if(no_weak_moves==false || weak_move[pkm_start_move_4[buf8]]==false){
                     if(no_useless_moves==false || useless_move[pkm_start_move_4[buf8]]==false){
                         moves_ids_vector.push_back(pkm_start_move_4[buf8]);
                     }
                 }
-                if(strong_move[pkm_start_move_4[buf8]] || (move_type[pkm_start_move_4[buf8]]== pkm_type_1[buf8] && move_power[pkm_start_move_4[buf8]]>=75) || (move_type[pkm_start_move_4[buf8]]== pkm_type_2[buf8] && move_power[pkm_start_move_4[buf8]]>=75)){
+                // Strong moves
+                if(strong_move[pkm_start_move_4[buf8]]
+                        && (move_power[pkm_start_move_4[buf8]]<=1
+                            || move_type[pkm_start_move_4[buf8]]>8
+                            || ((move_type[pkm_start_move_4[buf8]]==pkm_type_1[buf8] || move_type[pkm_start_move_4[buf8]]==pkm_type_2[buf8]) && pkm_base_atk[buf8]>30)
+                            || pkm_base_atk[buf8]>50)
+                        && (move_effect[pkm_start_move_4[buf8]] != 0x50
+                            || ((move_type[pkm_start_move_4[buf8]]==pkm_type_1[buf8] || move_type[pkm_start_move_4[buf8]]==pkm_type_2[buf8]) && pkm_base_atk[buf8]>60)))
+                {
                     strong_moves_ids_vector.push_back(pkm_start_move_4[buf8]);
                 }
+                // Gambler moves
                 if(gambler_luck_moves && cpu_sprite_id[cpu_trainer_id]==0x22){
                     if((move_effect[pkm_start_move_4[buf8]]==0xF && no_evasion_moves==false) || move_effect[pkm_start_move_4[buf8]]==7 || move_effect[pkm_start_move_4[buf8]]==0x24 || move_effect[pkm_start_move_4[buf8]]==0x26 || move_effect[pkm_start_move_4[buf8]]==0x34 || move_effect[pkm_start_move_4[buf8]]==0x43 || (move_effect[pkm_start_move_4[buf8]]==0x46 && move_power[pkm_start_move_4[buf8]]>=65) || move_effect[pkm_start_move_4[buf8]]==0x53 || (pkm_start_move_4[buf8]==95 && no_weak_moves==false)){
                         gambler_moves_ids_vector.push_back(pkm_start_move_4[buf8]);
                     }
-                    else if(move_accuracy[pkm_start_move_4[buf8]]<=0xD8 && move_power[pkm_start_move_4[buf8]]>=100 && (move_type[pkm_start_move_4[buf8]]>8 || pkm_base_atk[buf8]>50 || move_type[pkm_start_move_4[buf8]]==pkm_type_1[buf8] || move_type[pkm_start_move_4[buf8]]==pkm_type_2[buf8])){
+                    else if(move_accuracy[pkm_start_move_4[buf8]]<=0xD8 && move_power[pkm_start_move_4[buf8]]>=100 && (move_type[pkm_start_move_4[buf8]]>8 || pkm_base_atk[buf8]>50 || (move_type[pkm_start_move_4[buf8]]==pkm_type_1[buf8] && pkm_base_atk[buf8]>30) || (move_type[pkm_start_move_4[buf8]]==pkm_type_2[buf8] && pkm_base_atk[buf8]>30))){
                         gambler_moves_ids_vector.push_back(pkm_start_move_4[buf8]);
                     }
                     else if(pkm_start_move_4[buf8]==move_high_ch[0] || pkm_start_move_4[buf8]==move_high_ch[1] || pkm_start_move_4[buf8]==move_high_ch[2] || pkm_start_move_4[buf8]==move_high_ch[3]){
@@ -435,23 +486,34 @@ void MainWindow::randomize_cpu_moves()
                     move_tmhm_flag = (j-1)%8;
                     move_tmhm_byte = (j-1)/8;
                     if((1<<move_tmhm_flag) & pkm_tmhm_flags[buf8][move_tmhm_byte]){
+                        // Dragon Rage in Petit Cup and Pika Cup
                         if(move_tmhm[j]==0x52 && no_dragon_rage==false && (cpu_cup_id[cpu_trainer_id]==0 || cpu_cup_id[cpu_trainer_id]==1 || cpu_cup_id[cpu_trainer_id]==22 || cpu_cup_id[cpu_trainer_id]==23)){
                             moves_ids_vector.push_back(move_tmhm[j]);
                             strong_moves_ids_vector.push_back(move_tmhm[j]);
                         }
-                        if(no_weak_moves==false || weak_move[move_tmhm[j]]==false){
+                        // All moves
+                        else if(no_weak_moves==false || weak_move[move_tmhm[j]]==false){
                             if(no_useless_moves==false || useless_move[move_tmhm[j]]==false){
                                 moves_ids_vector.push_back(move_tmhm[j]);
                             }
                         }
-                        if(strong_move[move_tmhm[j]] || (move_type[move_tmhm[j]]== pkm_type_1[buf8] && move_power[move_tmhm[j]]>=75) || (move_type[move_tmhm[j]]== pkm_type_2[buf8] && move_power[move_tmhm[j]]>=75)){
+                        // Strong moves
+                        if(strong_move[move_tmhm[j]]
+                                && (move_power[move_tmhm[j]]<=1
+                                    || move_type[move_tmhm[j]]>8
+                                    || ((move_type[move_tmhm[j]]==pkm_type_1[buf8] || move_type[move_tmhm[j]]==pkm_type_2[buf8]) && pkm_base_atk[buf8]>30)
+                                    || pkm_base_atk[buf8]>50)
+                                && (move_effect[move_tmhm[j]] != 0x50
+                                    || ((move_type[move_tmhm[j]]==pkm_type_1[buf8] || move_type[move_tmhm[j]]==pkm_type_2[buf8]) && pkm_base_atk[buf8]>60)))
+                        {
                             strong_moves_ids_vector.push_back(move_tmhm[j]);
                         }
+                        // Gambler moves
                         if(gambler_luck_moves && cpu_sprite_id[cpu_trainer_id]==0x22){
                             if((move_effect[move_tmhm[j]]==0xF && no_evasion_moves==false) || move_effect[move_tmhm[j]]==7 || move_effect[move_tmhm[j]]==0x24 || move_effect[move_tmhm[j]]==0x26 || move_effect[move_tmhm[j]]==0x34 || move_effect[move_tmhm[j]]==0x43 || (move_effect[move_tmhm[j]]==0x46 && move_power[move_tmhm[j]]>=65) || move_effect[move_tmhm[j]]==0x53 || (move_tmhm[j]==95 && no_weak_moves==false)){
                                 gambler_moves_ids_vector.push_back(move_tmhm[j]);
                             }
-                            else if(move_accuracy[move_tmhm[j]]<=0xD8 && move_power[move_tmhm[j]]>=100 && (move_type[move_tmhm[j]]>8 || pkm_base_atk[buf8]>50 || move_type[move_tmhm[j]]==pkm_type_1[buf8] || move_type[move_tmhm[j]]==pkm_type_2[buf8])){
+                            else if(move_accuracy[move_tmhm[j]]<=0xD8 && move_power[move_tmhm[j]]>=100 && (move_type[move_tmhm[j]]>8 || pkm_base_atk[buf8]>50 || (move_type[move_tmhm[j]]==pkm_type_1[buf8] && pkm_base_atk[buf8]>30) || (move_type[move_tmhm[j]]==pkm_type_2[buf8] && pkm_base_atk[buf8]>30))){
                                 gambler_moves_ids_vector.push_back(move_tmhm[j]);
                             }
                             else if(move_tmhm[j]==move_high_ch[0] || move_tmhm[j]==move_high_ch[1] || move_tmhm[j]==move_high_ch[2] || move_tmhm[j]==move_high_ch[3]){
@@ -465,23 +527,34 @@ void MainWindow::randomize_cpu_moves()
             // Level-up Moves
             for(short j=0;j<10;j++){
                 if(pkm_rb_move[buf8][j]>0 && pkm_rb_move[buf8][j]<total_move_name && pkm_rb_lvl[buf8][j]<=cpu_pkm_level[cpu_trainer_id][i]){
+                    // Dragon Rage in Petit Cup and Pika Cup
                     if(pkm_rb_move[buf8][j]==0x52 && no_dragon_rage==false && (cpu_cup_id[cpu_trainer_id]==0 || cpu_cup_id[cpu_trainer_id]==1 || cpu_cup_id[cpu_trainer_id]==22 || cpu_cup_id[cpu_trainer_id]==23)){
                         moves_ids_vector.push_back(pkm_rb_move[buf8][j]);
                         strong_moves_ids_vector.push_back(pkm_rb_move[buf8][j]);
                     }
-                    if(no_weak_moves==false || weak_move[pkm_rb_move[buf8][j]]==false){
+                    // All moves
+                    else if(no_weak_moves==false || weak_move[pkm_rb_move[buf8][j]]==false){
                         if(no_useless_moves==false || useless_move[pkm_rb_move[buf8][j]]==false){
                             moves_ids_vector.push_back(pkm_rb_move[buf8][j]);
                         }
                     }
-                    if(strong_move[pkm_rb_move[buf8][j]] || (move_type[pkm_rb_move[buf8][j]]== pkm_type_1[buf8] && move_power[pkm_rb_move[buf8][j]]>=75) || (move_type[pkm_rb_move[buf8][j]]== pkm_type_2[buf8] && move_power[pkm_rb_move[buf8][j]]>=75)){
+                    // Strong moves
+                    if(strong_move[pkm_rb_move[buf8][j]]
+                            && (move_power[pkm_rb_move[buf8][j]]<=1
+                                || move_type[pkm_rb_move[buf8][j]]>8
+                                || ((move_type[pkm_rb_move[buf8][j]]==pkm_type_1[buf8] || move_type[pkm_rb_move[buf8][j]]==pkm_type_2[buf8]) && pkm_base_atk[buf8]>30)
+                                || pkm_base_atk[buf8]>50)
+                            && (move_effect[pkm_rb_move[buf8][j]] != 0x50
+                                || ((move_type[pkm_rb_move[buf8][j]]==pkm_type_1[buf8] || move_type[pkm_rb_move[buf8][j]]==pkm_type_2[buf8]) && pkm_base_atk[buf8]>60)))
+                    {
                         strong_moves_ids_vector.push_back(pkm_rb_move[buf8][j]);
                     }
+                    // Gambler moves
                     if(gambler_luck_moves && cpu_sprite_id[cpu_trainer_id]==0x22){
                         if((move_effect[pkm_rb_move[buf8][j]]==0xF && no_evasion_moves==false) || move_effect[pkm_rb_move[buf8][j]]==7 || move_effect[pkm_rb_move[buf8][j]]==0x24 || move_effect[pkm_rb_move[buf8][j]]==0x26 || move_effect[pkm_rb_move[buf8][j]]==0x34 || move_effect[pkm_rb_move[buf8][j]]==0x43 || (move_effect[pkm_rb_move[buf8][j]]==0x46 && move_power[pkm_rb_move[buf8][j]]>=65) || move_effect[pkm_rb_move[buf8][j]]==0x53 || (pkm_rb_move[buf8][j]==95 && no_weak_moves==false)){
                             gambler_moves_ids_vector.push_back(pkm_rb_move[buf8][j]);
                         }
-                        else if(move_accuracy[pkm_rb_move[buf8][j]]<=0xD8 && move_power[pkm_rb_move[buf8][j]]>=100 && (move_type[pkm_rb_move[buf8][j]]>8 || pkm_base_atk[buf8]>50 || move_type[pkm_rb_move[buf8][j]]==pkm_type_1[buf8] || move_type[pkm_rb_move[buf8][j]]==pkm_type_2[buf8])){
+                        else if(move_accuracy[pkm_rb_move[buf8][j]]<=0xD8 && move_power[pkm_rb_move[buf8][j]]>=100 && (move_type[pkm_rb_move[buf8][j]]>8 || pkm_base_atk[buf8]>50 || (move_type[pkm_rb_move[buf8][j]]==pkm_type_1[buf8] && pkm_base_atk[buf8]>30) || (move_type[pkm_rb_move[buf8][j]]==pkm_type_2[buf8] && pkm_base_atk[buf8]>30))){
                             gambler_moves_ids_vector.push_back(pkm_rb_move[buf8][j]);
                         }
                         else if(pkm_rb_move[buf8][j]==move_high_ch[0] || pkm_rb_move[buf8][j]==move_high_ch[1] || pkm_rb_move[buf8][j]==move_high_ch[2] || pkm_rb_move[buf8][j]==move_high_ch[3]){
@@ -490,23 +563,34 @@ void MainWindow::randomize_cpu_moves()
                     }
                 }
                 if(pkm_y_move[buf8][j]>0 && pkm_y_move[buf8][j]<total_move_name && pkm_y_lvl[buf8][j]<=cpu_pkm_level[cpu_trainer_id][i]){
+                    // Dragon Rage in Petit Cup and Pika Cup
                     if(pkm_y_move[buf8][j]==0x52 && no_dragon_rage==false && (cpu_cup_id[cpu_trainer_id]==0 || cpu_cup_id[cpu_trainer_id]==1 || cpu_cup_id[cpu_trainer_id]==22 || cpu_cup_id[cpu_trainer_id]==23)){
                         moves_ids_vector.push_back(pkm_y_move[buf8][j]);
                         strong_moves_ids_vector.push_back(pkm_y_move[buf8][j]);
                     }
-                    if(no_weak_moves==false || weak_move[pkm_y_move[buf8][j]]==false){
+                    // All moves
+                    else if(no_weak_moves==false || weak_move[pkm_y_move[buf8][j]]==false){
                         if(no_useless_moves==false || useless_move[pkm_y_move[buf8][j]]==false){
                             moves_ids_vector.push_back(pkm_y_move[buf8][j]);
                         }
                     }
-                    if(strong_move[pkm_y_move[buf8][j]] || (move_type[pkm_y_move[buf8][j]]== pkm_type_1[buf8] && move_power[pkm_y_move[buf8][j]]>=75) || (move_type[pkm_y_move[buf8][j]]== pkm_type_2[buf8] && move_power[pkm_y_move[buf8][j]]>=75)){
+                    // Strong moves
+                    if(strong_move[pkm_y_move[buf8][j]]
+                            && (move_power[pkm_y_move[buf8][j]]<=1
+                                || move_type[pkm_y_move[buf8][j]]>8
+                                || ((move_type[pkm_y_move[buf8][j]]==pkm_type_1[buf8] || move_type[pkm_y_move[buf8][j]]==pkm_type_2[buf8]) && pkm_base_atk[buf8]>30)
+                                || pkm_base_atk[buf8]>50)
+                            && (move_effect[pkm_y_move[buf8][j]] != 0x50
+                                || ((move_type[pkm_y_move[buf8][j]]==pkm_type_1[buf8] || move_type[pkm_y_move[buf8][j]]==pkm_type_2[buf8]) && pkm_base_atk[buf8]>60)))
+                    {
                         strong_moves_ids_vector.push_back(pkm_y_move[buf8][j]);
                     }
+                    // Gambler moves
                     if(gambler_luck_moves && cpu_sprite_id[cpu_trainer_id]==0x22){
                         if((move_effect[pkm_y_move[buf8][j]]==0xF && no_evasion_moves==false) || move_effect[pkm_y_move[buf8][j]]==7 || move_effect[pkm_y_move[buf8][j]]==0x24 || move_effect[pkm_y_move[buf8][j]]==0x26 || move_effect[pkm_y_move[buf8][j]]==0x34 || move_effect[pkm_y_move[buf8][j]]==0x43 || (move_effect[pkm_y_move[buf8][j]]==0x46 && move_power[pkm_y_move[buf8][j]]>=65) || move_effect[pkm_y_move[buf8][j]]==0x53 || (pkm_y_move[buf8][j]==95 && no_weak_moves==false)){
                             gambler_moves_ids_vector.push_back(pkm_y_move[buf8][j]);
                         }
-                        else if(move_accuracy[pkm_y_move[buf8][j]]<=0xD8 && move_power[pkm_y_move[buf8][j]]>=100 && (move_type[pkm_y_move[buf8][j]]>8 || pkm_base_atk[buf8]>50 || move_type[pkm_y_move[buf8][j]]==pkm_type_1[buf8] || move_type[pkm_y_move[buf8][j]]==pkm_type_2[buf8])){
+                        else if(move_accuracy[pkm_y_move[buf8][j]]<=0xD8 && move_power[pkm_y_move[buf8][j]]>=100 && (move_type[pkm_y_move[buf8][j]]>8 || pkm_base_atk[buf8]>50 || (move_type[pkm_y_move[buf8][j]]==pkm_type_1[buf8] && pkm_base_atk[buf8]>30) || (move_type[pkm_y_move[buf8][j]]==pkm_type_2[buf8] && pkm_base_atk[buf8]>30))){
                             gambler_moves_ids_vector.push_back(pkm_y_move[buf8][j]);
                         }
                         else if(pkm_y_move[buf8][j]==move_high_ch[0] || pkm_y_move[buf8][j]==move_high_ch[1] || pkm_y_move[buf8][j]==move_high_ch[2] || pkm_y_move[buf8][j]==move_high_ch[3]){
@@ -554,7 +638,41 @@ void MainWindow::randomize_cpu_moves()
                 if(gambler_moves_ids_vector.size()>3) cpu_pkm_move_4[cpu_trainer_id][i] = gambler_moves_ids_vector[3];
                 else cpu_pkm_move_4[cpu_trainer_id][i] = 0;
             }
-            else if(cpu_trainer_id==7 || cpu_trainer_id==15 || cpu_trainer_id==47 || cpu_trainer_id==71 || cpu_trainer_id==79 || cpu_trainer_id==133 || cpu_trainer_id==141 || cpu_trainer_id==173 || cpu_trainer_id==197 || cpu_trainer_id==205 || cpu_cup_id[cpu_trainer_id]==18 || cpu_cup_id[cpu_trainer_id]==19 || cpu_cup_id[cpu_trainer_id]==20 || cpu_cup_id[cpu_trainer_id]==40 || cpu_cup_id[cpu_trainer_id]==41 || cpu_cup_id[cpu_trainer_id]==42){
+            else if(cpu_trainer_id==7
+                    || cpu_trainer_id==15
+                    || cpu_trainer_id==39
+                    || cpu_trainer_id==47
+                    || cpu_trainer_id==71
+                    || cpu_trainer_id==79
+                    || cpu_trainer_id==83
+                    || cpu_trainer_id==87
+                    || cpu_trainer_id==91
+                    || cpu_trainer_id==95
+                    || cpu_trainer_id==99
+                    || cpu_trainer_id==103
+                    || cpu_trainer_id==107
+                    || cpu_trainer_id==111
+                    || cpu_trainer_id==133
+                    || cpu_trainer_id==141
+                    || cpu_trainer_id==165
+                    || cpu_trainer_id==173
+                    || cpu_trainer_id==197
+                    || cpu_trainer_id==205
+                    || cpu_trainer_id==209
+                    || cpu_trainer_id==213
+                    || cpu_trainer_id==217
+                    || cpu_trainer_id==221
+                    || cpu_trainer_id==225
+                    || cpu_trainer_id==229
+                    || cpu_trainer_id==233
+                    || cpu_trainer_id==237
+                    || cpu_cup_id[cpu_trainer_id]==18
+                    || cpu_cup_id[cpu_trainer_id]==19
+                    || cpu_cup_id[cpu_trainer_id]==20
+                    || cpu_cup_id[cpu_trainer_id]==40
+                    || cpu_cup_id[cpu_trainer_id]==41
+                    || cpu_cup_id[cpu_trainer_id]==42)
+            {
                 if(strong_moves_ids_vector.size()>0) cpu_pkm_move_1[cpu_trainer_id][i] = strong_moves_ids_vector[0];
                 else if(moves_ids_vector.size()>0) cpu_pkm_move_1[cpu_trainer_id][i] = moves_ids_vector[0];
                 else if(pkm_start_move_1[buf8] != 0 && pkm_start_move_1[buf8] < total_move_name){
@@ -605,6 +723,7 @@ void MainWindow::randomize_cpu_pkmn()
 
     bool strong_pkm_finals = ui->checkBox_Randomizer_CPU_StrongPkmnFinal->isChecked();
     bool gambler_luck_moves = ui->checkBox_Randomizer_CPU_GamblerMoves->isChecked();
+    bool gym_leaders_pokemon = ui->checkBox_Randomizer_CPU_GLPkmn->isChecked();
 
 
     // CPU Teams generation
@@ -753,8 +872,8 @@ void MainWindow::randomize_cpu_pkmn()
                 quint8 offset_vector_pkm = 0;
 
                 // Prime Cup Final (Mew check)
-                if(cpu_trainer_id==47 || cpu_trainer_id==173){
-                    if(i==0 && ui->checkBox_Randomizer_CPU_MewPrimeCup->isChecked()){
+                if(cpu_trainer_id==39 || cpu_trainer_id==47 || cpu_trainer_id==165 || cpu_trainer_id==173){
+                    if((cpu_trainer_id==47 || cpu_trainer_id==173) && i==0 && ui->checkBox_Randomizer_CPU_MewPrimeCup->isChecked()){
                         cpu_pkm_id[cpu_trainer_id][i] = 151;
                         cpu_pkm_nickname[cpu_trainer_id][i] = pkm_name[151];
                     }
@@ -886,7 +1005,27 @@ void MainWindow::randomize_cpu_pkmn()
                 quint8 offset_vector_pkm = 0;
 
                 // Gym Leaders / Elite 4 / Rival
-                if((cpu_cup_id[cpu_trainer_id]==18 || cpu_cup_id[cpu_trainer_id]==19 || cpu_cup_id[cpu_trainer_id]>=40) && strong_pkm_finals){
+                if((cpu_cup_id[cpu_trainer_id]==18
+                        || cpu_cup_id[cpu_trainer_id]==19
+                        || cpu_cup_id[cpu_trainer_id]==40
+                        || cpu_cup_id[cpu_trainer_id]==41
+                        || cpu_trainer_id==83
+                        || cpu_trainer_id==87
+                        || cpu_trainer_id==91
+                        || cpu_trainer_id==95
+                        || cpu_trainer_id==99
+                        || cpu_trainer_id==103
+                        || cpu_trainer_id==107
+                        || cpu_trainer_id==111
+                        || cpu_trainer_id==209
+                        || cpu_trainer_id==213
+                        || cpu_trainer_id==217
+                        || cpu_trainer_id==221
+                        || cpu_trainer_id==225
+                        || cpu_trainer_id==229
+                        || cpu_trainer_id==233
+                        || cpu_trainer_id==237)
+                    && strong_pkm_finals){
                     while(cpu_pkm_level[cpu_trainer_id][i]<pkm_min_level[pkm_ids_vector_primecup_toptier[i+offset_vector_pkm]] && (i+offset_vector_pkm < pkm_ids_vector_primecup_toptier.size())){
                         offset_vector_pkm++;
                     }
