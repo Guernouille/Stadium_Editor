@@ -205,6 +205,12 @@ public:
 private:
     Ui::MainWindow *ui;
 
+    // randomizer
+    void randomize_init_pkmn();
+    void randomize_cpu_level(std::mt19937 &mt_rand);
+    void randomize_cpu_moves(std::mt19937 &mt_rand);
+    void randomize_cpu_pkmn(std::mt19937 &mt_rand);
+
 private slots:
     // romfile
     void on_actionOpen_triggered();
@@ -382,12 +388,6 @@ private slots:
     void read_pokedex_data(QFile &romfile);
     void read_tmhm_data(QFile &romfile);
     void read_type_names(QFile &romfile);
-
-    // randomizer
-    void randomize_init_pkmn();
-    void randomize_cpu_level();
-    void randomize_cpu_moves();
-    void randomize_cpu_pkmn();
 
     // prng
     void prng_seeds();
