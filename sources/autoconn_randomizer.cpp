@@ -1,31 +1,49 @@
 #include "mainwindow.h"
 
+// Max PPs
 void MainWindow::on_checkBox_Randomizer_Rental_MaxPPUps_stateChanged(int state){
     if(state == Qt::Checked){
         ui->checkBox_Randomizer_Rental_NoPPUps->setChecked(false);
     }
 }
+// Min PPs
 void MainWindow::on_checkBox_Randomizer_Rental_NoPPUps_stateChanged(int state){
     if(state == Qt::Checked){
         ui->checkBox_Randomizer_Rental_MaxPPUps->setChecked(false);
     }
 }
 
+
+// Randomize (CPU)
 void MainWindow::on_pushButton_Randomize_CPU_Teams_pressed(){
+    std::seed_seq seeds{prng_seed[0], prng_seed[1], prng_seed[2], prng_seed[3], prng_seed[4], prng_seed[5]};
+    std::mt19937 mt_rand(seeds);
+
     if(ui->checkBox_Randomize_CPU_Levels->isChecked()){
-        randomize_cpu_level();
+        randomize_cpu_level(mt_rand);
     }
 
     if(ui->checkBox_Randomize_CPU_Pkmn->isChecked()){
         randomize_init_pkmn();
-        randomize_cpu_pkmn();
+        randomize_cpu_pkmn(mt_rand);
     }
 
     if(ui->checkBox_Randomize_CPU_Moves->isChecked()){
-        randomize_cpu_moves();
+        randomize_cpu_moves(mt_rand);
+    }
+
+    if(ui->checkBox_FixedSeeds->isChecked()==false){
+        prng_seed[0] = mt_rand();
+        prng_seed[1] = mt_rand();
+        prng_seed[2] = mt_rand();
+        prng_seed[3] = mt_rand();
+        prng_seed[4] = mt_rand();
+        prng_seed[5] = mt_rand();
     }
 }
 
+
+// Full Metronome (CPU)
 void MainWindow::on_pushButton_CPU_Metronome_pressed(){
     for(short i=0;i<256;i++){
         for(short j=0;j<6;j++){
@@ -62,6 +80,7 @@ void MainWindow::on_pushButton_CPU_Metronome_pressed(){
 }
 
 
+// Full Metronome (Rentals)
 void MainWindow::on_pushButton_Rental_Metronome_pressed(){
     for(short i=0;i<1024;i++){
         rental_pkm_move_1[i] = 0x76;
@@ -97,6 +116,7 @@ void MainWindow::on_pushButton_Rental_Metronome_pressed(){
 }
 
 
+// Max EVs IVs (CPU)
 void MainWindow::on_pushButton_Maximize_CPU_EVsIVs_pressed(){
     for(short i=0;i<256;i++){
         for(short j=0;j<6;j++){
@@ -177,6 +197,7 @@ void MainWindow::on_pushButton_Maximize_CPU_EVsIVs_pressed(){
 }
 
 
+// Max EVs IVs (Rentals)
 void MainWindow::on_pushButton_Maximize_Rental_EVsIVs_pressed(){
     for(short i=0;i<1024;i++){
         rental_pkm_ev_hp[i] = 0xFFFF;
