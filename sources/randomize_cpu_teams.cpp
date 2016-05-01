@@ -167,6 +167,7 @@ void MainWindow::randomize_init_pkmn(){
     pkm_ids_vector_vs_mewtwo_toptier.assign(pkm_list_vs_mewtwo_toptier,pkm_list_vs_mewtwo_toptier+(sizeof(pkm_list_vs_mewtwo_toptier)/sizeof(*pkm_list_vs_mewtwo_toptier)));
 }
 
+
 void MainWindow::randomize_cpu_level(std::mt19937 &mt_rand)
 {
     // PRNG
@@ -309,7 +310,7 @@ void MainWindow::randomize_cpu_level(std::mt19937 &mt_rand)
                 // Koga
                 if(cpu_trainer_id==99 || cpu_trainer_id==225){
                     if((prng_seed[2]+(cpu_trainer_id/200))%2==0)
-                        cpu_pkm_level[cpu_trainer_id][0] = 54;
+                        cpu_pkm_level[cpu_trainer_id][0] = 55;
                     else
                         cpu_pkm_level[cpu_trainer_id][0] = 52;
                     cpu_pkm_level[cpu_trainer_id][1] = 54;
@@ -422,6 +423,7 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
     bool have_stab_move = ui->checkBox_Randomizer_CPU_STABMove->isChecked();
     bool gambler_luck_moves = ui->checkBox_Randomizer_CPU_GamblerMoves->isChecked();
     bool gym_leaders_pokemon = ui->checkBox_Randomizer_CPU_GLPkmn->isChecked();
+    bool has_explosion = false;
 
     for(short cpu_trainer_id=0;cpu_trainer_id<current_cpu_trainers_number;cpu_trainer_id++){
         for(unsigned short i=0;i<cpu_party_size[cpu_trainer_id];i++){
@@ -432,6 +434,8 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
 
             // Starting Moves
             if(pkm_start_move_1[buf8]>0 && pkm_start_move_1[buf8]<total_move_name){
+                // Explosion check
+                if(pkm_start_move_1[buf8]==0x99) has_explosion = true;
                 // Dragon Rage in Petit Cup and Pika Cup
                 if(pkm_start_move_1[buf8]==0x52 && no_dragon_rage==false && (cpu_cup_id[cpu_trainer_id]==0 || cpu_cup_id[cpu_trainer_id]==1 || cpu_cup_id[cpu_trainer_id]==22 || cpu_cup_id[cpu_trainer_id]==23)){
                     moves_ids_vector.push_back(pkm_start_move_1[buf8]);
@@ -475,6 +479,8 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
                 }
             }
             if(pkm_start_move_2[buf8]>0 && pkm_start_move_2[buf8]<total_move_name){
+                // Explosion check
+                if(pkm_start_move_2[buf8]==0x99) has_explosion = true;
                 // Dragon Rage in Petit Cup and Pika Cup
                 if(pkm_start_move_2[buf8]==0x52 && no_dragon_rage==false && (cpu_cup_id[cpu_trainer_id]==0 || cpu_cup_id[cpu_trainer_id]==1 || cpu_cup_id[cpu_trainer_id]==22 || cpu_cup_id[cpu_trainer_id]==23)){
                     moves_ids_vector.push_back(pkm_start_move_2[buf8]);
@@ -510,6 +516,8 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
                 }
             }
             if(pkm_start_move_3[buf8]>0 && pkm_start_move_3[buf8]<total_move_name){
+                // Explosion check
+                if(pkm_start_move_3[buf8]==0x99) has_explosion = true;
                 // Dragon Rage in Petit Cup and Pika Cup
                 if(pkm_start_move_3[buf8]==0x52 && no_dragon_rage==false && (cpu_cup_id[cpu_trainer_id]==0 || cpu_cup_id[cpu_trainer_id]==1 || cpu_cup_id[cpu_trainer_id]==22 || cpu_cup_id[cpu_trainer_id]==23)){
                     moves_ids_vector.push_back(pkm_start_move_3[buf8]);
@@ -546,6 +554,8 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
                 }
             }
             if(pkm_start_move_4[buf8]>0 && pkm_start_move_4[buf8]<total_move_name){
+                // Explosion check
+                if(pkm_start_move_4[buf8]==0x99) has_explosion = true;
                 // Dragon Rage in Petit Cup and Pika Cup
                 if(pkm_start_move_4[buf8]==0x52 && no_dragon_rage==false && (cpu_cup_id[cpu_trainer_id]==0 || cpu_cup_id[cpu_trainer_id]==1 || cpu_cup_id[cpu_trainer_id]==22 || cpu_cup_id[cpu_trainer_id]==23)){
                     moves_ids_vector.push_back(pkm_start_move_4[buf8]);
@@ -588,6 +598,8 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
                     move_tmhm_flag = (j-1)%8;
                     move_tmhm_byte = (j-1)/8;
                     if((1<<move_tmhm_flag) & pkm_tmhm_flags[buf8][move_tmhm_byte]){
+                        // Explosion check
+                        if(move_tmhm[j]==0x99) has_explosion = true;
                         // Dragon Rage in Petit Cup and Pika Cup
                         if(move_tmhm[j]==0x52 && no_dragon_rage==false && (cpu_cup_id[cpu_trainer_id]==0 || cpu_cup_id[cpu_trainer_id]==1 || cpu_cup_id[cpu_trainer_id]==22 || cpu_cup_id[cpu_trainer_id]==23)){
                             moves_ids_vector.push_back(move_tmhm[j]);
@@ -629,6 +641,8 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
             // Level-up Moves
             for(short j=0;j<10;j++){
                 if(pkm_rb_move[buf8][j]>0 && pkm_rb_move[buf8][j]<total_move_name && pkm_rb_lvl[buf8][j]<=cpu_pkm_level[cpu_trainer_id][i]){
+                    // Explosion check
+                    if(pkm_rb_move[buf8][j]==0x99) has_explosion = true;
                     // Dragon Rage in Petit Cup and Pika Cup
                     if(pkm_rb_move[buf8][j]==0x52 && no_dragon_rage==false && (cpu_cup_id[cpu_trainer_id]==0 || cpu_cup_id[cpu_trainer_id]==1 || cpu_cup_id[cpu_trainer_id]==22 || cpu_cup_id[cpu_trainer_id]==23)){
                         moves_ids_vector.push_back(pkm_rb_move[buf8][j]);
@@ -665,6 +679,8 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
                     }
                 }
                 if(pkm_y_move[buf8][j]>0 && pkm_y_move[buf8][j]<total_move_name && pkm_y_lvl[buf8][j]<=cpu_pkm_level[cpu_trainer_id][i]){
+                    // Explosion check
+                    if(pkm_y_move[buf8][j]==0x99) has_explosion = true;
                     // Dragon Rage in Petit Cup and Pika Cup
                     if(pkm_y_move[buf8][j]==0x52 && no_dragon_rage==false && (cpu_cup_id[cpu_trainer_id]==0 || cpu_cup_id[cpu_trainer_id]==1 || cpu_cup_id[cpu_trainer_id]==22 || cpu_cup_id[cpu_trainer_id]==23)){
                         moves_ids_vector.push_back(pkm_y_move[buf8][j]);
@@ -721,13 +737,20 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
 
 
             // Randomize Pokémon Moves
-            // TO DO: Force offensive move / STAB move
+            // TO DO: Force offensive move / STAB move / Gym Leaders moves
             if(moves_ids_vector.size()>0) std::shuffle(moves_ids_vector.begin(), moves_ids_vector.end(), mt_rand);
             if(strong_moves_ids_vector.size()>0) std::shuffle(strong_moves_ids_vector.begin(), strong_moves_ids_vector.end(), mt_rand);
             if(gambler_moves_ids_vector.size()>0) std::shuffle(gambler_moves_ids_vector.begin(), gambler_moves_ids_vector.end(), mt_rand);
 
             if(gambler_luck_moves && cpu_sprite_id[cpu_trainer_id]==0x22){
-                if(gambler_moves_ids_vector.size()>0) cpu_pkm_move_1[cpu_trainer_id][i] = gambler_moves_ids_vector[0];
+                if(gambler_moves_ids_vector.size()>0){
+                    if(gambler_moves_ids_vector[0]!=0x78 || has_explosion==false){
+                        cpu_pkm_move_1[cpu_trainer_id][i] = gambler_moves_ids_vector[0];
+                    }
+                    else{
+                        cpu_pkm_move_1[cpu_trainer_id][i] = 0x99;
+                    }
+                }
                 else if(moves_ids_vector.size()>0) cpu_pkm_move_1[cpu_trainer_id][i] = moves_ids_vector[0];
                 else if(pkm_start_move_1[buf8] != 0 && pkm_start_move_1[buf8] < total_move_name){
                      cpu_pkm_move_1[cpu_trainer_id][i] = pkm_start_move_1[buf8];
@@ -739,6 +762,375 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
                 else cpu_pkm_move_3[cpu_trainer_id][i] = 0;
                 if(gambler_moves_ids_vector.size()>3) cpu_pkm_move_4[cpu_trainer_id][i] = gambler_moves_ids_vector[3];
                 else cpu_pkm_move_4[cpu_trainer_id][i] = 0;
+            }
+            else if(gym_leaders_pokemon
+                    && (((cpu_cup_id[cpu_trainer_id]==18
+                       || cpu_cup_id[cpu_trainer_id]==19
+                       || cpu_cup_id[cpu_trainer_id]==40
+                       || cpu_cup_id[cpu_trainer_id]==41
+                       || cpu_trainer_id==83
+                       || cpu_trainer_id==87
+                       || cpu_trainer_id==91
+                       || cpu_trainer_id==95
+                       || cpu_trainer_id==99
+                       || cpu_trainer_id==103
+                       || cpu_trainer_id==107
+                       || cpu_trainer_id==111
+                       || cpu_trainer_id==209
+                       || cpu_trainer_id==213
+                       || cpu_trainer_id==217
+                       || cpu_trainer_id==221
+                       || cpu_trainer_id==225
+                       || cpu_trainer_id==229
+                       || cpu_trainer_id==233
+                       || cpu_trainer_id==237)
+                        && i<3)
+                    || ((cpu_trainer_id==87 || cpu_trainer_id==213) && i<4))){
+                // Only needs to be set once
+                if(i==0){
+                    // Brock
+                    if(cpu_trainer_id==83 || cpu_trainer_id==209){
+                        cpu_pkm_move_1[cpu_trainer_id][0] = 0x99;
+                        cpu_pkm_move_2[cpu_trainer_id][0] = 0x59;
+                        cpu_pkm_move_3[cpu_trainer_id][0] = 0x9D;
+                        cpu_pkm_move_4[cpu_trainer_id][0] = 0x22;
+                        cpu_pkm_move_1[cpu_trainer_id][1] = 0x7E;
+                        cpu_pkm_move_2[cpu_trainer_id][1] = 0x6D;
+                        cpu_pkm_move_3[cpu_trainer_id][1] = 0x90;
+                        cpu_pkm_move_4[cpu_trainer_id][1] = 0x73;
+                        cpu_pkm_move_1[cpu_trainer_id][2] = 0x7C;
+                        cpu_pkm_move_2[cpu_trainer_id][2] = 0x48;
+                        cpu_pkm_move_3[cpu_trainer_id][2] = 0x26;
+                        cpu_pkm_move_4[cpu_trainer_id][2] = 0x6D;
+                    }
+                    // Misty
+                    if(cpu_trainer_id==87 || cpu_trainer_id==213){
+                        cpu_pkm_move_1[cpu_trainer_id][0] = 0x39;
+                        cpu_pkm_move_2[cpu_trainer_id][0] = 0x5E;
+                        cpu_pkm_move_3[cpu_trainer_id][0] = 0x85;
+                        if(mt_rand()%2==0) cpu_pkm_move_4[cpu_trainer_id][0] = 0x9C;
+                        else cpu_pkm_move_4[cpu_trainer_id][0] = 0x3A;
+                        cpu_pkm_move_1[cpu_trainer_id][1] = 0x39;
+                        if(mt_rand()%8<=1) cpu_pkm_move_2[cpu_trainer_id][1] = 0x3A;
+                        else if(mt_rand()%8<=4) cpu_pkm_move_2[cpu_trainer_id][1] = 0x5E;
+                        else cpu_pkm_move_2[cpu_trainer_id][1] = 0x55;
+                        cpu_pkm_move_3[cpu_trainer_id][1] = 0x56;
+                        cpu_pkm_move_4[cpu_trainer_id][1] = 0x69;
+                        cpu_pkm_move_1[cpu_trainer_id][2] = 0x3B;
+                        cpu_pkm_move_2[cpu_trainer_id][2] = 0x55;
+                        cpu_pkm_move_3[cpu_trainer_id][2] = 0x22;
+                        cpu_pkm_move_4[cpu_trainer_id][2] = 0x6D;
+                        cpu_pkm_move_1[cpu_trainer_id][3] = 0x39;
+                        cpu_pkm_move_2[cpu_trainer_id][3] = 0x55;
+                        cpu_pkm_move_3[cpu_trainer_id][3] = 0x22;
+                        cpu_pkm_move_4[cpu_trainer_id][3] = 0x56;
+                    }
+                    // Lt. Surge
+                    if(cpu_trainer_id==91 || cpu_trainer_id==217){
+                        cpu_pkm_move_1[cpu_trainer_id][0] = 0x55;
+                        cpu_pkm_move_2[cpu_trainer_id][0] = 0x39;
+                        cpu_pkm_move_3[cpu_trainer_id][0] = 0x56;
+                        cpu_pkm_move_4[cpu_trainer_id][0] = 0x19;
+                        cpu_pkm_move_1[cpu_trainer_id][1] = 0x55;
+                        cpu_pkm_move_2[cpu_trainer_id][1] = 0x41;
+                        cpu_pkm_move_3[cpu_trainer_id][1] = 0x56;
+                        cpu_pkm_move_4[cpu_trainer_id][1] = 0x73;
+                        cpu_pkm_move_1[cpu_trainer_id][2] = 0x55;
+                        cpu_pkm_move_2[cpu_trainer_id][2] = 0x5E;
+                        cpu_pkm_move_3[cpu_trainer_id][2] = 0x56;
+                        cpu_pkm_move_4[cpu_trainer_id][2] = 0x19;
+                    }
+                    // Erika
+                    if(cpu_trainer_id==95 || cpu_trainer_id==221){
+                        if((prng_seed[0]+(cpu_trainer_id/200))%2==0){
+                            cpu_pkm_move_1[cpu_trainer_id][0] = 0x4F;
+                            cpu_pkm_move_2[cpu_trainer_id][0] = 0x0E;
+                            if(mt_rand()%2==0) cpu_pkm_move_3[cpu_trainer_id][0] = 0x50;
+                            else cpu_pkm_move_3[cpu_trainer_id][0] = 0x48;
+                            cpu_pkm_move_4[cpu_trainer_id][0] = 0x22;
+                        }
+                        else{
+                            cpu_pkm_move_1[cpu_trainer_id][0] = 0x4F;
+                            cpu_pkm_move_2[cpu_trainer_id][0] = 0x0E;
+                            cpu_pkm_move_3[cpu_trainer_id][0] = 0x4B;
+                            if(mt_rand()%2==0) cpu_pkm_move_4[cpu_trainer_id][0] = 0x22;
+                            else cpu_pkm_move_4[cpu_trainer_id][0] = 0x33;
+                        }
+                        if((prng_seed[1]+(cpu_trainer_id/200))%2==0){
+                            if(mt_rand()%2==0) cpu_pkm_move_1[cpu_trainer_id][1] = 0x4F;
+                            else cpu_pkm_move_1[cpu_trainer_id][1] = 0x4E;
+                            cpu_pkm_move_2[cpu_trainer_id][1] = 0x5E;
+                            if(mt_rand()%2==0) cpu_pkm_move_3[cpu_trainer_id][1] = 0x48;
+                            else  cpu_pkm_move_3[cpu_trainer_id][1] = 0x26;
+                            cpu_pkm_move_4[cpu_trainer_id][1] = 0x99;
+                        }
+                        else{
+                            cpu_pkm_move_1[cpu_trainer_id][1] = 0x4F;
+                            cpu_pkm_move_2[cpu_trainer_id][1] = 0x4E;
+                            cpu_pkm_move_3[cpu_trainer_id][1] = 0x48;
+                            cpu_pkm_move_4[cpu_trainer_id][1] = 0x4A;
+                        }
+                        if((prng_seed[5]+(cpu_trainer_id/200))%3<=1){
+                            cpu_pkm_move_1[cpu_trainer_id][2] = 0x22;
+                            cpu_pkm_move_2[cpu_trainer_id][2] = 0x55;
+                            cpu_pkm_move_3[cpu_trainer_id][2] = 0x3A;
+                            cpu_pkm_move_4[cpu_trainer_id][2] = 0x56;
+                        }
+                        else{
+                            cpu_pkm_move_1[cpu_trainer_id][2] = 0x39;
+                            cpu_pkm_move_2[cpu_trainer_id][2] = 0x3A;
+                            if(mt_rand()%2==0) cpu_pkm_move_3[cpu_trainer_id][2] = 0x72;
+                            else cpu_pkm_move_3[cpu_trainer_id][2] = 0x97;
+                            cpu_pkm_move_4[cpu_trainer_id][2] = 0x22;
+                        }
+                    }
+                    // Koga
+                    if(cpu_trainer_id==99 || cpu_trainer_id==225){
+                        if((prng_seed[2]+(cpu_trainer_id/200))%2==0){
+                            cpu_pkm_move_1[cpu_trainer_id][0] = 0x4F;
+                            cpu_pkm_move_2[cpu_trainer_id][0] = 0x4E;
+                            cpu_pkm_move_3[cpu_trainer_id][0] = 0x5E;
+                            cpu_pkm_move_4[cpu_trainer_id][0] = 0x48;
+                        }
+                        else{
+                            cpu_pkm_move_1[cpu_trainer_id][0] = 0x38;
+                            cpu_pkm_move_2[cpu_trainer_id][0] = 0x3B;
+                            cpu_pkm_move_3[cpu_trainer_id][0] = 0x0E;
+                            cpu_pkm_move_4[cpu_trainer_id][0] = 0x7C;
+                        }
+                        if((prng_seed[3]+(cpu_trainer_id/200))%2==0){
+                            cpu_pkm_move_1[cpu_trainer_id][1] = 0x7C;
+                            cpu_pkm_move_2[cpu_trainer_id][1] = 0x7E;
+                            cpu_pkm_move_3[cpu_trainer_id][1] = 0x55;
+                            cpu_pkm_move_4[cpu_trainer_id][1] = 0x99;
+                        }
+                        else{
+                            cpu_pkm_move_1[cpu_trainer_id][1] = 0x7C;
+                            cpu_pkm_move_2[cpu_trainer_id][1] = 0x7E;
+                            cpu_pkm_move_3[cpu_trainer_id][1] = 0x48;
+                            cpu_pkm_move_4[cpu_trainer_id][1] = 0x99;
+                        }
+                        cpu_pkm_move_1[cpu_trainer_id][2] = 0x5E;
+                        cpu_pkm_move_2[cpu_trainer_id][2] = 0x56;
+                        cpu_pkm_move_3[cpu_trainer_id][2] = 0x45;
+                        cpu_pkm_move_4[cpu_trainer_id][2] = 0x09;
+                    }
+                    // Sabrina
+                    if(cpu_trainer_id==103 || cpu_trainer_id==229){
+                        cpu_pkm_move_1[cpu_trainer_id][0] = 0x5E;
+                        cpu_pkm_move_2[cpu_trainer_id][0] = 0x56;
+                        cpu_pkm_move_3[cpu_trainer_id][0] = 0x73;
+                        cpu_pkm_move_4[cpu_trainer_id][0] = 0x69;
+                        if((prng_seed[4]+(cpu_trainer_id/200))%2==0){
+                            cpu_pkm_move_1[cpu_trainer_id][1] = 0x5E;
+                            cpu_pkm_move_2[cpu_trainer_id][1] = 0x56;
+                            cpu_pkm_move_3[cpu_trainer_id][1] = 0x55;
+                            cpu_pkm_move_4[cpu_trainer_id][1] = 0x45;
+                        }
+                        else{
+                            cpu_pkm_move_1[cpu_trainer_id][1] = 0x65;
+                            cpu_pkm_move_2[cpu_trainer_id][1] = 0x55;
+                            if(mt_rand()%2==0) cpu_pkm_move_3[cpu_trainer_id][1] = 0x6D;
+                            else cpu_pkm_move_3[cpu_trainer_id][1] = 0x48;
+                            cpu_pkm_move_4[cpu_trainer_id][1] = 0x99;
+                        }
+                        if((prng_seed[5]+(cpu_trainer_id/200))%2==0){
+                            cpu_pkm_move_1[cpu_trainer_id][2] = 0x5E;
+                            cpu_pkm_move_2[cpu_trainer_id][2] = 0x56;
+                            if(mt_rand()%8<=2) cpu_pkm_move_3[cpu_trainer_id][2] = 0x3B;
+                            if(mt_rand()%8<=5) cpu_pkm_move_3[cpu_trainer_id][2] = 0x55;
+                            else cpu_pkm_move_3[cpu_trainer_id][2] = 0x38;
+                            cpu_pkm_move_4[cpu_trainer_id][2] = 0x69;
+                        }
+                        else{
+                            cpu_pkm_move_1[cpu_trainer_id][2] = 0x5E;
+                            cpu_pkm_move_2[cpu_trainer_id][2] = 0x4E;
+                            if(mt_rand()%2==0) cpu_pkm_move_3[cpu_trainer_id][2] = 0x48;
+                            else cpu_pkm_move_3[cpu_trainer_id][2] = 0x26;
+                            cpu_pkm_move_4[cpu_trainer_id][2] = 0x99;
+                        }
+                    }
+                    // Blaine
+                    if(cpu_trainer_id==107 || cpu_trainer_id==233){
+                        if((prng_seed[1]+(cpu_trainer_id/200))%3==0){
+                            cpu_pkm_move_1[cpu_trainer_id][0] = 0x7E;
+                            cpu_pkm_move_2[cpu_trainer_id][0] = 0x22;
+                            cpu_pkm_move_3[cpu_trainer_id][0] = 0x73;
+                            cpu_pkm_move_4[cpu_trainer_id][0] = 0x61;
+                        }
+                        else if((prng_seed[1]+(cpu_trainer_id/200))%3==1){
+                            cpu_pkm_move_1[cpu_trainer_id][0] = 0x7E;
+                            cpu_pkm_move_2[cpu_trainer_id][0] = 0x09;
+                            cpu_pkm_move_3[cpu_trainer_id][0] = 0x22;
+                            cpu_pkm_move_4[cpu_trainer_id][0] = 0x6D;
+                        }
+                        else{
+                            cpu_pkm_move_1[cpu_trainer_id][0] = 0x7E;
+                            cpu_pkm_move_2[cpu_trainer_id][0] = 0x22;
+                            cpu_pkm_move_3[cpu_trainer_id][0] = 0x6D;
+                            cpu_pkm_move_4[cpu_trainer_id][0] = 0x5F;
+                        }
+                        cpu_pkm_move_1[cpu_trainer_id][1] = 0x7E;
+                        cpu_pkm_move_2[cpu_trainer_id][1] = 0x41;
+                        cpu_pkm_move_3[cpu_trainer_id][1] = 0x26;
+                        cpu_pkm_move_4[cpu_trainer_id][1] = 0x61;
+                        cpu_pkm_move_1[cpu_trainer_id][2] = 0x22;
+                        cpu_pkm_move_2[cpu_trainer_id][2] = 0x7E;
+                        cpu_pkm_move_3[cpu_trainer_id][2] = 0x59;
+                        cpu_pkm_move_4[cpu_trainer_id][2] = 0xA4;
+                    }
+                    // Giovanni
+                    if(cpu_trainer_id==111 || cpu_trainer_id==237){
+                        cpu_pkm_move_1[cpu_trainer_id][0] = 0xA3;
+                        cpu_pkm_move_2[cpu_trainer_id][0] = 0x3D;
+                        cpu_pkm_move_3[cpu_trainer_id][0] = 0x55;
+                        cpu_pkm_move_4[cpu_trainer_id][0] = 0xA4;
+                        if((prng_seed[0]+(cpu_trainer_id/200))%3==0){
+                            cpu_pkm_move_1[cpu_trainer_id][1] = 0x59;
+                            cpu_pkm_move_2[cpu_trainer_id][1] = 0x9D;
+                            cpu_pkm_move_3[cpu_trainer_id][1] = 0x22;
+                            cpu_pkm_move_4[cpu_trainer_id][1] = 0x20;
+                        }
+                        else if((prng_seed[0]+(cpu_trainer_id/200))%3==1){
+                            cpu_pkm_move_1[cpu_trainer_id][1] = 0x59;
+                            cpu_pkm_move_2[cpu_trainer_id][1] = 0x3B;
+                            cpu_pkm_move_3[cpu_trainer_id][1] = 0x57;
+                            cpu_pkm_move_4[cpu_trainer_id][1] = 0x20;
+                        }
+                        else{
+                            cpu_pkm_move_1[cpu_trainer_id][1] = 0x59;
+                            cpu_pkm_move_2[cpu_trainer_id][1] = 0x9D;
+                            cpu_pkm_move_3[cpu_trainer_id][1] = 0x22;
+                            cpu_pkm_move_4[cpu_trainer_id][1] = 0x99;
+                        }
+                        cpu_pkm_move_1[cpu_trainer_id][2] = 0x3B;
+                        cpu_pkm_move_2[cpu_trainer_id][2] = 0x26;
+                        cpu_pkm_move_3[cpu_trainer_id][2] = 0x39;
+                        cpu_pkm_move_4[cpu_trainer_id][2] = 0x99;
+                    }
+                    // Lorelei
+                    if(cpu_trainer_id==112 || cpu_trainer_id==238){
+                        cpu_pkm_move_1[cpu_trainer_id][0] = 0x8E;
+                        cpu_pkm_move_2[cpu_trainer_id][0] = 0x3B;
+                        cpu_pkm_move_3[cpu_trainer_id][0] = 0x5E;
+                        cpu_pkm_move_4[cpu_trainer_id][0] = 0x44;
+                        cpu_pkm_move_1[cpu_trainer_id][1] = 0x3B;
+                        cpu_pkm_move_2[cpu_trainer_id][1] = 0x55;
+                        cpu_pkm_move_3[cpu_trainer_id][1] = 0x22;
+                        cpu_pkm_move_4[cpu_trainer_id][1] = 0x38;
+                        cpu_pkm_move_1[cpu_trainer_id][2] = 0x39;
+                        cpu_pkm_move_2[cpu_trainer_id][2] = 0x85;
+                        cpu_pkm_move_3[cpu_trainer_id][2] = 0x56;
+                        cpu_pkm_move_4[cpu_trainer_id][2] = 0x9C;
+                    }
+                    // Bruno
+                    if(cpu_trainer_id==113 || cpu_trainer_id==239){
+                        cpu_pkm_move_1[cpu_trainer_id][0] = 0x42;
+                        cpu_pkm_move_2[cpu_trainer_id][0] = 0x59;
+                        if(mt_rand()%2==0) cpu_pkm_move_3[cpu_trainer_id][0] = 0x22;
+                        else cpu_pkm_move_3[cpu_trainer_id][0] = 0x9D;
+                        cpu_pkm_move_4[cpu_trainer_id][0] = 0x7E;
+                        cpu_pkm_move_1[cpu_trainer_id][1] = 0x99;
+                        cpu_pkm_move_2[cpu_trainer_id][1] = 0x59;
+                        cpu_pkm_move_3[cpu_trainer_id][1] = 0x9D;
+                        cpu_pkm_move_4[cpu_trainer_id][1] = 0x22;
+                        if((prng_seed[3]+(cpu_trainer_id/200))%3==0){
+                            cpu_pkm_move_1[cpu_trainer_id][2] = 0x88;
+                            cpu_pkm_move_2[cpu_trainer_id][2] = 0x22;
+                            cpu_pkm_move_3[cpu_trainer_id][2] = 0x9D;
+                            cpu_pkm_move_4[cpu_trainer_id][2] = 0x74;
+                        }
+                        else if((prng_seed[3]+(cpu_trainer_id/200))%3==1){
+                            cpu_pkm_move_1[cpu_trainer_id][2] = 0x42;
+                            cpu_pkm_move_2[cpu_trainer_id][2] = 0x85;
+                            cpu_pkm_move_3[cpu_trainer_id][2] = 0x39;
+                            if(mt_rand()%2==0) cpu_pkm_move_4[cpu_trainer_id][2] = 0x3B;
+                            else cpu_pkm_move_4[cpu_trainer_id][2] = 0x8E;
+                        }
+                        else{
+                            cpu_pkm_move_1[cpu_trainer_id][2] = 0x0E;
+                            cpu_pkm_move_2[cpu_trainer_id][2] = 0x59;
+                            cpu_pkm_move_3[cpu_trainer_id][2] = 0x29;
+                            cpu_pkm_move_4[cpu_trainer_id][2] = 0x22;
+                        }
+                    }
+                    // Agatha
+                    if(cpu_trainer_id==114 || cpu_trainer_id==240){
+                        cpu_pkm_move_1[cpu_trainer_id][0] = 0x65;
+                        cpu_pkm_move_2[cpu_trainer_id][0] = 0x55;
+                        cpu_pkm_move_3[cpu_trainer_id][0] = 0x6D;
+                        cpu_pkm_move_4[cpu_trainer_id][0] = 0x99;
+                        cpu_pkm_move_1[cpu_trainer_id][1] = 0x65;
+                        cpu_pkm_move_2[cpu_trainer_id][1] = 0x5E;
+                        cpu_pkm_move_3[cpu_trainer_id][1] = 0x56;
+                        cpu_pkm_move_4[cpu_trainer_id][1] = 0x22;
+                        cpu_pkm_move_1[cpu_trainer_id][2] = 0x65;
+                        cpu_pkm_move_2[cpu_trainer_id][2] = 0xA2;
+                        cpu_pkm_move_3[cpu_trainer_id][2] = 0x7C;
+                        cpu_pkm_move_4[cpu_trainer_id][2] = 0x48;
+                    }
+                    // Lance
+                    if(cpu_trainer_id==115 || cpu_trainer_id==241){
+                        cpu_pkm_move_1[cpu_trainer_id][0] = 0x22;
+                        cpu_pkm_move_2[cpu_trainer_id][0] = 0x3B;
+                        cpu_pkm_move_3[cpu_trainer_id][0] = 0x55;
+                        cpu_pkm_move_4[cpu_trainer_id][0] = 0x70;
+                        if((prng_seed[2]+(cpu_trainer_id/200))%3==0){
+                            cpu_pkm_move_1[cpu_trainer_id][1] = 0x38;
+                            cpu_pkm_move_2[cpu_trainer_id][1] = 0x55;
+                            cpu_pkm_move_3[cpu_trainer_id][1] = 0x3B;
+                            cpu_pkm_move_4[cpu_trainer_id][1] = 0x22;
+                        }
+                        else if((prng_seed[2]+(cpu_trainer_id/200))%3==1){
+                            cpu_pkm_move_1[cpu_trainer_id][1] = 0x7E;
+                            cpu_pkm_move_2[cpu_trainer_id][1] = 0x0E;
+                            cpu_pkm_move_3[cpu_trainer_id][1] = 0x59;
+                            cpu_pkm_move_4[cpu_trainer_id][1] = 0x22;
+                        }
+                        else{
+                            cpu_pkm_move_1[cpu_trainer_id][1] = 0x9D;
+                            cpu_pkm_move_2[cpu_trainer_id][1] = 0x59;
+                            cpu_pkm_move_3[cpu_trainer_id][1] = 0x8F;
+                            cpu_pkm_move_4[cpu_trainer_id][1] = 0x73;
+                        }
+                        cpu_pkm_move_1[cpu_trainer_id][2] = 0x78;
+                        cpu_pkm_move_2[cpu_trainer_id][2] = 0x22;
+                        if(mt_rand()%2==0) cpu_pkm_move_3[cpu_trainer_id][2] = 0x3B;
+                        else cpu_pkm_move_3[cpu_trainer_id][2] = 0x59;
+                        cpu_pkm_move_4[cpu_trainer_id][2] = 0x85;
+                    }
+                    // Rival
+                    if(cpu_cup_id[cpu_trainer_id]==19){
+                        cpu_pkm_move_1[cpu_trainer_id][0] = 0x5E;
+                        cpu_pkm_move_2[cpu_trainer_id][0] = 0x56;
+                        cpu_pkm_move_3[cpu_trainer_id][0] = 0x73;
+                        cpu_pkm_move_4[cpu_trainer_id][0] = 0x69;
+                        cpu_pkm_move_1[cpu_trainer_id][1] = 0x59;
+                        cpu_pkm_move_2[cpu_trainer_id][1] = 0x9D;
+                        cpu_pkm_move_3[cpu_trainer_id][1] = 0x22;
+                        cpu_pkm_move_4[cpu_trainer_id][1] = 0xA4;
+                        cpu_pkm_move_1[cpu_trainer_id][2] = 0x4E;
+                        cpu_pkm_move_2[cpu_trainer_id][2] = 0x5E;
+                        if(mt_rand()%2==0) cpu_pkm_move_3[cpu_trainer_id][2] = 0x48;
+                        else cpu_pkm_move_3[cpu_trainer_id][2] = 0x26;
+                        cpu_pkm_move_4[cpu_trainer_id][2] = 0x99;
+                    }
+                    // Red
+                    if(cpu_cup_id[cpu_trainer_id]==41){
+                        cpu_pkm_move_1[cpu_trainer_id][0] = 0x55;
+                        cpu_pkm_move_2[cpu_trainer_id][0] = 0x39;
+                        cpu_pkm_move_3[cpu_trainer_id][0] = 0x26;
+                        cpu_pkm_move_4[cpu_trainer_id][0] = 0xA4;
+                        cpu_pkm_move_1[cpu_trainer_id][1] = 0x42;
+                        cpu_pkm_move_2[cpu_trainer_id][1] = 0x85;
+                        cpu_pkm_move_3[cpu_trainer_id][1] = 0x39;
+                        cpu_pkm_move_4[cpu_trainer_id][1] = 0x3B;
+                        cpu_pkm_move_1[cpu_trainer_id][2] = 0x22;
+                        cpu_pkm_move_2[cpu_trainer_id][2] = 0x59;
+                        cpu_pkm_move_3[cpu_trainer_id][2] = 0x39;
+                        cpu_pkm_move_4[cpu_trainer_id][2] = 0x99;
+                    }
+                }
             }
             else if(cpu_trainer_id==7
                     || cpu_trainer_id==15
@@ -1127,7 +1519,7 @@ void MainWindow::randomize_cpu_pkmn(std::mt19937 &mt_rand)
                             cpu_pkm_id[cpu_trainer_id][0] = 95;
                             cpu_pkm_nickname[cpu_trainer_id][0] = "ONIX";
                             cpu_pkm_id[cpu_trainer_id][1] = 38;
-                            cpu_pkm_nickname[cpu_trainer_id][1] = "NINETALES";
+                            cpu_pkm_nickname[cpu_trainer_id][1] = "Shapeshift";
                             cpu_pkm_id[cpu_trainer_id][2] = 42;
                             cpu_pkm_nickname[cpu_trainer_id][2] = "GOLBAT";
                         }
@@ -1169,8 +1561,14 @@ void MainWindow::randomize_cpu_pkmn(std::mt19937 &mt_rand)
                                 cpu_pkm_id[cpu_trainer_id][1] = 114;
                                 cpu_pkm_nickname[cpu_trainer_id][1] = "Angela";
                             }
-                            cpu_pkm_id[cpu_trainer_id][2] = 36;
-                            cpu_pkm_nickname[cpu_trainer_id][2] = "CLEFABLE";
+                            if((prng_seed[5]+(cpu_trainer_id/200))%3<=1){
+                                cpu_pkm_id[cpu_trainer_id][2] = 36;
+                                cpu_pkm_nickname[cpu_trainer_id][2] = "CLEFABLE";
+                            }
+                            else{
+                                cpu_pkm_id[cpu_trainer_id][2] = 134;
+                                cpu_pkm_nickname[cpu_trainer_id][2] = "VAPOREON";
+                            }
                         }
                         // Koga
                         if(cpu_trainer_id==99 || cpu_trainer_id==225){
@@ -1328,8 +1726,12 @@ void MainWindow::randomize_cpu_pkmn(std::mt19937 &mt_rand)
                         }
                     }
                     // Other Pokémon
-                    else if((i>=3 && cpu_trainer_id!=87) || i>=4 || gym_leaders_pokemon==false){
-                        while(cpu_pkm_level[cpu_trainer_id][i]<pkm_min_level[pkm_ids_vector_primecup_toptier[i+offset_vector_pkm]] && (i+offset_vector_pkm < pkm_ids_vector_primecup_toptier.size())){
+                    else if((i>=3 && cpu_trainer_id!=87 && cpu_trainer_id!=213) || i>=4 || gym_leaders_pokemon==false){
+                        while((cpu_pkm_level[cpu_trainer_id][i]<pkm_min_level[pkm_ids_vector_primecup_toptier[i+offset_vector_pkm]]
+                               || (gym_leaders_pokemon && pkm_ids_vector_primecup_toptier[i+offset_vector_pkm] == cpu_pkm_id[cpu_trainer_id][0])
+                               || (gym_leaders_pokemon && pkm_ids_vector_primecup_toptier[i+offset_vector_pkm] == cpu_pkm_id[cpu_trainer_id][1])
+                               || (gym_leaders_pokemon && pkm_ids_vector_primecup_toptier[i+offset_vector_pkm] == cpu_pkm_id[cpu_trainer_id][2]))
+                              && (i+offset_vector_pkm < pkm_ids_vector_primecup_toptier.size())){
                             offset_vector_pkm++;
                         }
                         buf8=pkm_ids_vector_primecup_toptier[i];
