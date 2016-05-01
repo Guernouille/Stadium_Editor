@@ -97,6 +97,7 @@ void MainWindow::initialize_nicknames(){
     preset_nicknames[35][2]="FAIRYCLE";
     preset_nicknames[36][1]="clefable";
     preset_nicknames[36][2]="FABLECLE";
+    preset_nicknames[36][9]="Moonlight";
     preset_nicknames[37][1]="vulpix";
     preset_nicknames[37][9]="Firefox";
     preset_nicknames[38][1]="ninetales";
@@ -267,6 +268,7 @@ void MainWindow::initialize_nicknames(){
     preset_nicknames[113][1]="chansey";
     preset_nicknames[114][1]="tangela";
     preset_nicknames[114][2]="GELATAN";
+    preset_nicknames[114][8]="Merkel";
     preset_nicknames[114][9]="CRINKLES";
     preset_nicknames[115][1]="kangaskhan";
     preset_nicknames[115][2]="KHANKANGAS";
