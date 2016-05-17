@@ -43,6 +43,7 @@ public:
     quint8 total_type_name;
 
     quint16 current_rentals_number;
+    quint8 current_rentals_cup;
     quint8 current_cpu_trainers_cup;
     quint8 current_cpu_trainers_number;
 
@@ -167,6 +168,8 @@ public:
 
     quint32 prng_seed[6];
 
+    quint8  rental_cup_id[1024];
+    quint8  rental_cup_offset[256];
     quint8  rental_pkm_id[1024];
     QString rental_pkm_nickname[1024];
     quint8  rental_pkm_level[1024];
@@ -230,6 +233,8 @@ private slots:
     // autoconnect display
     void on_comboBox_CPU_Cup_currentIndexChanged(int);
     void on_comboBox_CPU_Trainer_currentIndexChanged(int);
+    void on_comboBox_Rental_Cup_currentIndexChanged(int);
+    void on_comboBox_Rental_Page_currentIndexChanged(int);
     void on_comboBox_MovesList_currentIndexChanged(int);
     void on_comboBox_PokemonSpecies_currentIndexChanged(int);
 
@@ -377,7 +382,7 @@ private slots:
     void display_experience_max();
     void display_move_data(quint8 move_id);
     void display_pkm_data(quint8 pkm_id);
-    void display_rental_pkmn(quint8 rental_pkm_offset);
+    void display_rental_pkmn(quint16 rental_pkm_offset);
     void read_cpu_rentals(QFile &romfile);
     void read_experience_data(QFile &romfile);
     void read_move_data(QFile &romfile);
