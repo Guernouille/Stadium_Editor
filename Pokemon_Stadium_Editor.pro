@@ -40,7 +40,9 @@ SOURCES += main.cpp\
     write_pkm_data.cpp \
     write_cpu_rentals.cpp \
     initialize_nicknames.cpp \
-    initialize_min_levels.cpp
+    initialize_min_levels.cpp \
+    autoconn_display_rental_pkm.cpp \
+    autoconn_edit_rental_pkm.cpp
 
 HEADERS  += mainwindow.h \
     common.cpp \
