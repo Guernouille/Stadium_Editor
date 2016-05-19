@@ -7,7 +7,7 @@ void MainWindow::on_comboBox_Rental_Move1_1_currentIndexChanged(int) {
         buf16 = ui->comboBox_Rental_Page->currentIndex();
         buf16 *= 6;
         if(buf16>1023) buf16=1023;
-        rental_pkm_move_2[buf16] = ui->comboBox_Rental_Move1_1->currentIndex();
+        rental_pkm_move_1[buf16] = ui->comboBox_Rental_Move1_1->currentIndex();
     }
 }
 void MainWindow::on_comboBox_Rental_Move2_1_currentIndexChanged(int) {
