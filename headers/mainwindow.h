@@ -27,6 +27,7 @@ public:
     QString img_path;
     QString widget_text;
     QString debug;
+    bool not_in_init = true;
 
     quint8  buf8;
     quint16 buf16;
@@ -362,6 +363,12 @@ private slots:
     void on_spinBox_PPUp3_6_valueChanged(int);
     void on_spinBox_PPUp4_6_valueChanged(int);
     void on_spinBox_TrainerSpriteID_valueChanged(int);
+
+    // edit rental Pokémon
+    void on_comboBox_Rental_Move1_1_currentIndexChanged(int);
+    void on_comboBox_Rental_Move2_1_currentIndexChanged(int);
+    void on_comboBox_Rental_Move3_1_currentIndexChanged(int);
+    void on_comboBox_Rental_Move4_1_currentIndexChanged(int);
 
     // edit movedata
     void on_spinBox_HighCH_multiplier_valueChanged(int);
