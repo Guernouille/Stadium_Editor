@@ -390,6 +390,13 @@ private slots:
     void on_comboBox_Rental_Move3_6_currentIndexChanged(int);
     void on_comboBox_Rental_Move4_6_currentIndexChanged(int);
 
+    void on_comboBox_Rental_Pkmn_1_currentIndexChanged(int);
+    void on_comboBox_Rental_Pkmn_2_currentIndexChanged(int);
+    void on_comboBox_Rental_Pkmn_3_currentIndexChanged(int);
+    void on_comboBox_Rental_Pkmn_4_currentIndexChanged(int);
+    void on_comboBox_Rental_Pkmn_5_currentIndexChanged(int);
+    void on_comboBox_Rental_Pkmn_6_currentIndexChanged(int);
+
     // edit movedata
     void on_spinBox_HighCH_multiplier_valueChanged(int);
 
