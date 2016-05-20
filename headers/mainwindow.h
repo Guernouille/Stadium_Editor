@@ -453,6 +453,38 @@ private slots:
     void on_spinBox_Rental_IV_Speed_5_valueChanged(int);
     void on_spinBox_Rental_IV_Speed_6_valueChanged(int);
 
+    void on_spinBox_Rental_Lv_1_valueChanged(int);
+    void on_spinBox_Rental_Lv_2_valueChanged(int);
+    void on_spinBox_Rental_Lv_3_valueChanged(int);
+    void on_spinBox_Rental_Lv_4_valueChanged(int);
+    void on_spinBox_Rental_Lv_5_valueChanged(int);
+    void on_spinBox_Rental_Lv_6_valueChanged(int);
+
+    void on_spinBox_Rental_PPUp1_1_valueChanged(int);
+    void on_spinBox_Rental_PPUp2_1_valueChanged(int);
+    void on_spinBox_Rental_PPUp3_1_valueChanged(int);
+    void on_spinBox_Rental_PPUp4_1_valueChanged(int);
+    void on_spinBox_Rental_PPUp1_2_valueChanged(int);
+    void on_spinBox_Rental_PPUp2_2_valueChanged(int);
+    void on_spinBox_Rental_PPUp3_2_valueChanged(int);
+    void on_spinBox_Rental_PPUp4_2_valueChanged(int);
+    void on_spinBox_Rental_PPUp1_3_valueChanged(int);
+    void on_spinBox_Rental_PPUp2_3_valueChanged(int);
+    void on_spinBox_Rental_PPUp3_3_valueChanged(int);
+    void on_spinBox_Rental_PPUp4_3_valueChanged(int);
+    void on_spinBox_Rental_PPUp1_4_valueChanged(int);
+    void on_spinBox_Rental_PPUp2_4_valueChanged(int);
+    void on_spinBox_Rental_PPUp3_4_valueChanged(int);
+    void on_spinBox_Rental_PPUp4_4_valueChanged(int);
+    void on_spinBox_Rental_PPUp1_5_valueChanged(int);
+    void on_spinBox_Rental_PPUp2_5_valueChanged(int);
+    void on_spinBox_Rental_PPUp3_5_valueChanged(int);
+    void on_spinBox_Rental_PPUp4_5_valueChanged(int);
+    void on_spinBox_Rental_PPUp1_6_valueChanged(int);
+    void on_spinBox_Rental_PPUp2_6_valueChanged(int);
+    void on_spinBox_Rental_PPUp3_6_valueChanged(int);
+    void on_spinBox_Rental_PPUp4_6_valueChanged(int);
+
     // edit movedata
     void on_spinBox_HighCH_multiplier_valueChanged(int);
 
