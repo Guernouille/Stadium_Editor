@@ -369,6 +369,26 @@ private slots:
     void on_comboBox_Rental_Move2_1_currentIndexChanged(int);
     void on_comboBox_Rental_Move3_1_currentIndexChanged(int);
     void on_comboBox_Rental_Move4_1_currentIndexChanged(int);
+    void on_comboBox_Rental_Move1_2_currentIndexChanged(int);
+    void on_comboBox_Rental_Move2_2_currentIndexChanged(int);
+    void on_comboBox_Rental_Move3_2_currentIndexChanged(int);
+    void on_comboBox_Rental_Move4_2_currentIndexChanged(int);
+    void on_comboBox_Rental_Move1_3_currentIndexChanged(int);
+    void on_comboBox_Rental_Move2_3_currentIndexChanged(int);
+    void on_comboBox_Rental_Move3_3_currentIndexChanged(int);
+    void on_comboBox_Rental_Move4_3_currentIndexChanged(int);
+    void on_comboBox_Rental_Move1_4_currentIndexChanged(int);
+    void on_comboBox_Rental_Move2_4_currentIndexChanged(int);
+    void on_comboBox_Rental_Move3_4_currentIndexChanged(int);
+    void on_comboBox_Rental_Move4_4_currentIndexChanged(int);
+    void on_comboBox_Rental_Move1_5_currentIndexChanged(int);
+    void on_comboBox_Rental_Move2_5_currentIndexChanged(int);
+    void on_comboBox_Rental_Move3_5_currentIndexChanged(int);
+    void on_comboBox_Rental_Move4_5_currentIndexChanged(int);
+    void on_comboBox_Rental_Move1_6_currentIndexChanged(int);
+    void on_comboBox_Rental_Move2_6_currentIndexChanged(int);
+    void on_comboBox_Rental_Move3_6_currentIndexChanged(int);
+    void on_comboBox_Rental_Move4_6_currentIndexChanged(int);
 
     // edit movedata
     void on_spinBox_HighCH_multiplier_valueChanged(int);
