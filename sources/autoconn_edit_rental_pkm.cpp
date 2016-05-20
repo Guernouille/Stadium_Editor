@@ -569,3 +569,541 @@ void MainWindow::on_comboBox_Rental_Pkmn_6_currentIndexChanged(int) {
         rental_pkm_experience[buf16] = calc_experience(pkm_growth_rate[rental_pkm_id[buf16]],rental_pkm_level[buf16]);
     }
 }
+
+
+// Rental EVs
+void MainWindow::on_spinBox_Rental_EV_HP_1_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_ev_hp[buf16] = ui->spinBox_Rental_EV_HP_1->value();
+    }
+}
+void MainWindow::on_spinBox_Rental_EV_HP_2_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16++;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_ev_hp[buf16] = ui->spinBox_Rental_EV_HP_2->value();
+    }
+}
+void MainWindow::on_spinBox_Rental_EV_HP_3_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16 += 2;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_ev_hp[buf16] = ui->spinBox_Rental_EV_HP_3->value();
+    }
+}
+void MainWindow::on_spinBox_Rental_EV_HP_4_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16 += 3;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_ev_hp[buf16] = ui->spinBox_Rental_EV_HP_4->value();
+    }
+}
+void MainWindow::on_spinBox_Rental_EV_HP_5_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16 += 4;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_ev_hp[buf16] = ui->spinBox_Rental_EV_HP_5->value();
+    }
+}
+void MainWindow::on_spinBox_Rental_EV_HP_6_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16 += 5;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_ev_hp[buf16] = ui->spinBox_Rental_EV_HP_6->value();
+    }
+}
+
+void MainWindow::on_spinBox_Rental_EV_Attack_1_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_ev_atk[buf16] = ui->spinBox_Rental_EV_Attack_1->value();
+    }
+}
+void MainWindow::on_spinBox_Rental_EV_Attack_2_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16++;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_ev_atk[buf16] = ui->spinBox_Rental_EV_Attack_2->value();
+    }
+}
+void MainWindow::on_spinBox_Rental_EV_Attack_3_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16 += 2;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_ev_atk[buf16] = ui->spinBox_Rental_EV_Attack_3->value();
+    }
+}
+void MainWindow::on_spinBox_Rental_EV_Attack_4_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16 += 3;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_ev_atk[buf16] = ui->spinBox_Rental_EV_Attack_4->value();
+    }
+}
+void MainWindow::on_spinBox_Rental_EV_Attack_5_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16 += 4;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_ev_atk[buf16] = ui->spinBox_Rental_EV_Attack_5->value();
+    }
+}
+void MainWindow::on_spinBox_Rental_EV_Attack_6_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16 += 5;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_ev_atk[buf16] = ui->spinBox_Rental_EV_Attack_6->value();
+    }
+}
+
+void MainWindow::on_spinBox_Rental_EV_Defense_1_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_ev_def[buf16] = ui->spinBox_Rental_EV_Defense_1->value();
+    }
+}
+void MainWindow::on_spinBox_Rental_EV_Defense_2_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16++;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_ev_def[buf16] = ui->spinBox_Rental_EV_Defense_2->value();
+    }
+}
+void MainWindow::on_spinBox_Rental_EV_Defense_3_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16 += 2;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_ev_def[buf16] = ui->spinBox_Rental_EV_Defense_3->value();
+    }
+}
+void MainWindow::on_spinBox_Rental_EV_Defense_4_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16 += 3;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_ev_def[buf16] = ui->spinBox_Rental_EV_Defense_4->value();
+    }
+}
+void MainWindow::on_spinBox_Rental_EV_Defense_5_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16 += 4;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_ev_def[buf16] = ui->spinBox_Rental_EV_Defense_5->value();
+    }
+}
+void MainWindow::on_spinBox_Rental_EV_Defense_6_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16 += 5;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_ev_def[buf16] = ui->spinBox_Rental_EV_Defense_6->value();
+    }
+}
+
+void MainWindow::on_spinBox_Rental_EV_Special_1_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_ev_spc[buf16] = ui->spinBox_Rental_EV_Special_1->value();
+    }
+}
+void MainWindow::on_spinBox_Rental_EV_Special_2_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16++;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_ev_spc[buf16] = ui->spinBox_Rental_EV_Special_2->value();
+    }
+}
+void MainWindow::on_spinBox_Rental_EV_Special_3_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16 += 2;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_ev_spc[buf16] = ui->spinBox_Rental_EV_Special_3->value();
+    }
+}
+void MainWindow::on_spinBox_Rental_EV_Special_4_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16 += 3;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_ev_spc[buf16] = ui->spinBox_Rental_EV_Special_4->value();
+    }
+}
+void MainWindow::on_spinBox_Rental_EV_Special_5_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16 += 4;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_ev_spc[buf16] = ui->spinBox_Rental_EV_Special_5->value();
+    }
+}
+void MainWindow::on_spinBox_Rental_EV_Special_6_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16 += 5;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_ev_spc[buf16] = ui->spinBox_Rental_EV_Special_6->value();
+    }
+}
+
+void MainWindow::on_spinBox_Rental_EV_Speed_1_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_ev_speed[buf16] = ui->spinBox_Rental_EV_Speed_1->value();
+    }
+}
+void MainWindow::on_spinBox_Rental_EV_Speed_2_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16++;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_ev_speed[buf16] = ui->spinBox_Rental_EV_Speed_2->value();
+    }
+}
+void MainWindow::on_spinBox_Rental_EV_Speed_3_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16 += 2;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_ev_speed[buf16] = ui->spinBox_Rental_EV_Speed_3->value();
+    }
+}
+void MainWindow::on_spinBox_Rental_EV_Speed_4_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16 += 3;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_ev_speed[buf16] = ui->spinBox_Rental_EV_Speed_4->value();
+    }
+}
+void MainWindow::on_spinBox_Rental_EV_Speed_5_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16 += 4;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_ev_speed[buf16] = ui->spinBox_Rental_EV_Speed_5->value();
+    }
+}
+void MainWindow::on_spinBox_Rental_EV_Speed_6_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16 += 5;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_ev_speed[buf16] = ui->spinBox_Rental_EV_Speed_6->value();
+    }
+}
+
+
+// Rental IVs
+void MainWindow::on_spinBox_Rental_IV_Attack_1_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_iv_atk[buf16] = ui->spinBox_Rental_IV_Attack_1->value();
+        rental_pkm_iv_hp[buf16] = (rental_pkm_iv_atk[buf16] & 1)*8 + (rental_pkm_iv_def[buf16] & 1)*4 + (rental_pkm_iv_speed[buf16] & 1)*2 + (rental_pkm_iv_spc[buf16] & 1);
+        ui->spinBox_Rental_IV_HP_1->setValue(rental_pkm_iv_hp[buf16]);
+    }
+}
+void MainWindow::on_spinBox_Rental_IV_Attack_2_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16++;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_iv_atk[buf16] = ui->spinBox_Rental_IV_Attack_2->value();
+        rental_pkm_iv_hp[buf16] = (rental_pkm_iv_atk[buf16] & 1)*8 + (rental_pkm_iv_def[buf16] & 1)*4 + (rental_pkm_iv_speed[buf16] & 1)*2 + (rental_pkm_iv_spc[buf16] & 1);
+        ui->spinBox_Rental_IV_HP_2->setValue(rental_pkm_iv_hp[buf16]);
+    }
+}
+void MainWindow::on_spinBox_Rental_IV_Attack_3_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16 += 2;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_iv_atk[buf16] = ui->spinBox_Rental_IV_Attack_3->value();
+        rental_pkm_iv_hp[buf16] = (rental_pkm_iv_atk[buf16] & 1)*8 + (rental_pkm_iv_def[buf16] & 1)*4 + (rental_pkm_iv_speed[buf16] & 1)*2 + (rental_pkm_iv_spc[buf16] & 1);
+        ui->spinBox_Rental_IV_HP_3->setValue(rental_pkm_iv_hp[buf16]);
+    }
+}
+void MainWindow::on_spinBox_Rental_IV_Attack_4_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16 += 3;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_iv_atk[buf16] = ui->spinBox_Rental_IV_Attack_4->value();
+        rental_pkm_iv_hp[buf16] = (rental_pkm_iv_atk[buf16] & 1)*8 + (rental_pkm_iv_def[buf16] & 1)*4 + (rental_pkm_iv_speed[buf16] & 1)*2 + (rental_pkm_iv_spc[buf16] & 1);
+        ui->spinBox_Rental_IV_HP_4->setValue(rental_pkm_iv_hp[buf16]);
+    }
+}
+void MainWindow::on_spinBox_Rental_IV_Attack_5_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16 += 4;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_iv_atk[buf16] = ui->spinBox_Rental_IV_Attack_5->value();
+        rental_pkm_iv_hp[buf16] = (rental_pkm_iv_atk[buf16] & 1)*8 + (rental_pkm_iv_def[buf16] & 1)*4 + (rental_pkm_iv_speed[buf16] & 1)*2 + (rental_pkm_iv_spc[buf16] & 1);
+        ui->spinBox_Rental_IV_HP_5->setValue(rental_pkm_iv_hp[buf16]);
+    }
+}
+void MainWindow::on_spinBox_Rental_IV_Attack_6_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16 += 5;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_iv_atk[buf16] = ui->spinBox_Rental_IV_Attack_6->value();
+        rental_pkm_iv_hp[buf16] = (rental_pkm_iv_atk[buf16] & 1)*8 + (rental_pkm_iv_def[buf16] & 1)*4 + (rental_pkm_iv_speed[buf16] & 1)*2 + (rental_pkm_iv_spc[buf16] & 1);
+        ui->spinBox_Rental_IV_HP_6->setValue(rental_pkm_iv_hp[buf16]);
+    }
+}
+
+void MainWindow::on_spinBox_Rental_IV_Defense_1_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_iv_def[buf16] = ui->spinBox_Rental_IV_Defense_1->value();
+        rental_pkm_iv_hp[buf16] = (rental_pkm_iv_atk[buf16] & 1)*8 + (rental_pkm_iv_def[buf16] & 1)*4 + (rental_pkm_iv_speed[buf16] & 1)*2 + (rental_pkm_iv_spc[buf16] & 1);
+        ui->spinBox_Rental_IV_HP_1->setValue(rental_pkm_iv_hp[buf16]);
+    }
+}
+void MainWindow::on_spinBox_Rental_IV_Defense_2_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16++;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_iv_def[buf16] = ui->spinBox_Rental_IV_Defense_2->value();
+        rental_pkm_iv_hp[buf16] = (rental_pkm_iv_atk[buf16] & 1)*8 + (rental_pkm_iv_def[buf16] & 1)*4 + (rental_pkm_iv_speed[buf16] & 1)*2 + (rental_pkm_iv_spc[buf16] & 1);
+        ui->spinBox_Rental_IV_HP_2->setValue(rental_pkm_iv_hp[buf16]);
+    }
+}
+void MainWindow::on_spinBox_Rental_IV_Defense_3_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16 += 2;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_iv_def[buf16] = ui->spinBox_Rental_IV_Defense_3->value();
+        rental_pkm_iv_hp[buf16] = (rental_pkm_iv_atk[buf16] & 1)*8 + (rental_pkm_iv_def[buf16] & 1)*4 + (rental_pkm_iv_speed[buf16] & 1)*2 + (rental_pkm_iv_spc[buf16] & 1);
+        ui->spinBox_Rental_IV_HP_3->setValue(rental_pkm_iv_hp[buf16]);
+    }
+}
+void MainWindow::on_spinBox_Rental_IV_Defense_4_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16 += 3;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_iv_def[buf16] = ui->spinBox_Rental_IV_Defense_4->value();
+        rental_pkm_iv_hp[buf16] = (rental_pkm_iv_atk[buf16] & 1)*8 + (rental_pkm_iv_def[buf16] & 1)*4 + (rental_pkm_iv_speed[buf16] & 1)*2 + (rental_pkm_iv_spc[buf16] & 1);
+        ui->spinBox_Rental_IV_HP_4->setValue(rental_pkm_iv_hp[buf16]);
+    }
+}
+void MainWindow::on_spinBox_Rental_IV_Defense_5_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16 += 4;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_iv_def[buf16] = ui->spinBox_Rental_IV_Defense_5->value();
+        rental_pkm_iv_hp[buf16] = (rental_pkm_iv_atk[buf16] & 1)*8 + (rental_pkm_iv_def[buf16] & 1)*4 + (rental_pkm_iv_speed[buf16] & 1)*2 + (rental_pkm_iv_spc[buf16] & 1);
+        ui->spinBox_Rental_IV_HP_5->setValue(rental_pkm_iv_hp[buf16]);
+    }
+}
+void MainWindow::on_spinBox_Rental_IV_Defense_6_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16 += 5;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_iv_def[buf16] = ui->spinBox_Rental_IV_Defense_6->value();
+        rental_pkm_iv_hp[buf16] = (rental_pkm_iv_atk[buf16] & 1)*8 + (rental_pkm_iv_def[buf16] & 1)*4 + (rental_pkm_iv_speed[buf16] & 1)*2 + (rental_pkm_iv_spc[buf16] & 1);
+        ui->spinBox_Rental_IV_HP_6->setValue(rental_pkm_iv_hp[buf16]);
+    }
+}
+
+void MainWindow::on_spinBox_Rental_IV_Special_1_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_iv_spc[buf16] = ui->spinBox_Rental_IV_Special_1->value();
+        rental_pkm_iv_hp[buf16] = (rental_pkm_iv_atk[buf16] & 1)*8 + (rental_pkm_iv_def[buf16] & 1)*4 + (rental_pkm_iv_speed[buf16] & 1)*2 + (rental_pkm_iv_spc[buf16] & 1);
+        ui->spinBox_Rental_IV_HP_1->setValue(rental_pkm_iv_hp[buf16]);
+    }
+}
+void MainWindow::on_spinBox_Rental_IV_Special_2_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16++;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_iv_spc[buf16] = ui->spinBox_Rental_IV_Special_2->value();
+        rental_pkm_iv_hp[buf16] = (rental_pkm_iv_atk[buf16] & 1)*8 + (rental_pkm_iv_def[buf16] & 1)*4 + (rental_pkm_iv_speed[buf16] & 1)*2 + (rental_pkm_iv_spc[buf16] & 1);
+        ui->spinBox_Rental_IV_HP_2->setValue(rental_pkm_iv_hp[buf16]);
+    }
+}
+void MainWindow::on_spinBox_Rental_IV_Special_3_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16 += 2;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_iv_spc[buf16] = ui->spinBox_Rental_IV_Special_3->value();
+        rental_pkm_iv_hp[buf16] = (rental_pkm_iv_atk[buf16] & 1)*8 + (rental_pkm_iv_def[buf16] & 1)*4 + (rental_pkm_iv_speed[buf16] & 1)*2 + (rental_pkm_iv_spc[buf16] & 1);
+        ui->spinBox_Rental_IV_HP_3->setValue(rental_pkm_iv_hp[buf16]);
+    }
+}
+void MainWindow::on_spinBox_Rental_IV_Special_4_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16 += 3;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_iv_spc[buf16] = ui->spinBox_Rental_IV_Special_4->value();
+        rental_pkm_iv_hp[buf16] = (rental_pkm_iv_atk[buf16] & 1)*8 + (rental_pkm_iv_def[buf16] & 1)*4 + (rental_pkm_iv_speed[buf16] & 1)*2 + (rental_pkm_iv_spc[buf16] & 1);
+        ui->spinBox_Rental_IV_HP_4->setValue(rental_pkm_iv_hp[buf16]);
+    }
+}
+void MainWindow::on_spinBox_Rental_IV_Special_5_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16 += 4;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_iv_spc[buf16] = ui->spinBox_Rental_IV_Special_5->value();
+        rental_pkm_iv_hp[buf16] = (rental_pkm_iv_atk[buf16] & 1)*8 + (rental_pkm_iv_def[buf16] & 1)*4 + (rental_pkm_iv_speed[buf16] & 1)*2 + (rental_pkm_iv_spc[buf16] & 1);
+        ui->spinBox_Rental_IV_HP_5->setValue(rental_pkm_iv_hp[buf16]);
+    }
+}
+void MainWindow::on_spinBox_Rental_IV_Special_6_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16 += 5;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_iv_spc[buf16] = ui->spinBox_Rental_IV_Special_6->value();
+        rental_pkm_iv_hp[buf16] = (rental_pkm_iv_atk[buf16] & 1)*8 + (rental_pkm_iv_def[buf16] & 1)*4 + (rental_pkm_iv_speed[buf16] & 1)*2 + (rental_pkm_iv_spc[buf16] & 1);
+        ui->spinBox_Rental_IV_HP_6->setValue(rental_pkm_iv_hp[buf16]);
+    }
+}
+
+void MainWindow::on_spinBox_Rental_IV_Speed_1_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_iv_speed[buf16] = ui->spinBox_Rental_IV_Speed_1->value();
+        rental_pkm_iv_hp[buf16] = (rental_pkm_iv_atk[buf16] & 1)*8 + (rental_pkm_iv_def[buf16] & 1)*4 + (rental_pkm_iv_speed[buf16] & 1)*2 + (rental_pkm_iv_spc[buf16] & 1);
+        ui->spinBox_Rental_IV_HP_1->setValue(rental_pkm_iv_hp[buf16]);
+    }
+}
+void MainWindow::on_spinBox_Rental_IV_Speed_2_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16++;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_iv_speed[buf16] = ui->spinBox_Rental_IV_Speed_2->value();
+        rental_pkm_iv_hp[buf16] = (rental_pkm_iv_atk[buf16] & 1)*8 + (rental_pkm_iv_def[buf16] & 1)*4 + (rental_pkm_iv_speed[buf16] & 1)*2 + (rental_pkm_iv_spc[buf16] & 1);
+        ui->spinBox_Rental_IV_HP_2->setValue(rental_pkm_iv_hp[buf16]);
+    }
+}
+void MainWindow::on_spinBox_Rental_IV_Speed_3_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16 += 2;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_iv_speed[buf16] = ui->spinBox_Rental_IV_Speed_3->value();
+        rental_pkm_iv_hp[buf16] = (rental_pkm_iv_atk[buf16] & 1)*8 + (rental_pkm_iv_def[buf16] & 1)*4 + (rental_pkm_iv_speed[buf16] & 1)*2 + (rental_pkm_iv_spc[buf16] & 1);
+        ui->spinBox_Rental_IV_HP_3->setValue(rental_pkm_iv_hp[buf16]);
+    }
+}
+void MainWindow::on_spinBox_Rental_IV_Speed_4_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16 += 3;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_iv_speed[buf16] = ui->spinBox_Rental_IV_Speed_4->value();
+        rental_pkm_iv_hp[buf16] = (rental_pkm_iv_atk[buf16] & 1)*8 + (rental_pkm_iv_def[buf16] & 1)*4 + (rental_pkm_iv_speed[buf16] & 1)*2 + (rental_pkm_iv_spc[buf16] & 1);
+        ui->spinBox_Rental_IV_HP_4->setValue(rental_pkm_iv_hp[buf16]);
+    }
+}
+void MainWindow::on_spinBox_Rental_IV_Speed_5_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16 += 4;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_iv_speed[buf16] = ui->spinBox_Rental_IV_Speed_5->value();
+        rental_pkm_iv_hp[buf16] = (rental_pkm_iv_atk[buf16] & 1)*8 + (rental_pkm_iv_def[buf16] & 1)*4 + (rental_pkm_iv_speed[buf16] & 1)*2 + (rental_pkm_iv_spc[buf16] & 1);
+        ui->spinBox_Rental_IV_HP_5->setValue(rental_pkm_iv_hp[buf16]);
+    }
+}
+void MainWindow::on_spinBox_Rental_IV_Speed_6_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16 += 5;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_iv_speed[buf16] = ui->spinBox_Rental_IV_Speed_6->value();
+        rental_pkm_iv_hp[buf16] = (rental_pkm_iv_atk[buf16] & 1)*8 + (rental_pkm_iv_def[buf16] & 1)*4 + (rental_pkm_iv_speed[buf16] & 1)*2 + (rental_pkm_iv_spc[buf16] & 1);
+        ui->spinBox_Rental_IV_HP_6->setValue(rental_pkm_iv_hp[buf16]);
+    }
+}
