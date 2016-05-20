@@ -1107,3 +1107,687 @@ void MainWindow::on_spinBox_Rental_IV_Speed_6_valueChanged(int) {
         ui->spinBox_Rental_IV_HP_6->setValue(rental_pkm_iv_hp[buf16]);
     }
 }
+
+
+// Rental Pokémon Levels
+void MainWindow::on_spinBox_Rental_Lv_1_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_level[buf16] = ui->spinBox_Rental_Lv_1->value();
+
+        if(rental_pkm_level[buf16]>100){
+            rental_pkm_level[buf16]=100;
+            ui->spinBox_Rental_Lv_1->setValue(100);
+        }
+        if(rental_pkm_level[buf16]<2){
+            rental_pkm_level[buf16]=2;
+            ui->spinBox_Rental_Lv_1->setValue(2);
+        }
+        if(pkm_growth_rate[rental_pkm_id[buf16]]>5) pkm_growth_rate[rental_pkm_id[buf16]]=5;
+
+        rental_pkm_experience[buf16] = calc_experience(pkm_growth_rate[rental_pkm_id[buf16]],rental_pkm_level[buf16]);
+    }
+}
+void MainWindow::on_spinBox_Rental_Lv_2_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16++;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_level[buf16] = ui->spinBox_Rental_Lv_2->value();
+
+        if(rental_pkm_level[buf16]>100){
+            rental_pkm_level[buf16]=100;
+            ui->spinBox_Rental_Lv_2->setValue(100);
+        }
+        if(rental_pkm_level[buf16]<2){
+            rental_pkm_level[buf16]=2;
+            ui->spinBox_Rental_Lv_2->setValue(2);
+        }
+        if(pkm_growth_rate[rental_pkm_id[buf16]]>5) pkm_growth_rate[rental_pkm_id[buf16]]=5;
+
+        rental_pkm_experience[buf16] = calc_experience(pkm_growth_rate[rental_pkm_id[buf16]],rental_pkm_level[buf16]);
+    }
+}
+void MainWindow::on_spinBox_Rental_Lv_3_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16 += 2;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_level[buf16] = ui->spinBox_Rental_Lv_3->value();
+
+        if(rental_pkm_level[buf16]>100){
+            rental_pkm_level[buf16]=100;
+            ui->spinBox_Rental_Lv_3->setValue(100);
+        }
+        if(rental_pkm_level[buf16]<2){
+            rental_pkm_level[buf16]=2;
+            ui->spinBox_Rental_Lv_3->setValue(2);
+        }
+        if(pkm_growth_rate[rental_pkm_id[buf16]]>5) pkm_growth_rate[rental_pkm_id[buf16]]=5;
+
+        rental_pkm_experience[buf16] = calc_experience(pkm_growth_rate[rental_pkm_id[buf16]],rental_pkm_level[buf16]);
+    }
+}
+void MainWindow::on_spinBox_Rental_Lv_4_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16 += 3;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_level[buf16] = ui->spinBox_Rental_Lv_4->value();
+
+        if(rental_pkm_level[buf16]>100){
+            rental_pkm_level[buf16]=100;
+            ui->spinBox_Rental_Lv_4->setValue(100);
+        }
+        if(rental_pkm_level[buf16]<2){
+            rental_pkm_level[buf16]=2;
+            ui->spinBox_Rental_Lv_4->setValue(2);
+        }
+        if(pkm_growth_rate[rental_pkm_id[buf16]]>5) pkm_growth_rate[rental_pkm_id[buf16]]=5;
+
+        rental_pkm_experience[buf16] = calc_experience(pkm_growth_rate[rental_pkm_id[buf16]],rental_pkm_level[buf16]);
+    }
+}
+void MainWindow::on_spinBox_Rental_Lv_5_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16 += 4;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_level[buf16] = ui->spinBox_Rental_Lv_5->value();
+
+        if(rental_pkm_level[buf16]>100){
+            rental_pkm_level[buf16]=100;
+            ui->spinBox_Rental_Lv_5->setValue(100);
+        }
+        if(rental_pkm_level[buf16]<2){
+            rental_pkm_level[buf16]=2;
+            ui->spinBox_Rental_Lv_5->setValue(2);
+        }
+        if(pkm_growth_rate[rental_pkm_id[buf16]]>5) pkm_growth_rate[rental_pkm_id[buf16]]=5;
+
+        rental_pkm_experience[buf16] = calc_experience(pkm_growth_rate[rental_pkm_id[buf16]],rental_pkm_level[buf16]);
+    }
+}
+void MainWindow::on_spinBox_Rental_Lv_6_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16 += 5;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_level[buf16] = ui->spinBox_Rental_Lv_6->value();
+
+        if(rental_pkm_level[buf16]>100){
+            rental_pkm_level[buf16]=100;
+            ui->spinBox_Rental_Lv_6->setValue(100);
+        }
+        if(rental_pkm_level[buf16]<2){
+            rental_pkm_level[buf16]=2;
+            ui->spinBox_Rental_Lv_6->setValue(2);
+        }
+        if(pkm_growth_rate[rental_pkm_id[buf16]]>5) pkm_growth_rate[rental_pkm_id[buf16]]=5;
+
+        rental_pkm_experience[buf16] = calc_experience(pkm_growth_rate[rental_pkm_id[buf16]],rental_pkm_level[buf16]);
+    }
+}
+
+
+// Rental PP Ups
+void MainWindow::on_spinBox_Rental_PPUp1_1_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_pp_1[buf16] = 0;
+
+        if(rental_pkm_move_1[buf16]==0) ui->spinBox_Rental_PPUp1_1->setValue(0);
+        rental_pkm_ppup_1[buf16] = ui->spinBox_Rental_PPUp1_1->value();
+
+        if(rental_pkm_ppup_1[buf16]>3){
+            rental_pkm_ppup_1[buf16]=3;
+            ui->spinBox_Rental_PPUp1_1->setValue(3);
+        }
+        if(rental_pkm_ppup_1[buf16]>0){
+            rental_pkm_pp_1[buf16] = move_pp[rental_pkm_move_1[buf16]] / 5;
+            rental_pkm_pp_1[buf16] *= rental_pkm_ppup_1[buf16];
+            rental_pkm_pp_1[buf16] |= rental_pkm_ppup_1[buf16]<<6;
+        }
+        rental_pkm_pp_1[buf16] += move_pp[rental_pkm_move_1[buf16]];
+    }
+}
+void MainWindow::on_spinBox_Rental_PPUp2_1_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_pp_2[buf16] = 0;
+
+        if(rental_pkm_move_2[buf16]==0) ui->spinBox_Rental_PPUp2_1->setValue(0);
+        rental_pkm_ppup_2[buf16] = ui->spinBox_Rental_PPUp2_1->value();
+
+        if(rental_pkm_ppup_2[buf16]>3){
+            rental_pkm_ppup_2[buf16]=3;
+            ui->spinBox_Rental_PPUp2_1->setValue(3);
+        }
+        if(rental_pkm_ppup_2[buf16]>0){
+            rental_pkm_pp_2[buf16] = move_pp[rental_pkm_move_2[buf16]] / 5;
+            rental_pkm_pp_2[buf16] *= rental_pkm_ppup_2[buf16];
+            rental_pkm_pp_2[buf16] |= rental_pkm_ppup_2[buf16]<<6;
+        }
+        rental_pkm_pp_2[buf16] += move_pp[rental_pkm_move_2[buf16]];
+    }
+}
+void MainWindow::on_spinBox_Rental_PPUp3_1_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_pp_3[buf16] = 0;
+
+        if(rental_pkm_move_3[buf16]==0) ui->spinBox_Rental_PPUp3_1->setValue(0);
+        rental_pkm_ppup_3[buf16] = ui->spinBox_Rental_PPUp3_1->value();
+
+        if(rental_pkm_ppup_3[buf16]>3){
+            rental_pkm_ppup_3[buf16]=3;
+            ui->spinBox_Rental_PPUp3_1->setValue(3);
+        }
+        if(rental_pkm_ppup_3[buf16]>0){
+            rental_pkm_pp_3[buf16] = move_pp[rental_pkm_move_3[buf16]] / 5;
+            rental_pkm_pp_3[buf16] *= rental_pkm_ppup_3[buf16];
+            rental_pkm_pp_3[buf16] |= rental_pkm_ppup_3[buf16]<<6;
+        }
+        rental_pkm_pp_3[buf16] += move_pp[rental_pkm_move_3[buf16]];
+    }
+}
+void MainWindow::on_spinBox_Rental_PPUp4_1_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_pp_4[buf16] = 0;
+
+        if(rental_pkm_move_4[buf16]==0) ui->spinBox_Rental_PPUp4_1->setValue(0);
+        rental_pkm_ppup_4[buf16] = ui->spinBox_Rental_PPUp4_1->value();
+
+        if(rental_pkm_ppup_4[buf16]>3){
+            rental_pkm_ppup_4[buf16]=3;
+            ui->spinBox_Rental_PPUp4_1->setValue(3);
+        }
+        if(rental_pkm_ppup_4[buf16]>0){
+            rental_pkm_pp_4[buf16] = move_pp[rental_pkm_move_4[buf16]] / 5;
+            rental_pkm_pp_4[buf16] *= rental_pkm_ppup_4[buf16];
+            rental_pkm_pp_4[buf16] |= rental_pkm_ppup_4[buf16]<<6;
+        }
+        rental_pkm_pp_4[buf16] += move_pp[rental_pkm_move_4[buf16]];
+    }
+}
+
+void MainWindow::on_spinBox_Rental_PPUp1_2_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16++;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_pp_1[buf16] = 0;
+
+        if(rental_pkm_move_1[buf16]==0) ui->spinBox_Rental_PPUp1_2->setValue(0);
+        rental_pkm_ppup_1[buf16] = ui->spinBox_Rental_PPUp1_2->value();
+
+        if(rental_pkm_ppup_1[buf16]>3){
+            rental_pkm_ppup_1[buf16]=3;
+            ui->spinBox_Rental_PPUp1_2->setValue(3);
+        }
+        if(rental_pkm_ppup_1[buf16]>0){
+            rental_pkm_pp_1[buf16] = move_pp[rental_pkm_move_1[buf16]] / 5;
+            rental_pkm_pp_1[buf16] *= rental_pkm_ppup_1[buf16];
+            rental_pkm_pp_1[buf16] |= rental_pkm_ppup_1[buf16]<<6;
+        }
+        rental_pkm_pp_1[buf16] += move_pp[rental_pkm_move_1[buf16]];
+    }
+}
+void MainWindow::on_spinBox_Rental_PPUp2_2_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16++;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_pp_2[buf16] = 0;
+
+        if(rental_pkm_move_2[buf16]==0) ui->spinBox_Rental_PPUp2_2->setValue(0);
+        rental_pkm_ppup_2[buf16] = ui->spinBox_Rental_PPUp2_2->value();
+
+        if(rental_pkm_ppup_2[buf16]>3){
+            rental_pkm_ppup_2[buf16]=3;
+            ui->spinBox_Rental_PPUp2_2->setValue(3);
+        }
+        if(rental_pkm_ppup_2[buf16]>0){
+            rental_pkm_pp_2[buf16] = move_pp[rental_pkm_move_2[buf16]] / 5;
+            rental_pkm_pp_2[buf16] *= rental_pkm_ppup_2[buf16];
+            rental_pkm_pp_2[buf16] |= rental_pkm_ppup_2[buf16]<<6;
+        }
+        rental_pkm_pp_2[buf16] += move_pp[rental_pkm_move_2[buf16]];
+    }
+}
+void MainWindow::on_spinBox_Rental_PPUp3_2_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16++;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_pp_3[buf16] = 0;
+
+        if(rental_pkm_move_3[buf16]==0) ui->spinBox_Rental_PPUp3_2->setValue(0);
+        rental_pkm_ppup_3[buf16] = ui->spinBox_Rental_PPUp3_2->value();
+
+        if(rental_pkm_ppup_3[buf16]>3){
+            rental_pkm_ppup_3[buf16]=3;
+            ui->spinBox_Rental_PPUp3_2->setValue(3);
+        }
+        if(rental_pkm_ppup_3[buf16]>0){
+            rental_pkm_pp_3[buf16] = move_pp[rental_pkm_move_3[buf16]] / 5;
+            rental_pkm_pp_3[buf16] *= rental_pkm_ppup_3[buf16];
+            rental_pkm_pp_3[buf16] |= rental_pkm_ppup_3[buf16]<<6;
+        }
+        rental_pkm_pp_3[buf16] += move_pp[rental_pkm_move_3[buf16]];
+    }
+}
+void MainWindow::on_spinBox_Rental_PPUp4_2_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16++;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_pp_4[buf16] = 0;
+
+        if(rental_pkm_move_4[buf16]==0) ui->spinBox_Rental_PPUp4_2->setValue(0);
+        rental_pkm_ppup_4[buf16] = ui->spinBox_Rental_PPUp4_2->value();
+
+        if(rental_pkm_ppup_4[buf16]>3){
+            rental_pkm_ppup_4[buf16]=3;
+            ui->spinBox_Rental_PPUp4_2->setValue(3);
+        }
+        if(rental_pkm_ppup_4[buf16]>0){
+            rental_pkm_pp_4[buf16] = move_pp[rental_pkm_move_4[buf16]] / 5;
+            rental_pkm_pp_4[buf16] *= rental_pkm_ppup_4[buf16];
+            rental_pkm_pp_4[buf16] |= rental_pkm_ppup_4[buf16]<<6;
+        }
+        rental_pkm_pp_4[buf16] += move_pp[rental_pkm_move_4[buf16]];
+    }
+}
+
+void MainWindow::on_spinBox_Rental_PPUp1_3_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16 += 2;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_pp_1[buf16] = 0;
+
+        if(rental_pkm_move_1[buf16]==0) ui->spinBox_Rental_PPUp1_3->setValue(0);
+        rental_pkm_ppup_1[buf16] = ui->spinBox_Rental_PPUp1_3->value();
+
+        if(rental_pkm_ppup_1[buf16]>3){
+            rental_pkm_ppup_1[buf16]=3;
+            ui->spinBox_Rental_PPUp1_3->setValue(3);
+        }
+        if(rental_pkm_ppup_1[buf16]>0){
+            rental_pkm_pp_1[buf16] = move_pp[rental_pkm_move_1[buf16]] / 5;
+            rental_pkm_pp_1[buf16] *= rental_pkm_ppup_1[buf16];
+            rental_pkm_pp_1[buf16] |= rental_pkm_ppup_1[buf16]<<6;
+        }
+        rental_pkm_pp_1[buf16] += move_pp[rental_pkm_move_1[buf16]];
+    }
+}
+void MainWindow::on_spinBox_Rental_PPUp2_3_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16 += 2;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_pp_2[buf16] = 0;
+
+        if(rental_pkm_move_2[buf16]==0) ui->spinBox_Rental_PPUp2_3->setValue(0);
+        rental_pkm_ppup_2[buf16] = ui->spinBox_Rental_PPUp2_3->value();
+
+        if(rental_pkm_ppup_2[buf16]>3){
+            rental_pkm_ppup_2[buf16]=3;
+            ui->spinBox_Rental_PPUp2_3->setValue(3);
+        }
+        if(rental_pkm_ppup_2[buf16]>0){
+            rental_pkm_pp_2[buf16] = move_pp[rental_pkm_move_2[buf16]] / 5;
+            rental_pkm_pp_2[buf16] *= rental_pkm_ppup_2[buf16];
+            rental_pkm_pp_2[buf16] |= rental_pkm_ppup_2[buf16]<<6;
+        }
+        rental_pkm_pp_2[buf16] += move_pp[rental_pkm_move_2[buf16]];
+    }
+}
+void MainWindow::on_spinBox_Rental_PPUp3_3_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16 += 2;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_pp_3[buf16] = 0;
+
+        if(rental_pkm_move_3[buf16]==0) ui->spinBox_Rental_PPUp3_3->setValue(0);
+        rental_pkm_ppup_3[buf16] = ui->spinBox_Rental_PPUp3_3->value();
+
+        if(rental_pkm_ppup_3[buf16]>3){
+            rental_pkm_ppup_3[buf16]=3;
+            ui->spinBox_Rental_PPUp3_3->setValue(3);
+        }
+        if(rental_pkm_ppup_3[buf16]>0){
+            rental_pkm_pp_3[buf16] = move_pp[rental_pkm_move_3[buf16]] / 5;
+            rental_pkm_pp_3[buf16] *= rental_pkm_ppup_3[buf16];
+            rental_pkm_pp_3[buf16] |= rental_pkm_ppup_3[buf16]<<6;
+        }
+        rental_pkm_pp_3[buf16] += move_pp[rental_pkm_move_3[buf16]];
+    }
+}
+void MainWindow::on_spinBox_Rental_PPUp4_3_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16 += 2;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_pp_4[buf16] = 0;
+
+        if(rental_pkm_move_4[buf16]==0) ui->spinBox_Rental_PPUp4_3->setValue(0);
+        rental_pkm_ppup_4[buf16] = ui->spinBox_Rental_PPUp4_3->value();
+
+        if(rental_pkm_ppup_4[buf16]>3){
+            rental_pkm_ppup_4[buf16]=3;
+            ui->spinBox_Rental_PPUp4_3->setValue(3);
+        }
+        if(rental_pkm_ppup_4[buf16]>0){
+            rental_pkm_pp_4[buf16] = move_pp[rental_pkm_move_4[buf16]] / 5;
+            rental_pkm_pp_4[buf16] *= rental_pkm_ppup_4[buf16];
+            rental_pkm_pp_4[buf16] |= rental_pkm_ppup_4[buf16]<<6;
+        }
+        rental_pkm_pp_4[buf16] += move_pp[rental_pkm_move_4[buf16]];
+    }
+}
+
+void MainWindow::on_spinBox_Rental_PPUp1_4_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16 += 3;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_pp_1[buf16] = 0;
+
+        if(rental_pkm_move_1[buf16]==0) ui->spinBox_Rental_PPUp1_4->setValue(0);
+        rental_pkm_ppup_1[buf16] = ui->spinBox_Rental_PPUp1_4->value();
+
+        if(rental_pkm_ppup_1[buf16]>3){
+            rental_pkm_ppup_1[buf16]=3;
+            ui->spinBox_Rental_PPUp1_4->setValue(3);
+        }
+        if(rental_pkm_ppup_1[buf16]>0){
+            rental_pkm_pp_1[buf16] = move_pp[rental_pkm_move_1[buf16]] / 5;
+            rental_pkm_pp_1[buf16] *= rental_pkm_ppup_1[buf16];
+            rental_pkm_pp_1[buf16] |= rental_pkm_ppup_1[buf16]<<6;
+        }
+        rental_pkm_pp_1[buf16] += move_pp[rental_pkm_move_1[buf16]];
+    }
+}
+void MainWindow::on_spinBox_Rental_PPUp2_4_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16 += 3;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_pp_2[buf16] = 0;
+
+        if(rental_pkm_move_2[buf16]==0) ui->spinBox_Rental_PPUp2_4->setValue(0);
+        rental_pkm_ppup_2[buf16] = ui->spinBox_Rental_PPUp2_4->value();
+
+        if(rental_pkm_ppup_2[buf16]>3){
+            rental_pkm_ppup_2[buf16]=3;
+            ui->spinBox_Rental_PPUp2_4->setValue(3);
+        }
+        if(rental_pkm_ppup_2[buf16]>0){
+            rental_pkm_pp_2[buf16] = move_pp[rental_pkm_move_2[buf16]] / 5;
+            rental_pkm_pp_2[buf16] *= rental_pkm_ppup_2[buf16];
+            rental_pkm_pp_2[buf16] |= rental_pkm_ppup_2[buf16]<<6;
+        }
+        rental_pkm_pp_2[buf16] += move_pp[rental_pkm_move_2[buf16]];
+    }
+}
+void MainWindow::on_spinBox_Rental_PPUp3_4_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16 += 3;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_pp_3[buf16] = 0;
+
+        if(rental_pkm_move_3[buf16]==0) ui->spinBox_Rental_PPUp3_4->setValue(0);
+        rental_pkm_ppup_3[buf16] = ui->spinBox_Rental_PPUp3_4->value();
+
+        if(rental_pkm_ppup_3[buf16]>3){
+            rental_pkm_ppup_3[buf16]=3;
+            ui->spinBox_Rental_PPUp3_4->setValue(3);
+        }
+        if(rental_pkm_ppup_3[buf16]>0){
+            rental_pkm_pp_3[buf16] = move_pp[rental_pkm_move_3[buf16]] / 5;
+            rental_pkm_pp_3[buf16] *= rental_pkm_ppup_3[buf16];
+            rental_pkm_pp_3[buf16] |= rental_pkm_ppup_3[buf16]<<6;
+        }
+        rental_pkm_pp_3[buf16] += move_pp[rental_pkm_move_3[buf16]];
+    }
+}
+void MainWindow::on_spinBox_Rental_PPUp4_4_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16 += 3;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_pp_4[buf16] = 0;
+
+        if(rental_pkm_move_4[buf16]==0) ui->spinBox_Rental_PPUp4_4->setValue(0);
+        rental_pkm_ppup_4[buf16] = ui->spinBox_Rental_PPUp4_4->value();
+
+        if(rental_pkm_ppup_4[buf16]>3){
+            rental_pkm_ppup_4[buf16]=3;
+            ui->spinBox_Rental_PPUp4_4->setValue(3);
+        }
+        if(rental_pkm_ppup_4[buf16]>0){
+            rental_pkm_pp_4[buf16] = move_pp[rental_pkm_move_4[buf16]] / 5;
+            rental_pkm_pp_4[buf16] *= rental_pkm_ppup_4[buf16];
+            rental_pkm_pp_4[buf16] |= rental_pkm_ppup_4[buf16]<<6;
+        }
+        rental_pkm_pp_4[buf16] += move_pp[rental_pkm_move_4[buf16]];
+    }
+}
+
+void MainWindow::on_spinBox_Rental_PPUp1_5_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16 += 4;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_pp_1[buf16] = 0;
+
+        if(rental_pkm_move_1[buf16]==0) ui->spinBox_Rental_PPUp1_5->setValue(0);
+        rental_pkm_ppup_1[buf16] = ui->spinBox_Rental_PPUp1_5->value();
+
+        if(rental_pkm_ppup_1[buf16]>3){
+            rental_pkm_ppup_1[buf16]=3;
+            ui->spinBox_Rental_PPUp1_5->setValue(3);
+        }
+        if(rental_pkm_ppup_1[buf16]>0){
+            rental_pkm_pp_1[buf16] = move_pp[rental_pkm_move_1[buf16]] / 5;
+            rental_pkm_pp_1[buf16] *= rental_pkm_ppup_1[buf16];
+            rental_pkm_pp_1[buf16] |= rental_pkm_ppup_1[buf16]<<6;
+        }
+        rental_pkm_pp_1[buf16] += move_pp[rental_pkm_move_1[buf16]];
+    }
+}
+void MainWindow::on_spinBox_Rental_PPUp2_5_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16 += 4;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_pp_2[buf16] = 0;
+
+        if(rental_pkm_move_2[buf16]==0) ui->spinBox_Rental_PPUp2_5->setValue(0);
+        rental_pkm_ppup_2[buf16] = ui->spinBox_Rental_PPUp2_5->value();
+
+        if(rental_pkm_ppup_2[buf16]>3){
+            rental_pkm_ppup_2[buf16]=3;
+            ui->spinBox_Rental_PPUp2_5->setValue(3);
+        }
+        if(rental_pkm_ppup_2[buf16]>0){
+            rental_pkm_pp_2[buf16] = move_pp[rental_pkm_move_2[buf16]] / 5;
+            rental_pkm_pp_2[buf16] *= rental_pkm_ppup_2[buf16];
+            rental_pkm_pp_2[buf16] |= rental_pkm_ppup_2[buf16]<<6;
+        }
+        rental_pkm_pp_2[buf16] += move_pp[rental_pkm_move_2[buf16]];
+    }
+}
+void MainWindow::on_spinBox_Rental_PPUp3_5_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16 += 4;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_pp_3[buf16] = 0;
+
+        if(rental_pkm_move_3[buf16]==0) ui->spinBox_Rental_PPUp3_5->setValue(0);
+        rental_pkm_ppup_3[buf16] = ui->spinBox_Rental_PPUp3_5->value();
+
+        if(rental_pkm_ppup_3[buf16]>3){
+            rental_pkm_ppup_3[buf16]=3;
+            ui->spinBox_Rental_PPUp3_5->setValue(3);
+        }
+        if(rental_pkm_ppup_3[buf16]>0){
+            rental_pkm_pp_3[buf16] = move_pp[rental_pkm_move_3[buf16]] / 5;
+            rental_pkm_pp_3[buf16] *= rental_pkm_ppup_3[buf16];
+            rental_pkm_pp_3[buf16] |= rental_pkm_ppup_3[buf16]<<6;
+        }
+        rental_pkm_pp_3[buf16] += move_pp[rental_pkm_move_3[buf16]];
+    }
+}
+void MainWindow::on_spinBox_Rental_PPUp4_5_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16 += 4;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_pp_4[buf16] = 0;
+
+        if(rental_pkm_move_4[buf16]==0) ui->spinBox_Rental_PPUp4_5->setValue(0);
+        rental_pkm_ppup_4[buf16] = ui->spinBox_Rental_PPUp4_5->value();
+
+        if(rental_pkm_ppup_4[buf16]>3){
+            rental_pkm_ppup_4[buf16]=3;
+            ui->spinBox_Rental_PPUp4_5->setValue(3);
+        }
+        if(rental_pkm_ppup_4[buf16]>0){
+            rental_pkm_pp_4[buf16] = move_pp[rental_pkm_move_4[buf16]] / 5;
+            rental_pkm_pp_4[buf16] *= rental_pkm_ppup_4[buf16];
+            rental_pkm_pp_4[buf16] |= rental_pkm_ppup_4[buf16]<<6;
+        }
+        rental_pkm_pp_4[buf16] += move_pp[rental_pkm_move_4[buf16]];
+    }
+}
+
+void MainWindow::on_spinBox_Rental_PPUp1_6_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16 += 5;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_pp_1[buf16] = 0;
+
+        if(rental_pkm_move_1[buf16]==0) ui->spinBox_Rental_PPUp1_6->setValue(0);
+        rental_pkm_ppup_1[buf16] = ui->spinBox_Rental_PPUp1_6->value();
+
+        if(rental_pkm_ppup_1[buf16]>3){
+            rental_pkm_ppup_1[buf16]=3;
+            ui->spinBox_Rental_PPUp1_6->setValue(3);
+        }
+        if(rental_pkm_ppup_1[buf16]>0){
+            rental_pkm_pp_1[buf16] = move_pp[rental_pkm_move_1[buf16]] / 5;
+            rental_pkm_pp_1[buf16] *= rental_pkm_ppup_1[buf16];
+            rental_pkm_pp_1[buf16] |= rental_pkm_ppup_1[buf16]<<6;
+        }
+        rental_pkm_pp_1[buf16] += move_pp[rental_pkm_move_1[buf16]];
+    }
+}
+void MainWindow::on_spinBox_Rental_PPUp2_6_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16 += 5;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_pp_2[buf16] = 0;
+
+        if(rental_pkm_move_2[buf16]==0) ui->spinBox_Rental_PPUp2_6->setValue(0);
+        rental_pkm_ppup_2[buf16] = ui->spinBox_Rental_PPUp2_6->value();
+
+        if(rental_pkm_ppup_2[buf16]>3){
+            rental_pkm_ppup_2[buf16]=3;
+            ui->spinBox_Rental_PPUp2_6->setValue(3);
+        }
+        if(rental_pkm_ppup_2[buf16]>0){
+            rental_pkm_pp_2[buf16] = move_pp[rental_pkm_move_2[buf16]] / 5;
+            rental_pkm_pp_2[buf16] *= rental_pkm_ppup_2[buf16];
+            rental_pkm_pp_2[buf16] |= rental_pkm_ppup_2[buf16]<<6;
+        }
+        rental_pkm_pp_2[buf16] += move_pp[rental_pkm_move_2[buf16]];
+    }
+}
+void MainWindow::on_spinBox_Rental_PPUp3_6_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16 += 5;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_pp_3[buf16] = 0;
+
+        if(rental_pkm_move_3[buf16]==0) ui->spinBox_Rental_PPUp3_6->setValue(0);
+        rental_pkm_ppup_3[buf16] = ui->spinBox_Rental_PPUp3_6->value();
+
+        if(rental_pkm_ppup_3[buf16]>3){
+            rental_pkm_ppup_3[buf16]=3;
+            ui->spinBox_Rental_PPUp3_6->setValue(3);
+        }
+        if(rental_pkm_ppup_3[buf16]>0){
+            rental_pkm_pp_3[buf16] = move_pp[rental_pkm_move_3[buf16]] / 5;
+            rental_pkm_pp_3[buf16] *= rental_pkm_ppup_3[buf16];
+            rental_pkm_pp_3[buf16] |= rental_pkm_ppup_3[buf16]<<6;
+        }
+        rental_pkm_pp_3[buf16] += move_pp[rental_pkm_move_3[buf16]];
+    }
+}
+void MainWindow::on_spinBox_Rental_PPUp4_6_valueChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16 += 5;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_pp_4[buf16] = 0;
+
+        if(rental_pkm_move_4[buf16]==0) ui->spinBox_Rental_PPUp4_6->setValue(0);
+        rental_pkm_ppup_4[buf16] = ui->spinBox_Rental_PPUp4_6->value();
+
+        if(rental_pkm_ppup_4[buf16]>3){
+            rental_pkm_ppup_4[buf16]=3;
+            ui->spinBox_Rental_PPUp4_6->setValue(3);
+        }
+        if(rental_pkm_ppup_4[buf16]>0){
+            rental_pkm_pp_4[buf16] = move_pp[rental_pkm_move_4[buf16]] / 5;
+            rental_pkm_pp_4[buf16] *= rental_pkm_ppup_4[buf16];
+            rental_pkm_pp_4[buf16] |= rental_pkm_ppup_4[buf16]<<6;
+        }
+        rental_pkm_pp_4[buf16] += move_pp[rental_pkm_move_4[buf16]];
+    }
+}
