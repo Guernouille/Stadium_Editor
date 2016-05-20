@@ -83,7 +83,6 @@ void MainWindow::on_comboBox_Rental_Move4_1_currentIndexChanged(int) {
     }
 }
 
-
 void MainWindow::on_comboBox_Rental_Move1_2_currentIndexChanged(int) {
     if(not_in_init){
         buf16 = ui->comboBox_Rental_Page->currentIndex();
@@ -168,7 +167,6 @@ void MainWindow::on_comboBox_Rental_Move4_2_currentIndexChanged(int) {
         rental_pkm_pp_4[buf16] += move_pp[rental_pkm_move_4[buf16]];
     }
 }
-
 
 void MainWindow::on_comboBox_Rental_Move1_3_currentIndexChanged(int) {
     if(not_in_init){
@@ -255,7 +253,6 @@ void MainWindow::on_comboBox_Rental_Move4_3_currentIndexChanged(int) {
     }
 }
 
-
 void MainWindow::on_comboBox_Rental_Move1_4_currentIndexChanged(int) {
     if(not_in_init){
         buf16 = ui->comboBox_Rental_Page->currentIndex();
@@ -340,7 +337,6 @@ void MainWindow::on_comboBox_Rental_Move4_4_currentIndexChanged(int) {
         rental_pkm_pp_4[buf16] += move_pp[rental_pkm_move_4[buf16]];
     }
 }
-
 
 void MainWindow::on_comboBox_Rental_Move1_5_currentIndexChanged(int) {
     if(not_in_init){
@@ -427,7 +423,6 @@ void MainWindow::on_comboBox_Rental_Move4_5_currentIndexChanged(int) {
     }
 }
 
-
 void MainWindow::on_comboBox_Rental_Move1_6_currentIndexChanged(int) {
     if(not_in_init){
         buf16 = ui->comboBox_Rental_Page->currentIndex();
@@ -510,5 +505,67 @@ void MainWindow::on_comboBox_Rental_Move4_6_currentIndexChanged(int) {
             rental_pkm_ppup_4[buf16]=0;
         }
         rental_pkm_pp_4[buf16] += move_pp[rental_pkm_move_4[buf16]];
+    }
+}
+
+
+// Rental Pokémon IDs
+void MainWindow::on_comboBox_Rental_Pkmn_1_currentIndexChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_id[buf16] = ui->comboBox_Rental_Pkmn_1->currentIndex();
+        rental_pkm_experience[buf16] = calc_experience(pkm_growth_rate[rental_pkm_id[buf16]],rental_pkm_level[buf16]);
+    }
+}
+void MainWindow::on_comboBox_Rental_Pkmn_2_currentIndexChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16++;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_id[buf16] = ui->comboBox_Rental_Pkmn_2->currentIndex();
+        rental_pkm_experience[buf16] = calc_experience(pkm_growth_rate[rental_pkm_id[buf16]],rental_pkm_level[buf16]);
+    }
+}
+void MainWindow::on_comboBox_Rental_Pkmn_3_currentIndexChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16 += 2;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_id[buf16] = ui->comboBox_Rental_Pkmn_3->currentIndex();
+        rental_pkm_experience[buf16] = calc_experience(pkm_growth_rate[rental_pkm_id[buf16]],rental_pkm_level[buf16]);
+    }
+}
+void MainWindow::on_comboBox_Rental_Pkmn_4_currentIndexChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16 += 3;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_id[buf16] = ui->comboBox_Rental_Pkmn_4->currentIndex();
+        rental_pkm_experience[buf16] = calc_experience(pkm_growth_rate[rental_pkm_id[buf16]],rental_pkm_level[buf16]);
+    }
+}
+void MainWindow::on_comboBox_Rental_Pkmn_5_currentIndexChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16 += 4;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_id[buf16] = ui->comboBox_Rental_Pkmn_5->currentIndex();
+        rental_pkm_experience[buf16] = calc_experience(pkm_growth_rate[rental_pkm_id[buf16]],rental_pkm_level[buf16]);
+    }
+}
+void MainWindow::on_comboBox_Rental_Pkmn_6_currentIndexChanged(int) {
+    if(not_in_init){
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16 += 5;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_id[buf16] = ui->comboBox_Rental_Pkmn_6->currentIndex();
+        rental_pkm_experience[buf16] = calc_experience(pkm_growth_rate[rental_pkm_id[buf16]],rental_pkm_level[buf16]);
     }
 }
