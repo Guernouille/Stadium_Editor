@@ -397,6 +397,62 @@ private slots:
     void on_comboBox_Rental_Pkmn_5_currentIndexChanged(int);
     void on_comboBox_Rental_Pkmn_6_currentIndexChanged(int);
 
+    void on_spinBox_Rental_EV_HP_1_valueChanged(int);
+    void on_spinBox_Rental_EV_HP_2_valueChanged(int);
+    void on_spinBox_Rental_EV_HP_3_valueChanged(int);
+    void on_spinBox_Rental_EV_HP_4_valueChanged(int);
+    void on_spinBox_Rental_EV_HP_5_valueChanged(int);
+    void on_spinBox_Rental_EV_HP_6_valueChanged(int);
+    void on_spinBox_Rental_EV_Attack_1_valueChanged(int);
+    void on_spinBox_Rental_EV_Attack_2_valueChanged(int);
+    void on_spinBox_Rental_EV_Attack_3_valueChanged(int);
+    void on_spinBox_Rental_EV_Attack_4_valueChanged(int);
+    void on_spinBox_Rental_EV_Attack_5_valueChanged(int);
+    void on_spinBox_Rental_EV_Attack_6_valueChanged(int);
+    void on_spinBox_Rental_EV_Defense_1_valueChanged(int);
+    void on_spinBox_Rental_EV_Defense_2_valueChanged(int);
+    void on_spinBox_Rental_EV_Defense_3_valueChanged(int);
+    void on_spinBox_Rental_EV_Defense_4_valueChanged(int);
+    void on_spinBox_Rental_EV_Defense_5_valueChanged(int);
+    void on_spinBox_Rental_EV_Defense_6_valueChanged(int);
+    void on_spinBox_Rental_EV_Special_1_valueChanged(int);
+    void on_spinBox_Rental_EV_Special_2_valueChanged(int);
+    void on_spinBox_Rental_EV_Special_3_valueChanged(int);
+    void on_spinBox_Rental_EV_Special_4_valueChanged(int);
+    void on_spinBox_Rental_EV_Special_5_valueChanged(int);
+    void on_spinBox_Rental_EV_Special_6_valueChanged(int);
+    void on_spinBox_Rental_EV_Speed_1_valueChanged(int);
+    void on_spinBox_Rental_EV_Speed_2_valueChanged(int);
+    void on_spinBox_Rental_EV_Speed_3_valueChanged(int);
+    void on_spinBox_Rental_EV_Speed_4_valueChanged(int);
+    void on_spinBox_Rental_EV_Speed_5_valueChanged(int);
+    void on_spinBox_Rental_EV_Speed_6_valueChanged(int);
+
+    void on_spinBox_Rental_IV_Attack_1_valueChanged(int);
+    void on_spinBox_Rental_IV_Attack_2_valueChanged(int);
+    void on_spinBox_Rental_IV_Attack_3_valueChanged(int);
+    void on_spinBox_Rental_IV_Attack_4_valueChanged(int);
+    void on_spinBox_Rental_IV_Attack_5_valueChanged(int);
+    void on_spinBox_Rental_IV_Attack_6_valueChanged(int);
+    void on_spinBox_Rental_IV_Defense_1_valueChanged(int);
+    void on_spinBox_Rental_IV_Defense_2_valueChanged(int);
+    void on_spinBox_Rental_IV_Defense_3_valueChanged(int);
+    void on_spinBox_Rental_IV_Defense_4_valueChanged(int);
+    void on_spinBox_Rental_IV_Defense_5_valueChanged(int);
+    void on_spinBox_Rental_IV_Defense_6_valueChanged(int);
+    void on_spinBox_Rental_IV_Special_1_valueChanged(int);
+    void on_spinBox_Rental_IV_Special_2_valueChanged(int);
+    void on_spinBox_Rental_IV_Special_3_valueChanged(int);
+    void on_spinBox_Rental_IV_Special_4_valueChanged(int);
+    void on_spinBox_Rental_IV_Special_5_valueChanged(int);
+    void on_spinBox_Rental_IV_Special_6_valueChanged(int);
+    void on_spinBox_Rental_IV_Speed_1_valueChanged(int);
+    void on_spinBox_Rental_IV_Speed_2_valueChanged(int);
+    void on_spinBox_Rental_IV_Speed_3_valueChanged(int);
+    void on_spinBox_Rental_IV_Speed_4_valueChanged(int);
+    void on_spinBox_Rental_IV_Speed_5_valueChanged(int);
+    void on_spinBox_Rental_IV_Speed_6_valueChanged(int);
+
     // edit movedata
     void on_spinBox_HighCH_multiplier_valueChanged(int);
 
