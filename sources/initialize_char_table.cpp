@@ -3,7 +3,7 @@
 void MainWindow::initialize_char_table()
 {
     for (short i=0;i<256;i++){
-        char_table[i] = "?";
+        char_table[i] = "";
     }
 
     if(this->romtype == ENGLISH){
@@ -15,6 +15,8 @@ void MainWindow::initialize_char_table()
         char_table[0x27] = "'";
         char_table[0x28] = "(";
         char_table[0x29] = ")";
+        char_table[0x2A] = "*";
+        char_table[0x2B] = "+";
         char_table[0x2C] = ",";
         char_table[0x2D] = "-";
         char_table[0x2E] = ".";
@@ -29,6 +31,9 @@ void MainWindow::initialize_char_table()
         char_table[0x37] = "7";
         char_table[0x38] = "8";
         char_table[0x39] = "9";
+        char_table[0x3A] = ":";
+        char_table[0x3B] = ";";
+        char_table[0x3D] = "=";
         char_table[0x3F] = "?";
         char_table[0x41] = "A";
         char_table[0x42] = "B";
@@ -56,6 +61,8 @@ void MainWindow::initialize_char_table()
         char_table[0x58] = "X";
         char_table[0x59] = "Y";
         char_table[0x5A] = "Z";
+        char_table[0x5B] = "[";
+        char_table[0x5D] = "]";
         char_table[0x61] = "a";
         char_table[0x62] = "b";
         char_table[0x63] = "c";
