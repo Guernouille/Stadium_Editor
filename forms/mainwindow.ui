@@ -68,7 +68,7 @@
        <rect>
         <x>4</x>
         <y>1</y>
-        <width>401</width>
+        <width>404</width>
         <height>221</height>
        </rect>
       </property>
@@ -400,12 +400,15 @@
         <rect>
          <x>260</x>
          <y>195</y>
-         <width>137</width>
+         <width>142</width>
          <height>17</height>
         </rect>
        </property>
+       <property name="toolTip">
+        <string>Strong Pokémon in Finals of Pika Cup, Petit Cup, Poké Cup UB MB, Prime Cup UB MB, and for Gym Leaders / Elite 4 / Rival / Mewtwo</string>
+       </property>
        <property name="text">
-        <string>Strong Pokémon in finals</string>
+        <string>Strong Pokémon in finals*</string>
        </property>
        <property name="checked">
         <bool>true</bool>
@@ -421,7 +424,7 @@
         </rect>
        </property>
        <property name="text">
-        <string>Max IVs SEs in finals</string>
+        <string>Max IVs EVs in finals</string>
        </property>
        <property name="checked">
         <bool>true</bool>
@@ -527,7 +530,7 @@
         </rect>
        </property>
        <property name="text">
-        <string>Randomize IVs SEs</string>
+        <string>Randomize IVs EVs</string>
        </property>
       </widget>
       <widget class="QCheckBox" name="checkBox_Randomize_CPU_Moves">
@@ -622,7 +625,7 @@
        <rect>
         <x>4</x>
         <y>220</y>
-        <width>401</width>
+        <width>404</width>
         <height>201</height>
        </rect>
       </property>
@@ -6859,6 +6862,19 @@
         </property>
        </widget>
       </widget>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Rental_Page">
+      <property name="geometry">
+       <rect>
+        <x>4</x>
+        <y>30</y>
+        <width>91</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="currentIndex">
+       <number>-1</number>
+      </property>
      </widget>
     </widget>
     <widget class="QWidget" name="tab_Pokemon_Data">
