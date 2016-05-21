@@ -170,7 +170,7 @@ public:
     quint32 prng_seed[6];
 
     quint8  rental_cup_id[1024];
-    quint8  rental_cup_offset[256];
+    quint16 rental_cup_offset[256];
     quint8  rental_pkm_id[1024];
     QString rental_pkm_nickname[1024];
     quint8  rental_pkm_level[1024];
