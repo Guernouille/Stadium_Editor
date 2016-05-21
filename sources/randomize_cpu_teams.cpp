@@ -447,7 +447,14 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
                     moves_ids_vector.push_back(pkm_start_move_1[buf8]);
                     strong_moves_ids_vector.push_back(pkm_start_move_1[buf8]);
                 }
-                // All moves
+                // Rest
+                else if(pkm_start_move_1[buf8]==0x9C){
+                    if(pkm_base_hp[buf8]>=90 && pkm_base_def[buf8]>=90 && pkm_base_spc[buf8]>=80 && buf8!=151){
+                        moves_ids_vector.push_back(pkm_start_move_1[buf8]);
+                        strong_moves_ids_vector.push_back(pkm_start_move_1[buf8]);
+                    }
+                }
+                // Other moves
                 else if(no_weak_moves==false || weak_move[pkm_start_move_1[buf8]]==false){
                     if(no_useless_moves==false || useless_move[pkm_start_move_1[buf8]]==false){
                         moves_ids_vector.push_back(pkm_start_move_1[buf8]);
@@ -496,7 +503,14 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
                     moves_ids_vector.push_back(pkm_start_move_2[buf8]);
                     strong_moves_ids_vector.push_back(pkm_start_move_2[buf8]);
                 }
-                // All moves
+                // Rest
+                else if(pkm_start_move_2[buf8]==0x9C){
+                    if(pkm_base_hp[buf8]>=90 && pkm_base_def[buf8]>=90 && pkm_base_spc[buf8]>=80 && buf8!=151){
+                        moves_ids_vector.push_back(pkm_start_move_2[buf8]);
+                        strong_moves_ids_vector.push_back(pkm_start_move_2[buf8]);
+                    }
+                }
+                // Other moves
                 else if(no_weak_moves==false || weak_move[pkm_start_move_2[buf8]]==false){
                     if(no_useless_moves==false || useless_move[pkm_start_move_2[buf8]]==false){
                         moves_ids_vector.push_back(pkm_start_move_2[buf8]);
@@ -537,7 +551,14 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
                     moves_ids_vector.push_back(pkm_start_move_3[buf8]);
                     strong_moves_ids_vector.push_back(pkm_start_move_3[buf8]);
                 }
-                // All moves
+                // Rest
+                else if(pkm_start_move_3[buf8]==0x9C){
+                    if(pkm_base_hp[buf8]>=90 && pkm_base_def[buf8]>=90 && pkm_base_spc[buf8]>=80 && buf8!=151){
+                        moves_ids_vector.push_back(pkm_start_move_3[buf8]);
+                        strong_moves_ids_vector.push_back(pkm_start_move_3[buf8]);
+                    }
+                }
+                // Other moves
                 else if(no_weak_moves==false || weak_move[pkm_start_move_3[buf8]]==false){
                     if(no_useless_moves==false || useless_move[pkm_start_move_3[buf8]]==false){
                         moves_ids_vector.push_back(pkm_start_move_3[buf8]);
@@ -579,7 +600,14 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
                     moves_ids_vector.push_back(pkm_start_move_4[buf8]);
                     strong_moves_ids_vector.push_back(pkm_start_move_4[buf8]);
                 }
-                // All moves
+                // Rest
+                else if(pkm_start_move_4[buf8]==0x9C){
+                    if(pkm_base_hp[buf8]>=90 && pkm_base_def[buf8]>=90 && pkm_base_spc[buf8]>=80 && buf8!=151){
+                        moves_ids_vector.push_back(pkm_start_move_4[buf8]);
+                        strong_moves_ids_vector.push_back(pkm_start_move_4[buf8]);
+                    }
+                }
+                // Other moves
                 else if(no_weak_moves==false || weak_move[pkm_start_move_4[buf8]]==false){
                     if(no_useless_moves==false || useless_move[pkm_start_move_4[buf8]]==false){
                         moves_ids_vector.push_back(pkm_start_move_4[buf8]);
@@ -627,7 +655,14 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
                             moves_ids_vector.push_back(move_tmhm[j]);
                             strong_moves_ids_vector.push_back(move_tmhm[j]);
                         }
-                        // All moves
+                        // Rest
+                        else if(move_tmhm[j]==0x9C){
+                            if(pkm_base_hp[buf8]>=90 && pkm_base_def[buf8]>=90 && pkm_base_spc[buf8]>=80 && buf8!=151){
+                                moves_ids_vector.push_back(move_tmhm[j]);
+                                strong_moves_ids_vector.push_back(move_tmhm[j]);
+                            }
+                        }
+                        // Other moves
                         else if(no_weak_moves==false || weak_move[move_tmhm[j]]==false){
                             if(no_useless_moves==false || useless_move[move_tmhm[j]]==false){
                                 moves_ids_vector.push_back(move_tmhm[j]);
@@ -674,7 +709,14 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
                         moves_ids_vector.push_back(pkm_rb_move[buf8][j]);
                         strong_moves_ids_vector.push_back(pkm_rb_move[buf8][j]);
                     }
-                    // All moves
+                    // Rest
+                    else if(pkm_rb_move[buf8][j]==0x9C){
+                        if(pkm_base_hp[buf8]>=90 && pkm_base_def[buf8]>=90 && pkm_base_spc[buf8]>=80 && buf8!=151){
+                            moves_ids_vector.push_back(pkm_rb_move[buf8][j]);
+                            strong_moves_ids_vector.push_back(pkm_rb_move[buf8][j]);
+                        }
+                    }
+                    // Other moves
                     else if(no_weak_moves==false || weak_move[pkm_rb_move[buf8][j]]==false){
                         if(no_useless_moves==false || useless_move[pkm_rb_move[buf8][j]]==false){
                             moves_ids_vector.push_back(pkm_rb_move[buf8][j]);
@@ -716,7 +758,14 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
                         moves_ids_vector.push_back(pkm_y_move[buf8][j]);
                         strong_moves_ids_vector.push_back(pkm_y_move[buf8][j]);
                     }
-                    // All moves
+                    // Rest
+                    else if(pkm_y_move[buf8][j]==0x9C){
+                        if(pkm_base_hp[buf8]>=90 && pkm_base_def[buf8]>=90 && pkm_base_spc[buf8]>=80 && buf8!=151){
+                            moves_ids_vector.push_back(pkm_y_move[buf8][j]);
+                            strong_moves_ids_vector.push_back(pkm_y_move[buf8][j]);
+                        }
+                    }
+                    // Other moves
                     else if(no_weak_moves==false || weak_move[pkm_y_move[buf8][j]]==false){
                         if(no_useless_moves==false || useless_move[pkm_y_move[buf8][j]]==false){
                             moves_ids_vector.push_back(pkm_y_move[buf8][j]);
