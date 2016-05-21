@@ -214,6 +214,7 @@ private:
     void randomize_cpu_level(std::mt19937 &mt_rand);
     void randomize_cpu_moves(std::mt19937 &mt_rand);
     void randomize_cpu_pkmn(std::mt19937 &mt_rand);
+    void randomize_rental_level(std::mt19937 &mt_rand);
 
 private slots:
     // romfile
@@ -224,6 +225,7 @@ private slots:
 
     // autoconnect randomizer
     void on_pushButton_Randomize_CPU_Teams_pressed();
+    void on_pushButton_Randomize_Rental_Pkmn_pressed();
     void on_pushButton_CPU_Metronome_pressed();
     void on_pushButton_Rental_Metronome_pressed();
     void on_pushButton_Maximize_CPU_EVsIVs_pressed();
