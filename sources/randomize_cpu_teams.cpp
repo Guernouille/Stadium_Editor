@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <random>
 
-void MainWindow::randomize_init_pkmn(){
+void MainWindow::randomize_cpu_init_pkmn(){
     bool no_mew_mewtwo = ui->checkBox_Randomizer_CPU_NoMewMewtwo->isChecked();
 
     pkm_ids_vector_petitcup.clear();
@@ -44,6 +44,9 @@ void MainWindow::randomize_init_pkmn(){
         if(ui->checkBox_Randomizer_CPU_NoUselessPkmn->isChecked() == false){
             pkm_ids_vector_pikacup.push_back(83);
             pkm_ids_vector_pikacup.push_back(132);
+        }
+        if(no_mew_mewtwo==false){
+            pkm_ids_vector_pikacup.push_back(151);
         }
     }
     else{
@@ -121,6 +124,7 @@ void MainWindow::randomize_init_pkmn(){
         pkm_ids_vector_primecup_gambler.push_back(151);
     }
 
+
     // Poké Cup
     if(ui->checkBox_Randomizer_CPU_FullyEvolved->isChecked()){
         short pkm_list_pokecup[] = {3,6,9,12,15,18,20,22,24,26,28,31,34,36,38,40,42,45,47,49,51,53,55,57,59,62,65,68,71,73,76,78,80,82,85,87,89,91,94,95,97,99,101,103,105,106,107,108,110,112,113,114,115,117,119,121,122,123,124,125,126,127,128,130,131,134,135,136,137,139,141,142,143,144,145,146,149};
@@ -128,6 +132,13 @@ void MainWindow::randomize_init_pkmn(){
         if(ui->checkBox_Randomizer_CPU_NoUselessPkmn->isChecked() == false){
             pkm_ids_vector_pokecup.push_back(83);
             pkm_ids_vector_pokecup.push_back(132);
+        }
+    }
+    else if(ui->checkBox_Randomizer_CPU_NoUselessPkmn->isChecked()){
+        for(short i=1;i<=(total_pkm_name);i++){
+            if(i!=10 && i!=11 && i!=13 && i!=14 && i!=29 && i!=41 && i!=48 && i!=129 && i!=132 && i!=150 && i!=151){
+                pkm_ids_vector_pokecup.push_back(i);
+            }
         }
     }
     else{
