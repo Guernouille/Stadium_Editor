@@ -1,12 +1,13 @@
 #include "mainwindow.h"
 
-// Max PPs
+// Max PPs (Rental)
 void MainWindow::on_checkBox_Randomizer_Rental_MaxPPUps_stateChanged(int state){
     if(state == Qt::Checked){
         ui->checkBox_Randomizer_Rental_NoPPUps->setChecked(false);
     }
 }
-// Min PPs
+
+// Min PPs (Rental)
 void MainWindow::on_checkBox_Randomizer_Rental_NoPPUps_stateChanged(int state){
     if(state == Qt::Checked){
         ui->checkBox_Randomizer_Rental_MaxPPUps->setChecked(false);
@@ -24,7 +25,7 @@ void MainWindow::on_pushButton_Randomize_CPU_Teams_pressed(){
     }
 
     if(ui->checkBox_Randomize_CPU_Pkmn->isChecked()){
-        randomize_init_pkmn();
+        randomize_cpu_init_pkmn();
         randomize_cpu_pkmn(mt_rand);
     }
 
@@ -39,6 +40,22 @@ void MainWindow::on_pushButton_Randomize_CPU_Teams_pressed(){
         prng_seed[3] = mt_rand();
         prng_seed[4] = mt_rand();
         prng_seed[5] = mt_rand();
+    }
+}
+
+
+// Randomize (Rental)
+void MainWindow::on_pushButton_Randomize_Rental_Pkmn_pressed(){
+    std::seed_seq seeds{prng_seed[0], prng_seed[1], prng_seed[2], prng_seed[3], prng_seed[4], prng_seed[5]};
+    std::mt19937 mt_rand(seeds);
+
+    if(ui->checkBox_Randomize_Rental_Levels->isChecked()){
+        randomize_rental_level(mt_rand);
+    }
+
+    if(ui->checkBox_Randomize_Rental_Pkmn->isChecked()){
+        randomize_rental_init_pkmn();
+        randomize_rental_pkmn(mt_rand);
     }
 }
 
