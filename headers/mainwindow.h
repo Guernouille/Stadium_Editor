@@ -161,6 +161,10 @@ public:
     std::vector<quint8> pkm_ids_vector_pokecup_toptier;
     std::vector<quint8> pkm_ids_vector_vs_mewtwo;
     std::vector<quint8> pkm_ids_vector_vs_mewtwo_toptier;
+    std::vector<quint8> pkm_ids_vector_rental_petitcup;
+    std::vector<quint8> pkm_ids_vector_rental_pikacup;
+    std::vector<quint8> pkm_ids_vector_rental_primecup;
+    std::vector<quint8> pkm_ids_vector_rental_pokecup;
 
     quint16 pokedex_entry_pointer[256];
     QString pokedex_entry[256];
@@ -210,11 +214,13 @@ private:
     Ui::MainWindow *ui;
 
     // randomizer
-    void randomize_init_pkmn();
+    void randomize_cpu_init_pkmn();
     void randomize_cpu_level(std::mt19937 &mt_rand);
     void randomize_cpu_moves(std::mt19937 &mt_rand);
     void randomize_cpu_pkmn(std::mt19937 &mt_rand);
+    void randomize_rental_init_pkmn();
     void randomize_rental_level(std::mt19937 &mt_rand);
+    void randomize_rental_pkmn(std::mt19937 &mt_rand);
 
 private slots:
     // romfile
