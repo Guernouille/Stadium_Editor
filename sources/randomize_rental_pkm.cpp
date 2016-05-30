@@ -1,4 +1,5 @@
 #include "mainwindow.h"
+#include "rental_pkm.h"
 #include <algorithm>
 #include <random>
 
@@ -206,6 +207,8 @@ void MainWindow::randomize_rental_pkmn(std::mt19937 &mt_rand)
     // PRNG
     mt_rand.discard(700000);
 
+    RentalPkm current_rental_pkm[1024];
+
     std::shuffle(pkm_ids_vector_rental_petitcup.begin(), pkm_ids_vector_rental_petitcup.end(), mt_rand);
     std::shuffle(pkm_ids_vector_rental_pikacup.begin(), pkm_ids_vector_rental_pikacup.end(), mt_rand);
     std::shuffle(pkm_ids_vector_rental_primecup.begin(), pkm_ids_vector_rental_primecup.end(), mt_rand);
@@ -220,7 +223,7 @@ void MainWindow::randomize_rental_pkmn(std::mt19937 &mt_rand)
 
         while(not_legal_level){
             if((index_vector_pkm+offset_vector_pkm) < pkm_ids_vector_rental_petitcup.size()){
-                if(rental_pkm_level[rental_id]<pkm_min_level[pkm_ids_vector_rental_petitcup[index_vector_pkm+offset_vector_pkm]]){
+                if(rental_pkm_level[rental_id] < pkm_min_level[pkm_ids_vector_rental_petitcup[index_vector_pkm+offset_vector_pkm]]){
                     offset_vector_pkm++;
                 }
                 else{
@@ -239,12 +242,24 @@ void MainWindow::randomize_rental_pkmn(std::mt19937 &mt_rand)
             pkm_ids_vector_rental_petitcup[index_vector_pkm+offset_vector_pkm] = buf8;
         }
 
-        rental_pkm_id[rental_id] = pkm_ids_vector_rental_petitcup[index_vector_pkm];
-        rental_pkm_nickname[rental_id] = pkm_name[pkm_ids_vector_rental_petitcup[index_vector_pkm]];
+        current_rental_pkm[rental_id-rental_cup_offset[0]].setRentalPkmId(pkm_ids_vector_rental_petitcup[index_vector_pkm]);
+        current_rental_pkm[rental_id-rental_cup_offset[0]].setRentalPkmLevel(rental_pkm_level[rental_id]);
 
         if(index_vector_pkm == 6){
             std::shuffle(pkm_ids_vector_rental_petitcup.begin(), pkm_ids_vector_rental_petitcup.end(), mt_rand);
         }
+    }
+
+    if(current_rental_pkm[0].getRentalPkmLevel() != 2){
+        std::sort(current_rental_pkm, current_rental_pkm + (rental_cup_offset[1] - rental_cup_offset[0]),
+                  [](RentalPkm const & a, RentalPkm const & b) -> bool
+                            { return a.cl_rental_pkm_id < b.cl_rental_pkm_id; });
+    }
+
+    for(short rental_id = rental_cup_offset[0] ; rental_id < rental_cup_offset[1] ; rental_id++){
+        rental_pkm_id[rental_id] = current_rental_pkm[rental_id-rental_cup_offset[0]].getRentalPkmId();
+        rental_pkm_level[rental_id] = current_rental_pkm[rental_id-rental_cup_offset[0]].getRentalPkmLevel();
+        rental_pkm_nickname[rental_id] = pkm_name[rental_pkm_id[rental_id]];
     }
 
 
@@ -256,7 +271,7 @@ void MainWindow::randomize_rental_pkmn(std::mt19937 &mt_rand)
 
         while(not_legal_level){
             if((index_vector_pkm+offset_vector_pkm) < pkm_ids_vector_rental_pikacup.size()){
-                if(rental_pkm_level[rental_id]<pkm_min_level[pkm_ids_vector_rental_pikacup[index_vector_pkm+offset_vector_pkm]]){
+                if(rental_pkm_level[rental_id] < pkm_min_level[pkm_ids_vector_rental_pikacup[index_vector_pkm+offset_vector_pkm]]){
                     offset_vector_pkm++;
                 }
                 else{
@@ -275,11 +290,215 @@ void MainWindow::randomize_rental_pkmn(std::mt19937 &mt_rand)
             pkm_ids_vector_rental_pikacup[index_vector_pkm+offset_vector_pkm] = buf8;
         }
 
-        rental_pkm_id[rental_id] = pkm_ids_vector_rental_pikacup[index_vector_pkm];
-        rental_pkm_nickname[rental_id] = pkm_name[pkm_ids_vector_rental_pikacup[index_vector_pkm]];
+        current_rental_pkm[rental_id-rental_cup_offset[1]].setRentalPkmId(pkm_ids_vector_rental_pikacup[index_vector_pkm]);
+        current_rental_pkm[rental_id-rental_cup_offset[1]].setRentalPkmLevel(rental_pkm_level[rental_id]);
 
         if(index_vector_pkm == 6){
             std::shuffle(pkm_ids_vector_rental_pikacup.begin(), pkm_ids_vector_rental_pikacup.end(), mt_rand);
         }
+    }
+
+    if(current_rental_pkm[1].getRentalPkmLevel() != 2){
+        std::sort(current_rental_pkm, current_rental_pkm + (rental_cup_offset[2] - rental_cup_offset[1]),
+                  [](RentalPkm const & a, RentalPkm const & b) -> bool
+                            { return a.cl_rental_pkm_id < b.cl_rental_pkm_id; });
+    }
+
+    for(short rental_id = rental_cup_offset[1] ; rental_id < rental_cup_offset[2] ; rental_id++){
+        rental_pkm_id[rental_id] = current_rental_pkm[rental_id-rental_cup_offset[1]].getRentalPkmId();
+        rental_pkm_level[rental_id] = current_rental_pkm[rental_id-rental_cup_offset[1]].getRentalPkmLevel();
+        rental_pkm_nickname[rental_id] = pkm_name[rental_pkm_id[rental_id]];
+    }
+
+
+    // Prime Cup 1: Lv 100
+    for(short rental_id = rental_cup_offset[2] ; rental_id < rental_cup_offset[3] ; rental_id++){
+        bool not_legal_level = true;
+        quint8 offset_vector_pkm = 0;
+        quint8 index_vector_pkm = rental_id%7;
+
+        while(not_legal_level){
+            if((index_vector_pkm+offset_vector_pkm) < pkm_ids_vector_rental_primecup.size()){
+                if(rental_pkm_level[rental_id] < pkm_min_level[pkm_ids_vector_rental_primecup[index_vector_pkm+offset_vector_pkm]]){
+                    offset_vector_pkm++;
+                }
+                else{
+                    not_legal_level = false;
+                }
+            }
+            // Fail-safe
+            else{
+                offset_vector_pkm = 0;
+                not_legal_level = false;
+            }
+        }
+        if(offset_vector_pkm > 0){
+            buf8 = pkm_ids_vector_rental_primecup[index_vector_pkm];
+            pkm_ids_vector_rental_primecup[index_vector_pkm] = pkm_ids_vector_rental_primecup[index_vector_pkm+offset_vector_pkm];
+            pkm_ids_vector_rental_primecup[index_vector_pkm+offset_vector_pkm] = buf8;
+        }
+
+        current_rental_pkm[rental_id-rental_cup_offset[2]].setRentalPkmId(pkm_ids_vector_rental_primecup[index_vector_pkm]);
+        current_rental_pkm[rental_id-rental_cup_offset[2]].setRentalPkmLevel(rental_pkm_level[rental_id]);
+
+        if(index_vector_pkm == 6){
+            std::shuffle(pkm_ids_vector_rental_primecup.begin(), pkm_ids_vector_rental_primecup.end(), mt_rand);
+        }
+    }
+
+    if(current_rental_pkm[2].getRentalPkmLevel() != 2){
+        std::sort(current_rental_pkm, current_rental_pkm + (rental_cup_offset[3] - rental_cup_offset[2]),
+                  [](RentalPkm const & a, RentalPkm const & b) -> bool
+                            { return a.cl_rental_pkm_id < b.cl_rental_pkm_id; });
+    }
+
+    for(short rental_id = rental_cup_offset[2] ; rental_id < rental_cup_offset[3] ; rental_id++){
+        rental_pkm_id[rental_id] = current_rental_pkm[rental_id-rental_cup_offset[2]].getRentalPkmId();
+        rental_pkm_level[rental_id] = current_rental_pkm[rental_id-rental_cup_offset[2]].getRentalPkmLevel();
+        rental_pkm_nickname[rental_id] = pkm_name[rental_pkm_id[rental_id]];
+    }
+
+
+    // Poke Cup: Lv 50 to Lv 55
+    for(short rental_id = rental_cup_offset[3] ; rental_id < rental_cup_offset[4] ; rental_id++){
+        bool not_legal_level = true;
+        quint8 offset_vector_pkm = 0;
+        quint8 index_vector_pkm = rental_id%7;
+
+        while(not_legal_level){
+            if((index_vector_pkm+offset_vector_pkm) < pkm_ids_vector_rental_pokecup.size()){
+                if(rental_pkm_level[rental_id] < pkm_min_level[pkm_ids_vector_rental_pokecup[index_vector_pkm+offset_vector_pkm]]){
+                    offset_vector_pkm++;
+                }
+                else{
+                    not_legal_level = false;
+                }
+            }
+            // Fail-safe
+            else{
+                offset_vector_pkm = 0;
+                not_legal_level = false;
+            }
+        }
+        if(offset_vector_pkm > 0){
+            buf8 = pkm_ids_vector_rental_pokecup[index_vector_pkm];
+            pkm_ids_vector_rental_pokecup[index_vector_pkm] = pkm_ids_vector_rental_pokecup[index_vector_pkm+offset_vector_pkm];
+            pkm_ids_vector_rental_pokecup[index_vector_pkm+offset_vector_pkm] = buf8;
+        }
+
+        current_rental_pkm[rental_id-rental_cup_offset[3]].setRentalPkmId(pkm_ids_vector_rental_pokecup[index_vector_pkm]);
+        current_rental_pkm[rental_id-rental_cup_offset[3]].setRentalPkmLevel(rental_pkm_level[rental_id]);
+
+        if(index_vector_pkm == 6){
+            std::shuffle(pkm_ids_vector_rental_pokecup.begin(), pkm_ids_vector_rental_pokecup.end(), mt_rand);
+        }
+    }
+
+    if(current_rental_pkm[3].getRentalPkmLevel() != 2){
+        std::sort(current_rental_pkm, current_rental_pkm + (rental_cup_offset[4] - rental_cup_offset[3]),
+                  [](RentalPkm const & a, RentalPkm const & b) -> bool
+                            { return a.cl_rental_pkm_id < b.cl_rental_pkm_id; });
+    }
+
+    for(short rental_id = rental_cup_offset[3] ; rental_id < rental_cup_offset[4] ; rental_id++){
+        rental_pkm_id[rental_id] = current_rental_pkm[rental_id-rental_cup_offset[3]].getRentalPkmId();
+        rental_pkm_level[rental_id] = current_rental_pkm[rental_id-rental_cup_offset[3]].getRentalPkmLevel();
+        rental_pkm_nickname[rental_id] = pkm_name[rental_pkm_id[rental_id]];
+    }
+
+
+    // Gym Leader Castle: Lv 50
+    for(short rental_id = rental_cup_offset[4] ; rental_id < rental_cup_offset[5] ; rental_id++){
+        bool not_legal_level = true;
+        quint8 offset_vector_pkm = 0;
+        quint8 index_vector_pkm = rental_id%7;
+
+        while(not_legal_level){
+            if((index_vector_pkm+offset_vector_pkm) < pkm_ids_vector_rental_pokecup.size()){
+                if(rental_pkm_level[rental_id] < pkm_min_level[pkm_ids_vector_rental_pokecup[index_vector_pkm+offset_vector_pkm]]){
+                    offset_vector_pkm++;
+                }
+                else{
+                    not_legal_level = false;
+                }
+            }
+            // Fail-safe
+            else{
+                offset_vector_pkm = 0;
+                not_legal_level = false;
+            }
+        }
+        if(offset_vector_pkm > 0){
+            buf8 = pkm_ids_vector_rental_pokecup[index_vector_pkm];
+            pkm_ids_vector_rental_pokecup[index_vector_pkm] = pkm_ids_vector_rental_pokecup[index_vector_pkm+offset_vector_pkm];
+            pkm_ids_vector_rental_pokecup[index_vector_pkm+offset_vector_pkm] = buf8;
+        }
+
+        current_rental_pkm[rental_id-rental_cup_offset[4]].setRentalPkmId(pkm_ids_vector_rental_pokecup[index_vector_pkm]);
+        current_rental_pkm[rental_id-rental_cup_offset[4]].setRentalPkmLevel(rental_pkm_level[rental_id]);
+
+        if(index_vector_pkm == 6){
+            std::shuffle(pkm_ids_vector_rental_pokecup.begin(), pkm_ids_vector_rental_pokecup.end(), mt_rand);
+        }
+    }
+
+    if(current_rental_pkm[4].getRentalPkmLevel() != 2){
+        std::sort(current_rental_pkm, current_rental_pkm + (rental_cup_offset[5] - rental_cup_offset[4]),
+                  [](RentalPkm const & a, RentalPkm const & b) -> bool
+                            { return a.cl_rental_pkm_id < b.cl_rental_pkm_id; });
+    }
+
+    for(short rental_id = rental_cup_offset[4] ; rental_id < rental_cup_offset[5] ; rental_id++){
+        rental_pkm_id[rental_id] = current_rental_pkm[rental_id-rental_cup_offset[4]].getRentalPkmId();
+        rental_pkm_level[rental_id] = current_rental_pkm[rental_id-rental_cup_offset[4]].getRentalPkmLevel();
+        rental_pkm_nickname[rental_id] = pkm_name[rental_pkm_id[rental_id]];
+    }
+
+
+    // Prime Cup 2: Lv 100
+    for(short rental_id = rental_cup_offset[5] ; rental_id < rental_cup_offset[6] ; rental_id++){
+        bool not_legal_level = true;
+        quint8 offset_vector_pkm = 0;
+        quint8 index_vector_pkm = rental_id%7;
+
+        while(not_legal_level){
+            if((index_vector_pkm+offset_vector_pkm) < pkm_ids_vector_rental_primecup.size()){
+                if(rental_pkm_level[rental_id] < pkm_min_level[pkm_ids_vector_rental_primecup[index_vector_pkm+offset_vector_pkm]]){
+                    offset_vector_pkm++;
+                }
+                else{
+                    not_legal_level = false;
+                }
+            }
+            // Fail-safe
+            else{
+                offset_vector_pkm = 0;
+                not_legal_level = false;
+            }
+        }
+        if(offset_vector_pkm > 0){
+            buf8 = pkm_ids_vector_rental_primecup[index_vector_pkm];
+            pkm_ids_vector_rental_primecup[index_vector_pkm] = pkm_ids_vector_rental_primecup[index_vector_pkm+offset_vector_pkm];
+            pkm_ids_vector_rental_primecup[index_vector_pkm+offset_vector_pkm] = buf8;
+        }
+
+        current_rental_pkm[rental_id-rental_cup_offset[5]].setRentalPkmId(pkm_ids_vector_rental_primecup[index_vector_pkm]);
+        current_rental_pkm[rental_id-rental_cup_offset[5]].setRentalPkmLevel(rental_pkm_level[rental_id]);
+
+        if(index_vector_pkm == 6){
+            std::shuffle(pkm_ids_vector_rental_primecup.begin(), pkm_ids_vector_rental_primecup.end(), mt_rand);
+        }
+    }
+
+    if(current_rental_pkm[5].getRentalPkmLevel() != 2){
+        std::sort(current_rental_pkm, current_rental_pkm + (rental_cup_offset[6] - rental_cup_offset[5]),
+                  [](RentalPkm const & a, RentalPkm const & b) -> bool
+                            { return a.cl_rental_pkm_id < b.cl_rental_pkm_id; });
+    }
+
+    for(short rental_id = rental_cup_offset[5] ; rental_id < rental_cup_offset[6] ; rental_id++){
+        rental_pkm_id[rental_id] = current_rental_pkm[rental_id-rental_cup_offset[5]].getRentalPkmId();
+        rental_pkm_level[rental_id] = current_rental_pkm[rental_id-rental_cup_offset[5]].getRentalPkmLevel();
+        rental_pkm_nickname[rental_id] = pkm_name[rental_pkm_id[rental_id]];
     }
 }
