@@ -2008,5 +2008,12 @@ void MainWindow::randomize_cpu_pkmn(std::mt19937 &mt_rand)
                 }
             }
         }
+
+        cpu_pkm_experience[cpu_trainer_id][0] = calc_experience(pkm_growth_rate[cpu_pkm_id[cpu_trainer_id][0]],cpu_pkm_level[cpu_trainer_id][0]);
+        cpu_pkm_experience[cpu_trainer_id][1] = calc_experience(pkm_growth_rate[cpu_pkm_id[cpu_trainer_id][1]],cpu_pkm_level[cpu_trainer_id][1]);
+        cpu_pkm_experience[cpu_trainer_id][2] = calc_experience(pkm_growth_rate[cpu_pkm_id[cpu_trainer_id][2]],cpu_pkm_level[cpu_trainer_id][2]);
+        cpu_pkm_experience[cpu_trainer_id][3] = calc_experience(pkm_growth_rate[cpu_pkm_id[cpu_trainer_id][3]],cpu_pkm_level[cpu_trainer_id][3]);
+        cpu_pkm_experience[cpu_trainer_id][4] = calc_experience(pkm_growth_rate[cpu_pkm_id[cpu_trainer_id][4]],cpu_pkm_level[cpu_trainer_id][4]);
+        cpu_pkm_experience[cpu_trainer_id][5] = calc_experience(pkm_growth_rate[cpu_pkm_id[cpu_trainer_id][5]],cpu_pkm_level[cpu_trainer_id][5]);
     }
 }
