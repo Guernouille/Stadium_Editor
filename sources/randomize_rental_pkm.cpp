@@ -202,6 +202,252 @@ void MainWindow::randomize_rental_level(std::mt19937 &mt_rand)
 }
 
 
+void MainWindow::randomize_rental_moves(std::mt19937 &mt_rand)
+{
+    // PRNG
+    mt_rand.discard(700000);
+
+    bool no_useless_moves = ui->checkBox_Randomizer_Rental_NoUselessMoves->isChecked();
+    bool no_weak_moves = ui->checkBox_Randomizer_Rental_NoWeakMoves->isChecked();
+    bool no_dragon_rage = ui->checkBox_Randomizer_Rental_NoDragonRage->isChecked();
+    bool no_evasion_moves = ui->checkBox_Randomizer_Rental_NoEvasion->isChecked();
+    bool no_ohko_moves = ui->checkBox_Randomizer_Rental_NoOHKOMoves->isChecked();
+    bool have_offensive_move = ui->checkBox_Randomizer_Rental_OffensiveMove->isChecked();
+    bool have_stab_move = ui->checkBox_Randomizer_Rental_STABMove->isChecked();
+
+    for(short rental_id=0;rental_id<current_rentals_number;rental_id++){
+        moves_ids_vector.clear();
+
+        buf8 = rental_pkm_id[rental_id];
+
+        // Starting Moves
+        if(pkm_start_move_1[buf8]>0 && pkm_start_move_1[buf8]<total_move_name){
+            // Dragon Rage
+            if(pkm_start_move_1[buf8]==0x52 && (rental_cup_id[rental_id]==0 || rental_cup_id[rental_id]==1)){
+                if(no_dragon_rage==false){
+                    moves_ids_vector.push_back(pkm_start_move_1[buf8]);
+                }
+            }
+            // Double Team, Reflect
+            else if(move_effect[pkm_start_move_1[buf8]]==0xF){
+                if(no_evasion_moves==false){
+                    moves_ids_vector.push_back(pkm_start_move_1[buf8]);
+                }
+            }
+            // Fissure, Guillotine, Horn Drill
+            else if(move_effect[pkm_start_move_1[buf8]]==0x26){
+                if(no_ohko_moves==false){
+                    moves_ids_vector.push_back(pkm_start_move_1[buf8]);
+                }
+            }
+            // Other moves
+            else if(no_weak_moves==false || weak_move[pkm_start_move_1[buf8]]==false){
+                if(no_useless_moves==false || useless_move[pkm_start_move_1[buf8]]==false){
+                    moves_ids_vector.push_back(pkm_start_move_1[buf8]);
+                }
+            }
+        }
+        if(pkm_start_move_2[buf8]>0 && pkm_start_move_2[buf8]<total_move_name){
+            // Dragon Rage
+            if(pkm_start_move_2[buf8]==0x52 && (rental_cup_id[rental_id]==0 || rental_cup_id[rental_id]==1)){
+                if(no_dragon_rage==false){
+                    moves_ids_vector.push_back(pkm_start_move_2[buf8]);
+                }
+            }
+            // Double Team, Reflect
+            else if(move_effect[pkm_start_move_2[buf8]]==0xF){
+                if(no_evasion_moves==false){
+                    moves_ids_vector.push_back(pkm_start_move_2[buf8]);
+                }
+            }
+            // Fissure, Guillotine, Horn Drill
+            else if(move_effect[pkm_start_move_2[buf8]]==0x26){
+                if(no_ohko_moves==false){
+                    moves_ids_vector.push_back(pkm_start_move_2[buf8]);
+                }
+            }
+            // Other moves
+            else if(no_weak_moves==false || weak_move[pkm_start_move_2[buf8]]==false){
+                if(no_useless_moves==false || useless_move[pkm_start_move_2[buf8]]==false){
+                    moves_ids_vector.push_back(pkm_start_move_2[buf8]);
+                }
+            }
+        }
+        if(pkm_start_move_3[buf8]>0 && pkm_start_move_3[buf8]<total_move_name){
+            // Dragon Rage
+            if(pkm_start_move_3[buf8]==0x52 && (rental_cup_id[rental_id]==0 || rental_cup_id[rental_id]==1)){
+                if(no_dragon_rage==false){
+                    moves_ids_vector.push_back(pkm_start_move_3[buf8]);
+                }
+            }
+            // Double Team, Reflect
+            else if(move_effect[pkm_start_move_3[buf8]]==0xF){
+                if(no_evasion_moves==false){
+                    moves_ids_vector.push_back(pkm_start_move_3[buf8]);
+                }
+            }
+            // Fissure, Guillotine, Horn Drill
+            else if(move_effect[pkm_start_move_3[buf8]]==0x26){
+                if(no_ohko_moves==false){
+                    moves_ids_vector.push_back(pkm_start_move_3[buf8]);
+                }
+            }
+            // Other moves
+            else if(no_weak_moves==false || weak_move[pkm_start_move_3[buf8]]==false){
+                if(no_useless_moves==false || useless_move[pkm_start_move_3[buf8]]==false){
+                    moves_ids_vector.push_back(pkm_start_move_3[buf8]);
+                }
+            }
+        }
+        if(pkm_start_move_4[buf8]>0 && pkm_start_move_4[buf8]<total_move_name){
+            // Dragon Rage
+            if(pkm_start_move_4[buf8]==0x52 && (rental_cup_id[rental_id]==0 || rental_cup_id[rental_id]==1)){
+                if(no_dragon_rage==false){
+                    moves_ids_vector.push_back(pkm_start_move_4[buf8]);
+                }
+            }
+            // Double Team, Reflect
+            else if(move_effect[pkm_start_move_4[buf8]]==0xF){
+                if(no_evasion_moves==false){
+                    moves_ids_vector.push_back(pkm_start_move_4[buf8]);
+                }
+            }
+            // Fissure, Guillotine, Horn Drill
+            else if(move_effect[pkm_start_move_4[buf8]]==0x26){
+                if(no_ohko_moves==false){
+                    moves_ids_vector.push_back(pkm_start_move_4[buf8]);
+                }
+            }
+            // Other moves
+            else if(no_weak_moves==false || weak_move[pkm_start_move_4[buf8]]==false){
+                if(no_useless_moves==false || useless_move[pkm_start_move_4[buf8]]==false){
+                    moves_ids_vector.push_back(pkm_start_move_4[buf8]);
+                }
+            }
+        }
+
+        // TM HM Moves
+        for(short j=1;j<56;j++){
+            if(move_tmhm[j]>0 && move_tmhm[j]<total_move_name){
+                move_tmhm_flag = (j-1)%8;
+                move_tmhm_byte = (j-1)/8;
+
+                if((1<<move_tmhm_flag) & pkm_tmhm_flags[buf8][move_tmhm_byte]){
+                    // Dragon Rage
+                    if(move_tmhm[j]==0x52 && (rental_cup_id[rental_id]==0 || rental_cup_id[rental_id]==1)){
+                        if(no_dragon_rage==false){
+                            moves_ids_vector.push_back(move_tmhm[j]);
+                        }
+                    }
+                    // Double Team, Reflect
+                    else if(move_effect[move_tmhm[j]]==0xF){
+                        if(no_evasion_moves==false){
+                            moves_ids_vector.push_back(move_tmhm[j]);
+                        }
+                    }
+                    // Fissure, Guillotine, Horn Drill
+                    else if(move_effect[move_tmhm[j]]==0x26){
+                        if(no_ohko_moves==false){
+                            moves_ids_vector.push_back(move_tmhm[j]);
+                        }
+                    }
+                    // Other moves
+                    else if(no_weak_moves==false || weak_move[move_tmhm[j]]==false){
+                        if(no_useless_moves==false || useless_move[move_tmhm[j]]==false){
+                            moves_ids_vector.push_back(move_tmhm[j]);
+                        }
+                    }
+                }
+            }
+        }
+
+        // Level-up Moves
+        for(short j=0;j<10;j++){
+            if(pkm_rb_move[buf8][j]>0 && pkm_rb_move[buf8][j]<total_move_name && pkm_rb_lvl[buf8][j]<=rental_pkm_level[rental_id]){
+                // Dragon Rage
+                if(pkm_rb_move[buf8][j]==0x52 && (rental_cup_id[rental_id]==0 || rental_cup_id[rental_id]==1)){
+                    if(no_dragon_rage==false){
+                        moves_ids_vector.push_back(pkm_rb_move[buf8][j]);
+                    }
+                }
+                // Double Team, Reflect
+                else if(move_effect[pkm_rb_move[buf8][j]]==0xF){
+                    if(no_evasion_moves==false){
+                        moves_ids_vector.push_back(pkm_rb_move[buf8][j]);
+                    }
+                }
+                // Fissure, Guillotine, Horn Drill
+                else if(move_effect[pkm_rb_move[buf8][j]]==0x26){
+                    if(no_ohko_moves==false){
+                        moves_ids_vector.push_back(pkm_rb_move[buf8][j]);
+                    }
+                }
+                // Other moves
+                else if(no_weak_moves==false || weak_move[pkm_rb_move[buf8][j]]==false){
+                    if(no_useless_moves==false || useless_move[pkm_rb_move[buf8][j]]==false){
+                        moves_ids_vector.push_back(pkm_rb_move[buf8][j]);
+                    }
+                }
+            }
+
+            if(pkm_y_move[buf8][j]>0 && pkm_y_move[buf8][j]<total_move_name && pkm_rb_lvl[buf8][j]<=rental_pkm_level[rental_id]){
+                // Dragon Rage
+                if(pkm_y_move[buf8][j]==0x52 && (rental_cup_id[rental_id]==0 || rental_cup_id[rental_id]==1)){
+                    if(no_dragon_rage==false){
+                        moves_ids_vector.push_back(pkm_y_move[buf8][j]);
+                    }
+                }
+                // Double Team, Reflect
+                else if(move_effect[pkm_y_move[buf8][j]]==0xF){
+                    if(no_evasion_moves==false){
+                        moves_ids_vector.push_back(pkm_y_move[buf8][j]);
+                    }
+                }
+                // Fissure, Guillotine, Horn Drill
+                else if(move_effect[pkm_y_move[buf8][j]]==0x26){
+                    if(no_ohko_moves==false){
+                        moves_ids_vector.push_back(pkm_y_move[buf8][j]);
+                    }
+                }
+                // Other moves
+                else if(no_weak_moves==false || weak_move[pkm_y_move[buf8][j]]==false){
+                    if(no_useless_moves==false || useless_move[pkm_y_move[buf8][j]]==false){
+                        moves_ids_vector.push_back(pkm_y_move[buf8][j]);
+                    }
+                }
+            }
+        }
+
+
+        /* Remove moves duplicates in the Pokémon's learnset.
+        It's faster to NOT convert to a set in an unmodified Stadium ROM, as there are not a lot of duplicates.
+        If there are more duplicate moves in your ROM learnsets, it might be more efficient to convert to a set, then assign the set to the vector */
+        if(moves_ids_vector.size()>0) {
+            sort(moves_ids_vector.begin(), moves_ids_vector.end());
+            moves_ids_vector.erase(std::unique(moves_ids_vector.begin(), moves_ids_vector.end()), moves_ids_vector.end());
+        }
+
+
+        // Randomize Pokémon Moves
+        // TO DO: Force offensive move / STAB move
+        if(moves_ids_vector.size()>0){
+            std::shuffle(moves_ids_vector.begin(), moves_ids_vector.end(), mt_rand);
+            rental_pkm_move_1[rental_id] = moves_ids_vector[0];
+        }
+        else if(pkm_start_move_1[buf8] != 0 && pkm_start_move_1[buf8] < total_move_name){
+             rental_pkm_move_1[rental_id] = pkm_start_move_1[buf8];
+        }
+        else rental_pkm_move_1[rental_id] = 1;
+        if(moves_ids_vector.size()>1) rental_pkm_move_2[rental_id] = moves_ids_vector[1];
+        else rental_pkm_move_2[rental_id] = 0;
+        if(moves_ids_vector.size()>2) rental_pkm_move_3[rental_id] = moves_ids_vector[2];
+        else rental_pkm_move_3[rental_id] = 0;
+        if(moves_ids_vector.size()>3) rental_pkm_move_4[rental_id] = moves_ids_vector[3];
+        else rental_pkm_move_4[rental_id] = 0;
+    }
+}
+
+
 void MainWindow::randomize_rental_pkmn(std::mt19937 &mt_rand)
 {
     // PRNG
