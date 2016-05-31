@@ -20,8 +20,9 @@ public:
          cl_rental_pkm_level = level;
     }
 
-// private:
     short cl_rental_pkm_id;
+
+private:
     short cl_rental_pkm_level;
 };
 
