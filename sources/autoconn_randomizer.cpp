@@ -57,6 +57,19 @@ void MainWindow::on_pushButton_Randomize_Rental_Pkmn_pressed(){
         randomize_rental_init_pkmn();
         randomize_rental_pkmn(mt_rand);
     }
+
+    if(ui->checkBox_Randomize_Rental_Moves->isChecked()){
+        randomize_rental_moves(mt_rand);
+    }
+
+    if(ui->checkBox_FixedSeeds->isChecked()==false){
+        prng_seed[0] = mt_rand();
+        prng_seed[1] = mt_rand();
+        prng_seed[2] = mt_rand();
+        prng_seed[3] = mt_rand();
+        prng_seed[4] = mt_rand();
+        prng_seed[5] = mt_rand();
+    }
 }
 
 
