@@ -505,6 +505,7 @@ void MainWindow::randomize_rental_pkmn(std::mt19937 &mt_rand)
     for(short rental_id = rental_cup_offset[0] ; rental_id < rental_cup_offset[1] ; rental_id++){
         rental_pkm_id[rental_id] = current_rental_pkm[rental_id-rental_cup_offset[0]].getRentalPkmId();
         rental_pkm_level[rental_id] = current_rental_pkm[rental_id-rental_cup_offset[0]].getRentalPkmLevel();
+        rental_pkm_experience[rental_id] = calc_experience(pkm_growth_rate[rental_pkm_id[rental_id]],rental_pkm_level[rental_id]);
         rental_pkm_nickname[rental_id] = pkm_name[rental_pkm_id[rental_id]];
     }
 
@@ -553,6 +554,7 @@ void MainWindow::randomize_rental_pkmn(std::mt19937 &mt_rand)
     for(short rental_id = rental_cup_offset[1] ; rental_id < rental_cup_offset[2] ; rental_id++){
         rental_pkm_id[rental_id] = current_rental_pkm[rental_id-rental_cup_offset[1]].getRentalPkmId();
         rental_pkm_level[rental_id] = current_rental_pkm[rental_id-rental_cup_offset[1]].getRentalPkmLevel();
+        rental_pkm_experience[rental_id] = calc_experience(pkm_growth_rate[rental_pkm_id[rental_id]],rental_pkm_level[rental_id]);
         rental_pkm_nickname[rental_id] = pkm_name[rental_pkm_id[rental_id]];
     }
 
@@ -601,6 +603,7 @@ void MainWindow::randomize_rental_pkmn(std::mt19937 &mt_rand)
     for(short rental_id = rental_cup_offset[2] ; rental_id < rental_cup_offset[3] ; rental_id++){
         rental_pkm_id[rental_id] = current_rental_pkm[rental_id-rental_cup_offset[2]].getRentalPkmId();
         rental_pkm_level[rental_id] = current_rental_pkm[rental_id-rental_cup_offset[2]].getRentalPkmLevel();
+        rental_pkm_experience[rental_id] = calc_experience(pkm_growth_rate[rental_pkm_id[rental_id]],rental_pkm_level[rental_id]);
         rental_pkm_nickname[rental_id] = pkm_name[rental_pkm_id[rental_id]];
     }
 
@@ -649,6 +652,7 @@ void MainWindow::randomize_rental_pkmn(std::mt19937 &mt_rand)
     for(short rental_id = rental_cup_offset[3] ; rental_id < rental_cup_offset[4] ; rental_id++){
         rental_pkm_id[rental_id] = current_rental_pkm[rental_id-rental_cup_offset[3]].getRentalPkmId();
         rental_pkm_level[rental_id] = current_rental_pkm[rental_id-rental_cup_offset[3]].getRentalPkmLevel();
+        rental_pkm_experience[rental_id] = calc_experience(pkm_growth_rate[rental_pkm_id[rental_id]],rental_pkm_level[rental_id]);
         rental_pkm_nickname[rental_id] = pkm_name[rental_pkm_id[rental_id]];
     }
 
@@ -697,6 +701,7 @@ void MainWindow::randomize_rental_pkmn(std::mt19937 &mt_rand)
     for(short rental_id = rental_cup_offset[4] ; rental_id < rental_cup_offset[5] ; rental_id++){
         rental_pkm_id[rental_id] = current_rental_pkm[rental_id-rental_cup_offset[4]].getRentalPkmId();
         rental_pkm_level[rental_id] = current_rental_pkm[rental_id-rental_cup_offset[4]].getRentalPkmLevel();
+        rental_pkm_experience[rental_id] = calc_experience(pkm_growth_rate[rental_pkm_id[rental_id]],rental_pkm_level[rental_id]);
         rental_pkm_nickname[rental_id] = pkm_name[rental_pkm_id[rental_id]];
     }
 
@@ -745,6 +750,7 @@ void MainWindow::randomize_rental_pkmn(std::mt19937 &mt_rand)
     for(short rental_id = rental_cup_offset[5] ; rental_id < rental_cup_offset[6] ; rental_id++){
         rental_pkm_id[rental_id] = current_rental_pkm[rental_id-rental_cup_offset[5]].getRentalPkmId();
         rental_pkm_level[rental_id] = current_rental_pkm[rental_id-rental_cup_offset[5]].getRentalPkmLevel();
+        rental_pkm_experience[rental_id] = calc_experience(pkm_growth_rate[rental_pkm_id[rental_id]],rental_pkm_level[rental_id]);
         rental_pkm_nickname[rental_id] = pkm_name[rental_pkm_id[rental_id]];
     }
 }
