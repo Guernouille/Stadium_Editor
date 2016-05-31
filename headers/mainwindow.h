@@ -220,6 +220,7 @@ private:
     void randomize_cpu_pkmn(std::mt19937 &mt_rand);
     void randomize_rental_init_pkmn();
     void randomize_rental_level(std::mt19937 &mt_rand);
+    void randomize_rental_moves(std::mt19937 &mt_rand);
     void randomize_rental_pkmn(std::mt19937 &mt_rand);
 
 private slots:
