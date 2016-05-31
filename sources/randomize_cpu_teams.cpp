@@ -454,9 +454,11 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
                 // Softboiled check
                 if(pkm_start_move_1[buf8]==0x87) has_softboiled = true;
                 // Dragon Rage in Petit Cup and Pika Cup
-                if(pkm_start_move_1[buf8]==0x52 && no_dragon_rage==false && (cpu_cup_id[cpu_trainer_id]==0 || cpu_cup_id[cpu_trainer_id]==1 || cpu_cup_id[cpu_trainer_id]==22 || cpu_cup_id[cpu_trainer_id]==23)){
-                    moves_ids_vector.push_back(pkm_start_move_1[buf8]);
-                    strong_moves_ids_vector.push_back(pkm_start_move_1[buf8]);
+                if(pkm_start_move_1[buf8]==0x52 && (cpu_cup_id[cpu_trainer_id]==0 || cpu_cup_id[cpu_trainer_id]==1 || cpu_cup_id[cpu_trainer_id]==22 || cpu_cup_id[cpu_trainer_id]==23)){
+                    if(no_dragon_rage==false){
+                        moves_ids_vector.push_back(pkm_start_move_1[buf8]);
+                        strong_moves_ids_vector.push_back(pkm_start_move_1[buf8]);
+                    }
                 }
                 // Rest
                 else if(pkm_start_move_1[buf8]==0x9C){
@@ -510,9 +512,11 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
                 // Softboiled check
                 if(pkm_start_move_2[buf8]==0x87) has_softboiled = true;
                 // Dragon Rage in Petit Cup and Pika Cup
-                if(pkm_start_move_2[buf8]==0x52 && no_dragon_rage==false && (cpu_cup_id[cpu_trainer_id]==0 || cpu_cup_id[cpu_trainer_id]==1 || cpu_cup_id[cpu_trainer_id]==22 || cpu_cup_id[cpu_trainer_id]==23)){
-                    moves_ids_vector.push_back(pkm_start_move_2[buf8]);
-                    strong_moves_ids_vector.push_back(pkm_start_move_2[buf8]);
+                if(pkm_start_move_2[buf8]==0x52 && (cpu_cup_id[cpu_trainer_id]==0 || cpu_cup_id[cpu_trainer_id]==1 || cpu_cup_id[cpu_trainer_id]==22 || cpu_cup_id[cpu_trainer_id]==23)){
+                    if(no_dragon_rage==false){
+                        moves_ids_vector.push_back(pkm_start_move_2[buf8]);
+                        strong_moves_ids_vector.push_back(pkm_start_move_2[buf8]);
+                    }
                 }
                 // Rest
                 else if(pkm_start_move_2[buf8]==0x9C){
@@ -558,9 +562,11 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
                 // Softboiled check
                 if(pkm_start_move_3[buf8]==0x87) has_softboiled = true;
                 // Dragon Rage in Petit Cup and Pika Cup
-                if(pkm_start_move_3[buf8]==0x52 && no_dragon_rage==false && (cpu_cup_id[cpu_trainer_id]==0 || cpu_cup_id[cpu_trainer_id]==1 || cpu_cup_id[cpu_trainer_id]==22 || cpu_cup_id[cpu_trainer_id]==23)){
-                    moves_ids_vector.push_back(pkm_start_move_3[buf8]);
-                    strong_moves_ids_vector.push_back(pkm_start_move_3[buf8]);
+                if(pkm_start_move_3[buf8]==0x52 && (cpu_cup_id[cpu_trainer_id]==0 || cpu_cup_id[cpu_trainer_id]==1 || cpu_cup_id[cpu_trainer_id]==22 || cpu_cup_id[cpu_trainer_id]==23)){
+                    if(no_dragon_rage==false){
+                        moves_ids_vector.push_back(pkm_start_move_3[buf8]);
+                        strong_moves_ids_vector.push_back(pkm_start_move_3[buf8]);
+                    }
                 }
                 // Rest
                 else if(pkm_start_move_3[buf8]==0x9C){
@@ -607,9 +613,11 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
                 // Softboiled check
                 if(pkm_start_move_4[buf8]==0x87) has_softboiled = true;
                 // Dragon Rage in Petit Cup and Pika Cup
-                if(pkm_start_move_4[buf8]==0x52 && no_dragon_rage==false && (cpu_cup_id[cpu_trainer_id]==0 || cpu_cup_id[cpu_trainer_id]==1 || cpu_cup_id[cpu_trainer_id]==22 || cpu_cup_id[cpu_trainer_id]==23)){
-                    moves_ids_vector.push_back(pkm_start_move_4[buf8]);
-                    strong_moves_ids_vector.push_back(pkm_start_move_4[buf8]);
+                if(pkm_start_move_4[buf8]==0x52 && (cpu_cup_id[cpu_trainer_id]==0 || cpu_cup_id[cpu_trainer_id]==1 || cpu_cup_id[cpu_trainer_id]==22 || cpu_cup_id[cpu_trainer_id]==23)){
+                    if(no_dragon_rage==false){
+                        moves_ids_vector.push_back(pkm_start_move_4[buf8]);
+                        strong_moves_ids_vector.push_back(pkm_start_move_4[buf8]);
+                    }
                 }
                 // Rest
                 else if(pkm_start_move_4[buf8]==0x9C){
@@ -662,9 +670,11 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
                         // Softboiled check
                         if(move_tmhm[j]==0x87) has_softboiled = true;
                         // Dragon Rage in Petit Cup and Pika Cup
-                        if(move_tmhm[j]==0x52 && no_dragon_rage==false && (cpu_cup_id[cpu_trainer_id]==0 || cpu_cup_id[cpu_trainer_id]==1 || cpu_cup_id[cpu_trainer_id]==22 || cpu_cup_id[cpu_trainer_id]==23)){
-                            moves_ids_vector.push_back(move_tmhm[j]);
-                            strong_moves_ids_vector.push_back(move_tmhm[j]);
+                        if(move_tmhm[j]==0x52 && (cpu_cup_id[cpu_trainer_id]==0 || cpu_cup_id[cpu_trainer_id]==1 || cpu_cup_id[cpu_trainer_id]==22 || cpu_cup_id[cpu_trainer_id]==23)){
+                            if(no_dragon_rage==false){
+                                moves_ids_vector.push_back(move_tmhm[j]);
+                                strong_moves_ids_vector.push_back(move_tmhm[j]);
+                            }
                         }
                         // Rest
                         else if(move_tmhm[j]==0x9C){
@@ -716,9 +726,11 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
                     // Softboiled check
                     if(pkm_rb_move[buf8][j]==0x87) has_softboiled = true;
                     // Dragon Rage in Petit Cup and Pika Cup
-                    if(pkm_rb_move[buf8][j]==0x52 && no_dragon_rage==false && (cpu_cup_id[cpu_trainer_id]==0 || cpu_cup_id[cpu_trainer_id]==1 || cpu_cup_id[cpu_trainer_id]==22 || cpu_cup_id[cpu_trainer_id]==23)){
-                        moves_ids_vector.push_back(pkm_rb_move[buf8][j]);
-                        strong_moves_ids_vector.push_back(pkm_rb_move[buf8][j]);
+                    if(pkm_rb_move[buf8][j]==0x52 && (cpu_cup_id[cpu_trainer_id]==0 || cpu_cup_id[cpu_trainer_id]==1 || cpu_cup_id[cpu_trainer_id]==22 || cpu_cup_id[cpu_trainer_id]==23)){
+                        if(no_dragon_rage==false){
+                            moves_ids_vector.push_back(pkm_rb_move[buf8][j]);
+                            strong_moves_ids_vector.push_back(pkm_rb_move[buf8][j]);
+                        }
                     }
                     // Rest
                     else if(pkm_rb_move[buf8][j]==0x9C){
@@ -765,9 +777,11 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
                     // Softboiled check
                     if(pkm_y_move[buf8][j]==0x87) has_softboiled = true;
                     // Dragon Rage in Petit Cup and Pika Cup
-                    if(pkm_y_move[buf8][j]==0x52 && no_dragon_rage==false && (cpu_cup_id[cpu_trainer_id]==0 || cpu_cup_id[cpu_trainer_id]==1 || cpu_cup_id[cpu_trainer_id]==22 || cpu_cup_id[cpu_trainer_id]==23)){
-                        moves_ids_vector.push_back(pkm_y_move[buf8][j]);
-                        strong_moves_ids_vector.push_back(pkm_y_move[buf8][j]);
+                    if(pkm_y_move[buf8][j]==0x52 && (cpu_cup_id[cpu_trainer_id]==0 || cpu_cup_id[cpu_trainer_id]==1 || cpu_cup_id[cpu_trainer_id]==22 || cpu_cup_id[cpu_trainer_id]==23)){
+                        if(no_dragon_rage==false){
+                            moves_ids_vector.push_back(pkm_y_move[buf8][j]);
+                            strong_moves_ids_vector.push_back(pkm_y_move[buf8][j]);
+                        }
                     }
                     // Rest
                     else if(pkm_y_move[buf8][j]==0x9C){
@@ -1435,7 +1449,6 @@ void MainWindow::randomize_cpu_pkmn(std::mt19937 &mt_rand)
                 }
             }
         }
-
 
 
         // Pika Cup
