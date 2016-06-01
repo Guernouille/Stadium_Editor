@@ -19,6 +19,7 @@ void MainWindow::on_checkBox_Randomizer_Rental_NoPPUps_stateChanged(int state){
 void MainWindow::on_pushButton_Randomize_CPU_Teams_pressed(){
     std::seed_seq seeds{prng_seed[0], prng_seed[1], prng_seed[2], prng_seed[3], prng_seed[4], prng_seed[5]};
     std::mt19937 mt_rand(seeds);
+    mt_rand.discard(700000);
 
     if(ui->checkBox_Randomize_CPU_Levels->isChecked()){
         randomize_cpu_level(mt_rand);
@@ -31,6 +32,10 @@ void MainWindow::on_pushButton_Randomize_CPU_Teams_pressed(){
 
     if(ui->checkBox_Randomize_CPU_Moves->isChecked()){
         randomize_cpu_moves(mt_rand);
+    }
+
+    if(ui->checkBox_Randomize_CPU_Sprites->isChecked()){
+        randomize_cpu_nicknames(mt_rand);
     }
 
     if(ui->checkBox_FixedSeeds->isChecked()==false){
