@@ -47,16 +47,15 @@ void MainWindow::on_actionOpen_triggered() {
             romfile.seek(0);
 
             if(this->romtype != INVALID){
+                // ***** Reads the ROM data *****
                 // Initialization
                 initialize_char_table();
                 initialize_data();
                 initialize_min_levels();
-                initialize_nicknames();
-
-                // ***** Reads the ROM data *****
 
                 // Pokémon names
                 read_pkm_names(romfile);
+                initialize_nicknames();
 
                 // Pokémon data
                 read_pkm_data(romfile);
