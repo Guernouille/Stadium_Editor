@@ -181,9 +181,6 @@ void MainWindow::randomize_cpu_init_pkmn(){
 
 void MainWindow::randomize_cpu_level(std::mt19937 &mt_rand)
 {
-    // PRNG
-    mt_rand.discard(700000);
-
     bool gym_leaders_pokemon = ui->checkBox_Randomizer_CPU_GLPkmn->isChecked();
 
 
@@ -422,9 +419,6 @@ void MainWindow::randomize_cpu_level(std::mt19937 &mt_rand)
 
 void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
 {
-    // PRNG
-    mt_rand.discard(700000);
-
     bool no_illegal_moves = ui->checkBox_Randomizer_CPU_NoIllegalMoves->isChecked();
     bool no_useless_moves = ui->checkBox_Randomizer_CPU_NoUselessMoves->isChecked();
     bool no_weak_moves = ui->checkBox_Randomizer_CPU_NoWeakMoves->isChecked();
@@ -1374,11 +1368,21 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
 }
 
 
+void MainWindow::randomize_cpu_nicknames(std::mt19937 &mt_rand)
+{
+    std::uniform_int_distribution<> distrib_nick(0,9);
+    short nick_id = 0;
+    for(short cpu_trainer_id=0 ; cpu_trainer_id<current_cpu_trainers_number ; cpu_trainer_id++){
+        for(short i=0 ; i<cpu_party_size[cpu_trainer_id] ; i++){
+            nick_id = distrib_nick(mt_rand);
+            cpu_pkm_nickname[cpu_trainer_id][i] = preset_nicknames[cpu_pkm_id[cpu_trainer_id][i]][nick_id];
+        }
+    }
+}
+
+
 void MainWindow::randomize_cpu_pkmn(std::mt19937 &mt_rand)
 {
-    // PRNG
-    mt_rand.discard(700000);
-
     bool strong_pkm_finals = ui->checkBox_Randomizer_CPU_StrongPkmnFinal->isChecked();
     bool gambler_luck_moves = ui->checkBox_Randomizer_CPU_GamblerMoves->isChecked();
     bool gym_leaders_pokemon = ui->checkBox_Randomizer_CPU_GLPkmn->isChecked();
