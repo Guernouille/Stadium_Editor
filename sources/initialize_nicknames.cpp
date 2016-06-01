@@ -38,10 +38,13 @@ void MainWindow::initialize_nicknames(){
     preset_nicknames[9][8]="VENUSTOISE";
     preset_nicknames[9][9]="WaterKoopa";
     preset_nicknames[10][1]="caterpie";
+    preset_nicknames[10][8]="BoneCrushr";
     preset_nicknames[10][9]="SQUEESHY";
     preset_nicknames[11][1]="metapod";
+    preset_nicknames[11][6]="MetalPod";
+    preset_nicknames[11][7]="Escape Pod";
     preset_nicknames[11][8]="SirMetapod";
-    preset_nicknames[11][9]="METAGAME";
+    preset_nicknames[11][9]="Metagame";
     preset_nicknames[12][1]="butterfree";
     preset_nicknames[12][2]="FREEBUTTER";
     preset_nicknames[12][8]="Margarine";
@@ -67,6 +70,7 @@ void MainWindow::initialize_nicknames(){
     preset_nicknames[18][9]="Bird Jesus";
     preset_nicknames[19][1]="rattata";
     preset_nicknames[20][1]="raticate";
+    preset_nicknames[20][9]="Gnaw";
     preset_nicknames[21][1]="spearow";
     preset_nicknames[21][9]="the Dragon";
     preset_nicknames[22][1]="fearow";
