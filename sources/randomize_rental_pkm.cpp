@@ -144,6 +144,7 @@ void MainWindow::randomize_rental_level(std::mt19937 &mt_rand)
         std::uniform_int_distribution<> min_lv_pokecup(rental_cup_offset[3],(rental_cup_offset[4]-1));
         min_lv_pokecup_pkm = min_lv_pokecup(mt_rand);
     }
+    std::uniform_int_distribution<> distrib_glc_lv(glc_level_min,glc_level_max);
 
     // Rental Levels generation
     for(short rental_id=0;rental_id<current_rentals_number;rental_id++){
@@ -190,9 +191,14 @@ void MainWindow::randomize_rental_level(std::mt19937 &mt_rand)
                     min_lv_rolled_pokecup = true;
             }
         }
-        // Gym Leader Castle: Lv 50
+        // Gym Leader Castle: User-specified Lv range
         if(rental_cup_id[rental_id]==4){
-            rental_pkm_level[rental_id]=50;
+            if(glc_level_min != glc_level_max){
+                rental_pkm_level[rental_id] = distrib_glc_lv(mt_rand);
+            }
+            else{
+                rental_pkm_level[rental_id] = glc_level_min;
+            }
         }
         // Prime Cup 2: Lv 100
         if(rental_cup_id[rental_id]==5){
@@ -214,6 +220,8 @@ void MainWindow::randomize_rental_moves(std::mt19937 &mt_rand)
     bool no_ohko_moves = ui->checkBox_Randomizer_Rental_NoOHKOMoves->isChecked();
     bool have_offensive_move = ui->checkBox_Randomizer_Rental_OffensiveMove->isChecked();
     bool have_stab_move = ui->checkBox_Randomizer_Rental_STABMove->isChecked();
+    bool max_pp_ups = ui->checkBox_Randomizer_Rental_MaxPPUps->isChecked();
+    bool no_pp_ups = ui->checkBox_Randomizer_Rental_NoPPUps->isChecked();
 
     for(short rental_id=0;rental_id<current_rentals_number;rental_id++){
         moves_ids_vector.clear();
@@ -433,16 +441,39 @@ void MainWindow::randomize_rental_moves(std::mt19937 &mt_rand)
         if(moves_ids_vector.size()>0){
             std::shuffle(moves_ids_vector.begin(), moves_ids_vector.end(), mt_rand);
             rental_pkm_move_1[rental_id] = moves_ids_vector[0];
+            if(max_pp_ups) rental_pkm_ppup_1[rental_id]=3;
+            else if(no_pp_ups) rental_pkm_ppup_1[rental_id]=0;
         }
         else if(pkm_start_move_1[buf8] != 0 && pkm_start_move_1[buf8] < total_move_name){
              rental_pkm_move_1[rental_id] = pkm_start_move_1[buf8];
+             if(max_pp_ups) rental_pkm_ppup_1[rental_id]=3;
+             else if(no_pp_ups) rental_pkm_ppup_1[rental_id]=0;
         }
-        else rental_pkm_move_1[rental_id] = 1;
-        if(moves_ids_vector.size()>1) rental_pkm_move_2[rental_id] = moves_ids_vector[1];
+        else{
+            rental_pkm_move_1[rental_id] = 1;
+            if(max_pp_ups) rental_pkm_ppup_1[rental_id]=3;
+            else if(no_pp_ups) rental_pkm_ppup_1[rental_id]=0;
+        }
+
+        if(moves_ids_vector.size()>1){
+            rental_pkm_move_2[rental_id] = moves_ids_vector[1];
+            if(max_pp_ups) rental_pkm_ppup_2[rental_id]=3;
+            else if(no_pp_ups) rental_pkm_ppup_2[rental_id]=0;
+        }
         else rental_pkm_move_2[rental_id] = 0;
-        if(moves_ids_vector.size()>2) rental_pkm_move_3[rental_id] = moves_ids_vector[2];
+
+        if(moves_ids_vector.size()>2){
+            rental_pkm_move_3[rental_id] = moves_ids_vector[2];
+            if(max_pp_ups) rental_pkm_ppup_3[rental_id]=3;
+            else if(no_pp_ups) rental_pkm_ppup_3[rental_id]=0;
+        }
         else rental_pkm_move_3[rental_id] = 0;
-        if(moves_ids_vector.size()>3) rental_pkm_move_4[rental_id] = moves_ids_vector[3];
+
+        if(moves_ids_vector.size()>3){
+            rental_pkm_move_4[rental_id] = moves_ids_vector[3];
+            if(max_pp_ups) rental_pkm_ppup_4[rental_id]=3;
+            else if(no_pp_ups) rental_pkm_ppup_4[rental_id]=0;
+        }
         else rental_pkm_move_4[rental_id] = 0;
     }
 }
