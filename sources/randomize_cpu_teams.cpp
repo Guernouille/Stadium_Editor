@@ -283,116 +283,116 @@ void MainWindow::randomize_cpu_level(std::mt19937 &mt_rand)
                     cpu_pkm_level[cpu_trainer_id][i] = glc_level_min;
                 }
             }
-            if(gym_leaders_pokemon){
+            if(gym_leaders_pokemon && glc_level_max<=78){
                 // Brock
                 if(cpu_trainer_id==83 || cpu_trainer_id==209){
-                    cpu_pkm_level[cpu_trainer_id][0] = 56;
-                    cpu_pkm_level[cpu_trainer_id][1] = 53;
-                    cpu_pkm_level[cpu_trainer_id][2] = 58;
+                    cpu_pkm_level[cpu_trainer_id][0] = glc_level_max*1.13;
+                    cpu_pkm_level[cpu_trainer_id][1] = glc_level_max*1.06;
+                    cpu_pkm_level[cpu_trainer_id][2] = glc_level_max*1.17;
                 }
                 // Misty
                 if(cpu_trainer_id==87 || cpu_trainer_id==213){
-                    cpu_pkm_level[cpu_trainer_id][0] = 64;
-                    cpu_pkm_level[cpu_trainer_id][1] = 50;
-                    cpu_pkm_level[cpu_trainer_id][2] = 50;
-                    cpu_pkm_level[cpu_trainer_id][3] = 56;
+                    cpu_pkm_level[cpu_trainer_id][0] = glc_level_max*1.28;
+                    cpu_pkm_level[cpu_trainer_id][1] = glc_level_max;
+                    cpu_pkm_level[cpu_trainer_id][2] = glc_level_max;
+                    cpu_pkm_level[cpu_trainer_id][3] = glc_level_max*1.12;
                 }
                 // Lt. Surge
                 if(cpu_trainer_id==91 || cpu_trainer_id==217){
-                    cpu_pkm_level[cpu_trainer_id][0] = 53;
-                    cpu_pkm_level[cpu_trainer_id][1] = 50;
-                    cpu_pkm_level[cpu_trainer_id][2] = 52;
+                    cpu_pkm_level[cpu_trainer_id][0] = glc_level_max*1.06;
+                    cpu_pkm_level[cpu_trainer_id][1] = glc_level_max;
+                    cpu_pkm_level[cpu_trainer_id][2] = glc_level_max*1.05;
                 }
                 // Erika
                 if(cpu_trainer_id==95 || cpu_trainer_id==221){
                     if((prng_seed[0]+(cpu_trainer_id/200))%2==0)
-                        cpu_pkm_level[cpu_trainer_id][0] = 53;
+                        cpu_pkm_level[cpu_trainer_id][0] = glc_level_max*1.06;
                     else
-                        cpu_pkm_level[cpu_trainer_id][0] = 52;
+                        cpu_pkm_level[cpu_trainer_id][0] = glc_level_max*1.05;
                     if((prng_seed[1]+(cpu_trainer_id/200))%2==0)
-                        cpu_pkm_level[cpu_trainer_id][1] = 50;
+                        cpu_pkm_level[cpu_trainer_id][1] = glc_level_max;
                     else
-                        cpu_pkm_level[cpu_trainer_id][1] = 52;
-                    cpu_pkm_level[cpu_trainer_id][2] = 51;
+                        cpu_pkm_level[cpu_trainer_id][1] = glc_level_max*1.04;
+                    cpu_pkm_level[cpu_trainer_id][2] = glc_level_max*1.03;
                 }
                 // Koga
                 if(cpu_trainer_id==99 || cpu_trainer_id==225){
                     if((prng_seed[2]+(cpu_trainer_id/200))%2==0)
-                        cpu_pkm_level[cpu_trainer_id][0] = 55;
+                        cpu_pkm_level[cpu_trainer_id][0] = glc_level_max*1.11;
                     else
-                        cpu_pkm_level[cpu_trainer_id][0] = 52;
-                    cpu_pkm_level[cpu_trainer_id][1] = 54;
-                    cpu_pkm_level[cpu_trainer_id][2] = 51;
+                        cpu_pkm_level[cpu_trainer_id][0] = glc_level_max*1.04;
+                    cpu_pkm_level[cpu_trainer_id][1] = glc_level_max*1.08;
+                    cpu_pkm_level[cpu_trainer_id][2] = glc_level_max*1.02;
                 }
                 // Sabrina
                 if(cpu_trainer_id==103 || cpu_trainer_id==229){
-                    cpu_pkm_level[cpu_trainer_id][0] = 50;
+                    cpu_pkm_level[cpu_trainer_id][0] = glc_level_max;
                     if((prng_seed[4]+(cpu_trainer_id/200))%2==0)
-                        cpu_pkm_level[cpu_trainer_id][1] = 52;
+                        cpu_pkm_level[cpu_trainer_id][1] = glc_level_max*1.05;
                     else
-                        cpu_pkm_level[cpu_trainer_id][1] = 55;
-                    cpu_pkm_level[cpu_trainer_id][2] = 50;
+                        cpu_pkm_level[cpu_trainer_id][1] = glc_level_max*1.11;
+                    cpu_pkm_level[cpu_trainer_id][2] = glc_level_max;
                 }
                 // Blaine
                 if(cpu_trainer_id==107 || cpu_trainer_id==233){
                     if((prng_seed[1]+(cpu_trainer_id/200))%3==0)
-                        cpu_pkm_level[cpu_trainer_id][0] = 52;
+                        cpu_pkm_level[cpu_trainer_id][0] = glc_level_max*1.05;
                     else if((prng_seed[1]+(cpu_trainer_id/200))%3==1)
-                        cpu_pkm_level[cpu_trainer_id][0] = 54;
+                        cpu_pkm_level[cpu_trainer_id][0] = glc_level_max*1.09;
                     else
-                        cpu_pkm_level[cpu_trainer_id][0] = 53;
-                    cpu_pkm_level[cpu_trainer_id][1] = 50;
-                    cpu_pkm_level[cpu_trainer_id][2] = 50;
+                        cpu_pkm_level[cpu_trainer_id][0] = glc_level_max*1.07;
+                    cpu_pkm_level[cpu_trainer_id][1] = glc_level_max*1.01;
+                    cpu_pkm_level[cpu_trainer_id][2] = glc_level_max;
                 }
                 // Giovanni
                 if(cpu_trainer_id==111 || cpu_trainer_id==237){
-                    cpu_pkm_level[cpu_trainer_id][0] = 51;
+                    cpu_pkm_level[cpu_trainer_id][0] = glc_level_max*1.02;
                     if((prng_seed[0]+(cpu_trainer_id/200))%3==0)
-                        cpu_pkm_level[cpu_trainer_id][1] = 51;
+                        cpu_pkm_level[cpu_trainer_id][1] = glc_level_max*1.02;
                     else if((prng_seed[0]+(cpu_trainer_id/200))%3==1)
-                        cpu_pkm_level[cpu_trainer_id][1] = 54;
+                        cpu_pkm_level[cpu_trainer_id][1] = glc_level_max*1.08;
                     else
-                        cpu_pkm_level[cpu_trainer_id][1] = 51;
-                    cpu_pkm_level[cpu_trainer_id][2] = 51;
+                        cpu_pkm_level[cpu_trainer_id][1] = glc_level_max*1.02;
+                    cpu_pkm_level[cpu_trainer_id][2] = glc_level_max*1.02;
                 }
                 // Lorelei
                 if(cpu_trainer_id==112 || cpu_trainer_id==238){
-                    cpu_pkm_level[cpu_trainer_id][0] = 51;
-                    cpu_pkm_level[cpu_trainer_id][1] = 50;
-                    cpu_pkm_level[cpu_trainer_id][2] = 50;
+                    cpu_pkm_level[cpu_trainer_id][0] = glc_level_max*1.02;
+                    cpu_pkm_level[cpu_trainer_id][1] = glc_level_max;
+                    cpu_pkm_level[cpu_trainer_id][2] = glc_level_max;
                 }
                 // Bruno
                 if(cpu_trainer_id==113 || cpu_trainer_id==239){
-                    cpu_pkm_level[cpu_trainer_id][0] = 52;
-                    cpu_pkm_level[cpu_trainer_id][1] = 56;
+                    cpu_pkm_level[cpu_trainer_id][0] = glc_level_max*1.05;
+                    cpu_pkm_level[cpu_trainer_id][1] = glc_level_max*1.13;
                     if((prng_seed[3]+(cpu_trainer_id/200))%3==0)
-                        cpu_pkm_level[cpu_trainer_id][2] = 54;
+                        cpu_pkm_level[cpu_trainer_id][2] = glc_level_max*1.09;
                     else
-                        cpu_pkm_level[cpu_trainer_id][2] = 52;
+                        cpu_pkm_level[cpu_trainer_id][2] = glc_level_max*1.05;
                 }
                 // Agatha
                 if(cpu_trainer_id==114 || cpu_trainer_id==240){
-                    cpu_pkm_level[cpu_trainer_id][0] = 51;
-                    cpu_pkm_level[cpu_trainer_id][1] = 51;
-                    cpu_pkm_level[cpu_trainer_id][2] = 58;
+                    cpu_pkm_level[cpu_trainer_id][0] = glc_level_max*1.02;
+                    cpu_pkm_level[cpu_trainer_id][1] = glc_level_max*1.03;
+                    cpu_pkm_level[cpu_trainer_id][2] = glc_level_max*1.17;
                 }
                 // Lance
                 if(cpu_trainer_id==115 || cpu_trainer_id==241){
-                    cpu_pkm_level[cpu_trainer_id][0] = 51;
-                    cpu_pkm_level[cpu_trainer_id][1] = 52;
-                    cpu_pkm_level[cpu_trainer_id][2] = 50;
+                    cpu_pkm_level[cpu_trainer_id][0] = glc_level_max*1.03;
+                    cpu_pkm_level[cpu_trainer_id][1] = glc_level_max*1.04;
+                    cpu_pkm_level[cpu_trainer_id][2] = glc_level_max;
                 }
                 // Rival
                 if(cpu_cup_id[cpu_trainer_id]==19){
-                    cpu_pkm_level[cpu_trainer_id][0] = 50;
-                    cpu_pkm_level[cpu_trainer_id][1] = 51;
-                    cpu_pkm_level[cpu_trainer_id][2] = 50;
+                    cpu_pkm_level[cpu_trainer_id][0] = glc_level_max;
+                    cpu_pkm_level[cpu_trainer_id][1] = glc_level_max*1.02;
+                    cpu_pkm_level[cpu_trainer_id][2] = glc_level_max;
                 }
                 // Red
                 if(cpu_cup_id[cpu_trainer_id]==41){
-                    cpu_pkm_level[cpu_trainer_id][0] = 61;
-                    cpu_pkm_level[cpu_trainer_id][1] = 52;
-                    cpu_pkm_level[cpu_trainer_id][2] = 50;
+                    cpu_pkm_level[cpu_trainer_id][0] = glc_level_max*1.23;
+                    cpu_pkm_level[cpu_trainer_id][1] = glc_level_max*1.05;
+                    cpu_pkm_level[cpu_trainer_id][2] = glc_level_max;
                 }
             }
         }
