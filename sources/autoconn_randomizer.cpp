@@ -1,14 +1,74 @@
 #include "mainwindow.h"
 
+// Gym Leader Castle Levels
+void MainWindow::on_checkBox_Randomizer_CPU_GLPkmn_stateChanged(int state)
+{
+    if(not_in_init){
+        not_in_init = false;
+        if(state == Qt::Checked){
+            if(glc_level_min < 10){
+                glc_level_min = 10;
+                ui->spinBox_Randomizer_GLCLevelRange_1->setValue(glc_level_min);
+                if(glc_level_max < glc_level_min){
+                    glc_level_max = glc_level_min;
+                    ui->spinBox_Randomizer_GLCLevelRange_2->setValue(glc_level_max);
+                }
+            }
+            if(glc_level_max > 78){
+                glc_level_max = 78;
+                ui->spinBox_Randomizer_GLCLevelRange_2->setValue(glc_level_max);
+                if(glc_level_min > glc_level_max){
+                    glc_level_min = glc_level_max;
+                    ui->spinBox_Randomizer_GLCLevelRange_1->setValue(glc_level_min);
+                }
+            }
+        }
+        not_in_init = true;
+    }
+}
+
+void MainWindow::on_spinBox_Randomizer_GLCLevelRange_1_valueChanged(int)
+{
+    if(not_in_init){
+        not_in_init = false;
+        glc_level_min = ui->spinBox_Randomizer_GLCLevelRange_1->value();
+        if(glc_level_min > glc_level_max){
+            glc_level_max = glc_level_min;
+            ui->spinBox_Randomizer_GLCLevelRange_2->setValue(glc_level_max);
+        }
+        if(glc_level_max > 78){
+            ui->checkBox_Randomizer_CPU_GLPkmn->setChecked(false);
+        }
+        not_in_init = true;
+    }
+}
+void MainWindow::on_spinBox_Randomizer_GLCLevelRange_2_valueChanged(int)
+{
+    if(not_in_init){
+        not_in_init = false;
+        glc_level_max = ui->spinBox_Randomizer_GLCLevelRange_2->value();
+        if(glc_level_max < glc_level_min){
+            glc_level_min = glc_level_max;
+            ui->spinBox_Randomizer_GLCLevelRange_1->setValue(glc_level_min);
+        }
+        if(glc_level_max > 78){
+            ui->checkBox_Randomizer_CPU_GLPkmn->setChecked(false);
+        }
+        not_in_init = true;
+    }
+}
+
 // Max PPs (Rental)
-void MainWindow::on_checkBox_Randomizer_Rental_MaxPPUps_stateChanged(int state){
+void MainWindow::on_checkBox_Randomizer_Rental_MaxPPUps_stateChanged(int state)
+{
     if(state == Qt::Checked){
         ui->checkBox_Randomizer_Rental_NoPPUps->setChecked(false);
     }
 }
 
 // Min PPs (Rental)
-void MainWindow::on_checkBox_Randomizer_Rental_NoPPUps_stateChanged(int state){
+void MainWindow::on_checkBox_Randomizer_Rental_NoPPUps_stateChanged(int state)
+{
     if(state == Qt::Checked){
         ui->checkBox_Randomizer_Rental_MaxPPUps->setChecked(false);
     }
@@ -16,7 +76,8 @@ void MainWindow::on_checkBox_Randomizer_Rental_NoPPUps_stateChanged(int state){
 
 
 // Randomize (CPU)
-void MainWindow::on_pushButton_Randomize_CPU_Teams_pressed(){
+void MainWindow::on_pushButton_Randomize_CPU_Teams_pressed()
+{
     std::seed_seq seeds{prng_seed[0], prng_seed[1], prng_seed[2], prng_seed[3], prng_seed[4], prng_seed[5]};
     std::mt19937 mt_rand(seeds);
     mt_rand.discard(700000);
@@ -50,7 +111,8 @@ void MainWindow::on_pushButton_Randomize_CPU_Teams_pressed(){
 
 
 // Randomize (Rental)
-void MainWindow::on_pushButton_Randomize_Rental_Pkmn_pressed(){
+void MainWindow::on_pushButton_Randomize_Rental_Pkmn_pressed()
+{
     std::seed_seq seeds{prng_seed[0], prng_seed[1], prng_seed[2], prng_seed[3], prng_seed[4], prng_seed[5]};
     std::mt19937 mt_rand(seeds);
 
@@ -79,7 +141,8 @@ void MainWindow::on_pushButton_Randomize_Rental_Pkmn_pressed(){
 
 
 // Full Metronome (CPU)
-void MainWindow::on_pushButton_CPU_Metronome_pressed(){
+void MainWindow::on_pushButton_CPU_Metronome_pressed()
+{
     for(short i=0;i<256;i++){
         for(short j=0;j<6;j++){
             cpu_pkm_move_1[i][j] = 0x76;
@@ -116,7 +179,8 @@ void MainWindow::on_pushButton_CPU_Metronome_pressed(){
 
 
 // Full Metronome (Rentals)
-void MainWindow::on_pushButton_Rental_Metronome_pressed(){
+void MainWindow::on_pushButton_Rental_Metronome_pressed()
+{
     for(short i=0;i<1024;i++){
         rental_pkm_move_1[i] = 0x76;
         rental_pkm_move_2[i] = 0x76;
@@ -152,7 +216,8 @@ void MainWindow::on_pushButton_Rental_Metronome_pressed(){
 
 
 // Max EVs IVs (CPU)
-void MainWindow::on_pushButton_Maximize_CPU_EVsIVs_pressed(){
+void MainWindow::on_pushButton_Maximize_CPU_EVsIVs_pressed()
+{
     for(short i=0;i<256;i++){
         for(short j=0;j<6;j++){
             cpu_pkm_ev_hp[i][j] = 0xFFFF;
@@ -233,7 +298,8 @@ void MainWindow::on_pushButton_Maximize_CPU_EVsIVs_pressed(){
 
 
 // Max EVs IVs (Rentals)
-void MainWindow::on_pushButton_Maximize_Rental_EVsIVs_pressed(){
+void MainWindow::on_pushButton_Maximize_Rental_EVsIVs_pressed()
+{
     for(short i=0;i<1024;i++){
         rental_pkm_ev_hp[i] = 0xFFFF;
         rental_pkm_ev_atk[i] = 0xFFFF;
