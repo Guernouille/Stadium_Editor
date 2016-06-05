@@ -48,9 +48,9 @@
      <widget class="QLabel" name="label_rom_debug">
       <property name="geometry">
        <rect>
-        <x>440</x>
-        <y>10</y>
-        <width>121</width>
+        <x>420</x>
+        <y>94</y>
+        <width>130</width>
         <height>21</height>
        </rect>
       </property>
@@ -216,6 +216,9 @@
        <property name="text">
         <string>Mewtwo has 6 Pokémon</string>
        </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
       </widget>
       <widget class="QCheckBox" name="checkBox_Randomizer_CPU_NoDragonRage">
        <property name="geometry">
@@ -302,6 +305,9 @@
        <property name="text">
         <string>No useless Pokémon *</string>
        </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
       </widget>
       <widget class="QCheckBox" name="checkBox_Randomizer_CPU_OffensiveMove">
        <property name="geometry">
@@ -313,7 +319,7 @@
         </rect>
        </property>
        <property name="toolTip">
-        <string>Will override &quot;No illegal moves&quot; if necessary.</string>
+        <string>If possible.</string>
        </property>
        <property name="text">
         <string>Have offensive move *</string>
@@ -332,13 +338,13 @@
         </rect>
        </property>
        <property name="toolTip">
-        <string>Will override &quot;No illegal moves&quot; if necessary.</string>
+        <string>If possible. Won't give Physical/Special STAB moves to a Pokémon with low Base Attack/Special.</string>
        </property>
        <property name="text">
         <string>Have STAB move *</string>
        </property>
        <property name="checked">
-        <bool>false</bool>
+        <bool>true</bool>
        </property>
       </widget>
       <widget class="QCheckBox" name="checkBox_Randomizer_CPU_NoWeakMoves">
@@ -386,7 +392,7 @@
         </rect>
        </property>
        <property name="toolTip">
-        <string>Put two specific Pokémon in Gym Leaders and Elite 4 teams (Major Bob's Raichu, Sabrina's Alakazam, etc.).</string>
+        <string>Put 3~4 specific Pokémon in Gym Leaders and Elite 4 teams (Major Bob's Raichu, Sabrina's Alakazam, etc.).</string>
        </property>
        <property name="text">
         <string>Gym Leaders Pokémon*</string>
@@ -442,6 +448,9 @@
        <property name="text">
         <string>Randomize names</string>
        </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
       </widget>
       <widget class="QCheckBox" name="checkBox_Randomizer_CPU_NoSpeciesClause">
        <property name="geometry">
@@ -480,6 +489,9 @@
        </property>
        <property name="text">
         <string>Randomize Sprites</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
        </property>
       </widget>
       <widget class="QCheckBox" name="checkBox_Randomize_CPU_Levels">
@@ -531,6 +543,9 @@
        </property>
        <property name="text">
         <string>Randomize IVs EVs</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
        </property>
       </widget>
       <widget class="QCheckBox" name="checkBox_Randomize_CPU_Moves">
@@ -610,8 +625,8 @@
      <widget class="QGroupBox" name="groupBox_PRNG_Seeds">
       <property name="geometry">
        <rect>
-        <x>597</x>
-        <y>1</y>
+        <x>587</x>
+        <y>88</y>
         <width>111</width>
         <height>185</height>
        </rect>
@@ -626,7 +641,7 @@
         <x>4</x>
         <y>220</y>
         <width>404</width>
-        <height>201</height>
+        <height>176</height>
        </rect>
       </property>
       <property name="title">
@@ -735,8 +750,11 @@
          <height>17</height>
         </rect>
        </property>
+       <property name="toolTip">
+        <string>Will prevent things like Hydro Pump Charizard, for instance.</string>
+       </property>
        <property name="text">
-        <string>No illegal moves</string>
+        <string>No illegal moves *</string>
        </property>
        <property name="checked">
         <bool>true</bool>
@@ -752,7 +770,7 @@
         </rect>
        </property>
        <property name="toolTip">
-        <string>Override &quot;No illegal moves&quot; if necessary</string>
+        <string>If possible.</string>
        </property>
        <property name="text">
         <string>Have offensive move*</string>
@@ -772,6 +790,9 @@
        </property>
        <property name="text">
         <string>No Evasion moves</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
        </property>
       </widget>
       <widget class="QCheckBox" name="checkBox_Randomizer_Rental_NoWeakMoves">
@@ -800,7 +821,7 @@
         </rect>
        </property>
        <property name="toolTip">
-        <string>Override &quot;No illegal moves&quot; if necessary</string>
+        <string>If possible.</string>
        </property>
        <property name="text">
         <string>Have STAB move *</string>
@@ -885,8 +906,14 @@
          <height>17</height>
         </rect>
        </property>
+       <property name="toolTip">
+        <string>Remove Dragon Rage from Petit Cup and Pika Cup.</string>
+       </property>
        <property name="text">
-        <string>No Dragon Rage</string>
+        <string>No Dragon Rage *</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
        </property>
       </widget>
       <widget class="QCheckBox" name="checkBox_Randomizer_Rental_NoOHKOMoves">
@@ -900,6 +927,9 @@
        </property>
        <property name="text">
         <string>No OHKO moves</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
        </property>
       </widget>
       <widget class="QCheckBox" name="checkBox_Randomizer_Rental_NoIllegalPkmn">
@@ -921,19 +951,6 @@
         <bool>true</bool>
        </property>
       </widget>
-      <widget class="QCheckBox" name="checkBox_Randomizer_Rental_Names">
-       <property name="geometry">
-        <rect>
-         <x>5</x>
-         <y>170</y>
-         <width>111</width>
-         <height>17</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Randomize names</string>
-       </property>
-      </widget>
       <widget class="QCheckBox" name="checkBox_Randomize_Rental_IVsEVs">
        <property name="geometry">
         <rect>
@@ -945,6 +962,9 @@
        </property>
        <property name="text">
         <string>Randomize IVs EVs</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
        </property>
       </widget>
       <widget class="QCheckBox" name="checkBox_Randomize_Rental_Pkmn">
@@ -980,6 +1000,9 @@
        </property>
        <property name="text">
         <string>Randomize Levels *</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
        </property>
       </widget>
       <widget class="QCheckBox" name="checkBox_Randomize_Rental_Moves">
@@ -1017,25 +1040,6 @@
         <bool>false</bool>
        </property>
       </widget>
-      <widget class="QCheckBox" name="checkBox_Randomizer_Rental_NoStrongPkmn">
-       <property name="geometry">
-        <rect>
-         <x>260</x>
-         <y>95</y>
-         <width>131</width>
-         <height>17</height>
-        </rect>
-       </property>
-       <property name="toolTip">
-        <string>Highest BST Pokémon won't be available.</string>
-       </property>
-       <property name="text">
-        <string>No strong Pokémon *</string>
-       </property>
-       <property name="checked">
-        <bool>false</bool>
-       </property>
-      </widget>
       <widget class="QCheckBox" name="checkBox_Randomizer_Rental_MaxPPUps">
        <property name="geometry">
         <rect>
@@ -1062,76 +1066,31 @@
         <string>No PP Ups</string>
        </property>
       </widget>
-      <widget class="QSpinBox" name="spinBox_Randomizer_Rental_GLC_LevelRange_1">
+      <widget class="QCheckBox" name="checkBox_Rental_NFE_IVsEVs">
        <property name="geometry">
         <rect>
-         <x>278</x>
-         <y>175</y>
-         <width>42</width>
-         <height>22</height>
+         <x>260</x>
+         <y>95</y>
+         <width>141</width>
+         <height>17</height>
         </rect>
        </property>
-       <property name="minimum">
-        <number>2</number>
-       </property>
-       <property name="maximum">
-        <number>100</number>
-       </property>
-       <property name="value">
-        <number>50</number>
-       </property>
-      </widget>
-      <widget class="QSpinBox" name="spinBox_Randomizer_Rental_GLC_LevelRange_2">
-       <property name="geometry">
-        <rect>
-         <x>341</x>
-         <y>175</y>
-         <width>42</width>
-         <height>22</height>
-        </rect>
-       </property>
-       <property name="minimum">
-        <number>2</number>
-       </property>
-       <property name="maximum">
-        <number>100</number>
-       </property>
-       <property name="value">
-        <number>50</number>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_Randomizer_Rental_GLC_LevelRange_1">
-       <property name="geometry">
-        <rect>
-         <x>120</x>
-         <y>178</y>
-         <width>160</width>
-         <height>16</height>
-        </rect>
+       <property name="toolTip">
+        <string extracomment="Not Fully Evolved will have better IVs and Stat Exp."/>
        </property>
        <property name="text">
-        <string>Gym Leader Castle Level range:</string>
+        <string>Better IVs EVs for NFE *</string>
        </property>
-      </widget>
-      <widget class="QLabel" name="label_Randomizer_Rental_GLC_LevelRange_2">
-       <property name="geometry">
-        <rect>
-         <x>324</x>
-         <y>178</y>
-         <width>16</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>to</string>
+       <property name="checked">
+        <bool>true</bool>
        </property>
       </widget>
      </widget>
      <widget class="QCheckBox" name="checkBox_FixedSeeds">
       <property name="geometry">
        <rect>
-        <x>610</x>
-        <y>190</y>
+        <x>600</x>
+        <y>277</y>
         <width>91</width>
         <height>17</height>
        </rect>
@@ -1142,6 +1101,141 @@
       <property name="text">
        <string>Fixed PRNG *</string>
       </property>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_3">
+      <property name="geometry">
+       <rect>
+        <x>415</x>
+        <y>1</y>
+        <width>281</width>
+        <height>88</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Other options</string>
+      </property>
+      <widget class="QCheckBox" name="checkBox_Ghost_vs_Psychic">
+       <property name="geometry">
+        <rect>
+         <x>9</x>
+         <y>15</y>
+         <width>125</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Ghost ×2 vs Psychic</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="checkBox_Ice_vs_Fire">
+       <property name="geometry">
+        <rect>
+         <x>140</x>
+         <y>15</y>
+         <width>108</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Ice ×0.5 vs Fire</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_Randomizer_GLCLevelRange_2">
+       <property name="geometry">
+        <rect>
+         <x>185</x>
+         <y>60</y>
+         <width>16</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>to</string>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="spinBox_Randomizer_GLCLevelRange_1">
+       <property name="geometry">
+        <rect>
+         <x>140</x>
+         <y>57</y>
+         <width>42</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="minimum">
+        <number>10</number>
+       </property>
+       <property name="maximum">
+        <number>100</number>
+       </property>
+       <property name="value">
+        <number>50</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_Randomizer_GLCLevelRange_1">
+       <property name="geometry">
+        <rect>
+         <x>9</x>
+         <y>60</y>
+         <width>135</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Gym Leader Castle Levels:</string>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="spinBox_Randomizer_GLCLevelRange_2">
+       <property name="geometry">
+        <rect>
+         <x>200</x>
+         <y>57</y>
+         <width>42</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="minimum">
+        <number>10</number>
+       </property>
+       <property name="maximum">
+        <number>100</number>
+       </property>
+       <property name="value">
+        <number>50</number>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="checkBox_Poison_vs_Bug">
+       <property name="geometry">
+        <rect>
+         <x>9</x>
+         <y>35</y>
+         <width>125</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Poison ×1 vs Bug</string>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="checkBox_Bug_vs_Poison">
+       <property name="geometry">
+        <rect>
+         <x>140</x>
+         <y>35</y>
+         <width>125</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Bug ×0.5 vs Poison</string>
+       </property>
+      </widget>
      </widget>
     </widget>
     <widget class="QWidget" name="tab_CPU_Teams">
@@ -8171,7 +8265,7 @@ p, li { white-space: pre-wrap; }
       <widget class="QSpinBox" name="spinBox_Status_Sleep_turns">
        <property name="geometry">
         <rect>
-         <x>60</x>
+         <x>65</x>
          <y>15</y>
          <width>42</width>
          <height>22</height>
@@ -8187,7 +8281,7 @@ p, li { white-space: pre-wrap; }
       <widget class="QLabel" name="label_Status_Sleep_turns">
        <property name="geometry">
         <rect>
-         <x>102</x>
+         <x>110</x>
          <y>20</y>
          <width>28</width>
          <height>13</height>
@@ -8213,7 +8307,7 @@ p, li { white-space: pre-wrap; }
       <widget class="QSpinBox" name="spinBox_Status_Paralysis_probability">
        <property name="geometry">
         <rect>
-         <x>60</x>
+         <x>65</x>
          <y>39</y>
          <width>42</width>
          <height>22</height>
@@ -8229,9 +8323,51 @@ p, li { white-space: pre-wrap; }
       <widget class="QLabel" name="label_Status_Paralysis_probability">
        <property name="geometry">
         <rect>
-         <x>102</x>
+         <x>110</x>
          <y>44</y>
-         <width>25</width>
+         <width>30</width>
+         <height>13</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>/256</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_Status_Confusion">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>68</y>
+         <width>52</width>
+         <height>13</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Confusion:</string>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="spinBox_Status_Paralysis_probability_2">
+       <property name="geometry">
+        <rect>
+         <x>65</x>
+         <y>63</y>
+         <width>42</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="maximum">
+        <number>255</number>
+       </property>
+       <property name="value">
+        <number>127</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_Status_Confusion_probability">
+       <property name="geometry">
+        <rect>
+         <x>110</x>
+         <y>68</y>
+         <width>30</width>
          <height>13</height>
         </rect>
        </property>
@@ -8752,6 +8888,67 @@ p, li { white-space: pre-wrap; }
        </property>
        <property name="value">
         <number>1</number>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_4">
+      <property name="geometry">
+       <rect>
+        <x>547</x>
+        <y>435</y>
+        <width>120</width>
+        <height>49</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Damage variance</string>
+      </property>
+      <widget class="QSpinBox" name="spinBox_DamageVariance_1">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>19</y>
+         <width>42</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="maximum">
+        <number>255</number>
+       </property>
+       <property name="value">
+        <number>217</number>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="spinBox_DamageVariance_2">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>70</x>
+         <y>19</y>
+         <width>42</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="maximum">
+        <number>255</number>
+       </property>
+       <property name="value">
+        <number>255</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_DamageVariance">
+       <property name="geometry">
+        <rect>
+         <x>55</x>
+         <y>24</y>
+         <width>17</width>
+         <height>13</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>to</string>
        </property>
       </widget>
      </widget>
