@@ -159,6 +159,7 @@ public:
     std::vector<quint8> pkm_ids_vector_pokecup;
     std::vector<quint8> pkm_ids_vector_pokecup_gambler;
     std::vector<quint8> pkm_ids_vector_pokecup_toptier;
+    std::vector<quint8> pkm_ids_vector_glc_lowminlv;
     std::vector<quint8> pkm_ids_vector_vs_mewtwo;
     std::vector<quint8> pkm_ids_vector_vs_mewtwo_toptier;
     std::vector<quint8> pkm_ids_vector_rental_petitcup;
@@ -240,6 +241,9 @@ private slots:
     void on_pushButton_Maximize_Rental_EVsIVs_pressed();
     void on_checkBox_Randomizer_Rental_MaxPPUps_stateChanged(int state);
     void on_checkBox_Randomizer_Rental_NoPPUps_stateChanged(int state);
+    void on_spinBox_Randomizer_GLCLevelRange_1_valueChanged(int);
+    void on_spinBox_Randomizer_GLCLevelRange_2_valueChanged(int);
+    void on_checkBox_Randomizer_CPU_GLPkmn_stateChanged(int state);
 
     // autoconnect display
     void on_comboBox_CPU_Cup_currentIndexChanged(int);
