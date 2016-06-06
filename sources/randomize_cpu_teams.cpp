@@ -470,7 +470,7 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
                 }
                 // Other moves
                 else if(no_weak_moves==false || weak_move[pkm_start_move_1[buf8]]==false){
-                    if(no_useless_moves==false || useless_move[pkm_start_move_1[buf8]]==false){
+                    if((no_useless_moves==false || useless_move[pkm_start_move_1[buf8]]==false) && (move_effect[pkm_start_move_1[buf8]]!=0xF || no_evasion_moves==false)){
                         moves_ids_vector.push_back(pkm_start_move_1[buf8]);
                     }
                 }
@@ -488,7 +488,8 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
                             || ((move_type[pkm_start_move_1[buf8]]==pkm_type_1[buf8] || move_type[pkm_start_move_1[buf8]]==pkm_type_2[buf8]) && pkm_base_atk[buf8]>30)
                             || pkm_base_atk[buf8]>50)
                         && (move_effect[pkm_start_move_1[buf8]] != 0x50
-                            || ((move_type[pkm_start_move_1[buf8]]==pkm_type_1[buf8] || move_type[pkm_start_move_1[buf8]]==pkm_type_2[buf8]) && pkm_base_atk[buf8]>60)))
+                            || ((move_type[pkm_start_move_1[buf8]]==pkm_type_1[buf8] || move_type[pkm_start_move_1[buf8]]==pkm_type_2[buf8]) && pkm_base_atk[buf8]>60))
+                        && (move_effect[pkm_start_move_1[buf8]] != 0xF || no_evasion_moves==false))
                 {
                     strong_moves_ids_vector.push_back(pkm_start_move_1[buf8]);
                 }
@@ -528,7 +529,7 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
                 }
                 // Other moves
                 else if(no_weak_moves==false || weak_move[pkm_start_move_2[buf8]]==false){
-                    if(no_useless_moves==false || useless_move[pkm_start_move_2[buf8]]==false){
+                    if((no_useless_moves==false || useless_move[pkm_start_move_2[buf8]]==false) && (move_effect[pkm_start_move_2[buf8]]!=0xF || no_evasion_moves==false)){
                         moves_ids_vector.push_back(pkm_start_move_2[buf8]);
                     }
                 }
@@ -539,10 +540,12 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
                             || ((move_type[pkm_start_move_2[buf8]]==pkm_type_1[buf8] || move_type[pkm_start_move_2[buf8]]==pkm_type_2[buf8]) && pkm_base_atk[buf8]>30)
                             || pkm_base_atk[buf8]>50)
                         && (move_effect[pkm_start_move_2[buf8]] != 0x50
-                            || ((move_type[pkm_start_move_2[buf8]]==pkm_type_1[buf8] || move_type[pkm_start_move_2[buf8]]==pkm_type_2[buf8]) && pkm_base_atk[buf8]>60)))
+                            || ((move_type[pkm_start_move_2[buf8]]==pkm_type_1[buf8] || move_type[pkm_start_move_2[buf8]]==pkm_type_2[buf8]) && pkm_base_atk[buf8]>60))
+                        && (move_effect[pkm_start_move_2[buf8]] != 0xF || no_evasion_moves==false))
                 {
                     strong_moves_ids_vector.push_back(pkm_start_move_2[buf8]);
                 }
+                // Gambler moves
                 if(gambler_luck_moves && cpu_sprite_id[cpu_trainer_id]==0x22){
                     if((move_effect[pkm_start_move_2[buf8]]==0xF && no_evasion_moves==false) || move_effect[pkm_start_move_2[buf8]]==7 || move_effect[pkm_start_move_2[buf8]]==0x24 || move_effect[pkm_start_move_2[buf8]]==0x26 || move_effect[pkm_start_move_2[buf8]]==0x34 || move_effect[pkm_start_move_2[buf8]]==0x43 || (move_effect[pkm_start_move_2[buf8]]==0x46 && move_power[pkm_start_move_2[buf8]]>=65) || move_effect[pkm_start_move_2[buf8]]==0x53 || (pkm_start_move_2[buf8]==95 && no_weak_moves==false)){
                         gambler_moves_ids_vector.push_back(pkm_start_move_2[buf8]);
@@ -578,7 +581,7 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
                 }
                 // Other moves
                 else if(no_weak_moves==false || weak_move[pkm_start_move_3[buf8]]==false){
-                    if(no_useless_moves==false || useless_move[pkm_start_move_3[buf8]]==false){
+                    if((no_useless_moves==false || useless_move[pkm_start_move_3[buf8]]==false) && (move_effect[pkm_start_move_3[buf8]]!=0xF || no_evasion_moves==false)){
                         moves_ids_vector.push_back(pkm_start_move_3[buf8]);
                     }
                 }
@@ -589,7 +592,8 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
                             || ((move_type[pkm_start_move_3[buf8]]==pkm_type_1[buf8] || move_type[pkm_start_move_3[buf8]]==pkm_type_2[buf8]) && pkm_base_atk[buf8]>30)
                             || pkm_base_atk[buf8]>50)
                         && (move_effect[pkm_start_move_3[buf8]] != 0x50
-                            || ((move_type[pkm_start_move_3[buf8]]==pkm_type_1[buf8] || move_type[pkm_start_move_3[buf8]]==pkm_type_2[buf8]) && pkm_base_atk[buf8]>60)))
+                            || ((move_type[pkm_start_move_3[buf8]]==pkm_type_1[buf8] || move_type[pkm_start_move_3[buf8]]==pkm_type_2[buf8]) && pkm_base_atk[buf8]>60))
+                        && (move_effect[pkm_start_move_3[buf8]] != 0xF || no_evasion_moves==false))
                 {
                     strong_moves_ids_vector.push_back(pkm_start_move_3[buf8]);
                 }
@@ -629,7 +633,7 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
                 }
                 // Other moves
                 else if(no_weak_moves==false || weak_move[pkm_start_move_4[buf8]]==false){
-                    if(no_useless_moves==false || useless_move[pkm_start_move_4[buf8]]==false){
+                    if((no_useless_moves==false || useless_move[pkm_start_move_4[buf8]]==false) && (move_effect[pkm_start_move_4[buf8]]!=0xF || no_evasion_moves==false)){
                         moves_ids_vector.push_back(pkm_start_move_4[buf8]);
                     }
                 }
@@ -640,7 +644,8 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
                             || ((move_type[pkm_start_move_4[buf8]]==pkm_type_1[buf8] || move_type[pkm_start_move_4[buf8]]==pkm_type_2[buf8]) && pkm_base_atk[buf8]>30)
                             || pkm_base_atk[buf8]>50)
                         && (move_effect[pkm_start_move_4[buf8]] != 0x50
-                            || ((move_type[pkm_start_move_4[buf8]]==pkm_type_1[buf8] || move_type[pkm_start_move_4[buf8]]==pkm_type_2[buf8]) && pkm_base_atk[buf8]>60)))
+                            || ((move_type[pkm_start_move_4[buf8]]==pkm_type_1[buf8] || move_type[pkm_start_move_4[buf8]]==pkm_type_2[buf8]) && pkm_base_atk[buf8]>60))
+                        && (move_effect[pkm_start_move_4[buf8]] != 0xF || no_evasion_moves==false))
                 {
                     strong_moves_ids_vector.push_back(pkm_start_move_4[buf8]);
                 }
@@ -686,7 +691,7 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
                         }
                         // Other moves
                         else if(no_weak_moves==false || weak_move[move_tmhm[j]]==false){
-                            if(no_useless_moves==false || useless_move[move_tmhm[j]]==false){
+                            if((no_useless_moves==false || useless_move[move_tmhm[j]]==false) && (move_effect[move_tmhm[j]]!=0xF || no_evasion_moves==false)){
                                 moves_ids_vector.push_back(move_tmhm[j]);
                             }
                         }
@@ -697,7 +702,8 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
                                     || ((move_type[move_tmhm[j]]==pkm_type_1[buf8] || move_type[move_tmhm[j]]==pkm_type_2[buf8]) && pkm_base_atk[buf8]>30)
                                     || pkm_base_atk[buf8]>50)
                                 && (move_effect[move_tmhm[j]] != 0x50
-                                    || ((move_type[move_tmhm[j]]==pkm_type_1[buf8] || move_type[move_tmhm[j]]==pkm_type_2[buf8]) && pkm_base_atk[buf8]>60)))
+                                    || ((move_type[move_tmhm[j]]==pkm_type_1[buf8] || move_type[move_tmhm[j]]==pkm_type_2[buf8]) && pkm_base_atk[buf8]>60))
+                                && (move_effect[move_tmhm[j]] != 0xF || no_evasion_moves==false))
                         {
                             strong_moves_ids_vector.push_back(move_tmhm[j]);
                         }
@@ -742,7 +748,7 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
                     }
                     // Other moves
                     else if(no_weak_moves==false || weak_move[pkm_rb_move[buf8][j]]==false){
-                        if(no_useless_moves==false || useless_move[pkm_rb_move[buf8][j]]==false){
+                        if((no_useless_moves==false || useless_move[pkm_rb_move[buf8][j]]==false) && (move_effect[pkm_rb_move[buf8][j]]!=0xF || no_evasion_moves==false)){
                             moves_ids_vector.push_back(pkm_rb_move[buf8][j]);
                         }
                     }
@@ -753,7 +759,8 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
                                 || ((move_type[pkm_rb_move[buf8][j]]==pkm_type_1[buf8] || move_type[pkm_rb_move[buf8][j]]==pkm_type_2[buf8]) && pkm_base_atk[buf8]>30)
                                 || pkm_base_atk[buf8]>50)
                             && (move_effect[pkm_rb_move[buf8][j]] != 0x50
-                                || ((move_type[pkm_rb_move[buf8][j]]==pkm_type_1[buf8] || move_type[pkm_rb_move[buf8][j]]==pkm_type_2[buf8]) && pkm_base_atk[buf8]>60)))
+                                || ((move_type[pkm_rb_move[buf8][j]]==pkm_type_1[buf8] || move_type[pkm_rb_move[buf8][j]]==pkm_type_2[buf8]) && pkm_base_atk[buf8]>60))
+                            && (move_effect[pkm_rb_move[buf8][j]] != 0xF || no_evasion_moves==false))
                     {
                         strong_moves_ids_vector.push_back(pkm_rb_move[buf8][j]);
                     }
@@ -793,7 +800,7 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
                     }
                     // Other moves
                     else if(no_weak_moves==false || weak_move[pkm_y_move[buf8][j]]==false){
-                        if(no_useless_moves==false || useless_move[pkm_y_move[buf8][j]]==false){
+                        if((no_useless_moves==false || useless_move[pkm_y_move[buf8][j]]==false) && (move_effect[pkm_y_move[buf8][j]]!=0xF || no_evasion_moves==false)){
                             moves_ids_vector.push_back(pkm_y_move[buf8][j]);
                         }
                     }
@@ -804,7 +811,8 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
                                 || ((move_type[pkm_y_move[buf8][j]]==pkm_type_1[buf8] || move_type[pkm_y_move[buf8][j]]==pkm_type_2[buf8]) && pkm_base_atk[buf8]>30)
                                 || pkm_base_atk[buf8]>50)
                             && (move_effect[pkm_y_move[buf8][j]] != 0x50
-                                || ((move_type[pkm_y_move[buf8][j]]==pkm_type_1[buf8] || move_type[pkm_y_move[buf8][j]]==pkm_type_2[buf8]) && pkm_base_atk[buf8]>60)))
+                                || ((move_type[pkm_y_move[buf8][j]]==pkm_type_1[buf8] || move_type[pkm_y_move[buf8][j]]==pkm_type_2[buf8]) && pkm_base_atk[buf8]>60))
+                            && (move_effect[pkm_y_move[buf8][j]] != 0xF || no_evasion_moves==false))
                     {
                         strong_moves_ids_vector.push_back(pkm_y_move[buf8][j]);
                     }
