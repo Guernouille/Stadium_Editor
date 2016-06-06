@@ -70,7 +70,8 @@ void MainWindow::on_actionOpen_triggered() {
                 // Types names
                 read_type_names(romfile);
 
-                // Types data - Weaknesses and Resistances
+                // Types chart (Weaknesses and Resistances)
+                read_type_chart(romfile);
 
                 // Experience data
                 read_experience_data(romfile);
