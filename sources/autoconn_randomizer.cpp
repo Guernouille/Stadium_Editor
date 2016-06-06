@@ -107,6 +107,11 @@ void MainWindow::on_pushButton_Randomize_CPU_Teams_pressed()
         prng_seed[4] = mt_rand();
         prng_seed[5] = mt_rand();
     }
+
+    // Update display
+    if(not_in_init){
+        display_cpu_trainer_pkmn(ui->comboBox_CPU_Trainer->currentIndex());
+    }
 }
 
 
@@ -136,6 +141,11 @@ void MainWindow::on_pushButton_Randomize_Rental_Pkmn_pressed()
         prng_seed[3] = mt_rand();
         prng_seed[4] = mt_rand();
         prng_seed[5] = mt_rand();
+    }
+
+    // Update display
+    if(not_in_init){
+        display_rental_pkmn(ui->comboBox_Rental_Page->currentIndex());
     }
 }
 
