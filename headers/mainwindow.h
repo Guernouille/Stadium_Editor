@@ -7,6 +7,7 @@
 #include <QMessageBox>
 #include <vector>
 #include "ui_mainwindow.h"
+#include "type_chart.h"
 #include "common.cpp"
 
 namespace Ui {
@@ -209,6 +210,7 @@ public:
     quint16 rental_pkm_stat_spc[1024];
     quint16 rental_pkm_stat_speed[1024];
 
+    TypeChart type_chart[82];
     QString type_name[256];
 
 private:
@@ -528,6 +530,7 @@ private slots:
     void read_pkm_names(QFile &romfile);
     void read_pokedex_data(QFile &romfile);
     void read_tmhm_data(QFile &romfile);
+    void read_type_chart(QFile &romfile);
     void read_type_names(QFile &romfile);
 
     // prng
