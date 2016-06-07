@@ -60,7 +60,13 @@
        </font>
       </property>
       <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;No ROM opened&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       <string>No ROM opened</string>
+      </property>
+      <property name="textFormat">
+       <enum>Qt::PlainText</enum>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
       </property>
      </widget>
      <widget class="QGroupBox" name="groupBox_Randomizer_CPU">
