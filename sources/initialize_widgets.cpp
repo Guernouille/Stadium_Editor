@@ -708,6 +708,12 @@ void MainWindow::initialize_widgets()
         ui->spinBox_Rental_PPUp2_6->setValue(rental_pkm_ppup_2[5]);
         ui->spinBox_Rental_PPUp3_6->setValue(rental_pkm_ppup_3[5]);
         ui->spinBox_Rental_PPUp4_6->setValue(rental_pkm_ppup_4[5]);
+
+
+        // Type Chart
+        ui->comboBox_Type1_1->setCurrentIndex(type_chart[0].getType1());
+        ui->comboBox_Type2_1->setCurrentIndex(type_chart[0].getType2());
+        ui->spinBox_Multiplier_1->setValue(type_chart[0].getMultiplier());
     }
     not_in_init = true;
 }
