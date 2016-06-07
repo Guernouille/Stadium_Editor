@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>720</width>
-    <height>636</height>
+    <height>637</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -35,7 +35,7 @@
       <x>3</x>
       <y>3</y>
       <width>715</width>
-      <height>610</height>
+      <height>611</height>
      </rect>
     </property>
     <property name="currentIndex">
@@ -1026,7 +1026,7 @@
        <string>Fixed PRNG *</string>
       </property>
      </widget>
-     <widget class="QGroupBox" name="groupBox_3">
+     <widget class="QGroupBox" name="groupBox_Randomizer_Misc">
       <property name="geometry">
        <rect>
         <x>415</x>
@@ -8328,7 +8328,7 @@ p, li { white-space: pre-wrap; }
         <string>Confusion:</string>
        </property>
       </widget>
-      <widget class="QSpinBox" name="spinBox_Status_Paralysis_probability_2">
+      <widget class="QSpinBox" name="spinBox_Status_Confusion_probability">
        <property name="geometry">
         <rect>
          <x>65</x>
@@ -8873,7 +8873,7 @@ p, li { white-space: pre-wrap; }
        </property>
       </widget>
      </widget>
-     <widget class="QGroupBox" name="groupBox_4">
+     <widget class="QGroupBox" name="groupBox_DamageVariance">
       <property name="geometry">
        <rect>
         <x>547</x>
@@ -8935,77 +8935,324 @@ p, li { white-space: pre-wrap; }
       </widget>
      </widget>
     </widget>
-    <widget class="QWidget" name="tab">
+    <widget class="QWidget" name="tab_Type_Chart">
      <attribute name="title">
       <string>Type Chart</string>
      </attribute>
      <widget class="QComboBox" name="comboBox_Type1_1">
       <property name="geometry">
        <rect>
-        <x>5</x>
-        <y>5</y>
+        <x>3</x>
+        <y>2</y>
         <width>65</width>
         <height>22</height>
        </rect>
       </property>
+      <item>
+       <property name="text">
+        <string>Normal</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Fighting</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Flying</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Poison</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Ground</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Rock</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Bird</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Bug</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Ghost</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>0x09</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>0x0A</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>0x0B</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>0x0C</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>0x0D</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>0x0E</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>0x0F</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>0x10</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>0x11</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>0x12</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>0x13</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Fire</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Water</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Grass</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Electric</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Psychic</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Ice</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Dragon</string>
+       </property>
+      </item>
      </widget>
      <widget class="QComboBox" name="comboBox_Type2_1">
       <property name="geometry">
        <rect>
-        <x>88</x>
-        <y>5</y>
+        <x>70</x>
+        <y>2</y>
         <width>65</width>
         <height>22</height>
        </rect>
       </property>
-     </widget>
-     <widget class="QLabel" name="label_TypeMatchup">
-      <property name="geometry">
-       <rect>
-        <x>73</x>
-        <y>10</y>
-        <width>18</width>
-        <height>13</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>vs</string>
-      </property>
+      <item>
+       <property name="text">
+        <string>Normal</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Fighting</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Flying</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Poison</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Ground</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Rock</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Bird</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Bug</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Ghost</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>0x09</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>0x0A</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>0x0B</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>0x0C</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>0x0D</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>0x0E</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>0x0F</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>0x10</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>0x11</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>0x12</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>0x13</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Fire</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Water</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Grass</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Electric</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Psychic</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Ice</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Dragon</string>
+       </property>
+      </item>
      </widget>
      <widget class="QSpinBox" name="spinBox_Multiplier_1">
       <property name="geometry">
        <rect>
-        <x>159</x>
-        <y>5</y>
-        <width>42</width>
+        <x>138</x>
+        <y>2</y>
+        <width>29</width>
         <height>22</height>
        </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
       </property>
       <property name="maximum">
        <number>254</number>
       </property>
       <property name="value">
-       <number>20</number>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_TypeMatchup_2">
-      <property name="geometry">
-       <rect>
-        <x>73</x>
-        <y>36</y>
-        <width>18</width>
-        <height>13</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>vs</string>
+       <number>0</number>
       </property>
      </widget>
      <widget class="QComboBox" name="comboBox_Type1_2">
       <property name="geometry">
        <rect>
-        <x>5</x>
-        <y>31</y>
+        <x>3</x>
+        <y>30</y>
         <width>65</width>
         <height>22</height>
        </rect>
@@ -9014,11 +9261,14 @@ p, li { white-space: pre-wrap; }
      <widget class="QSpinBox" name="spinBox_Multiplier_2">
       <property name="geometry">
        <rect>
-        <x>159</x>
-        <y>31</y>
-        <width>42</width>
+        <x>138</x>
+        <y>30</y>
+        <width>29</width>
         <height>22</height>
        </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
       </property>
       <property name="maximum">
        <number>254</number>
@@ -9030,70 +9280,8 @@ p, li { white-space: pre-wrap; }
      <widget class="QComboBox" name="comboBox_Type2_2">
       <property name="geometry">
        <rect>
-        <x>88</x>
-        <y>31</y>
-        <width>65</width>
-        <height>22</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QComboBox" name="comboBox_Type1_3">
-      <property name="geometry">
-       <rect>
-        <x>5</x>
-        <y>83</y>
-        <width>65</width>
-        <height>22</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_TypeMatchup_3">
-      <property name="geometry">
-       <rect>
-        <x>73</x>
-        <y>88</y>
-        <width>18</width>
-        <height>13</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>vs</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_TypeMatchup_4">
-      <property name="geometry">
-       <rect>
-        <x>73</x>
-        <y>62</y>
-        <width>18</width>
-        <height>13</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>vs</string>
-      </property>
-     </widget>
-     <widget class="QSpinBox" name="spinBox_Multiplier_3">
-      <property name="geometry">
-       <rect>
-        <x>159</x>
-        <y>83</y>
-        <width>42</width>
-        <height>22</height>
-       </rect>
-      </property>
-      <property name="maximum">
-       <number>254</number>
-      </property>
-      <property name="value">
-       <number>20</number>
-      </property>
-     </widget>
-     <widget class="QComboBox" name="comboBox_Type2_3">
-      <property name="geometry">
-       <rect>
-        <x>88</x>
-        <y>83</y>
+        <x>70</x>
+        <y>30</y>
         <width>65</width>
         <height>22</height>
        </rect>
@@ -9102,8 +9290,8 @@ p, li { white-space: pre-wrap; }
      <widget class="QComboBox" name="comboBox_Type1_4">
       <property name="geometry">
        <rect>
-        <x>5</x>
-        <y>57</y>
+        <x>3</x>
+        <y>86</y>
         <width>65</width>
         <height>22</height>
        </rect>
@@ -9112,11 +9300,14 @@ p, li { white-space: pre-wrap; }
      <widget class="QSpinBox" name="spinBox_Multiplier_4">
       <property name="geometry">
        <rect>
-        <x>159</x>
-        <y>57</y>
-        <width>42</width>
+        <x>138</x>
+        <y>86</y>
+        <width>29</width>
         <height>22</height>
        </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
       </property>
       <property name="maximum">
        <number>254</number>
@@ -9128,19 +9319,3100 @@ p, li { white-space: pre-wrap; }
      <widget class="QComboBox" name="comboBox_Type2_4">
       <property name="geometry">
        <rect>
-        <x>88</x>
-        <y>57</y>
+        <x>70</x>
+        <y>86</y>
         <width>65</width>
         <height>22</height>
        </rect>
       </property>
      </widget>
+     <widget class="QComboBox" name="comboBox_Type1_3">
+      <property name="geometry">
+       <rect>
+        <x>3</x>
+        <y>58</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_3">
+      <property name="geometry">
+       <rect>
+        <x>138</x>
+        <y>58</y>
+        <width>29</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_3">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>58</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_5">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>114</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_5">
+      <property name="geometry">
+       <rect>
+        <x>3</x>
+        <y>114</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_5">
+      <property name="geometry">
+       <rect>
+        <x>138</x>
+        <y>114</y>
+        <width>29</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_6">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>142</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_6">
+      <property name="geometry">
+       <rect>
+        <x>3</x>
+        <y>142</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_6">
+      <property name="geometry">
+       <rect>
+        <x>138</x>
+        <y>142</y>
+        <width>29</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_7">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>170</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_7">
+      <property name="geometry">
+       <rect>
+        <x>3</x>
+        <y>170</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_7">
+      <property name="geometry">
+       <rect>
+        <x>138</x>
+        <y>170</y>
+        <width>29</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_8">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>198</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_8">
+      <property name="geometry">
+       <rect>
+        <x>3</x>
+        <y>198</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_8">
+      <property name="geometry">
+       <rect>
+        <x>138</x>
+        <y>198</y>
+        <width>29</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_9">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>226</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_9">
+      <property name="geometry">
+       <rect>
+        <x>3</x>
+        <y>226</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_9">
+      <property name="geometry">
+       <rect>
+        <x>138</x>
+        <y>226</y>
+        <width>29</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_10">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>254</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_10">
+      <property name="geometry">
+       <rect>
+        <x>3</x>
+        <y>254</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_10">
+      <property name="geometry">
+       <rect>
+        <x>138</x>
+        <y>254</y>
+        <width>29</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_11">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>282</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_11">
+      <property name="geometry">
+       <rect>
+        <x>3</x>
+        <y>282</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_11">
+      <property name="geometry">
+       <rect>
+        <x>138</x>
+        <y>282</y>
+        <width>29</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_12">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>310</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_12">
+      <property name="geometry">
+       <rect>
+        <x>3</x>
+        <y>310</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_12">
+      <property name="geometry">
+       <rect>
+        <x>138</x>
+        <y>310</y>
+        <width>29</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_13">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>338</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_13">
+      <property name="geometry">
+       <rect>
+        <x>3</x>
+        <y>338</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_13">
+      <property name="geometry">
+       <rect>
+        <x>138</x>
+        <y>338</y>
+        <width>29</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_14">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>366</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_14">
+      <property name="geometry">
+       <rect>
+        <x>3</x>
+        <y>366</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_14">
+      <property name="geometry">
+       <rect>
+        <x>138</x>
+        <y>366</y>
+        <width>29</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_15">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>394</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_15">
+      <property name="geometry">
+       <rect>
+        <x>3</x>
+        <y>394</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_15">
+      <property name="geometry">
+       <rect>
+        <x>138</x>
+        <y>394</y>
+        <width>29</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_16">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>422</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_16">
+      <property name="geometry">
+       <rect>
+        <x>3</x>
+        <y>422</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_16">
+      <property name="geometry">
+       <rect>
+        <x>138</x>
+        <y>422</y>
+        <width>29</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_17">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>450</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_17">
+      <property name="geometry">
+       <rect>
+        <x>3</x>
+        <y>450</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_17">
+      <property name="geometry">
+       <rect>
+        <x>138</x>
+        <y>450</y>
+        <width>29</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_18">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>478</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_18">
+      <property name="geometry">
+       <rect>
+        <x>3</x>
+        <y>478</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_18">
+      <property name="geometry">
+       <rect>
+        <x>138</x>
+        <y>478</y>
+        <width>29</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_19">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>506</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_19">
+      <property name="geometry">
+       <rect>
+        <x>3</x>
+        <y>506</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_19">
+      <property name="geometry">
+       <rect>
+        <x>138</x>
+        <y>506</y>
+        <width>29</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_20">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>534</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_20">
+      <property name="geometry">
+       <rect>
+        <x>3</x>
+        <y>534</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_20">
+      <property name="geometry">
+       <rect>
+        <x>138</x>
+        <y>534</y>
+        <width>29</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_21">
+      <property name="geometry">
+       <rect>
+        <x>3</x>
+        <y>562</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_21">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>562</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_21">
+      <property name="geometry">
+       <rect>
+        <x>138</x>
+        <y>562</y>
+        <width>29</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_22">
+      <property name="geometry">
+       <rect>
+        <x>183</x>
+        <y>2</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_22">
+      <property name="geometry">
+       <rect>
+        <x>318</x>
+        <y>2</y>
+        <width>29</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_22">
+      <property name="geometry">
+       <rect>
+        <x>250</x>
+        <y>2</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_43">
+      <property name="geometry">
+       <rect>
+        <x>363</x>
+        <y>2</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_43">
+      <property name="geometry">
+       <rect>
+        <x>498</x>
+        <y>2</y>
+        <width>29</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_43">
+      <property name="geometry">
+       <rect>
+        <x>430</x>
+        <y>2</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_64">
+      <property name="geometry">
+       <rect>
+        <x>543</x>
+        <y>2</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_64">
+      <property name="geometry">
+       <rect>
+        <x>678</x>
+        <y>2</y>
+        <width>29</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_64">
+      <property name="geometry">
+       <rect>
+        <x>610</x>
+        <y>2</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_23">
+      <property name="geometry">
+       <rect>
+        <x>250</x>
+        <y>30</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_23">
+      <property name="geometry">
+       <rect>
+        <x>183</x>
+        <y>30</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_23">
+      <property name="geometry">
+       <rect>
+        <x>318</x>
+        <y>30</y>
+        <width>29</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_24">
+      <property name="geometry">
+       <rect>
+        <x>250</x>
+        <y>58</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_24">
+      <property name="geometry">
+       <rect>
+        <x>183</x>
+        <y>58</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_24">
+      <property name="geometry">
+       <rect>
+        <x>318</x>
+        <y>58</y>
+        <width>29</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_25">
+      <property name="geometry">
+       <rect>
+        <x>250</x>
+        <y>86</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_25">
+      <property name="geometry">
+       <rect>
+        <x>183</x>
+        <y>86</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_25">
+      <property name="geometry">
+       <rect>
+        <x>318</x>
+        <y>86</y>
+        <width>29</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_26">
+      <property name="geometry">
+       <rect>
+        <x>250</x>
+        <y>114</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_26">
+      <property name="geometry">
+       <rect>
+        <x>183</x>
+        <y>114</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_26">
+      <property name="geometry">
+       <rect>
+        <x>318</x>
+        <y>114</y>
+        <width>29</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_27">
+      <property name="geometry">
+       <rect>
+        <x>250</x>
+        <y>142</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_27">
+      <property name="geometry">
+       <rect>
+        <x>183</x>
+        <y>142</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_27">
+      <property name="geometry">
+       <rect>
+        <x>318</x>
+        <y>142</y>
+        <width>29</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_28">
+      <property name="geometry">
+       <rect>
+        <x>250</x>
+        <y>170</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_28">
+      <property name="geometry">
+       <rect>
+        <x>183</x>
+        <y>170</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_28">
+      <property name="geometry">
+       <rect>
+        <x>318</x>
+        <y>170</y>
+        <width>29</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_29">
+      <property name="geometry">
+       <rect>
+        <x>250</x>
+        <y>198</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_29">
+      <property name="geometry">
+       <rect>
+        <x>183</x>
+        <y>198</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_29">
+      <property name="geometry">
+       <rect>
+        <x>318</x>
+        <y>198</y>
+        <width>29</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_30">
+      <property name="geometry">
+       <rect>
+        <x>250</x>
+        <y>226</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_30">
+      <property name="geometry">
+       <rect>
+        <x>183</x>
+        <y>226</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_30">
+      <property name="geometry">
+       <rect>
+        <x>318</x>
+        <y>226</y>
+        <width>29</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_31">
+      <property name="geometry">
+       <rect>
+        <x>250</x>
+        <y>254</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_31">
+      <property name="geometry">
+       <rect>
+        <x>183</x>
+        <y>254</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_31">
+      <property name="geometry">
+       <rect>
+        <x>318</x>
+        <y>254</y>
+        <width>29</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_32">
+      <property name="geometry">
+       <rect>
+        <x>250</x>
+        <y>282</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_32">
+      <property name="geometry">
+       <rect>
+        <x>183</x>
+        <y>282</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_32">
+      <property name="geometry">
+       <rect>
+        <x>318</x>
+        <y>282</y>
+        <width>29</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_33">
+      <property name="geometry">
+       <rect>
+        <x>250</x>
+        <y>310</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_33">
+      <property name="geometry">
+       <rect>
+        <x>183</x>
+        <y>310</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_33">
+      <property name="geometry">
+       <rect>
+        <x>318</x>
+        <y>310</y>
+        <width>29</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_34">
+      <property name="geometry">
+       <rect>
+        <x>250</x>
+        <y>338</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_34">
+      <property name="geometry">
+       <rect>
+        <x>183</x>
+        <y>338</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_34">
+      <property name="geometry">
+       <rect>
+        <x>318</x>
+        <y>340</y>
+        <width>29</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_35">
+      <property name="geometry">
+       <rect>
+        <x>250</x>
+        <y>366</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_35">
+      <property name="geometry">
+       <rect>
+        <x>183</x>
+        <y>366</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_35">
+      <property name="geometry">
+       <rect>
+        <x>318</x>
+        <y>366</y>
+        <width>29</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_36">
+      <property name="geometry">
+       <rect>
+        <x>250</x>
+        <y>394</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_36">
+      <property name="geometry">
+       <rect>
+        <x>183</x>
+        <y>394</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_36">
+      <property name="geometry">
+       <rect>
+        <x>318</x>
+        <y>394</y>
+        <width>29</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_37">
+      <property name="geometry">
+       <rect>
+        <x>250</x>
+        <y>422</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_37">
+      <property name="geometry">
+       <rect>
+        <x>183</x>
+        <y>422</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_37">
+      <property name="geometry">
+       <rect>
+        <x>318</x>
+        <y>422</y>
+        <width>29</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_38">
+      <property name="geometry">
+       <rect>
+        <x>250</x>
+        <y>450</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_38">
+      <property name="geometry">
+       <rect>
+        <x>183</x>
+        <y>450</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_38">
+      <property name="geometry">
+       <rect>
+        <x>318</x>
+        <y>450</y>
+        <width>29</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_39">
+      <property name="geometry">
+       <rect>
+        <x>250</x>
+        <y>478</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_39">
+      <property name="geometry">
+       <rect>
+        <x>183</x>
+        <y>478</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_39">
+      <property name="geometry">
+       <rect>
+        <x>318</x>
+        <y>478</y>
+        <width>29</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_40">
+      <property name="geometry">
+       <rect>
+        <x>250</x>
+        <y>506</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_40">
+      <property name="geometry">
+       <rect>
+        <x>183</x>
+        <y>506</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_40">
+      <property name="geometry">
+       <rect>
+        <x>318</x>
+        <y>506</y>
+        <width>29</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_41">
+      <property name="geometry">
+       <rect>
+        <x>250</x>
+        <y>534</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_41">
+      <property name="geometry">
+       <rect>
+        <x>183</x>
+        <y>534</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_41">
+      <property name="geometry">
+       <rect>
+        <x>318</x>
+        <y>534</y>
+        <width>29</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_42">
+      <property name="geometry">
+       <rect>
+        <x>250</x>
+        <y>562</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_42">
+      <property name="geometry">
+       <rect>
+        <x>183</x>
+        <y>562</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_42">
+      <property name="geometry">
+       <rect>
+        <x>318</x>
+        <y>562</y>
+        <width>29</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_44">
+      <property name="geometry">
+       <rect>
+        <x>363</x>
+        <y>30</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_44">
+      <property name="geometry">
+       <rect>
+        <x>498</x>
+        <y>30</y>
+        <width>29</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_44">
+      <property name="geometry">
+       <rect>
+        <x>430</x>
+        <y>30</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_45">
+      <property name="geometry">
+       <rect>
+        <x>363</x>
+        <y>58</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_45">
+      <property name="geometry">
+       <rect>
+        <x>498</x>
+        <y>58</y>
+        <width>29</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_45">
+      <property name="geometry">
+       <rect>
+        <x>430</x>
+        <y>58</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_46">
+      <property name="geometry">
+       <rect>
+        <x>363</x>
+        <y>86</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_46">
+      <property name="geometry">
+       <rect>
+        <x>498</x>
+        <y>86</y>
+        <width>29</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_46">
+      <property name="geometry">
+       <rect>
+        <x>430</x>
+        <y>86</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_47">
+      <property name="geometry">
+       <rect>
+        <x>363</x>
+        <y>114</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_47">
+      <property name="geometry">
+       <rect>
+        <x>498</x>
+        <y>114</y>
+        <width>29</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_47">
+      <property name="geometry">
+       <rect>
+        <x>430</x>
+        <y>114</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_48">
+      <property name="geometry">
+       <rect>
+        <x>363</x>
+        <y>142</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_48">
+      <property name="geometry">
+       <rect>
+        <x>498</x>
+        <y>142</y>
+        <width>29</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_48">
+      <property name="geometry">
+       <rect>
+        <x>430</x>
+        <y>142</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_49">
+      <property name="geometry">
+       <rect>
+        <x>363</x>
+        <y>170</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_49">
+      <property name="geometry">
+       <rect>
+        <x>498</x>
+        <y>170</y>
+        <width>29</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_49">
+      <property name="geometry">
+       <rect>
+        <x>430</x>
+        <y>170</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_50">
+      <property name="geometry">
+       <rect>
+        <x>363</x>
+        <y>198</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_50">
+      <property name="geometry">
+       <rect>
+        <x>498</x>
+        <y>198</y>
+        <width>29</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_50">
+      <property name="geometry">
+       <rect>
+        <x>430</x>
+        <y>198</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_51">
+      <property name="geometry">
+       <rect>
+        <x>363</x>
+        <y>226</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_51">
+      <property name="geometry">
+       <rect>
+        <x>498</x>
+        <y>226</y>
+        <width>29</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_51">
+      <property name="geometry">
+       <rect>
+        <x>430</x>
+        <y>226</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_52">
+      <property name="geometry">
+       <rect>
+        <x>363</x>
+        <y>254</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_52">
+      <property name="geometry">
+       <rect>
+        <x>498</x>
+        <y>254</y>
+        <width>29</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_52">
+      <property name="geometry">
+       <rect>
+        <x>430</x>
+        <y>254</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_53">
+      <property name="geometry">
+       <rect>
+        <x>363</x>
+        <y>282</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_53">
+      <property name="geometry">
+       <rect>
+        <x>498</x>
+        <y>282</y>
+        <width>29</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_53">
+      <property name="geometry">
+       <rect>
+        <x>430</x>
+        <y>282</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_54">
+      <property name="geometry">
+       <rect>
+        <x>363</x>
+        <y>310</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_54">
+      <property name="geometry">
+       <rect>
+        <x>498</x>
+        <y>310</y>
+        <width>29</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_54">
+      <property name="geometry">
+       <rect>
+        <x>430</x>
+        <y>310</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_55">
+      <property name="geometry">
+       <rect>
+        <x>363</x>
+        <y>338</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_55">
+      <property name="geometry">
+       <rect>
+        <x>498</x>
+        <y>338</y>
+        <width>29</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_55">
+      <property name="geometry">
+       <rect>
+        <x>430</x>
+        <y>338</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_56">
+      <property name="geometry">
+       <rect>
+        <x>363</x>
+        <y>366</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_56">
+      <property name="geometry">
+       <rect>
+        <x>498</x>
+        <y>366</y>
+        <width>29</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_56">
+      <property name="geometry">
+       <rect>
+        <x>430</x>
+        <y>366</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_57">
+      <property name="geometry">
+       <rect>
+        <x>498</x>
+        <y>394</y>
+        <width>29</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_57">
+      <property name="geometry">
+       <rect>
+        <x>430</x>
+        <y>394</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_57">
+      <property name="geometry">
+       <rect>
+        <x>363</x>
+        <y>394</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_58">
+      <property name="geometry">
+       <rect>
+        <x>498</x>
+        <y>422</y>
+        <width>29</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_58">
+      <property name="geometry">
+       <rect>
+        <x>430</x>
+        <y>422</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_58">
+      <property name="geometry">
+       <rect>
+        <x>363</x>
+        <y>422</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_59">
+      <property name="geometry">
+       <rect>
+        <x>498</x>
+        <y>450</y>
+        <width>29</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_59">
+      <property name="geometry">
+       <rect>
+        <x>430</x>
+        <y>450</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_59">
+      <property name="geometry">
+       <rect>
+        <x>363</x>
+        <y>450</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_60">
+      <property name="geometry">
+       <rect>
+        <x>498</x>
+        <y>478</y>
+        <width>29</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_60">
+      <property name="geometry">
+       <rect>
+        <x>430</x>
+        <y>478</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_60">
+      <property name="geometry">
+       <rect>
+        <x>363</x>
+        <y>478</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_61">
+      <property name="geometry">
+       <rect>
+        <x>498</x>
+        <y>506</y>
+        <width>29</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_61">
+      <property name="geometry">
+       <rect>
+        <x>430</x>
+        <y>506</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_61">
+      <property name="geometry">
+       <rect>
+        <x>363</x>
+        <y>506</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_62">
+      <property name="geometry">
+       <rect>
+        <x>498</x>
+        <y>534</y>
+        <width>29</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_62">
+      <property name="geometry">
+       <rect>
+        <x>430</x>
+        <y>534</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_62">
+      <property name="geometry">
+       <rect>
+        <x>363</x>
+        <y>534</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_63">
+      <property name="geometry">
+       <rect>
+        <x>498</x>
+        <y>562</y>
+        <width>29</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_63">
+      <property name="geometry">
+       <rect>
+        <x>430</x>
+        <y>562</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_63">
+      <property name="geometry">
+       <rect>
+        <x>363</x>
+        <y>562</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_65">
+      <property name="geometry">
+       <rect>
+        <x>610</x>
+        <y>30</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_65">
+      <property name="geometry">
+       <rect>
+        <x>543</x>
+        <y>30</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_65">
+      <property name="geometry">
+       <rect>
+        <x>678</x>
+        <y>30</y>
+        <width>29</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_66">
+      <property name="geometry">
+       <rect>
+        <x>610</x>
+        <y>58</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_66">
+      <property name="geometry">
+       <rect>
+        <x>543</x>
+        <y>58</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_66">
+      <property name="geometry">
+       <rect>
+        <x>678</x>
+        <y>58</y>
+        <width>29</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_67">
+      <property name="geometry">
+       <rect>
+        <x>610</x>
+        <y>86</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_67">
+      <property name="geometry">
+       <rect>
+        <x>543</x>
+        <y>86</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_67">
+      <property name="geometry">
+       <rect>
+        <x>678</x>
+        <y>86</y>
+        <width>29</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_68">
+      <property name="geometry">
+       <rect>
+        <x>610</x>
+        <y>114</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_68">
+      <property name="geometry">
+       <rect>
+        <x>543</x>
+        <y>114</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_68">
+      <property name="geometry">
+       <rect>
+        <x>678</x>
+        <y>114</y>
+        <width>29</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_69">
+      <property name="geometry">
+       <rect>
+        <x>610</x>
+        <y>142</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_69">
+      <property name="geometry">
+       <rect>
+        <x>543</x>
+        <y>142</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_69">
+      <property name="geometry">
+       <rect>
+        <x>678</x>
+        <y>140</y>
+        <width>29</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_70">
+      <property name="geometry">
+       <rect>
+        <x>610</x>
+        <y>170</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_70">
+      <property name="geometry">
+       <rect>
+        <x>543</x>
+        <y>170</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_70">
+      <property name="geometry">
+       <rect>
+        <x>678</x>
+        <y>170</y>
+        <width>29</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_71">
+      <property name="geometry">
+       <rect>
+        <x>610</x>
+        <y>198</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_71">
+      <property name="geometry">
+       <rect>
+        <x>543</x>
+        <y>198</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_71">
+      <property name="geometry">
+       <rect>
+        <x>678</x>
+        <y>198</y>
+        <width>29</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_72">
+      <property name="geometry">
+       <rect>
+        <x>610</x>
+        <y>226</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_72">
+      <property name="geometry">
+       <rect>
+        <x>543</x>
+        <y>226</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_72">
+      <property name="geometry">
+       <rect>
+        <x>678</x>
+        <y>226</y>
+        <width>29</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_73">
+      <property name="geometry">
+       <rect>
+        <x>610</x>
+        <y>254</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_73">
+      <property name="geometry">
+       <rect>
+        <x>543</x>
+        <y>254</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_73">
+      <property name="geometry">
+       <rect>
+        <x>678</x>
+        <y>254</y>
+        <width>29</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_74">
+      <property name="geometry">
+       <rect>
+        <x>610</x>
+        <y>282</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_74">
+      <property name="geometry">
+       <rect>
+        <x>543</x>
+        <y>282</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_74">
+      <property name="geometry">
+       <rect>
+        <x>678</x>
+        <y>282</y>
+        <width>29</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_75">
+      <property name="geometry">
+       <rect>
+        <x>610</x>
+        <y>310</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_75">
+      <property name="geometry">
+       <rect>
+        <x>543</x>
+        <y>310</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_75">
+      <property name="geometry">
+       <rect>
+        <x>678</x>
+        <y>310</y>
+        <width>29</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_76">
+      <property name="geometry">
+       <rect>
+        <x>610</x>
+        <y>338</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_76">
+      <property name="geometry">
+       <rect>
+        <x>543</x>
+        <y>338</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_76">
+      <property name="geometry">
+       <rect>
+        <x>678</x>
+        <y>338</y>
+        <width>29</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_77">
+      <property name="geometry">
+       <rect>
+        <x>610</x>
+        <y>366</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_77">
+      <property name="geometry">
+       <rect>
+        <x>543</x>
+        <y>366</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_77">
+      <property name="geometry">
+       <rect>
+        <x>678</x>
+        <y>366</y>
+        <width>29</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_78">
+      <property name="geometry">
+       <rect>
+        <x>610</x>
+        <y>394</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_78">
+      <property name="geometry">
+       <rect>
+        <x>543</x>
+        <y>394</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_78">
+      <property name="geometry">
+       <rect>
+        <x>678</x>
+        <y>394</y>
+        <width>29</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_79">
+      <property name="geometry">
+       <rect>
+        <x>610</x>
+        <y>422</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_79">
+      <property name="geometry">
+       <rect>
+        <x>543</x>
+        <y>422</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_79">
+      <property name="geometry">
+       <rect>
+        <x>678</x>
+        <y>422</y>
+        <width>29</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_80">
+      <property name="geometry">
+       <rect>
+        <x>610</x>
+        <y>450</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_80">
+      <property name="geometry">
+       <rect>
+        <x>543</x>
+        <y>450</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_80">
+      <property name="geometry">
+       <rect>
+        <x>678</x>
+        <y>450</y>
+        <width>29</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_81">
+      <property name="geometry">
+       <rect>
+        <x>610</x>
+        <y>478</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_81">
+      <property name="geometry">
+       <rect>
+        <x>543</x>
+        <y>478</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_81">
+      <property name="geometry">
+       <rect>
+        <x>678</x>
+        <y>478</y>
+        <width>29</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_82">
+      <property name="geometry">
+       <rect>
+        <x>610</x>
+        <y>506</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_82">
+      <property name="geometry">
+       <rect>
+        <x>543</x>
+        <y>506</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_82">
+      <property name="geometry">
+       <rect>
+        <x>678</x>
+        <y>506</y>
+        <width>29</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="buttonSymbols">
+       <enum>QAbstractSpinBox::NoButtons</enum>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
     </widget>
-    <widget class="QWidget" name="tab_Types_Data">
+    <widget class="QWidget" name="tab_Text_Strings">
      <attribute name="title">
       <string>Text strings</string>
      </attribute>
-     <widget class="QGroupBox" name="groupBox_2">
+     <widget class="QGroupBox" name="groupBox_Text_Items">
       <property name="geometry">
        <rect>
         <x>10</x>
