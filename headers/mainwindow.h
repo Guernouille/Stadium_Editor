@@ -122,6 +122,10 @@ public:
     bool useless_move[256] = {false};
     bool weak_move[256] = {false};
 
+    std::vector<quint8> gambler_moves_ids_vector;
+    std::vector<quint8> moves_ids_vector;
+    std::vector<quint8> strong_moves_ids_vector;
+
     QString pkm_name[256];
     quint16 pkm_name_pointer[256];
     quint8 pkm_base_hp[256];
@@ -145,9 +149,6 @@ public:
     quint8 pkm_y_lvl[256][10];
     quint8 pkm_y_move[256][10];
 
-    std::vector<quint8> gambler_moves_ids_vector;
-    std::vector<quint8> moves_ids_vector;
-    std::vector<quint8> strong_moves_ids_vector;
     std::vector<quint8> pkm_ids_vector_petitcup;
     std::vector<quint8> pkm_ids_vector_petitcup_gambler;
     std::vector<quint8> pkm_ids_vector_petitcup_toptier;
@@ -226,26 +227,33 @@ private:
     void randomize_rental_level(std::mt19937 &mt_rand);
     void randomize_rental_moves(std::mt19937 &mt_rand);
     void randomize_rental_pkmn(std::mt19937 &mt_rand);
+    void randomize_type_chart(std::mt19937 &mt_rand);
 
 private slots:
     // romfile
     void on_actionOpen_triggered();
     void on_actionSave_triggered();
-    void write_pkm_data(QFile &romfile);
     void write_cpu_rentals(QFile &romfile);
+    void write_pkm_data(QFile &romfile);
+    void write_type_chart(QFile &romfile);
 
     // autoconnect randomizer
-    void on_pushButton_Randomize_CPU_Teams_pressed();
-    void on_pushButton_Randomize_Rental_Pkmn_pressed();
-    void on_pushButton_CPU_Metronome_pressed();
-    void on_pushButton_Rental_Metronome_pressed();
-    void on_pushButton_Maximize_CPU_EVsIVs_pressed();
-    void on_pushButton_Maximize_Rental_EVsIVs_pressed();
+    void on_checkBox_Bug_vs_Poison_stateChanged(int state);
+    void on_checkBox_CPUTeams_stateChanged(int state);
+    void on_checkBox_Ghost_vs_Psychic_stateChanged(int state);
+    void on_checkBox_Ice_vs_Fire_stateChanged(int state);
+    void on_checkBox_Randomizer_CPU_GLPkmn_stateChanged(int state);
     void on_checkBox_Randomizer_Rental_MaxPPUps_stateChanged(int state);
     void on_checkBox_Randomizer_Rental_NoPPUps_stateChanged(int state);
+    void on_checkBox_Randomize_TypeChart_stateChanged(int state);
+    void on_checkBox_RentalPkmn_stateChanged(int state);
+    void on_pushButton_CPU_Metronome_pressed();
+    void on_pushButton_Maximize_CPU_EVsIVs_pressed();
+    void on_pushButton_Maximize_Rental_EVsIVs_pressed();
+    void on_pushButton_Randomize_pressed();
+    void on_pushButton_Rental_Metronome_pressed();
     void on_spinBox_Randomizer_GLCLevelRange_1_valueChanged(int);
     void on_spinBox_Randomizer_GLCLevelRange_2_valueChanged(int);
-    void on_checkBox_Randomizer_CPU_GLPkmn_stateChanged(int state);
 
     // autoconnect display
     void on_comboBox_CPU_Cup_currentIndexChanged(int);
