@@ -111,6 +111,11 @@ void MainWindow::on_pushButton_Randomize_pressed()
         }
     }
 
+    // Update display
+    if(not_in_init){
+        display_type_chart();
+    }
+
 
     // New seeds
     if(ui->checkBox_FixedSeeds->isChecked()==false){
