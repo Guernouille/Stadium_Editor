@@ -48,9 +48,9 @@
      <widget class="QLabel" name="label_rom_debug">
       <property name="geometry">
        <rect>
-        <x>420</x>
-        <y>94</y>
-        <width>130</width>
+        <x>410</x>
+        <y>145</y>
+        <width>175</width>
         <height>21</height>
        </rect>
       </property>
@@ -60,7 +60,7 @@
        </font>
       </property>
       <property name="text">
-       <string>ROM debug</string>
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;No ROM opened&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
      <widget class="QGroupBox" name="groupBox_Randomizer_CPU">
@@ -78,9 +78,9 @@
       <widget class="QPushButton" name="pushButton_CPU_Metronome">
        <property name="geometry">
         <rect>
-         <x>5</x>
-         <y>40</y>
-         <width>99</width>
+         <x>3</x>
+         <y>39</y>
+         <width>115</width>
          <height>23</height>
         </rect>
        </property>
@@ -90,75 +90,18 @@
         </font>
        </property>
        <property name="toolTip">
-        <string>Override &quot;No illegal moves&quot; for obvious reasons</string>
+        <string>Override &quot;No illegal moves&quot; for obvious reasons.</string>
        </property>
        <property name="text">
-        <string>Only Metronome *</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="pushButton_Randomize_CPU_Teams">
-       <property name="geometry">
-        <rect>
-         <x>5</x>
-         <y>15</y>
-         <width>99</width>
-         <height>23</height>
-        </rect>
-       </property>
-       <property name="palette">
-        <palette>
-         <active>
-          <colorrole role="ButtonText">
-           <brush brushstyle="SolidPattern">
-            <color alpha="255">
-             <red>0</red>
-             <green>0</green>
-             <blue>127</blue>
-            </color>
-           </brush>
-          </colorrole>
-         </active>
-         <inactive>
-          <colorrole role="ButtonText">
-           <brush brushstyle="SolidPattern">
-            <color alpha="255">
-             <red>0</red>
-             <green>0</green>
-             <blue>127</blue>
-            </color>
-           </brush>
-          </colorrole>
-         </inactive>
-         <disabled>
-          <colorrole role="ButtonText">
-           <brush brushstyle="SolidPattern">
-            <color alpha="255">
-             <red>120</red>
-             <green>120</green>
-             <blue>120</blue>
-            </color>
-           </brush>
-          </colorrole>
-         </disabled>
-        </palette>
-       </property>
-       <property name="font">
-        <font>
-         <family>MS Shell Dlg 2</family>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="text">
-        <string>Randomize</string>
+        <string>Only Metronome</string>
        </property>
       </widget>
       <widget class="QPushButton" name="pushButton_Maximize_CPU_EVsIVs">
        <property name="geometry">
         <rect>
-         <x>5</x>
-         <y>65</y>
-         <width>99</width>
+         <x>3</x>
+         <y>64</y>
+         <width>115</width>
          <height>23</height>
         </rect>
        </property>
@@ -166,7 +109,7 @@
         <string>Max IVs and Stat Exp for every Pokémon</string>
        </property>
        <property name="text">
-        <string>Maximize IVs SEs</string>
+        <string>Max IVs and Stat Exp</string>
        </property>
       </widget>
       <widget class="QCheckBox" name="checkBox_Randomizer_CPU_NoUselessMoves">
@@ -621,6 +564,22 @@
         <bool>true</bool>
        </property>
       </widget>
+      <widget class="QCheckBox" name="checkBox_CPUTeams">
+       <property name="geometry">
+        <rect>
+         <x>5</x>
+         <y>18</y>
+         <width>100</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>CPU Teams</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
      </widget>
      <widget class="QGroupBox" name="groupBox_PRNG_Seeds">
       <property name="geometry">
@@ -650,9 +609,9 @@
       <widget class="QPushButton" name="pushButton_Maximize_Rental_EVsIVs">
        <property name="geometry">
         <rect>
-         <x>5</x>
-         <y>65</y>
-         <width>99</width>
+         <x>3</x>
+         <y>64</y>
+         <width>115</width>
          <height>23</height>
         </rect>
        </property>
@@ -660,15 +619,15 @@
         <string>Max IVs and Stat Exp for every Pokémon</string>
        </property>
        <property name="text">
-        <string>Maximize IVs SEs</string>
+        <string>Max IVs and Stat Exp</string>
        </property>
       </widget>
       <widget class="QPushButton" name="pushButton_Rental_Metronome">
        <property name="geometry">
         <rect>
-         <x>5</x>
-         <y>40</y>
-         <width>99</width>
+         <x>3</x>
+         <y>39</y>
+         <width>115</width>
          <height>23</height>
         </rect>
        </property>
@@ -678,67 +637,10 @@
         </font>
        </property>
        <property name="toolTip">
-        <string>Override &quot;No illegal moves&quot; for obvious reasons</string>
+        <string>Override &quot;No illegal moves&quot; for obvious reasons.</string>
        </property>
        <property name="text">
-        <string>Only Metronome *</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="pushButton_Randomize_Rental_Pkmn">
-       <property name="geometry">
-        <rect>
-         <x>5</x>
-         <y>15</y>
-         <width>99</width>
-         <height>23</height>
-        </rect>
-       </property>
-       <property name="palette">
-        <palette>
-         <active>
-          <colorrole role="ButtonText">
-           <brush brushstyle="SolidPattern">
-            <color alpha="255">
-             <red>0</red>
-             <green>0</green>
-             <blue>127</blue>
-            </color>
-           </brush>
-          </colorrole>
-         </active>
-         <inactive>
-          <colorrole role="ButtonText">
-           <brush brushstyle="SolidPattern">
-            <color alpha="255">
-             <red>0</red>
-             <green>0</green>
-             <blue>127</blue>
-            </color>
-           </brush>
-          </colorrole>
-         </inactive>
-         <disabled>
-          <colorrole role="ButtonText">
-           <brush brushstyle="SolidPattern">
-            <color alpha="255">
-             <red>120</red>
-             <green>120</green>
-             <blue>120</blue>
-            </color>
-           </brush>
-          </colorrole>
-         </disabled>
-        </palette>
-       </property>
-       <property name="font">
-        <font>
-         <family>MS Shell Dlg 2</family>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="text">
-        <string>Randomize</string>
+        <string>Only Metronome</string>
        </property>
       </widget>
       <widget class="QCheckBox" name="checkBox_Randomizer_Rental_NoIllegalMoves">
@@ -1085,6 +987,22 @@
         <bool>true</bool>
        </property>
       </widget>
+      <widget class="QCheckBox" name="checkBox_RentalPkmn">
+       <property name="geometry">
+        <rect>
+         <x>5</x>
+         <y>18</y>
+         <width>109</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Rental Pokémon</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
      </widget>
      <widget class="QCheckBox" name="checkBox_FixedSeeds">
       <property name="geometry">
@@ -1133,7 +1051,7 @@
       <widget class="QCheckBox" name="checkBox_Ice_vs_Fire">
        <property name="geometry">
         <rect>
-         <x>140</x>
+         <x>150</x>
          <y>15</y>
          <width>108</width>
          <height>17</height>
@@ -1149,7 +1067,7 @@
       <widget class="QLabel" name="label_Randomizer_GLCLevelRange_2">
        <property name="geometry">
         <rect>
-         <x>185</x>
+         <x>189</x>
          <y>60</y>
          <width>16</width>
          <height>16</height>
@@ -1162,7 +1080,7 @@
       <widget class="QSpinBox" name="spinBox_Randomizer_GLCLevelRange_1">
        <property name="geometry">
         <rect>
-         <x>140</x>
+         <x>142</x>
          <y>57</y>
          <width>42</width>
          <height>22</height>
@@ -1194,7 +1112,7 @@
       <widget class="QSpinBox" name="spinBox_Randomizer_GLCLevelRange_2">
        <property name="geometry">
         <rect>
-         <x>200</x>
+         <x>204</x>
          <y>57</y>
          <width>42</width>
          <height>22</height>
@@ -1210,23 +1128,23 @@
         <number>50</number>
        </property>
       </widget>
-      <widget class="QCheckBox" name="checkBox_Poison_vs_Bug">
+      <widget class="QCheckBox" name="checkBox_Randomize_TypeChart">
        <property name="geometry">
         <rect>
          <x>9</x>
          <y>35</y>
-         <width>125</width>
+         <width>135</width>
          <height>17</height>
         </rect>
        </property>
        <property name="text">
-        <string>Poison ×1 vs Bug</string>
+        <string>Randomize Type Chart</string>
        </property>
       </widget>
       <widget class="QCheckBox" name="checkBox_Bug_vs_Poison">
        <property name="geometry">
         <rect>
-         <x>140</x>
+         <x>150</x>
          <y>35</y>
          <width>125</width>
          <height>17</height>
@@ -1236,6 +1154,64 @@
         <string>Bug ×0.5 vs Poison</string>
        </property>
       </widget>
+     </widget>
+     <widget class="QPushButton" name="pushButton_Randomize">
+      <property name="geometry">
+       <rect>
+        <x>410</x>
+        <y>90</y>
+        <width>175</width>
+        <height>50</height>
+       </rect>
+      </property>
+      <property name="palette">
+       <palette>
+        <active>
+         <colorrole role="ButtonText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>127</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </active>
+        <inactive>
+         <colorrole role="ButtonText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>0</red>
+            <green>0</green>
+            <blue>127</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </inactive>
+        <disabled>
+         <colorrole role="ButtonText">
+          <brush brushstyle="SolidPattern">
+           <color alpha="255">
+            <red>120</red>
+            <green>120</green>
+            <blue>120</blue>
+           </color>
+          </brush>
+         </colorrole>
+        </disabled>
+       </palette>
+      </property>
+      <property name="font">
+       <font>
+        <family>Verdana</family>
+        <pointsize>15</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Randomize</string>
+      </property>
      </widget>
     </widget>
     <widget class="QWidget" name="tab_CPU_Teams">
@@ -8951,6 +8927,207 @@ p, li { white-space: pre-wrap; }
         <string>to</string>
        </property>
       </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab">
+     <attribute name="title">
+      <string>Type Chart</string>
+     </attribute>
+     <widget class="QComboBox" name="comboBox_Type1_1">
+      <property name="geometry">
+       <rect>
+        <x>5</x>
+        <y>5</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_1">
+      <property name="geometry">
+       <rect>
+        <x>88</x>
+        <y>5</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_TypeMatchup">
+      <property name="geometry">
+       <rect>
+        <x>73</x>
+        <y>10</y>
+        <width>18</width>
+        <height>13</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>vs</string>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_1">
+      <property name="geometry">
+       <rect>
+        <x>159</x>
+        <y>5</y>
+        <width>42</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_TypeMatchup_2">
+      <property name="geometry">
+       <rect>
+        <x>73</x>
+        <y>36</y>
+        <width>18</width>
+        <height>13</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>vs</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_2">
+      <property name="geometry">
+       <rect>
+        <x>5</x>
+        <y>31</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_2">
+      <property name="geometry">
+       <rect>
+        <x>159</x>
+        <y>31</y>
+        <width>42</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_2">
+      <property name="geometry">
+       <rect>
+        <x>88</x>
+        <y>31</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_3">
+      <property name="geometry">
+       <rect>
+        <x>5</x>
+        <y>83</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_TypeMatchup_3">
+      <property name="geometry">
+       <rect>
+        <x>73</x>
+        <y>88</y>
+        <width>18</width>
+        <height>13</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>vs</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_TypeMatchup_4">
+      <property name="geometry">
+       <rect>
+        <x>73</x>
+        <y>62</y>
+        <width>18</width>
+        <height>13</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>vs</string>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_3">
+      <property name="geometry">
+       <rect>
+        <x>159</x>
+        <y>83</y>
+        <width>42</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_3">
+      <property name="geometry">
+       <rect>
+        <x>88</x>
+        <y>83</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type1_4">
+      <property name="geometry">
+       <rect>
+        <x>5</x>
+        <y>57</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_Multiplier_4">
+      <property name="geometry">
+       <rect>
+        <x>159</x>
+        <y>57</y>
+        <width>42</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="maximum">
+       <number>254</number>
+      </property>
+      <property name="value">
+       <number>20</number>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_Type2_4">
+      <property name="geometry">
+       <rect>
+        <x>88</x>
+        <y>57</y>
+        <width>65</width>
+        <height>22</height>
+       </rect>
+      </property>
      </widget>
     </widget>
     <widget class="QWidget" name="tab_Types_Data">
