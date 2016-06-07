@@ -122,9 +122,6 @@ void MainWindow::randomize_rental_init_pkmn(){
 
 void MainWindow::randomize_rental_level(std::mt19937 &mt_rand)
 {
-    // PRNG
-    mt_rand.discard(700000);
-
     bool min_lv_rolled_petitcup = false;
     bool min_lv_rolled_pikacup = false;
     bool min_lv_rolled_pokecup = false;
@@ -210,9 +207,6 @@ void MainWindow::randomize_rental_level(std::mt19937 &mt_rand)
 
 void MainWindow::randomize_rental_moves(std::mt19937 &mt_rand)
 {
-    // PRNG
-    mt_rand.discard(700000);
-
     bool no_useless_moves = ui->checkBox_Randomizer_Rental_NoUselessMoves->isChecked();
     bool no_weak_moves = ui->checkBox_Randomizer_Rental_NoWeakMoves->isChecked();
     bool no_dragon_rage = ui->checkBox_Randomizer_Rental_NoDragonRage->isChecked();
@@ -481,9 +475,6 @@ void MainWindow::randomize_rental_moves(std::mt19937 &mt_rand)
 
 void MainWindow::randomize_rental_pkmn(std::mt19937 &mt_rand)
 {
-    // PRNG
-    mt_rand.discard(700000);
-
     RentalPkm current_rental_pkm[1024];
 
     std::shuffle(pkm_ids_vector_rental_petitcup.begin(), pkm_ids_vector_rental_petitcup.end(), mt_rand);
