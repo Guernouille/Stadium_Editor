@@ -76,9 +76,14 @@ void MainWindow::initialize_nicknames(){
     preset_nicknames[22][1]="fearow";
     preset_nicknames[23][1]="ekans";
     preset_nicknames[23][2]="SNAKE";
+    preset_nicknames[23][7]="SolidSnake";
+    preset_nicknames[24][8]="Snaaaaake!";
     preset_nicknames[23][9]="ItsASnake!";
     preset_nicknames[24][1]="arbok";
     preset_nicknames[24][2]="KOBRA";
+    preset_nicknames[24][7]="SolidSnake";
+    preset_nicknames[24][8]="Snaaaaake!";
+    preset_nicknames[23][9]="ItsASnake!";
     preset_nicknames[25][1]="pikachu";
     preset_nicknames[25][2]="CHUKAPI";
     preset_nicknames[26][1]="raichu";
