@@ -42,11 +42,16 @@ SOURCES += main.cpp\
     initialize_nicknames.cpp \
     initialize_min_levels.cpp \
     autoconn_display_rental_pkm.cpp \
-    autoconn_edit_rental_pkm.cpp
+    autoconn_edit_rental_pkm.cpp \
+    randomize_rental_pkm.cpp \
+    randomize_type_data.cpp \
+    write_type_data.cpp
 
 HEADERS  += mainwindow.h \
     common.cpp \
-    hexqspinbox.h
+    hexqspinbox.h \
+    rental_pkm.h \
+    type_chart.h
 
 FORMS    += mainwindow.ui
 
