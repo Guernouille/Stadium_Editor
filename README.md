@@ -5,7 +5,13 @@ Work in progress, about 75% done at the moment.
 
 TO DO:
 
-Randomize Weaknesses and Resistances
+Randomizer: Have offensive move / Have STAB move criteria
+
+Randomizer: [FIX] Explosion ×2 (Happens when a Pokémon learns Explosion and Selfdestruct)
+
+Randomizer: [FIX] "checkBox_CPUTeams" and "checkBox_RentalPkmn" must stay Enabled
+
+Type Chart manual edition
 
 Base Stats and learnsets edition
 
