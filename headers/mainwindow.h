@@ -529,6 +529,7 @@ private slots:
     void display_move_data(quint8 move_id);
     void display_pkm_data(quint8 pkm_id);
     void display_rental_pkmn(quint16 rental_pkm_offset);
+    void display_type_chart();
     void read_cpu_rentals(QFile &romfile);
     void read_experience_data(QFile &romfile);
     void read_move_data(QFile &romfile);
