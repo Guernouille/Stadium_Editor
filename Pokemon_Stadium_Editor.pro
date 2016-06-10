@@ -45,7 +45,9 @@ SOURCES += main.cpp\
     autoconn_edit_rental_pkm.cpp \
     randomize_rental_pkm.cpp \
     randomize_type_data.cpp \
-    write_type_data.cpp
+    write_type_data.cpp \
+    display_type_data.cpp \
+    autoconn_edit_type_data.cpp
 
 HEADERS  += mainwindow.h \
     common.cpp \
