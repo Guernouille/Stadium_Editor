@@ -79,12 +79,12 @@ void MainWindow::on_pushButton_Randomize_pressed()
     else{
         if(ui->checkBox_Ghost_vs_Psychic->isChecked()){
             type_chart[75].setType1(0x8);
-            type_chart[75].setType2(0x1A);
+            type_chart[75].setType2(0x18);
             type_chart[75].setMultiplier(20);
         }
         else{
             type_chart[75].setType1(0x8);
-            type_chart[75].setType2(0x1A);
+            type_chart[75].setType2(0x18);
             type_chart[75].setMultiplier(0);
         }
 
