@@ -25,8 +25,8 @@ public:
          cl_multiplier = multiplier;
     }
 
-private:
     uint8_t cl_type1;
+private:
     uint8_t cl_type2;
     uint8_t cl_multiplier;
 };
