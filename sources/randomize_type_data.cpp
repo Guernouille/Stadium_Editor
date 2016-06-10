@@ -37,4 +37,8 @@ void MainWindow::randomize_type_chart(std::mt19937 &mt_rand){
             type_chart[i].setMultiplier(20);
         }
     }
+
+    std::sort(type_chart, type_chart + 82,
+              [](TypeChart const & a, TypeChart const & b) -> bool
+                        { return a.cl_type1 < b.cl_type1; });
 }
