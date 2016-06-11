@@ -442,23 +442,26 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
             strong_moves_ids_vector.clear();
             gambler_moves_ids_vector.clear();
             buf8 = cpu_pkm_id[cpu_trainer_id][i];
-            bool has_explosion = false;
-            bool has_recover = false;
-            bool has_softboiled = false;
+            bool learns_explosion = false;
+            bool learns_recover = false;
+            bool learns_softboiled = false;
+            bool learns_offensive_move = false;
+            bool learns_stab_move = false;
 
             // Starting Moves
             if(pkm_start_move_1[buf8]>0 && pkm_start_move_1[buf8]<total_move_name){
                 // Explosion check
-                if(pkm_start_move_1[buf8]==0x99) has_explosion = true;
+                if(pkm_start_move_1[buf8]==0x99) learns_explosion = true;
                 // Recover check
-                if(pkm_start_move_1[buf8]==0x69) has_recover = true;
+                if(pkm_start_move_1[buf8]==0x69) learns_recover = true;
                 // Softboiled check
-                if(pkm_start_move_1[buf8]==0x87) has_softboiled = true;
+                if(pkm_start_move_1[buf8]==0x87) learns_softboiled = true;
                 // Dragon Rage in Petit Cup and Pika Cup
                 if(pkm_start_move_1[buf8]==0x52 && (cpu_cup_id[cpu_trainer_id]==0 || cpu_cup_id[cpu_trainer_id]==1 || cpu_cup_id[cpu_trainer_id]==22 || cpu_cup_id[cpu_trainer_id]==23)){
                     if(no_dragon_rage==false){
                         moves_ids_vector.push_back(pkm_start_move_1[buf8]);
                         strong_moves_ids_vector.push_back(pkm_start_move_1[buf8]);
+                        learns_offensive_move = true;
                     }
                 }
                 // Rest
@@ -472,6 +475,14 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
                 else if(no_weak_moves==false || weak_move[pkm_start_move_1[buf8]]==false){
                     if((no_useless_moves==false || useless_move[pkm_start_move_1[buf8]]==false) && (move_effect[pkm_start_move_1[buf8]]!=0xF || no_evasion_moves==false)){
                         moves_ids_vector.push_back(pkm_start_move_1[buf8]);
+
+                        // Offensive move and STAB move check
+                        if(move_power[pkm_start_move_1[buf8]]>1){
+                            learns_offensive_move = true;
+                            if(move_type[pkm_start_move_1[buf8]] == pkm_type_1[buf8] || move_type[pkm_start_move_1[buf8]] == pkm_type_2[buf8]){
+                                learns_stab_move = true;
+                            }
+                        }
                     }
                 }
                 // Strong moves
@@ -508,16 +519,17 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
             }
             if(pkm_start_move_2[buf8]>0 && pkm_start_move_2[buf8]<total_move_name){
                 // Explosion check
-                if(pkm_start_move_2[buf8]==0x99) has_explosion = true;
+                if(pkm_start_move_2[buf8]==0x99) learns_explosion = true;
                 // Recover check
-                if(pkm_start_move_2[buf8]==0x69) has_recover = true;
+                if(pkm_start_move_2[buf8]==0x69) learns_recover = true;
                 // Softboiled check
-                if(pkm_start_move_2[buf8]==0x87) has_softboiled = true;
+                if(pkm_start_move_2[buf8]==0x87) learns_softboiled = true;
                 // Dragon Rage in Petit Cup and Pika Cup
                 if(pkm_start_move_2[buf8]==0x52 && (cpu_cup_id[cpu_trainer_id]==0 || cpu_cup_id[cpu_trainer_id]==1 || cpu_cup_id[cpu_trainer_id]==22 || cpu_cup_id[cpu_trainer_id]==23)){
                     if(no_dragon_rage==false){
                         moves_ids_vector.push_back(pkm_start_move_2[buf8]);
                         strong_moves_ids_vector.push_back(pkm_start_move_2[buf8]);
+                        learns_offensive_move = true;
                     }
                 }
                 // Rest
@@ -531,6 +543,14 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
                 else if(no_weak_moves==false || weak_move[pkm_start_move_2[buf8]]==false){
                     if((no_useless_moves==false || useless_move[pkm_start_move_2[buf8]]==false) && (move_effect[pkm_start_move_2[buf8]]!=0xF || no_evasion_moves==false)){
                         moves_ids_vector.push_back(pkm_start_move_2[buf8]);
+
+                        // Offensive move and STAB move check
+                        if(move_power[pkm_start_move_3[buf8]]>1){
+                            learns_offensive_move = true;
+                            if(move_type[pkm_start_move_2[buf8]] == pkm_type_1[buf8] || move_type[pkm_start_move_2[buf8]] == pkm_type_2[buf8]){
+                                learns_stab_move = true;
+                            }
+                        }
                     }
                 }
                 // Strong moves
@@ -560,16 +580,17 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
             }
             if(pkm_start_move_3[buf8]>0 && pkm_start_move_3[buf8]<total_move_name){
                 // Explosion check
-                if(pkm_start_move_3[buf8]==0x99) has_explosion = true;
+                if(pkm_start_move_3[buf8]==0x99) learns_explosion = true;
                 // Recover check
-                if(pkm_start_move_3[buf8]==0x69) has_recover = true;
+                if(pkm_start_move_3[buf8]==0x69) learns_recover = true;
                 // Softboiled check
-                if(pkm_start_move_3[buf8]==0x87) has_softboiled = true;
+                if(pkm_start_move_3[buf8]==0x87) learns_softboiled = true;
                 // Dragon Rage in Petit Cup and Pika Cup
                 if(pkm_start_move_3[buf8]==0x52 && (cpu_cup_id[cpu_trainer_id]==0 || cpu_cup_id[cpu_trainer_id]==1 || cpu_cup_id[cpu_trainer_id]==22 || cpu_cup_id[cpu_trainer_id]==23)){
                     if(no_dragon_rage==false){
                         moves_ids_vector.push_back(pkm_start_move_3[buf8]);
                         strong_moves_ids_vector.push_back(pkm_start_move_3[buf8]);
+                        learns_offensive_move = true;
                     }
                 }
                 // Rest
@@ -583,6 +604,14 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
                 else if(no_weak_moves==false || weak_move[pkm_start_move_3[buf8]]==false){
                     if((no_useless_moves==false || useless_move[pkm_start_move_3[buf8]]==false) && (move_effect[pkm_start_move_3[buf8]]!=0xF || no_evasion_moves==false)){
                         moves_ids_vector.push_back(pkm_start_move_3[buf8]);
+
+                        // Offensive move and STAB move check
+                        if(move_power[pkm_start_move_3[buf8]]>1){
+                            learns_offensive_move = true;
+                            if(move_type[pkm_start_move_3[buf8]] == pkm_type_1[buf8] || move_type[pkm_start_move_3[buf8]] == pkm_type_2[buf8]){
+                                learns_stab_move = true;
+                            }
+                        }
                     }
                 }
                 // Strong moves
@@ -612,16 +641,17 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
             }
             if(pkm_start_move_4[buf8]>0 && pkm_start_move_4[buf8]<total_move_name){
                 // Explosion check
-                if(pkm_start_move_4[buf8]==0x99) has_explosion = true;
+                if(pkm_start_move_4[buf8]==0x99) learns_explosion = true;
                 // Recover check
-                if(pkm_start_move_4[buf8]==0x69) has_recover = true;
+                if(pkm_start_move_4[buf8]==0x69) learns_recover = true;
                 // Softboiled check
-                if(pkm_start_move_4[buf8]==0x87) has_softboiled = true;
+                if(pkm_start_move_4[buf8]==0x87) learns_softboiled = true;
                 // Dragon Rage in Petit Cup and Pika Cup
                 if(pkm_start_move_4[buf8]==0x52 && (cpu_cup_id[cpu_trainer_id]==0 || cpu_cup_id[cpu_trainer_id]==1 || cpu_cup_id[cpu_trainer_id]==22 || cpu_cup_id[cpu_trainer_id]==23)){
                     if(no_dragon_rage==false){
                         moves_ids_vector.push_back(pkm_start_move_4[buf8]);
                         strong_moves_ids_vector.push_back(pkm_start_move_4[buf8]);
+                        learns_offensive_move = true;
                     }
                 }
                 // Rest
@@ -635,6 +665,14 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
                 else if(no_weak_moves==false || weak_move[pkm_start_move_4[buf8]]==false){
                     if((no_useless_moves==false || useless_move[pkm_start_move_4[buf8]]==false) && (move_effect[pkm_start_move_4[buf8]]!=0xF || no_evasion_moves==false)){
                         moves_ids_vector.push_back(pkm_start_move_4[buf8]);
+
+                        // Offensive move and STAB move check
+                        if(move_power[pkm_start_move_4[buf8]]>1){
+                            learns_offensive_move = true;
+                            if(move_type[pkm_start_move_4[buf8]] == pkm_type_1[buf8] || move_type[pkm_start_move_4[buf8]] == pkm_type_2[buf8]){
+                                learns_stab_move = true;
+                            }
+                        }
                     }
                 }
                 // Strong moves
@@ -670,16 +708,17 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
                     move_tmhm_byte = (j-1)/8;
                     if((1<<move_tmhm_flag) & pkm_tmhm_flags[buf8][move_tmhm_byte]){
                         // Explosion check
-                        if(move_tmhm[j]==0x99) has_explosion = true;
+                        if(move_tmhm[j]==0x99) learns_explosion = true;
                         // Recover check
-                        if(move_tmhm[j]==0x69) has_recover = true;
+                        if(move_tmhm[j]==0x69) learns_recover = true;
                         // Softboiled check
-                        if(move_tmhm[j]==0x87) has_softboiled = true;
+                        if(move_tmhm[j]==0x87) learns_softboiled = true;
                         // Dragon Rage in Petit Cup and Pika Cup
                         if(move_tmhm[j]==0x52 && (cpu_cup_id[cpu_trainer_id]==0 || cpu_cup_id[cpu_trainer_id]==1 || cpu_cup_id[cpu_trainer_id]==22 || cpu_cup_id[cpu_trainer_id]==23)){
                             if(no_dragon_rage==false){
                                 moves_ids_vector.push_back(move_tmhm[j]);
                                 strong_moves_ids_vector.push_back(move_tmhm[j]);
+                                learns_offensive_move = true;
                             }
                         }
                         // Rest
@@ -693,6 +732,14 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
                         else if(no_weak_moves==false || weak_move[move_tmhm[j]]==false){
                             if((no_useless_moves==false || useless_move[move_tmhm[j]]==false) && (move_effect[move_tmhm[j]]!=0xF || no_evasion_moves==false)){
                                 moves_ids_vector.push_back(move_tmhm[j]);
+
+                                // Offensive move and STAB move check
+                                if(move_power[move_tmhm[j]]>1){
+                                    learns_offensive_move = true;
+                                    if(move_type[move_tmhm[j]] == pkm_type_1[buf8] || move_type[move_tmhm[j]] == pkm_type_2[buf8]){
+                                        learns_stab_move = true;
+                                    }
+                                }
                             }
                         }
                         // Strong moves
@@ -727,16 +774,17 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
             for(short j=0;j<10;j++){
                 if(pkm_rb_move[buf8][j]>0 && pkm_rb_move[buf8][j]<total_move_name && pkm_rb_lvl[buf8][j]<=cpu_pkm_level[cpu_trainer_id][i]){
                     // Explosion check
-                    if(pkm_rb_move[buf8][j]==0x99) has_explosion = true;
+                    if(pkm_rb_move[buf8][j]==0x99) learns_explosion = true;
                     // Recover check
-                    if(pkm_rb_move[buf8][j]==0x69) has_recover = true;
+                    if(pkm_rb_move[buf8][j]==0x69) learns_recover = true;
                     // Softboiled check
-                    if(pkm_rb_move[buf8][j]==0x87) has_softboiled = true;
+                    if(pkm_rb_move[buf8][j]==0x87) learns_softboiled = true;
                     // Dragon Rage in Petit Cup and Pika Cup
                     if(pkm_rb_move[buf8][j]==0x52 && (cpu_cup_id[cpu_trainer_id]==0 || cpu_cup_id[cpu_trainer_id]==1 || cpu_cup_id[cpu_trainer_id]==22 || cpu_cup_id[cpu_trainer_id]==23)){
                         if(no_dragon_rage==false){
                             moves_ids_vector.push_back(pkm_rb_move[buf8][j]);
                             strong_moves_ids_vector.push_back(pkm_rb_move[buf8][j]);
+                            learns_offensive_move = true;
                         }
                     }
                     // Rest
@@ -750,6 +798,14 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
                     else if(no_weak_moves==false || weak_move[pkm_rb_move[buf8][j]]==false){
                         if((no_useless_moves==false || useless_move[pkm_rb_move[buf8][j]]==false) && (move_effect[pkm_rb_move[buf8][j]]!=0xF || no_evasion_moves==false)){
                             moves_ids_vector.push_back(pkm_rb_move[buf8][j]);
+
+                            // Offensive move and STAB move check
+                            if(move_power[pkm_rb_move[buf8][j]]>1){
+                                learns_offensive_move = true;
+                                if(move_type[pkm_rb_move[buf8][j]] == pkm_type_1[buf8] || move_type[pkm_rb_move[buf8][j]] == pkm_type_2[buf8]){
+                                    learns_stab_move = true;
+                                }
+                            }
                         }
                     }
                     // Strong moves
@@ -779,16 +835,17 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
                 }
                 if(pkm_y_move[buf8][j]>0 && pkm_y_move[buf8][j]<total_move_name && pkm_y_lvl[buf8][j]<=cpu_pkm_level[cpu_trainer_id][i]){
                     // Explosion check
-                    if(pkm_y_move[buf8][j]==0x99) has_explosion = true;
+                    if(pkm_y_move[buf8][j]==0x99) learns_explosion = true;
                     // Recover check
-                    if(pkm_y_move[buf8][j]==0x69) has_recover = true;
+                    if(pkm_y_move[buf8][j]==0x69) learns_recover = true;
                     // Softboiled check
-                    if(pkm_y_move[buf8][j]==0x87) has_softboiled = true;
+                    if(pkm_y_move[buf8][j]==0x87) learns_softboiled = true;
                     // Dragon Rage in Petit Cup and Pika Cup
                     if(pkm_y_move[buf8][j]==0x52 && (cpu_cup_id[cpu_trainer_id]==0 || cpu_cup_id[cpu_trainer_id]==1 || cpu_cup_id[cpu_trainer_id]==22 || cpu_cup_id[cpu_trainer_id]==23)){
                         if(no_dragon_rage==false){
                             moves_ids_vector.push_back(pkm_y_move[buf8][j]);
                             strong_moves_ids_vector.push_back(pkm_y_move[buf8][j]);
+                            learns_offensive_move = true;
                         }
                     }
                     // Rest
@@ -802,6 +859,14 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
                     else if(no_weak_moves==false || weak_move[pkm_y_move[buf8][j]]==false){
                         if((no_useless_moves==false || useless_move[pkm_y_move[buf8][j]]==false) && (move_effect[pkm_y_move[buf8][j]]!=0xF || no_evasion_moves==false)){
                             moves_ids_vector.push_back(pkm_y_move[buf8][j]);
+
+                            // Offensive move and STAB move check
+                            if(move_power[pkm_y_move[buf8][j]]>1){
+                                learns_offensive_move = true;
+                                if(move_type[pkm_y_move[buf8][j]] == pkm_type_1[buf8] || move_type[pkm_y_move[buf8][j]] == pkm_type_2[buf8]){
+                                    learns_stab_move = true;
+                                }
+                            }
                         }
                     }
                     // Strong moves
@@ -850,22 +915,55 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
 
 
             // Randomize Pokémon Moves
-            // TO DO: Force offensive move / STAB move / Gym Leaders moves
+            // TO DO: Force offensive move / STAB move
             if(moves_ids_vector.size()>0) std::shuffle(moves_ids_vector.begin(), moves_ids_vector.end(), mt_rand);
             if(strong_moves_ids_vector.size()>0) std::shuffle(strong_moves_ids_vector.begin(), strong_moves_ids_vector.end(), mt_rand);
             if(gambler_moves_ids_vector.size()>0) std::shuffle(gambler_moves_ids_vector.begin(), gambler_moves_ids_vector.end(), mt_rand);
 
+            bool got_offensive_move = false;
+            bool got_stab_move = false;
+
             if(gambler_luck_moves && cpu_sprite_id[cpu_trainer_id]==0x22){
                 cpu_pkm_ppup_1[cpu_trainer_id][i] = 3;
                 if(gambler_moves_ids_vector.size()>0){
-                    if(gambler_moves_ids_vector[0]!=0x78 || has_explosion==false){
+                    if(gambler_moves_ids_vector[0]!=0x78 || learns_explosion==false){
                         cpu_pkm_move_1[cpu_trainer_id][i] = gambler_moves_ids_vector[0];
+                        if(move_power[cpu_pkm_move_1[cpu_trainer_id][i]]>1){
+                            got_offensive_move = true;
+                            if(move_type[cpu_pkm_move_1[cpu_trainer_id][i]] == pkm_type_1[buf8] || move_type[cpu_pkm_move_1[cpu_trainer_id][i]] == pkm_type_2[buf8]){
+                                got_stab_move = true;
+                            }
+                        }
                     }
                     else{
                         cpu_pkm_move_1[cpu_trainer_id][i] = 0x99;
+                        got_offensive_move = true;
+                        if(move_type[0x99] == pkm_type_1[buf8] || move_type[0x99] == pkm_type_2[buf8]){
+                            got_stab_move = true;
+                        }
                     }
                 }
-                else if(moves_ids_vector.size()>0) cpu_pkm_move_1[cpu_trainer_id][i] = moves_ids_vector[0];
+                else if(moves_ids_vector.size()>0){
+                    if(have_offensive_move){
+                        uint8_t offset_vector_move = 0;
+                        if(have_stab_move){
+                            while(move_power[moves_ids_vector[offset_vector_move]]<=1 && move_type[moves_ids_vector[offset_vector_move]]!=pkm_type_1[buf8] && move_type[moves_ids_vector[offset_vector_move]]!=pkm_type_2[buf8]){
+                                offset_vector_move++;
+                                if(offset_vector_move >= moves_ids_vector.size()) break;
+                            }
+                        }
+                        else{
+                            while(move_power[moves_ids_vector[offset_vector_move]]<=1){
+                                offset_vector_move++;
+                                if(offset_vector_move >= moves_ids_vector.size()) break;
+                            }
+                        }
+                        cpu_pkm_move_1[cpu_trainer_id][i] = moves_ids_vector[offset_vector_move];
+                    }
+                    else{
+                        cpu_pkm_move_1[cpu_trainer_id][i] = moves_ids_vector[0];
+                    }
+                }
                 else if(pkm_start_move_1[buf8] != 0 && pkm_start_move_1[buf8] < total_move_name){
                      cpu_pkm_move_1[cpu_trainer_id][i] = pkm_start_move_1[buf8];
                 }
@@ -873,11 +971,21 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
 
                 if(gambler_moves_ids_vector.size()>1){
                     cpu_pkm_ppup_2[cpu_trainer_id][i] = 3;
-                    if(gambler_moves_ids_vector[1]!=0x78 || has_explosion==false){
+                    if(gambler_moves_ids_vector[1]!=0x78 || learns_explosion==false){
                         cpu_pkm_move_2[cpu_trainer_id][i] = gambler_moves_ids_vector[1];
+                        if(move_power[cpu_pkm_move_2[cpu_trainer_id][i]]>1){
+                            got_offensive_move = true;
+                            if(move_type[cpu_pkm_move_2[cpu_trainer_id][i]] == pkm_type_1[buf8] || move_type[cpu_pkm_move_2[cpu_trainer_id][i]] == pkm_type_2[buf8]){
+                                got_stab_move = true;
+                            }
+                        }
                     }
                     else{
                         cpu_pkm_move_2[cpu_trainer_id][i] = 0x99;
+                        got_offensive_move = true;
+                        if(move_type[0x99] == pkm_type_1[buf8] || move_type[0x99] == pkm_type_2[buf8]){
+                            got_stab_move = true;
+                        }
                     }
                 }
                 else{
@@ -887,11 +995,21 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
 
                 if(gambler_moves_ids_vector.size()>2){
                     cpu_pkm_ppup_3[cpu_trainer_id][i] = 3;
-                    if(gambler_moves_ids_vector[2]!=0x78 || has_explosion==false){
+                    if(gambler_moves_ids_vector[2]!=0x78 || learns_explosion==false){
                         cpu_pkm_move_3[cpu_trainer_id][i] = gambler_moves_ids_vector[2];
+                        if(move_power[cpu_pkm_move_3[cpu_trainer_id][i]]>1){
+                            got_offensive_move = true;
+                            if(move_type[cpu_pkm_move_3[cpu_trainer_id][i]] == pkm_type_1[buf8] || move_type[cpu_pkm_move_3[cpu_trainer_id][i]] == pkm_type_2[buf8]){
+                                got_stab_move = true;
+                            }
+                        }
                     }
                     else{
                         cpu_pkm_move_3[cpu_trainer_id][i] = 0x99;
+                        got_offensive_move = true;
+                        if(move_type[0x99] == pkm_type_1[buf8] || move_type[0x99] == pkm_type_2[buf8]){
+                            got_stab_move = true;
+                        }
                     }
                 }
                 else{
@@ -901,7 +1019,7 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
 
                 if(gambler_moves_ids_vector.size()>3){
                     cpu_pkm_ppup_4[cpu_trainer_id][i] = 3;
-                    if(gambler_moves_ids_vector[3]!=0x78 || has_explosion==false){
+                    if(gambler_moves_ids_vector[3]!=0x78 || learns_explosion==false){
                         cpu_pkm_move_4[cpu_trainer_id][i] = gambler_moves_ids_vector[3];
                     }
                     else{
@@ -1329,7 +1447,7 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
                 cpu_pkm_ppup_1[cpu_trainer_id][i] = 3;
 
                 if(strong_moves_ids_vector.size()>0){
-                    if(strong_moves_ids_vector[0]!=0x78 || has_explosion==false){
+                    if(strong_moves_ids_vector[0]!=0x78 || learns_explosion==false){
                         cpu_pkm_move_1[cpu_trainer_id][i] = strong_moves_ids_vector[0];
                     }
                     else{
@@ -1344,7 +1462,7 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
 
                 if(strong_moves_ids_vector.size()>1){
                     cpu_pkm_ppup_2[cpu_trainer_id][i] = 3;
-                    if(strong_moves_ids_vector[1]!=0x78 || has_explosion==false){
+                    if(strong_moves_ids_vector[1]!=0x78 || learns_explosion==false){
                         cpu_pkm_move_2[cpu_trainer_id][i] = strong_moves_ids_vector[1];
                     }
                     else{
@@ -1363,7 +1481,7 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
 
                 if(strong_moves_ids_vector.size()>2){
                     cpu_pkm_ppup_3[cpu_trainer_id][i] = 3;
-                    if(strong_moves_ids_vector[2]!=0x78 || has_explosion==false){
+                    if(strong_moves_ids_vector[2]!=0x78 || learns_explosion==false){
                         cpu_pkm_move_3[cpu_trainer_id][i] = strong_moves_ids_vector[2];
                     }
                     else{
@@ -1381,19 +1499,19 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
 
                 if(strong_moves_ids_vector.size()>3){
                     cpu_pkm_ppup_4[cpu_trainer_id][i] = 3;
-                    if(has_recover && pkm_base_atk[buf8]<60
+                    if(learns_recover && pkm_base_atk[buf8]<60
                             && cpu_pkm_move_1[cpu_trainer_id][i]!=0x69
                             && cpu_pkm_move_2[cpu_trainer_id][i]!=0x69
                             && cpu_pkm_move_3[cpu_trainer_id][i]!=0x69){
                         cpu_pkm_move_4[cpu_trainer_id][i] = 0x69;
                     }
-                    else if(has_softboiled && pkm_base_atk[buf8]<60
+                    else if(learns_softboiled && pkm_base_atk[buf8]<60
                             && cpu_pkm_move_1[cpu_trainer_id][i]!=0x87
                             && cpu_pkm_move_2[cpu_trainer_id][i]!=0x87
                             && cpu_pkm_move_3[cpu_trainer_id][i]!=0x87){
                         cpu_pkm_move_4[cpu_trainer_id][i] = 0x87;
                     }
-                    else if(strong_moves_ids_vector[3]!=0x78 || has_explosion==false){
+                    else if(strong_moves_ids_vector[3]!=0x78 || learns_explosion==false){
                         cpu_pkm_move_4[cpu_trainer_id][i] = strong_moves_ids_vector[3];
                     }
                     else{
