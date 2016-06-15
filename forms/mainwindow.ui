@@ -75,7 +75,7 @@
         <x>4</x>
         <y>1</y>
         <width>404</width>
-        <height>221</height>
+        <height>242</height>
        </rect>
       </property>
       <property name="title">
@@ -330,6 +330,9 @@
        <property name="text">
         <string>Only fully Evolved *</string>
        </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
       </widget>
       <widget class="QCheckBox" name="checkBox_Randomizer_CPU_GLPkmn">
        <property name="geometry">
@@ -513,25 +516,6 @@
         <bool>true</bool>
        </property>
       </widget>
-      <widget class="QCheckBox" name="checkBox_Randomizer_CPU_25600EVs">
-       <property name="geometry">
-        <rect>
-         <x>122</x>
-         <y>175</y>
-         <width>139</width>
-         <height>17</height>
-        </rect>
-       </property>
-       <property name="toolTip">
-        <string>Will try to diversify Pokémon types in every CPU team.</string>
-       </property>
-       <property name="text">
-        <string>At least 25600 Stat Exp</string>
-       </property>
-       <property name="checked">
-        <bool>true</bool>
-       </property>
-      </widget>
       <widget class="QCheckBox" name="checkBox_Randomizer_CPU_NoIllegalPkmn">
        <property name="geometry">
         <rect>
@@ -586,6 +570,141 @@
         <bool>true</bool>
        </property>
       </widget>
+      <widget class="QCheckBox" name="checkBox_Randomizer_CPU_NFE_IVsEVs">
+       <property name="geometry">
+        <rect>
+         <x>122</x>
+         <y>175</y>
+         <width>141</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string extracomment="Not Fully Evolved will have better IVs and Stat Exp (except Petit Cup)."/>
+       </property>
+       <property name="text">
+        <string>Better IVs EVs for NFE *</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="spinBox_CPU_IVs_min">
+       <property name="geometry">
+        <rect>
+         <x>65</x>
+         <y>214</y>
+         <width>36</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="maximum">
+        <number>15</number>
+       </property>
+       <property name="value">
+        <number>0</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_CPU_IVs_range_1">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>217</y>
+         <width>55</width>
+         <height>14</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>IVs range:</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_CPU_IVs_range_2">
+       <property name="geometry">
+        <rect>
+         <x>106</x>
+         <y>217</y>
+         <width>18</width>
+         <height>14</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>to</string>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="spinBox_CPU_IVs_max">
+       <property name="geometry">
+        <rect>
+         <x>122</x>
+         <y>214</y>
+         <width>36</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="maximum">
+        <number>15</number>
+       </property>
+       <property name="value">
+        <number>15</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_CPU_StatExp_range_1">
+       <property name="geometry">
+        <rect>
+         <x>190</x>
+         <y>217</y>
+         <width>82</width>
+         <height>14</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Stat Exp range:</string>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="spinBox_CPU_StatExp_min">
+       <property name="geometry">
+        <rect>
+         <x>270</x>
+         <y>214</y>
+         <width>54</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="maximum">
+        <number>65535</number>
+       </property>
+       <property name="value">
+        <number>25600</number>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="spinBox_CPU_StatExp_max">
+       <property name="geometry">
+        <rect>
+         <x>345</x>
+         <y>214</y>
+         <width>54</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="maximum">
+        <number>65535</number>
+       </property>
+       <property name="value">
+        <number>65535</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_CPU_StatExp_range_2">
+       <property name="geometry">
+        <rect>
+         <x>329</x>
+         <y>217</y>
+         <width>18</width>
+         <height>14</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>to</string>
+       </property>
+      </widget>
      </widget>
      <widget class="QGroupBox" name="groupBox_PRNG_Seeds">
       <property name="geometry">
@@ -604,9 +723,9 @@
       <property name="geometry">
        <rect>
         <x>4</x>
-        <y>220</y>
+        <y>243</y>
         <width>404</width>
-        <height>176</height>
+        <height>202</height>
        </rect>
       </property>
       <property name="title">
@@ -749,6 +868,9 @@
        </property>
        <property name="text">
         <string>No useless Pokémon *</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
        </property>
       </widget>
       <widget class="QCheckBox" name="checkBox_Randomizer_Rental_NoMewMewtwo">
@@ -929,30 +1051,11 @@
         <bool>true</bool>
        </property>
       </widget>
-      <widget class="QCheckBox" name="checkBox_Randomizer_Rental_25600EVs">
-       <property name="geometry">
-        <rect>
-         <x>260</x>
-         <y>115</y>
-         <width>141</width>
-         <height>17</height>
-        </rect>
-       </property>
-       <property name="toolTip">
-        <string/>
-       </property>
-       <property name="text">
-        <string>At least 25600 Stat Exp</string>
-       </property>
-       <property name="checked">
-        <bool>false</bool>
-       </property>
-      </widget>
       <widget class="QCheckBox" name="checkBox_Randomizer_Rental_MaxPPUps">
        <property name="geometry">
         <rect>
          <x>260</x>
-         <y>135</y>
+         <y>115</y>
          <width>101</width>
          <height>17</height>
         </rect>
@@ -965,7 +1068,7 @@
        <property name="geometry">
         <rect>
          <x>260</x>
-         <y>155</y>
+         <y>135</y>
          <width>101</width>
          <height>17</height>
         </rect>
@@ -979,12 +1082,12 @@
         <rect>
          <x>260</x>
          <y>95</y>
-         <width>141</width>
+         <width>147</width>
          <height>17</height>
         </rect>
        </property>
        <property name="toolTip">
-        <string extracomment="Not Fully Evolved will have better IVs and Stat Exp."/>
+        <string extracomment="Not Fully Evolved will have better IVs and Stat Exp (except Petit Cup)."/>
        </property>
        <property name="text">
         <string>Better IVs EVs for NFE *</string>
@@ -1007,6 +1110,122 @@
        </property>
        <property name="checked">
         <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_Rental_IVs_range_2">
+       <property name="geometry">
+        <rect>
+         <x>106</x>
+         <y>177</y>
+         <width>18</width>
+         <height>14</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>to</string>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="spinBox_Rental_IVs_min">
+       <property name="geometry">
+        <rect>
+         <x>65</x>
+         <y>174</y>
+         <width>36</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="maximum">
+        <number>15</number>
+       </property>
+       <property name="value">
+        <number>0</number>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="spinBox_Rental_StatExp_min">
+       <property name="geometry">
+        <rect>
+         <x>270</x>
+         <y>174</y>
+         <width>54</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="maximum">
+        <number>65535</number>
+       </property>
+       <property name="value">
+        <number>25600</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_Rental_StatExp_range_2">
+       <property name="geometry">
+        <rect>
+         <x>329</x>
+         <y>177</y>
+         <width>18</width>
+         <height>14</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>to</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_Rental_IVs_range_1">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>177</y>
+         <width>55</width>
+         <height>14</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>IVs range:</string>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="spinBox_Rental_IVs_max">
+       <property name="geometry">
+        <rect>
+         <x>122</x>
+         <y>174</y>
+         <width>36</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="maximum">
+        <number>15</number>
+       </property>
+       <property name="value">
+        <number>15</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_Rental_StatExp_range_1">
+       <property name="geometry">
+        <rect>
+         <x>190</x>
+         <y>177</y>
+         <width>82</width>
+         <height>14</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Stat Exp range:</string>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="spinBox_Rental_StatExp_max">
+       <property name="geometry">
+        <rect>
+         <x>345</x>
+         <y>174</y>
+         <width>54</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="maximum">
+        <number>65535</number>
+       </property>
+       <property name="value">
+        <number>65535</number>
        </property>
       </widget>
      </widget>
@@ -1651,19 +1870,6 @@
          <number>3</number>
         </property>
        </widget>
-       <widget class="QCheckBox" name="checkBox_ValidMoves_1">
-        <property name="geometry">
-         <rect>
-          <x>5</x>
-          <y>127</y>
-          <width>111</width>
-          <height>17</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Only valid moves</string>
-        </property>
-       </widget>
       </widget>
      </widget>
      <widget class="QGroupBox" name="groupBox_CPU_Pkmn_2">
@@ -2091,19 +2297,6 @@
         </property>
         <property name="maximum">
          <number>3</number>
-        </property>
-       </widget>
-       <widget class="QCheckBox" name="checkBox_ValidMoves_2">
-        <property name="geometry">
-         <rect>
-          <x>5</x>
-          <y>127</y>
-          <width>111</width>
-          <height>17</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Only valid moves</string>
         </property>
        </widget>
       </widget>
@@ -2535,19 +2728,6 @@
          <number>3</number>
         </property>
        </widget>
-       <widget class="QCheckBox" name="checkBox_ValidMoves_3">
-        <property name="geometry">
-         <rect>
-          <x>5</x>
-          <y>127</y>
-          <width>111</width>
-          <height>17</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Only valid moves</string>
-        </property>
-       </widget>
       </widget>
      </widget>
      <widget class="QGroupBox" name="groupBox_CPU_Pkmn_4">
@@ -2975,19 +3155,6 @@
         </property>
         <property name="maximum">
          <number>3</number>
-        </property>
-       </widget>
-       <widget class="QCheckBox" name="checkBox_ValidMoves_4">
-        <property name="geometry">
-         <rect>
-          <x>5</x>
-          <y>127</y>
-          <width>111</width>
-          <height>17</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Only valid moves</string>
         </property>
        </widget>
       </widget>
@@ -3419,19 +3586,6 @@
          <number>3</number>
         </property>
        </widget>
-       <widget class="QCheckBox" name="checkBox_ValidMoves_5">
-        <property name="geometry">
-         <rect>
-          <x>5</x>
-          <y>127</y>
-          <width>111</width>
-          <height>17</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Only valid moves</string>
-        </property>
-       </widget>
       </widget>
      </widget>
      <widget class="QGroupBox" name="groupBox_CPU_Pkmn_6">
@@ -3859,19 +4013,6 @@
         </property>
         <property name="maximum">
          <number>3</number>
-        </property>
-       </widget>
-       <widget class="QCheckBox" name="checkBox_ValidMoves_6">
-        <property name="geometry">
-         <rect>
-          <x>5</x>
-          <y>127</y>
-          <width>111</width>
-          <height>17</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Only valid moves</string>
         </property>
        </widget>
       </widget>
@@ -4714,19 +4855,6 @@
          <number>3</number>
         </property>
        </widget>
-       <widget class="QCheckBox" name="checkBox_Rental_ValidMoves_1">
-        <property name="geometry">
-         <rect>
-          <x>5</x>
-          <y>127</y>
-          <width>111</width>
-          <height>17</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Only valid moves</string>
-        </property>
-       </widget>
       </widget>
      </widget>
      <widget class="QGroupBox" name="groupBox_Rental_Pkmn_2">
@@ -5154,19 +5282,6 @@
         </property>
         <property name="maximum">
          <number>3</number>
-        </property>
-       </widget>
-       <widget class="QCheckBox" name="checkBox_Rental_ValidMoves_2">
-        <property name="geometry">
-         <rect>
-          <x>5</x>
-          <y>127</y>
-          <width>111</width>
-          <height>17</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Only valid moves</string>
         </property>
        </widget>
       </widget>
@@ -5598,19 +5713,6 @@
          <number>3</number>
         </property>
        </widget>
-       <widget class="QCheckBox" name="checkBox_Rental_ValidMoves_3">
-        <property name="geometry">
-         <rect>
-          <x>5</x>
-          <y>127</y>
-          <width>111</width>
-          <height>17</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Only valid moves</string>
-        </property>
-       </widget>
       </widget>
      </widget>
      <widget class="QGroupBox" name="groupBox_Rental_Pkmn_4">
@@ -6038,19 +6140,6 @@
         </property>
         <property name="maximum">
          <number>3</number>
-        </property>
-       </widget>
-       <widget class="QCheckBox" name="checkBox_Rental_ValidMoves_4">
-        <property name="geometry">
-         <rect>
-          <x>5</x>
-          <y>127</y>
-          <width>111</width>
-          <height>17</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Only valid moves</string>
         </property>
        </widget>
       </widget>
@@ -6482,19 +6571,6 @@
          <number>3</number>
         </property>
        </widget>
-       <widget class="QCheckBox" name="checkBox_Rental_ValidMoves_5">
-        <property name="geometry">
-         <rect>
-          <x>5</x>
-          <y>127</y>
-          <width>111</width>
-          <height>17</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Only valid moves</string>
-        </property>
-       </widget>
       </widget>
      </widget>
      <widget class="QGroupBox" name="groupBox_Rental_Pkmn_6">
@@ -6922,19 +6998,6 @@
         </property>
         <property name="maximum">
          <number>3</number>
-        </property>
-       </widget>
-       <widget class="QCheckBox" name="checkBox_Rental_ValidMoves_6">
-        <property name="geometry">
-         <rect>
-          <x>5</x>
-          <y>127</y>
-          <width>111</width>
-          <height>17</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Only valid moves</string>
         </property>
        </widget>
       </widget>
@@ -7468,6 +7531,42 @@ p, li { white-space: pre-wrap; }
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_Pokedex_Number">
+       <property name="geometry">
+        <rect>
+         <x>560</x>
+         <y>45</y>
+         <width>24</width>
+         <height>14</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>N°</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_Pokedex_Number_value">
+       <property name="geometry">
+        <rect>
+         <x>580</x>
+         <y>45</y>
+         <width>30</width>
+         <height>14</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>1</string>
        </property>
       </widget>
      </widget>
@@ -8051,9 +8150,9 @@ p, li { white-space: pre-wrap; }
       <widget class="QTextEdit" name="textEdit_MoveDescrText">
        <property name="geometry">
         <rect>
-         <x>227</x>
+         <x>225</x>
          <y>15</y>
-         <width>293</width>
+         <width>297</width>
          <height>53</height>
         </rect>
        </property>
@@ -8936,6 +9035,9 @@ p, li { white-space: pre-wrap; }
      </widget>
     </widget>
     <widget class="QWidget" name="tab_Type_Chart">
+     <property name="toolTipDuration">
+      <number>1</number>
+     </property>
      <attribute name="title">
       <string>Type Chart</string>
      </attribute>
@@ -12241,6 +12343,70 @@ p, li { white-space: pre-wrap; }
  <layoutdefault spacing="6" margin="11"/>
  <tabstops>
   <tabstop>tabWidget</tabstop>
+  <tabstop>checkBox_CPUTeams</tabstop>
+  <tabstop>pushButton_CPU_Metronome</tabstop>
+  <tabstop>pushButton_Maximize_CPU_EVsIVs</tabstop>
+  <tabstop>checkBox_Randomize_CPU_Pkmn</tabstop>
+  <tabstop>checkBox_Randomize_CPU_Moves</tabstop>
+  <tabstop>checkBox_Randomize_CPU_Levels</tabstop>
+  <tabstop>checkBox_Randomize_CPU_IVsEVs</tabstop>
+  <tabstop>checkBox_Randomize_CPU_Sprites</tabstop>
+  <tabstop>checkBox_Randomizer_CPU_Names</tabstop>
+  <tabstop>checkBox_Randomizer_CPU_NoIllegalMoves</tabstop>
+  <tabstop>checkBox_Randomizer_CPU_NoUselessMoves</tabstop>
+  <tabstop>checkBox_Randomizer_CPU_NoWeakMoves</tabstop>
+  <tabstop>checkBox_Randomizer_CPU_NoDragonRage</tabstop>
+  <tabstop>checkBox_Randomizer_CPU_NoEvasion</tabstop>
+  <tabstop>checkBox_Randomizer_CPU_OffensiveMove</tabstop>
+  <tabstop>checkBox_Randomizer_CPU_STABMove</tabstop>
+  <tabstop>checkBox_Randomizer_CPU_GamblerMoves</tabstop>
+  <tabstop>checkBox_Randomizer_CPU_MaxIVsEVsFinal</tabstop>
+  <tabstop>checkBox_Randomizer_CPU_MewPrimeCup</tabstop>
+  <tabstop>checkBox_Randomizer_CPU_MewtwoMewtwo</tabstop>
+  <tabstop>checkBox_Randomizer_CPU_MewtwoFullParty</tabstop>
+  <tabstop>checkBox_Randomizer_CPU_NoMewMewtwo</tabstop>
+  <tabstop>checkBox_Randomizer_CPU_NoUselessPkmn</tabstop>
+  <tabstop>checkBox_Randomizer_CPU_NoIllegalPkmn</tabstop>
+  <tabstop>checkBox_Randomizer_CPU_NoSpeciesClause</tabstop>
+  <tabstop>checkBox_Randomizer_CPU_FullyEvolved</tabstop>
+  <tabstop>checkBox_Randomizer_CPU_GLPkmn</tabstop>
+  <tabstop>checkBox_Randomizer_CPU_StrongPkmnFinal</tabstop>
+  <tabstop>checkBox_RentalPkmn</tabstop>
+  <tabstop>pushButton_Rental_Metronome</tabstop>
+  <tabstop>pushButton_Maximize_Rental_EVsIVs</tabstop>
+  <tabstop>checkBox_Randomize_Rental_Pkmn</tabstop>
+  <tabstop>checkBox_Randomize_Rental_Moves</tabstop>
+  <tabstop>checkBox_Randomize_Rental_Levels</tabstop>
+  <tabstop>checkBox_Randomize_Rental_IVsEVs</tabstop>
+  <tabstop>checkBox_Randomizer_Rental_NoIllegalMoves</tabstop>
+  <tabstop>checkBox_Randomizer_Rental_NoUselessMoves</tabstop>
+  <tabstop>checkBox_Randomizer_Rental_NoWeakMoves</tabstop>
+  <tabstop>checkBox_Randomizer_Rental_NoDragonRage</tabstop>
+  <tabstop>checkBox_Randomizer_Rental_NoEvasion</tabstop>
+  <tabstop>checkBox_Randomizer_Rental_NoOHKOMoves</tabstop>
+  <tabstop>checkBox_Randomizer_Rental_OffensiveMove</tabstop>
+  <tabstop>checkBox_Randomizer_Rental_STABMove</tabstop>
+  <tabstop>checkBox_Randomizer_Rental_NoMewMewtwo</tabstop>
+  <tabstop>checkBox_Randomizer_Rental_NoUselessPkmn</tabstop>
+  <tabstop>checkBox_Randomizer_Rental_NoIllegalPkmn</tabstop>
+  <tabstop>checkBox_Randomizer_Rental_FullyEvolved</tabstop>
+  <tabstop>checkBox_Rental_NFE_IVsEVs</tabstop>
+  <tabstop>checkBox_Randomizer_Rental_MaxPPUps</tabstop>
+  <tabstop>checkBox_Randomizer_Rental_NoPPUps</tabstop>
+  <tabstop>checkBox_Ghost_vs_Psychic</tabstop>
+  <tabstop>checkBox_Ice_vs_Fire</tabstop>
+  <tabstop>checkBox_Randomize_TypeChart</tabstop>
+  <tabstop>checkBox_Bug_vs_Poison</tabstop>
+  <tabstop>spinBox_Randomizer_GLCLevelRange_1</tabstop>
+  <tabstop>spinBox_Randomizer_GLCLevelRange_2</tabstop>
+  <tabstop>checkBox_FixedSeeds</tabstop>
+  <tabstop>pushButton_Randomize</tabstop>
+  <tabstop>comboBox_CPU_Cup</tabstop>
+  <tabstop>comboBox_CPU_Trainer</tabstop>
+  <tabstop>lineEdit_CPU_TrainerName</tabstop>
+  <tabstop>spinBox_TrainerSpriteID</tabstop>
+  <tabstop>spinBox_CPU_PartySize</tabstop>
+  <tabstop>spinBox_CPU_AI</tabstop>
   <tabstop>comboBox_Pkmn_1</tabstop>
   <tabstop>spinBox_Lv_1</tabstop>
   <tabstop>lineEdit_Nickname_1</tabstop>
@@ -12248,16 +12414,557 @@ p, li { white-space: pre-wrap; }
   <tabstop>comboBox_Move2_1</tabstop>
   <tabstop>comboBox_Move3_1</tabstop>
   <tabstop>comboBox_Move4_1</tabstop>
+  <tabstop>spinBox_PPUp1_1</tabstop>
+  <tabstop>spinBox_PPUp2_1</tabstop>
+  <tabstop>spinBox_PPUp3_1</tabstop>
+  <tabstop>spinBox_PPUp4_1</tabstop>
   <tabstop>spinBox_IV_HP_1</tabstop>
-  <tabstop>spinBox_EV_HP_1</tabstop>
   <tabstop>spinBox_IV_Attack_1</tabstop>
-  <tabstop>spinBox_EV_Attack_1</tabstop>
   <tabstop>spinBox_IV_Defense_1</tabstop>
-  <tabstop>spinBox_EV_Defense_1</tabstop>
   <tabstop>spinBox_IV_Special_1</tabstop>
-  <tabstop>spinBox_EV_Special_1</tabstop>
   <tabstop>spinBox_IV_Speed_1</tabstop>
+  <tabstop>spinBox_EV_HP_1</tabstop>
+  <tabstop>spinBox_EV_Attack_1</tabstop>
+  <tabstop>spinBox_EV_Defense_1</tabstop>
+  <tabstop>spinBox_EV_Special_1</tabstop>
   <tabstop>spinBox_EV_Speed_1</tabstop>
+  <tabstop>comboBox_Pkmn_2</tabstop>
+  <tabstop>spinBox_Lv_2</tabstop>
+  <tabstop>lineEdit_Nickname_2</tabstop>
+  <tabstop>comboBox_Move1_2</tabstop>
+  <tabstop>comboBox_Move2_2</tabstop>
+  <tabstop>comboBox_Move3_2</tabstop>
+  <tabstop>comboBox_Move4_2</tabstop>
+  <tabstop>spinBox_PPUp1_2</tabstop>
+  <tabstop>spinBox_PPUp2_2</tabstop>
+  <tabstop>spinBox_PPUp3_2</tabstop>
+  <tabstop>spinBox_PPUp4_2</tabstop>
+  <tabstop>spinBox_IV_HP_2</tabstop>
+  <tabstop>spinBox_IV_Attack_2</tabstop>
+  <tabstop>spinBox_IV_Defense_2</tabstop>
+  <tabstop>spinBox_IV_Special_2</tabstop>
+  <tabstop>spinBox_IV_Speed_2</tabstop>
+  <tabstop>spinBox_EV_HP_2</tabstop>
+  <tabstop>spinBox_EV_Attack_2</tabstop>
+  <tabstop>spinBox_EV_Defense_2</tabstop>
+  <tabstop>spinBox_EV_Special_2</tabstop>
+  <tabstop>spinBox_EV_Speed_2</tabstop>
+  <tabstop>comboBox_Pkmn_3</tabstop>
+  <tabstop>spinBox_Lv_3</tabstop>
+  <tabstop>lineEdit_Nickname_3</tabstop>
+  <tabstop>comboBox_Move1_3</tabstop>
+  <tabstop>comboBox_Move2_3</tabstop>
+  <tabstop>comboBox_Move3_3</tabstop>
+  <tabstop>comboBox_Move4_3</tabstop>
+  <tabstop>spinBox_PPUp1_3</tabstop>
+  <tabstop>spinBox_PPUp2_3</tabstop>
+  <tabstop>spinBox_PPUp3_3</tabstop>
+  <tabstop>spinBox_PPUp4_3</tabstop>
+  <tabstop>spinBox_IV_HP_3</tabstop>
+  <tabstop>spinBox_IV_Attack_3</tabstop>
+  <tabstop>spinBox_IV_Defense_3</tabstop>
+  <tabstop>spinBox_IV_Special_3</tabstop>
+  <tabstop>spinBox_IV_Speed_3</tabstop>
+  <tabstop>spinBox_EV_HP_3</tabstop>
+  <tabstop>spinBox_EV_Attack_3</tabstop>
+  <tabstop>spinBox_EV_Defense_3</tabstop>
+  <tabstop>spinBox_EV_Special_3</tabstop>
+  <tabstop>spinBox_EV_Speed_3</tabstop>
+  <tabstop>comboBox_Pkmn_4</tabstop>
+  <tabstop>spinBox_Lv_4</tabstop>
+  <tabstop>lineEdit_Nickname_4</tabstop>
+  <tabstop>comboBox_Move1_4</tabstop>
+  <tabstop>comboBox_Move2_4</tabstop>
+  <tabstop>comboBox_Move3_4</tabstop>
+  <tabstop>comboBox_Move4_4</tabstop>
+  <tabstop>spinBox_PPUp1_4</tabstop>
+  <tabstop>spinBox_PPUp2_4</tabstop>
+  <tabstop>spinBox_PPUp3_4</tabstop>
+  <tabstop>spinBox_PPUp4_4</tabstop>
+  <tabstop>spinBox_IV_HP_4</tabstop>
+  <tabstop>spinBox_IV_Attack_4</tabstop>
+  <tabstop>spinBox_IV_Defense_4</tabstop>
+  <tabstop>spinBox_IV_Special_4</tabstop>
+  <tabstop>spinBox_IV_Speed_4</tabstop>
+  <tabstop>spinBox_EV_HP_4</tabstop>
+  <tabstop>spinBox_EV_Attack_4</tabstop>
+  <tabstop>spinBox_EV_Defense_4</tabstop>
+  <tabstop>spinBox_EV_Special_4</tabstop>
+  <tabstop>spinBox_EV_Speed_4</tabstop>
+  <tabstop>comboBox_Pkmn_5</tabstop>
+  <tabstop>spinBox_Lv_5</tabstop>
+  <tabstop>lineEdit_Nickname_5</tabstop>
+  <tabstop>comboBox_Move1_5</tabstop>
+  <tabstop>comboBox_Move2_5</tabstop>
+  <tabstop>comboBox_Move3_5</tabstop>
+  <tabstop>comboBox_Move4_5</tabstop>
+  <tabstop>spinBox_PPUp1_5</tabstop>
+  <tabstop>spinBox_PPUp2_5</tabstop>
+  <tabstop>spinBox_PPUp3_5</tabstop>
+  <tabstop>spinBox_PPUp4_5</tabstop>
+  <tabstop>spinBox_IV_HP_5</tabstop>
+  <tabstop>spinBox_IV_Attack_5</tabstop>
+  <tabstop>spinBox_IV_Defense_5</tabstop>
+  <tabstop>spinBox_IV_Special_5</tabstop>
+  <tabstop>spinBox_IV_Speed_5</tabstop>
+  <tabstop>spinBox_EV_HP_5</tabstop>
+  <tabstop>spinBox_EV_Attack_5</tabstop>
+  <tabstop>spinBox_EV_Defense_5</tabstop>
+  <tabstop>spinBox_EV_Special_5</tabstop>
+  <tabstop>spinBox_EV_Speed_5</tabstop>
+  <tabstop>comboBox_Pkmn_6</tabstop>
+  <tabstop>spinBox_Lv_6</tabstop>
+  <tabstop>lineEdit_Nickname_6</tabstop>
+  <tabstop>comboBox_Move1_6</tabstop>
+  <tabstop>comboBox_Move2_6</tabstop>
+  <tabstop>comboBox_Move3_6</tabstop>
+  <tabstop>comboBox_Move4_6</tabstop>
+  <tabstop>spinBox_PPUp1_6</tabstop>
+  <tabstop>spinBox_PPUp2_6</tabstop>
+  <tabstop>spinBox_PPUp3_6</tabstop>
+  <tabstop>spinBox_PPUp4_6</tabstop>
+  <tabstop>spinBox_IV_HP_6</tabstop>
+  <tabstop>spinBox_IV_Attack_6</tabstop>
+  <tabstop>spinBox_IV_Defense_6</tabstop>
+  <tabstop>spinBox_IV_Special_6</tabstop>
+  <tabstop>spinBox_IV_Speed_6</tabstop>
+  <tabstop>spinBox_EV_HP_6</tabstop>
+  <tabstop>spinBox_EV_Attack_6</tabstop>
+  <tabstop>spinBox_EV_Defense_6</tabstop>
+  <tabstop>spinBox_EV_Special_6</tabstop>
+  <tabstop>spinBox_EV_Speed_6</tabstop>
+  <tabstop>comboBox_Rental_Cup</tabstop>
+  <tabstop>comboBox_Rental_Page</tabstop>
+  <tabstop>comboBox_Rental_Pkmn_1</tabstop>
+  <tabstop>spinBox_Rental_Lv_1</tabstop>
+  <tabstop>lineEdit_Rental_Nickname_1</tabstop>
+  <tabstop>comboBox_Rental_Move1_1</tabstop>
+  <tabstop>comboBox_Rental_Move2_1</tabstop>
+  <tabstop>comboBox_Rental_Move3_1</tabstop>
+  <tabstop>comboBox_Rental_Move4_1</tabstop>
+  <tabstop>spinBox_Rental_PPUp1_1</tabstop>
+  <tabstop>spinBox_Rental_PPUp2_1</tabstop>
+  <tabstop>spinBox_Rental_PPUp3_1</tabstop>
+  <tabstop>spinBox_Rental_PPUp4_1</tabstop>
+  <tabstop>spinBox_Rental_IV_HP_1</tabstop>
+  <tabstop>spinBox_Rental_IV_Attack_1</tabstop>
+  <tabstop>spinBox_Rental_IV_Defense_1</tabstop>
+  <tabstop>spinBox_Rental_IV_Special_1</tabstop>
+  <tabstop>spinBox_Rental_IV_Speed_1</tabstop>
+  <tabstop>spinBox_Rental_EV_HP_1</tabstop>
+  <tabstop>spinBox_Rental_EV_Attack_1</tabstop>
+  <tabstop>spinBox_Rental_EV_Defense_1</tabstop>
+  <tabstop>spinBox_Rental_EV_Special_1</tabstop>
+  <tabstop>spinBox_Rental_EV_Speed_1</tabstop>
+  <tabstop>comboBox_Rental_Pkmn_2</tabstop>
+  <tabstop>spinBox_Rental_Lv_2</tabstop>
+  <tabstop>lineEdit_Rental_Nickname_2</tabstop>
+  <tabstop>comboBox_Rental_Move1_2</tabstop>
+  <tabstop>comboBox_Rental_Move2_2</tabstop>
+  <tabstop>comboBox_Rental_Move3_2</tabstop>
+  <tabstop>comboBox_Rental_Move4_2</tabstop>
+  <tabstop>spinBox_Rental_PPUp1_2</tabstop>
+  <tabstop>spinBox_Rental_PPUp2_2</tabstop>
+  <tabstop>spinBox_Rental_PPUp3_2</tabstop>
+  <tabstop>spinBox_Rental_PPUp4_2</tabstop>
+  <tabstop>spinBox_Rental_IV_HP_2</tabstop>
+  <tabstop>spinBox_Rental_IV_Attack_2</tabstop>
+  <tabstop>spinBox_Rental_IV_Defense_2</tabstop>
+  <tabstop>spinBox_Rental_IV_Special_2</tabstop>
+  <tabstop>spinBox_Rental_IV_Speed_2</tabstop>
+  <tabstop>spinBox_Rental_EV_HP_2</tabstop>
+  <tabstop>spinBox_Rental_EV_Attack_2</tabstop>
+  <tabstop>spinBox_Rental_EV_Defense_2</tabstop>
+  <tabstop>spinBox_Rental_EV_Special_2</tabstop>
+  <tabstop>spinBox_Rental_EV_Speed_2</tabstop>
+  <tabstop>comboBox_Rental_Pkmn_3</tabstop>
+  <tabstop>spinBox_Rental_Lv_3</tabstop>
+  <tabstop>lineEdit_Rental_Nickname_3</tabstop>
+  <tabstop>comboBox_Rental_Move1_3</tabstop>
+  <tabstop>comboBox_Rental_Move2_3</tabstop>
+  <tabstop>comboBox_Rental_Move3_3</tabstop>
+  <tabstop>comboBox_Rental_Move4_3</tabstop>
+  <tabstop>spinBox_Rental_PPUp1_3</tabstop>
+  <tabstop>spinBox_Rental_PPUp2_3</tabstop>
+  <tabstop>spinBox_Rental_PPUp3_3</tabstop>
+  <tabstop>spinBox_Rental_PPUp4_3</tabstop>
+  <tabstop>spinBox_Rental_IV_HP_3</tabstop>
+  <tabstop>spinBox_Rental_IV_Attack_3</tabstop>
+  <tabstop>spinBox_Rental_IV_Defense_3</tabstop>
+  <tabstop>spinBox_Rental_IV_Special_3</tabstop>
+  <tabstop>spinBox_Rental_IV_Speed_3</tabstop>
+  <tabstop>spinBox_Rental_EV_HP_3</tabstop>
+  <tabstop>spinBox_Rental_EV_Attack_3</tabstop>
+  <tabstop>spinBox_Rental_EV_Defense_3</tabstop>
+  <tabstop>spinBox_Rental_EV_Special_3</tabstop>
+  <tabstop>spinBox_Rental_EV_Speed_3</tabstop>
+  <tabstop>comboBox_Rental_Pkmn_4</tabstop>
+  <tabstop>spinBox_Rental_Lv_4</tabstop>
+  <tabstop>lineEdit_Rental_Nickname_4</tabstop>
+  <tabstop>comboBox_Rental_Move1_4</tabstop>
+  <tabstop>comboBox_Rental_Move2_4</tabstop>
+  <tabstop>comboBox_Rental_Move3_4</tabstop>
+  <tabstop>comboBox_Rental_Move4_4</tabstop>
+  <tabstop>spinBox_Rental_PPUp1_4</tabstop>
+  <tabstop>spinBox_Rental_PPUp2_4</tabstop>
+  <tabstop>spinBox_Rental_PPUp3_4</tabstop>
+  <tabstop>spinBox_Rental_PPUp4_4</tabstop>
+  <tabstop>spinBox_Rental_IV_HP_4</tabstop>
+  <tabstop>spinBox_Rental_IV_Attack_4</tabstop>
+  <tabstop>spinBox_Rental_IV_Defense_4</tabstop>
+  <tabstop>spinBox_Rental_IV_Special_4</tabstop>
+  <tabstop>spinBox_Rental_IV_Speed_4</tabstop>
+  <tabstop>spinBox_Rental_EV_HP_4</tabstop>
+  <tabstop>spinBox_Rental_EV_Attack_4</tabstop>
+  <tabstop>spinBox_Rental_EV_Defense_4</tabstop>
+  <tabstop>spinBox_Rental_EV_Special_4</tabstop>
+  <tabstop>spinBox_Rental_EV_Speed_4</tabstop>
+  <tabstop>comboBox_Rental_Pkmn_5</tabstop>
+  <tabstop>spinBox_Rental_Lv_5</tabstop>
+  <tabstop>lineEdit_Rental_Nickname_5</tabstop>
+  <tabstop>comboBox_Rental_Move1_5</tabstop>
+  <tabstop>comboBox_Rental_Move2_5</tabstop>
+  <tabstop>comboBox_Rental_Move3_5</tabstop>
+  <tabstop>comboBox_Rental_Move4_5</tabstop>
+  <tabstop>spinBox_Rental_PPUp1_5</tabstop>
+  <tabstop>spinBox_Rental_PPUp2_5</tabstop>
+  <tabstop>spinBox_Rental_PPUp3_5</tabstop>
+  <tabstop>spinBox_Rental_PPUp4_5</tabstop>
+  <tabstop>spinBox_Rental_IV_HP_5</tabstop>
+  <tabstop>spinBox_Rental_IV_Attack_5</tabstop>
+  <tabstop>spinBox_Rental_IV_Defense_5</tabstop>
+  <tabstop>spinBox_Rental_IV_Special_5</tabstop>
+  <tabstop>spinBox_Rental_IV_Speed_5</tabstop>
+  <tabstop>spinBox_Rental_EV_HP_5</tabstop>
+  <tabstop>spinBox_Rental_EV_Attack_5</tabstop>
+  <tabstop>spinBox_Rental_EV_Defense_5</tabstop>
+  <tabstop>spinBox_Rental_EV_Special_5</tabstop>
+  <tabstop>spinBox_Rental_EV_Speed_5</tabstop>
+  <tabstop>comboBox_Rental_Pkmn_6</tabstop>
+  <tabstop>spinBox_Rental_Lv_6</tabstop>
+  <tabstop>lineEdit_Rental_Nickname_6</tabstop>
+  <tabstop>comboBox_Rental_Move1_6</tabstop>
+  <tabstop>comboBox_Rental_Move2_6</tabstop>
+  <tabstop>comboBox_Rental_Move3_6</tabstop>
+  <tabstop>comboBox_Rental_Move4_6</tabstop>
+  <tabstop>spinBox_Rental_PPUp1_6</tabstop>
+  <tabstop>spinBox_Rental_PPUp2_6</tabstop>
+  <tabstop>spinBox_Rental_PPUp3_6</tabstop>
+  <tabstop>spinBox_Rental_PPUp4_6</tabstop>
+  <tabstop>spinBox_Rental_IV_HP_6</tabstop>
+  <tabstop>spinBox_Rental_IV_Attack_6</tabstop>
+  <tabstop>spinBox_Rental_IV_Defense_6</tabstop>
+  <tabstop>spinBox_Rental_IV_Special_6</tabstop>
+  <tabstop>spinBox_Rental_IV_Speed_6</tabstop>
+  <tabstop>spinBox_Rental_EV_HP_6</tabstop>
+  <tabstop>spinBox_Rental_EV_Attack_6</tabstop>
+  <tabstop>spinBox_Rental_EV_Defense_6</tabstop>
+  <tabstop>spinBox_Rental_EV_Special_6</tabstop>
+  <tabstop>spinBox_Rental_EV_Speed_6</tabstop>
+  <tabstop>comboBox_PokemonSpecies</tabstop>
+  <tabstop>lineEdit_Pokemon_Specie</tabstop>
+  <tabstop>spinBox_PokemonSpecie_Pointer</tabstop>
+  <tabstop>comboBox_Pokemon_Type_1</tabstop>
+  <tabstop>comboBox_Pokemon_Type_2</tabstop>
+  <tabstop>spinBox_Base_HP</tabstop>
+  <tabstop>spinBox_Base_Attack</tabstop>
+  <tabstop>spinBox_Base_Defense</tabstop>
+  <tabstop>spinBox_Base_Special</tabstop>
+  <tabstop>spinBox_Base_Speed</tabstop>
+  <tabstop>comboBox_GrowthRate</tabstop>
+  <tabstop>spinBox_BaseExperience</tabstop>
+  <tabstop>spinBox_CatchRate</tabstop>
+  <tabstop>textEdit_PokedexEntry</tabstop>
+  <tabstop>spinBox_Pokedex_Pointer</tabstop>
+  <tabstop>tableWidget_StartingMoves</tabstop>
+  <tabstop>tableWidget_MoveLevel_RB</tabstop>
+  <tabstop>tableWidget_MoveLevel_Y</tabstop>
+  <tabstop>tableWidget_MoveTM</tabstop>
+  <tabstop>comboBox_MovesList</tabstop>
+  <tabstop>lineEdit_Move_Name</tabstop>
+  <tabstop>spinBox_MoveName_Pointer</tabstop>
+  <tabstop>spinBox_MoveID</tabstop>
+  <tabstop>comboBox_MoveType</tabstop>
+  <tabstop>spinBox_MovePower</tabstop>
+  <tabstop>spinBox_MoveAccuracy</tabstop>
+  <tabstop>spinBox_MovePP</tabstop>
+  <tabstop>comboBox_MoveEffect</tabstop>
+  <tabstop>textEdit_MoveDescrText</tabstop>
+  <tabstop>comboBox_HighCH_MovesList_1</tabstop>
+  <tabstop>comboBox_HighCH_MovesList_2</tabstop>
+  <tabstop>comboBox_HighCH_MovesList_3</tabstop>
+  <tabstop>comboBox_HighCH_MovesList_4</tabstop>
+  <tabstop>spinBox_HighCH_multiplier</tabstop>
+  <tabstop>spinBox_Status_Sleep_turns</tabstop>
+  <tabstop>spinBox_Status_Paralysis_probability</tabstop>
+  <tabstop>spinBox_Status_Confusion_probability</tabstop>
+  <tabstop>comboBox_CH_formula_BaseStat</tabstop>
+  <tabstop>spinBox_CH_formula_add</tabstop>
+  <tabstop>comboBox_CH_formula_shift_1</tabstop>
+  <tabstop>spinBox_CH_formula_shiftvalue_1</tabstop>
+  <tabstop>comboBox_CH_formula_shift_2</tabstop>
+  <tabstop>spinBox_CH_formula_shiftvalue_2</tabstop>
+  <tabstop>comboBox_CH_formula_shift_3</tabstop>
+  <tabstop>spinBox_CH_formula_shiftvalue_3</tabstop>
+  <tabstop>comboBox_FE_CH_formula_BaseStat</tabstop>
+  <tabstop>spinBox_FE_CH_formula_add_1</tabstop>
+  <tabstop>comboBox_FE_CH_formula_shift_1</tabstop>
+  <tabstop>spinBox_FE_CH_formula_shiftvalue_1</tabstop>
+  <tabstop>comboBox_FE_CH_formula_shift_2</tabstop>
+  <tabstop>spinBox_FE_CH_formula_shiftvalue_2</tabstop>
+  <tabstop>spinBox_FE_CH_formula_add_2</tabstop>
+  <tabstop>comboBox_FE_CH_formula_shift_3</tabstop>
+  <tabstop>spinBox_FE_CH_formula_shiftvalue_3</tabstop>
+  <tabstop>spinBox_DamageVariance_1</tabstop>
+  <tabstop>spinBox_DamageVariance_2</tabstop>
+  <tabstop>comboBox_Type1_1</tabstop>
+  <tabstop>comboBox_Type2_1</tabstop>
+  <tabstop>spinBox_Multiplier_1</tabstop>
+  <tabstop>comboBox_Type1_2</tabstop>
+  <tabstop>comboBox_Type2_2</tabstop>
+  <tabstop>spinBox_Multiplier_2</tabstop>
+  <tabstop>comboBox_Type1_3</tabstop>
+  <tabstop>comboBox_Type2_3</tabstop>
+  <tabstop>spinBox_Multiplier_3</tabstop>
+  <tabstop>comboBox_Type1_4</tabstop>
+  <tabstop>comboBox_Type2_4</tabstop>
+  <tabstop>spinBox_Multiplier_4</tabstop>
+  <tabstop>comboBox_Type1_5</tabstop>
+  <tabstop>comboBox_Type2_5</tabstop>
+  <tabstop>spinBox_Multiplier_5</tabstop>
+  <tabstop>comboBox_Type1_6</tabstop>
+  <tabstop>comboBox_Type2_6</tabstop>
+  <tabstop>spinBox_Multiplier_6</tabstop>
+  <tabstop>comboBox_Type1_7</tabstop>
+  <tabstop>comboBox_Type2_7</tabstop>
+  <tabstop>spinBox_Multiplier_7</tabstop>
+  <tabstop>comboBox_Type1_8</tabstop>
+  <tabstop>comboBox_Type2_8</tabstop>
+  <tabstop>spinBox_Multiplier_8</tabstop>
+  <tabstop>comboBox_Type1_9</tabstop>
+  <tabstop>comboBox_Type2_9</tabstop>
+  <tabstop>spinBox_Multiplier_9</tabstop>
+  <tabstop>comboBox_Type1_10</tabstop>
+  <tabstop>comboBox_Type2_10</tabstop>
+  <tabstop>spinBox_Multiplier_10</tabstop>
+  <tabstop>comboBox_Type1_11</tabstop>
+  <tabstop>comboBox_Type2_11</tabstop>
+  <tabstop>spinBox_Multiplier_11</tabstop>
+  <tabstop>comboBox_Type1_12</tabstop>
+  <tabstop>comboBox_Type2_12</tabstop>
+  <tabstop>spinBox_Multiplier_12</tabstop>
+  <tabstop>comboBox_Type1_13</tabstop>
+  <tabstop>comboBox_Type2_13</tabstop>
+  <tabstop>spinBox_Multiplier_13</tabstop>
+  <tabstop>comboBox_Type1_14</tabstop>
+  <tabstop>comboBox_Type2_14</tabstop>
+  <tabstop>spinBox_Multiplier_14</tabstop>
+  <tabstop>comboBox_Type1_15</tabstop>
+  <tabstop>comboBox_Type2_15</tabstop>
+  <tabstop>spinBox_Multiplier_15</tabstop>
+  <tabstop>comboBox_Type1_16</tabstop>
+  <tabstop>comboBox_Type2_16</tabstop>
+  <tabstop>spinBox_Multiplier_16</tabstop>
+  <tabstop>comboBox_Type1_17</tabstop>
+  <tabstop>comboBox_Type2_17</tabstop>
+  <tabstop>spinBox_Multiplier_17</tabstop>
+  <tabstop>comboBox_Type1_18</tabstop>
+  <tabstop>comboBox_Type2_18</tabstop>
+  <tabstop>spinBox_Multiplier_18</tabstop>
+  <tabstop>comboBox_Type1_19</tabstop>
+  <tabstop>comboBox_Type2_19</tabstop>
+  <tabstop>spinBox_Multiplier_19</tabstop>
+  <tabstop>comboBox_Type1_20</tabstop>
+  <tabstop>comboBox_Type2_20</tabstop>
+  <tabstop>spinBox_Multiplier_20</tabstop>
+  <tabstop>comboBox_Type1_21</tabstop>
+  <tabstop>comboBox_Type2_21</tabstop>
+  <tabstop>spinBox_Multiplier_21</tabstop>
+  <tabstop>comboBox_Type1_22</tabstop>
+  <tabstop>comboBox_Type2_22</tabstop>
+  <tabstop>spinBox_Multiplier_22</tabstop>
+  <tabstop>comboBox_Type1_23</tabstop>
+  <tabstop>comboBox_Type2_23</tabstop>
+  <tabstop>spinBox_Multiplier_23</tabstop>
+  <tabstop>comboBox_Type1_24</tabstop>
+  <tabstop>comboBox_Type2_24</tabstop>
+  <tabstop>spinBox_Multiplier_24</tabstop>
+  <tabstop>comboBox_Type1_25</tabstop>
+  <tabstop>comboBox_Type2_25</tabstop>
+  <tabstop>spinBox_Multiplier_25</tabstop>
+  <tabstop>comboBox_Type1_26</tabstop>
+  <tabstop>comboBox_Type2_26</tabstop>
+  <tabstop>spinBox_Multiplier_26</tabstop>
+  <tabstop>comboBox_Type1_27</tabstop>
+  <tabstop>comboBox_Type2_27</tabstop>
+  <tabstop>spinBox_Multiplier_27</tabstop>
+  <tabstop>comboBox_Type1_28</tabstop>
+  <tabstop>comboBox_Type2_28</tabstop>
+  <tabstop>spinBox_Multiplier_28</tabstop>
+  <tabstop>comboBox_Type1_29</tabstop>
+  <tabstop>comboBox_Type2_29</tabstop>
+  <tabstop>spinBox_Multiplier_29</tabstop>
+  <tabstop>comboBox_Type1_30</tabstop>
+  <tabstop>comboBox_Type2_30</tabstop>
+  <tabstop>spinBox_Multiplier_30</tabstop>
+  <tabstop>comboBox_Type1_31</tabstop>
+  <tabstop>comboBox_Type2_31</tabstop>
+  <tabstop>spinBox_Multiplier_31</tabstop>
+  <tabstop>comboBox_Type1_32</tabstop>
+  <tabstop>comboBox_Type2_32</tabstop>
+  <tabstop>spinBox_Multiplier_32</tabstop>
+  <tabstop>comboBox_Type1_33</tabstop>
+  <tabstop>comboBox_Type2_33</tabstop>
+  <tabstop>spinBox_Multiplier_33</tabstop>
+  <tabstop>comboBox_Type1_34</tabstop>
+  <tabstop>comboBox_Type2_34</tabstop>
+  <tabstop>spinBox_Multiplier_34</tabstop>
+  <tabstop>comboBox_Type1_35</tabstop>
+  <tabstop>comboBox_Type2_35</tabstop>
+  <tabstop>spinBox_Multiplier_35</tabstop>
+  <tabstop>comboBox_Type1_36</tabstop>
+  <tabstop>comboBox_Type2_36</tabstop>
+  <tabstop>spinBox_Multiplier_36</tabstop>
+  <tabstop>comboBox_Type1_37</tabstop>
+  <tabstop>comboBox_Type2_37</tabstop>
+  <tabstop>spinBox_Multiplier_37</tabstop>
+  <tabstop>comboBox_Type1_38</tabstop>
+  <tabstop>comboBox_Type2_38</tabstop>
+  <tabstop>spinBox_Multiplier_38</tabstop>
+  <tabstop>comboBox_Type1_39</tabstop>
+  <tabstop>comboBox_Type2_39</tabstop>
+  <tabstop>spinBox_Multiplier_39</tabstop>
+  <tabstop>comboBox_Type1_40</tabstop>
+  <tabstop>comboBox_Type2_40</tabstop>
+  <tabstop>spinBox_Multiplier_40</tabstop>
+  <tabstop>comboBox_Type1_41</tabstop>
+  <tabstop>comboBox_Type2_41</tabstop>
+  <tabstop>spinBox_Multiplier_41</tabstop>
+  <tabstop>comboBox_Type1_42</tabstop>
+  <tabstop>comboBox_Type2_42</tabstop>
+  <tabstop>spinBox_Multiplier_42</tabstop>
+  <tabstop>comboBox_Type1_43</tabstop>
+  <tabstop>comboBox_Type2_43</tabstop>
+  <tabstop>spinBox_Multiplier_43</tabstop>
+  <tabstop>comboBox_Type1_44</tabstop>
+  <tabstop>comboBox_Type2_44</tabstop>
+  <tabstop>spinBox_Multiplier_44</tabstop>
+  <tabstop>comboBox_Type1_45</tabstop>
+  <tabstop>comboBox_Type2_45</tabstop>
+  <tabstop>spinBox_Multiplier_45</tabstop>
+  <tabstop>comboBox_Type1_46</tabstop>
+  <tabstop>comboBox_Type2_46</tabstop>
+  <tabstop>spinBox_Multiplier_46</tabstop>
+  <tabstop>comboBox_Type1_47</tabstop>
+  <tabstop>comboBox_Type2_47</tabstop>
+  <tabstop>spinBox_Multiplier_47</tabstop>
+  <tabstop>comboBox_Type1_48</tabstop>
+  <tabstop>comboBox_Type2_48</tabstop>
+  <tabstop>spinBox_Multiplier_48</tabstop>
+  <tabstop>comboBox_Type1_49</tabstop>
+  <tabstop>comboBox_Type2_49</tabstop>
+  <tabstop>spinBox_Multiplier_49</tabstop>
+  <tabstop>comboBox_Type1_50</tabstop>
+  <tabstop>comboBox_Type2_50</tabstop>
+  <tabstop>spinBox_Multiplier_50</tabstop>
+  <tabstop>comboBox_Type1_51</tabstop>
+  <tabstop>comboBox_Type2_51</tabstop>
+  <tabstop>spinBox_Multiplier_51</tabstop>
+  <tabstop>comboBox_Type1_52</tabstop>
+  <tabstop>comboBox_Type2_52</tabstop>
+  <tabstop>spinBox_Multiplier_52</tabstop>
+  <tabstop>comboBox_Type1_53</tabstop>
+  <tabstop>comboBox_Type2_53</tabstop>
+  <tabstop>spinBox_Multiplier_53</tabstop>
+  <tabstop>comboBox_Type1_54</tabstop>
+  <tabstop>comboBox_Type2_54</tabstop>
+  <tabstop>spinBox_Multiplier_54</tabstop>
+  <tabstop>comboBox_Type1_55</tabstop>
+  <tabstop>comboBox_Type2_55</tabstop>
+  <tabstop>spinBox_Multiplier_55</tabstop>
+  <tabstop>comboBox_Type1_56</tabstop>
+  <tabstop>comboBox_Type2_56</tabstop>
+  <tabstop>spinBox_Multiplier_56</tabstop>
+  <tabstop>comboBox_Type1_57</tabstop>
+  <tabstop>comboBox_Type2_57</tabstop>
+  <tabstop>spinBox_Multiplier_57</tabstop>
+  <tabstop>comboBox_Type1_58</tabstop>
+  <tabstop>comboBox_Type2_58</tabstop>
+  <tabstop>spinBox_Multiplier_58</tabstop>
+  <tabstop>comboBox_Type1_59</tabstop>
+  <tabstop>comboBox_Type2_59</tabstop>
+  <tabstop>spinBox_Multiplier_59</tabstop>
+  <tabstop>comboBox_Type1_60</tabstop>
+  <tabstop>comboBox_Type2_60</tabstop>
+  <tabstop>spinBox_Multiplier_60</tabstop>
+  <tabstop>comboBox_Type1_61</tabstop>
+  <tabstop>comboBox_Type2_61</tabstop>
+  <tabstop>spinBox_Multiplier_61</tabstop>
+  <tabstop>comboBox_Type1_62</tabstop>
+  <tabstop>comboBox_Type2_62</tabstop>
+  <tabstop>spinBox_Multiplier_62</tabstop>
+  <tabstop>comboBox_Type1_63</tabstop>
+  <tabstop>comboBox_Type2_63</tabstop>
+  <tabstop>spinBox_Multiplier_63</tabstop>
+  <tabstop>comboBox_Type1_64</tabstop>
+  <tabstop>comboBox_Type2_64</tabstop>
+  <tabstop>spinBox_Multiplier_64</tabstop>
+  <tabstop>comboBox_Type1_65</tabstop>
+  <tabstop>comboBox_Type2_65</tabstop>
+  <tabstop>spinBox_Multiplier_65</tabstop>
+  <tabstop>comboBox_Type1_66</tabstop>
+  <tabstop>comboBox_Type2_66</tabstop>
+  <tabstop>spinBox_Multiplier_66</tabstop>
+  <tabstop>comboBox_Type1_67</tabstop>
+  <tabstop>comboBox_Type2_67</tabstop>
+  <tabstop>spinBox_Multiplier_67</tabstop>
+  <tabstop>comboBox_Type1_68</tabstop>
+  <tabstop>comboBox_Type2_68</tabstop>
+  <tabstop>spinBox_Multiplier_68</tabstop>
+  <tabstop>comboBox_Type1_69</tabstop>
+  <tabstop>comboBox_Type2_69</tabstop>
+  <tabstop>spinBox_Multiplier_69</tabstop>
+  <tabstop>comboBox_Type1_70</tabstop>
+  <tabstop>comboBox_Type2_70</tabstop>
+  <tabstop>spinBox_Multiplier_70</tabstop>
+  <tabstop>comboBox_Type1_71</tabstop>
+  <tabstop>comboBox_Type2_71</tabstop>
+  <tabstop>spinBox_Multiplier_71</tabstop>
+  <tabstop>comboBox_Type1_72</tabstop>
+  <tabstop>comboBox_Type2_72</tabstop>
+  <tabstop>spinBox_Multiplier_72</tabstop>
+  <tabstop>comboBox_Type1_73</tabstop>
+  <tabstop>comboBox_Type2_73</tabstop>
+  <tabstop>spinBox_Multiplier_73</tabstop>
+  <tabstop>comboBox_Type1_74</tabstop>
+  <tabstop>comboBox_Type2_74</tabstop>
+  <tabstop>spinBox_Multiplier_74</tabstop>
+  <tabstop>comboBox_Type1_75</tabstop>
+  <tabstop>comboBox_Type2_75</tabstop>
+  <tabstop>spinBox_Multiplier_75</tabstop>
+  <tabstop>comboBox_Type1_76</tabstop>
+  <tabstop>comboBox_Type2_76</tabstop>
+  <tabstop>spinBox_Multiplier_76</tabstop>
+  <tabstop>comboBox_Type1_77</tabstop>
+  <tabstop>comboBox_Type2_77</tabstop>
+  <tabstop>spinBox_Multiplier_77</tabstop>
+  <tabstop>comboBox_Type1_78</tabstop>
+  <tabstop>comboBox_Type2_78</tabstop>
+  <tabstop>spinBox_Multiplier_78</tabstop>
+  <tabstop>comboBox_Type1_79</tabstop>
+  <tabstop>comboBox_Type2_79</tabstop>
+  <tabstop>spinBox_Multiplier_79</tabstop>
+  <tabstop>comboBox_Type1_80</tabstop>
+  <tabstop>comboBox_Type2_80</tabstop>
+  <tabstop>spinBox_Multiplier_80</tabstop>
+  <tabstop>comboBox_Type1_81</tabstop>
+  <tabstop>comboBox_Type2_81</tabstop>
+  <tabstop>spinBox_Multiplier_81</tabstop>
+  <tabstop>comboBox_Type1_82</tabstop>
+  <tabstop>comboBox_Type2_82</tabstop>
+  <tabstop>spinBox_Multiplier_82</tabstop>
+  <tabstop>textEdit_MoveTMHMText</tabstop>
+  <tabstop>listView_Scripts</tabstop>
  </tabstops>
  <resources/>
  <connections>
