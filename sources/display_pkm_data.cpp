@@ -29,8 +29,8 @@ void MainWindow::display_pkm_data(quint8 pkm_id) {
     ui->spinBox_Base_HP->setValue(pkm_base_hp[pkm_id]);
     ui->spinBox_Base_Attack->setValue(pkm_base_atk[pkm_id]);
     ui->spinBox_Base_Defense->setValue(pkm_base_def[pkm_id]);
-    ui->spinBox_Base_Special->setValue(pkm_base_speed[pkm_id]);
-    ui->spinBox_Base_Speed->setValue(pkm_base_spc[pkm_id]);
+    ui->spinBox_Base_Special->setValue(pkm_base_spc[pkm_id]);
+    ui->spinBox_Base_Speed->setValue(pkm_base_speed[pkm_id]);
     ui->spinBox_BaseExperience->setValue(pkm_base_experience[pkm_id]);
     ui->spinBox_CatchRate->setValue(pkm_catch_rate[pkm_id]);
 
