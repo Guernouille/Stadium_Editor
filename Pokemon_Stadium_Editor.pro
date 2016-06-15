@@ -47,7 +47,8 @@ SOURCES += main.cpp\
     randomize_type_data.cpp \
     write_type_data.cpp \
     display_type_data.cpp \
-    autoconn_edit_type_data.cpp
+    autoconn_edit_type_data.cpp \
+    initialize_trainers_names.cpp
 
 HEADERS  += mainwindow.h \
     common.cpp \
