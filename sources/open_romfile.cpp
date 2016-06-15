@@ -78,6 +78,7 @@ void MainWindow::on_actionOpen_triggered() {
 
                 // CPU Trainers / Rentals data
                 read_cpu_rentals(romfile);
+                initialize_trainers_names();
             }
         }
         else {
