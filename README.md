@@ -5,7 +5,7 @@ Work in progress, about 80% done at the moment.
 
 TO DO:
 
-Randomizer: Have offensive move / Have STAB move criteria
+Randomizer: Rentals IVs & Stat Exp
 
 Randomizer: [FIX] Explosion ×2 (Happens when a Pokémon learns Explosion and Selfdestruct)
 
