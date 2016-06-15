@@ -68,7 +68,7 @@ void MainWindow::initialize_trainers_names(){
     preset_trainers_names[11][4]="BRUNO";
     preset_trainers_names[12][0]="AGATHA";
     preset_trainers_names[12][1]="OLD WOMAN";
-    preset_trainers_names[12][2]="AGATHA";
+    preset_trainers_names[12][2]="Christie";
     preset_trainers_names[12][3]="AGATHA";
     preset_trainers_names[12][4]="AGATHA";
     preset_trainers_names[13][0]="LANCE";
@@ -197,7 +197,7 @@ void MainWindow::initialize_trainers_names(){
     preset_trainers_names[37][3]="I like Qt";
     preset_trainers_names[37][4]="MR.FIX";
     preset_trainers_names[38][0]="BIKER";
-    preset_trainers_names[38][1]="BIKER";
+    preset_trainers_names[38][1]="Cyclist";
     preset_trainers_names[38][2]="BIKER";
     preset_trainers_names[38][3]="BIKER";
     preset_trainers_names[38][4]="BIKER";
