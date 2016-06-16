@@ -9,8 +9,6 @@ Randomizer: Rentals IVs & Stat Exp
 
 Randomizer: [FIX] Explosion ×2 (Happens when a Pokémon learns Explosion and Selfdestruct)
 
-Randomizer: [FIX] "checkBox_CPUTeams" and "checkBox_RentalPkmn" must stay Enabled
-
 Base Stats and learnsets edition
 
 Script edition
