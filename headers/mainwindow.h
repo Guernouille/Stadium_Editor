@@ -92,7 +92,7 @@ public:
     quint16 cpu_pkm_stat_def[256][6];
     quint16 cpu_pkm_stat_spc[256][6];
     quint16 cpu_pkm_stat_speed[256][6];
-    quint16 cpu_stat_exp_min = 0;
+    quint16 cpu_stat_exp_min = 27600;
     quint16 cpu_stat_exp_max = 65535;
 
     quint32 experience_calc;
@@ -104,6 +104,8 @@ public:
 
     quint8 glc_level_min;
     quint8 glc_level_max;
+
+    quint8 iv_statexp_groups[256] = {0};
 
     quint8 move_iid[256];
     QString move_description[256];
@@ -217,8 +219,8 @@ public:
     quint16 rental_pkm_stat_def[1024];
     quint16 rental_pkm_stat_spc[1024];
     quint16 rental_pkm_stat_speed[1024];
-    quint16 rental_stat_exp_min = 0;
-    quint16 rental_stat_exp_max = 65535;
+    quint16 rental_stat_exp_min = 25600;
+    quint16 rental_stat_exp_max = 65000;
 
     TypeChart type_chart[82];
     QString type_name[256];
@@ -228,6 +230,16 @@ private:
 
     // type chart
     quint8 convert_type_id(quint8 type_id);
+
+    // initialize
+    void initialize_char_table();
+    void initialize_data();
+    void initialize_iv_statexp_groups();
+    void initialize_min_levels();
+    void initialize_nicknames();
+    void initialize_trainers_names();
+    void initialize_widgets();
+    void set_widgets();
 
     // randomizer
     void randomize_cpu_init_pkmn();
@@ -239,6 +251,7 @@ private:
     void randomize_cpu_sprites(std::mt19937 &mt_rand);
     void randomize_cpu_trainer_names(std::mt19937 &mt_rand);
     void randomize_rental_init_pkmn();
+    void randomize_rental_iv_stat_exp(std::mt19937 &mt_rand);
     void randomize_rental_level(std::mt19937 &mt_rand);
     void randomize_rental_moves(std::mt19937 &mt_rand);
     void randomize_rental_pkmn(std::mt19937 &mt_rand);
@@ -269,6 +282,7 @@ private slots:
     void on_checkBox_Randomizer_CPU_GLPkmn_stateChanged(int state);
     void on_checkBox_Randomizer_Rental_MaxPPUps_stateChanged(int state);
     void on_checkBox_Randomizer_Rental_NoPPUps_stateChanged(int state);
+    void on_checkBox_Randomizer_Rental_NoIllegalMoves_stateChanged(int state);
     void on_checkBox_RentalPkmn_stateChanged(int state);
     void on_pushButton_CPU_Metronome_pressed();
     void on_pushButton_Maximize_CPU_EVsIVs_pressed();
@@ -277,6 +291,14 @@ private slots:
     void on_pushButton_Rental_Metronome_pressed();
     void on_spinBox_Randomizer_GLCLevelRange_1_valueChanged(int);
     void on_spinBox_Randomizer_GLCLevelRange_2_valueChanged(int);
+    void on_spinBox_CPU_IVs_min_valueChanged(int);
+    void on_spinBox_CPU_IVs_max_valueChanged(int);
+    void on_spinBox_CPU_StatExp_min_valueChanged(int);
+    void on_spinBox_CPU_StatExp_max_valueChanged(int);
+    void on_spinBox_Rental_IVs_min_valueChanged(int);
+    void on_spinBox_Rental_IVs_max_valueChanged(int);
+    void on_spinBox_Rental_StatExp_min_valueChanged(int);
+    void on_spinBox_Rental_StatExp_max_valueChanged(int);
 
     // autoconnect display
     void on_comboBox_CPU_Cup_currentIndexChanged(int);
@@ -285,6 +307,7 @@ private slots:
     void on_comboBox_Rental_Page_currentIndexChanged(int);
     void on_comboBox_MovesList_currentIndexChanged(int);
     void on_comboBox_PokemonSpecies_currentIndexChanged(int);
+    void on_comboBox_TMsHMsNames_currentIndexChanged(int);
 
     // edit cpu trainer
     void on_comboBox_Move1_1_currentIndexChanged(int);
@@ -784,15 +807,6 @@ private slots:
     void on_spinBox_Multiplier_80_valueChanged(int);
     void on_spinBox_Multiplier_81_valueChanged(int);
     void on_spinBox_Multiplier_82_valueChanged(int);
-
-    // initialize
-    void initialize_char_table();
-    void initialize_data();
-    void initialize_min_levels();
-    void initialize_nicknames();
-    void initialize_trainers_names();
-    void initialize_widgets();
-    void set_widgets();
 
     // display, read
     int  calc_experience(quint8 exp_group, quint8 level);
