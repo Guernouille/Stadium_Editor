@@ -48,7 +48,9 @@ SOURCES += main.cpp\
     write_type_data.cpp \
     display_type_data.cpp \
     autoconn_edit_type_data.cpp \
-    initialize_trainers_names.cpp
+    initialize_trainers_names.cpp \
+    initialize_iv_groups.cpp \
+    autoconn_display_text.cpp
 
 HEADERS  += mainwindow.h \
     common.cpp \
