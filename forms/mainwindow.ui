@@ -1480,6 +1480,30 @@
        <string>Randomize</string>
       </property>
      </widget>
+     <widget class="QLabel" name="label_rom_randomized">
+      <property name="geometry">
+       <rect>
+        <x>410</x>
+        <y>170</y>
+        <width>175</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="textFormat">
+       <enum>Qt::PlainText</enum>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="tab_CPU_Teams">
      <attribute name="title">
