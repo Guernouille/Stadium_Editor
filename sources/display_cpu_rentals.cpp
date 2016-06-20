@@ -169,7 +169,6 @@ void MainWindow::display_rental_pkmn(quint16 rental_pkm_offset)
     ui->comboBox_Rental_Pkmn_5->setCurrentIndex(rental_pkm_id[rental_pkm_offset+4]);
     ui->comboBox_Rental_Pkmn_6->setCurrentIndex(rental_pkm_id[rental_pkm_offset+5]);
 
-
     ui->lineEdit_Rental_Nickname_1->setText(rental_pkm_nickname[rental_pkm_offset]);
     ui->lineEdit_Rental_Nickname_2->setText(rental_pkm_nickname[rental_pkm_offset+1]);
     ui->lineEdit_Rental_Nickname_3->setText(rental_pkm_nickname[rental_pkm_offset+2]);
