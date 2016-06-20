@@ -209,4 +209,7 @@
         <file alias="151">resources/pkm_sprites/151.png</file>
         <file alias="152">resources/pkm_sprites/152.png</file>
     </qresource>
+    <qresource prefix="/icon">
+        <file alias="question">resources/icon_question.png</file>
+    </qresource>
 </RCC>
