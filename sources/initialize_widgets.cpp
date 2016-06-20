@@ -776,6 +776,7 @@ void MainWindow::initialize_widgets()
 
 void MainWindow::set_widgets()
 {
+    ui->checkBox_Randomizer_Rental_NoSpore->setVisible(false);
     ui->tableWidget_MoveLevel_RB->setColumnWidth(0,28);
     ui->tableWidget_MoveLevel_RB->setColumnWidth(1,138);
     ui->tableWidget_MoveLevel_Y->setColumnWidth(0,28);
@@ -801,12 +802,12 @@ void MainWindow::set_widgets()
     ui->tableWidget_MoveTM->setHorizontalHeaderItem(1, new QTableWidgetItem("TM HM Moves"));
     ui->tableWidget_MoveTM->verticalHeader()->setVisible(false);
 
-    QSpinBox *spinBox_PRNG_Seed_1 = new HexSpinBox(false,ui->groupBox_PRNG_Seeds);
-    QSpinBox *spinBox_PRNG_Seed_2 = new HexSpinBox(false,ui->groupBox_PRNG_Seeds);
-    QSpinBox *spinBox_PRNG_Seed_3 = new HexSpinBox(false,ui->groupBox_PRNG_Seeds);
-    QSpinBox *spinBox_PRNG_Seed_4 = new HexSpinBox(false,ui->groupBox_PRNG_Seeds);
-    QSpinBox *spinBox_PRNG_Seed_5 = new HexSpinBox(false,ui->groupBox_PRNG_Seeds);
-    QSpinBox *spinBox_PRNG_Seed_6 = new HexSpinBox(false,ui->groupBox_PRNG_Seeds);
+    spinBox_PRNG_Seed_1 = new HexSpinBox(false,ui->groupBox_PRNG_Seeds);
+    spinBox_PRNG_Seed_2 = new HexSpinBox(false,ui->groupBox_PRNG_Seeds);
+    spinBox_PRNG_Seed_3 = new HexSpinBox(false,ui->groupBox_PRNG_Seeds);
+    spinBox_PRNG_Seed_4 = new HexSpinBox(false,ui->groupBox_PRNG_Seeds);
+    spinBox_PRNG_Seed_5 = new HexSpinBox(false,ui->groupBox_PRNG_Seeds);
+    spinBox_PRNG_Seed_6 = new HexSpinBox(false,ui->groupBox_PRNG_Seeds);
     QVBoxLayout *prng_seeds_layout = new QVBoxLayout;
 
     prng_seeds_layout->addWidget(spinBox_PRNG_Seed_1);
