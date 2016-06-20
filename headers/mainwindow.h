@@ -222,6 +222,13 @@ public:
     quint16 rental_stat_exp_min = 25600;
     quint16 rental_stat_exp_max = 65000;
 
+    QSpinBox *spinBox_PRNG_Seed_1;
+    QSpinBox *spinBox_PRNG_Seed_2;
+    QSpinBox *spinBox_PRNG_Seed_3;
+    QSpinBox *spinBox_PRNG_Seed_4;
+    QSpinBox *spinBox_PRNG_Seed_5;
+    QSpinBox *spinBox_PRNG_Seed_6;
+
     TypeChart type_chart[82];
     QString type_name[256];
 
@@ -258,9 +265,14 @@ private:
     void randomize_type_chart(std::mt19937 &mt_rand);
 
 private slots:
-    // romfile
+    // menu
     void on_actionOpen_triggered();
     void on_actionSave_triggered();
+    void on_actionAbout_triggered();
+    void on_actionHelp_triggered();
+    void on_actionPika_triggered();
+
+    // romfile
     void write_cpu_rentals(QFile &romfile);
     void write_pkm_data(QFile &romfile);
     void write_type_chart(QFile &romfile);
