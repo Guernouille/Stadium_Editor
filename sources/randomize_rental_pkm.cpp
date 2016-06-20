@@ -97,7 +97,7 @@ void MainWindow::randomize_rental_init_pkmn(){
 
 
     // Poké Cup
-    if(ui->checkBox_Randomizer_CPU_FullyEvolved->isChecked()){
+    if(ui->checkBox_Randomizer_Rental_FullyEvolved->isChecked()){
         short pkm_list_pokecup[] = {3,6,9,12,15,18,20,22,24,26,28,31,34,36,38,40,42,45,47,49,51,53,55,57,59,62,65,68,71,73,76,78,80,82,85,87,89,91,94,95,97,99,101,103,105,106,107,108,110,112,113,114,115,117,119,121,122,123,124,125,126,127,128,130,131,134,135,136,137,139,141,142,143,144,145,146,149};
         pkm_ids_vector_rental_pokecup.assign(pkm_list_pokecup,pkm_list_pokecup+(sizeof(pkm_list_pokecup)/sizeof(*pkm_list_pokecup)));
         if(ui->checkBox_Randomizer_Rental_NoUselessPkmn->isChecked() == false){
@@ -116,6 +116,244 @@ void MainWindow::randomize_rental_init_pkmn(){
         for(short i=1;i<=total_pkm_name;i++){
             if(pkm_min_level[i]<=55 && i!=150 && i!=151) pkm_ids_vector_rental_pokecup.push_back(i);
         }
+    }
+}
+
+
+void MainWindow::randomize_rental_iv_stat_exp(std::mt19937 &mt_rand)
+{
+    // TO DO: Petit Cup ; Optimize this
+    std::uniform_int_distribution<> rand_iv_1(std::max(rental_ivs_min,std::min(quint8(11),rental_ivs_max)),(rental_ivs_max+3));
+    std::uniform_int_distribution<> rand_iv_2(std::max(rental_ivs_min,std::min(quint8(9),rental_ivs_max)),(rental_ivs_max+1));
+    std::uniform_int_distribution<> rand_iv_3(std::max(rental_ivs_min,std::min(quint8(7),rental_ivs_max)),(rental_ivs_max));
+    std::uniform_int_distribution<> rand_iv_4(std::max(rental_ivs_min,std::min(quint8(3),rental_ivs_max)),(rental_ivs_max));
+    std::uniform_int_distribution<> rand_iv_5(rental_ivs_min,rental_ivs_max);
+    if(rental_ivs_max>=2) buf32 = std::max(quint8(rental_ivs_max-2),rental_ivs_min);
+    else buf32 = rental_ivs_max;
+    std::uniform_int_distribution<> rand_iv_6(rental_ivs_min,buf32);
+
+    std::uniform_int_distribution<> rand_stat_exp_1(std::max(rental_stat_exp_min,std::min(quint16(46898),rental_stat_exp_max)),(rental_stat_exp_max+18432));
+    std::uniform_int_distribution<> rand_stat_exp_2(std::max(rental_stat_exp_min,std::min(quint16(33792),rental_stat_exp_max)),(rental_stat_exp_max+12288));
+    std::uniform_int_distribution<> rand_stat_exp_3(std::max(rental_stat_exp_min,std::min(quint16(25600),rental_stat_exp_max)),rental_stat_exp_max);
+    if(rental_stat_exp_max>=1152) buf32 = std::max(quint16(rental_stat_exp_max-1152),rental_stat_exp_min);
+    else buf32 = rental_stat_exp_max;
+    std::uniform_int_distribution<> rand_stat_exp_4(std::max(rental_stat_exp_min,std::min(quint16(14400),rental_stat_exp_max)),buf32);
+    if(rental_stat_exp_max>=1408) buf32 = std::max(quint16(rental_stat_exp_max-1408),rental_stat_exp_min);
+    else buf32 = rental_stat_exp_max;
+    std::uniform_int_distribution<> rand_stat_exp_5(std::max(rental_stat_exp_min,std::min(quint16(6400),rental_stat_exp_max)),buf32);
+    std::uniform_int_distribution<> rand_stat_exp_6(rental_stat_exp_min,buf32);
+    std::uniform_int_distribution<> rand_stat_exp_default(rental_stat_exp_min,rental_stat_exp_max);
+
+    bool better_stats_nfe = ui->checkBox_Rental_NFE_IVsEVs->isChecked();
+
+    for(short rental_id=0;rental_id<current_rentals_number;rental_id++){
+        if(better_stats_nfe){
+            // Petit Cup
+            if(rental_id < rental_cup_offset[1]){
+                switch(iv_statexp_groups[rental_pkm_id[rental_id]]){
+                case 0:
+                    rental_pkm_iv_atk[rental_id] = rental_ivs_max;
+                    rental_pkm_iv_def[rental_id] = rental_ivs_max;
+                    rental_pkm_iv_spc[rental_id] = rental_ivs_max;
+                    rental_pkm_iv_speed[rental_id] = rental_ivs_max;
+
+                    rental_pkm_ev_hp[rental_id] = rental_stat_exp_max;
+                    rental_pkm_ev_atk[rental_id] = rental_stat_exp_max;
+                    rental_pkm_ev_def[rental_id] = rental_stat_exp_max;
+                    rental_pkm_ev_spc[rental_id] = rental_stat_exp_max;
+                    rental_pkm_ev_speed[rental_id] = rental_stat_exp_max;
+                    break;
+                default:
+                    rental_pkm_iv_atk[rental_id] = rand_iv_5(mt_rand);
+                    rental_pkm_iv_def[rental_id] = rand_iv_5(mt_rand);
+                    rental_pkm_iv_spc[rental_id] = rand_iv_5(mt_rand);
+                    rental_pkm_iv_speed[rental_id] = rand_iv_5(mt_rand);
+
+                    rental_pkm_ev_hp[rental_id] = rand_stat_exp_5(mt_rand);
+                    rental_pkm_ev_atk[rental_id] = rand_stat_exp_5(mt_rand);
+                    rental_pkm_ev_def[rental_id] = rand_stat_exp_5(mt_rand);
+                    rental_pkm_ev_spc[rental_id] = rand_stat_exp_5(mt_rand);
+                    rental_pkm_ev_speed[rental_id] = rand_stat_exp_5(mt_rand);
+                    break;
+                }
+            }
+            // Other Cups
+            else{
+                switch(iv_statexp_groups[rental_pkm_id[rental_id]]){
+                case 0:
+                    rental_pkm_iv_atk[rental_id] = rental_ivs_max;
+                    rental_pkm_iv_def[rental_id] = rental_ivs_max;
+                    rental_pkm_iv_spc[rental_id] = rental_ivs_max;
+                    rental_pkm_iv_speed[rental_id] = rental_ivs_max;
+                    rental_pkm_ev_hp[rental_id] = rental_stat_exp_max;
+                    rental_pkm_ev_atk[rental_id] = rental_stat_exp_max;
+                    rental_pkm_ev_def[rental_id] = rental_stat_exp_max;
+                    rental_pkm_ev_spc[rental_id] = rental_stat_exp_max;
+                    rental_pkm_ev_speed[rental_id] = rental_stat_exp_max;
+                    break;
+
+                case 1:
+                    rental_pkm_iv_atk[rental_id] = std::min(quint8(rand_iv_1(mt_rand)),rental_ivs_max);
+                    rental_pkm_iv_def[rental_id] = std::min(quint8(rand_iv_1(mt_rand)),rental_ivs_max);
+                    rental_pkm_iv_spc[rental_id] = std::min(quint8(rand_iv_1(mt_rand)),rental_ivs_max);
+                    rental_pkm_iv_speed[rental_id] = std::min(quint8(rand_iv_1(mt_rand)),rental_ivs_max);
+
+                    buf32 = rand_stat_exp_1(mt_rand);
+                    if(buf32 > rental_stat_exp_max) buf32 = rental_stat_exp_max;
+                    rental_pkm_ev_hp[rental_id] = buf32;
+
+                    buf32 = rand_stat_exp_1(mt_rand);
+                    if(buf32 > rental_stat_exp_max) buf32 = rental_stat_exp_max;
+                    rental_pkm_ev_atk[rental_id] = buf32;
+
+                    buf32 = rand_stat_exp_1(mt_rand);
+                    if(buf32 > rental_stat_exp_max) buf32 = rental_stat_exp_max;
+                    rental_pkm_ev_def[rental_id] = buf32;
+
+                    buf32 = rand_stat_exp_1(mt_rand);
+                    if(buf32 > rental_stat_exp_max) buf32 = rental_stat_exp_max;
+                    rental_pkm_ev_spc[rental_id] = buf32;
+
+                    buf32 = rand_stat_exp_1(mt_rand);
+                    if(buf32 > rental_stat_exp_max) buf32 = rental_stat_exp_max;
+                    rental_pkm_ev_speed[rental_id] = buf32;
+                    break;
+
+                case 2:
+                    rental_pkm_iv_atk[rental_id] = std::min(quint8(rand_iv_2(mt_rand)),rental_ivs_max);
+                    rental_pkm_iv_def[rental_id] = std::min(quint8(rand_iv_2(mt_rand)),rental_ivs_max);
+                    rental_pkm_iv_spc[rental_id] = std::min(quint8(rand_iv_2(mt_rand)),rental_ivs_max);
+                    rental_pkm_iv_speed[rental_id] = std::min(quint8(rand_iv_2(mt_rand)),rental_ivs_max);
+
+                    buf32 = rand_stat_exp_2(mt_rand);
+                    if(buf32 > rental_stat_exp_max) buf32 = rental_stat_exp_max;
+                    rental_pkm_ev_hp[rental_id] = buf32;
+
+                    buf32 = rand_stat_exp_2(mt_rand);
+                    if(buf32 > rental_stat_exp_max) buf32 = rental_stat_exp_max;
+                    rental_pkm_ev_atk[rental_id] = buf32;
+
+                    buf32 = rand_stat_exp_2(mt_rand);
+                    if(buf32 > rental_stat_exp_max) buf32 = rental_stat_exp_max;
+                    rental_pkm_ev_def[rental_id] = buf32;
+
+                    buf32 = rand_stat_exp_2(mt_rand);
+                    if(buf32 > rental_stat_exp_max) buf32 = rental_stat_exp_max;
+                    rental_pkm_ev_spc[rental_id] = buf32;
+
+                    buf32 = rand_stat_exp_2(mt_rand);
+                    if(buf32 > rental_stat_exp_max) buf32 = rental_stat_exp_max;
+                    rental_pkm_ev_speed[rental_id] = buf32;
+                    break;
+
+                case 3:
+                    rental_pkm_iv_atk[rental_id] = std::min(quint8(rand_iv_3(mt_rand)),rental_ivs_max);
+                    rental_pkm_iv_def[rental_id] = std::min(quint8(rand_iv_3(mt_rand)),rental_ivs_max);
+                    rental_pkm_iv_spc[rental_id] = std::min(quint8(rand_iv_3(mt_rand)),rental_ivs_max);
+                    rental_pkm_iv_speed[rental_id] = std::min(quint8(rand_iv_3(mt_rand)),rental_ivs_max);
+
+                    buf32 = rand_stat_exp_3(mt_rand);
+                    if(buf32 > rental_stat_exp_max) buf32 = rental_stat_exp_max;
+                    rental_pkm_ev_hp[rental_id] = buf32;
+
+                    buf32 = rand_stat_exp_3(mt_rand);
+                    if(buf32 > rental_stat_exp_max) buf32 = rental_stat_exp_max;
+                    rental_pkm_ev_atk[rental_id] = buf32;
+
+                    buf32 = rand_stat_exp_3(mt_rand);
+                    if(buf32 > rental_stat_exp_max) buf32 = rental_stat_exp_max;
+                    rental_pkm_ev_def[rental_id] = buf32;
+
+                    buf32 = rand_stat_exp_3(mt_rand);
+                    if(buf32 > rental_stat_exp_max) buf32 = rental_stat_exp_max;
+                    rental_pkm_ev_spc[rental_id] = buf32;
+
+                    buf32 = rand_stat_exp_3(mt_rand);
+                    if(buf32 > rental_stat_exp_max) buf32 = rental_stat_exp_max;
+                    rental_pkm_ev_speed[rental_id] = buf32;
+                    break;
+
+                case 4:
+                    rental_pkm_iv_atk[rental_id] = std::min(quint8(rand_iv_4(mt_rand)),rental_ivs_max);
+                    rental_pkm_iv_def[rental_id] = std::min(quint8(rand_iv_4(mt_rand)),rental_ivs_max);
+                    rental_pkm_iv_spc[rental_id] = std::min(quint8(rand_iv_4(mt_rand)),rental_ivs_max);
+                    rental_pkm_iv_speed[rental_id] = std::min(quint8(rand_iv_4(mt_rand)),rental_ivs_max);
+
+                    buf32 = rand_stat_exp_4(mt_rand);
+                    if(buf32 > rental_stat_exp_max) buf32 = rental_stat_exp_max;
+                    rental_pkm_ev_hp[rental_id] = buf32;
+
+                    buf32 = rand_stat_exp_4(mt_rand);
+                    if(buf32 > rental_stat_exp_max) buf32 = rental_stat_exp_max;
+                    rental_pkm_ev_atk[rental_id] = buf32;
+
+                    buf32 = rand_stat_exp_4(mt_rand);
+                    if(buf32 > rental_stat_exp_max) buf32 = rental_stat_exp_max;
+                    rental_pkm_ev_def[rental_id] = buf32;
+
+                    buf32 = rand_stat_exp_4(mt_rand);
+                    if(buf32 > rental_stat_exp_max) buf32 = rental_stat_exp_max;
+                    rental_pkm_ev_spc[rental_id] = buf32;
+
+                    buf32 = rand_stat_exp_4(mt_rand);
+                    if(buf32 > rental_stat_exp_max) buf32 = rental_stat_exp_max;
+                    rental_pkm_ev_speed[rental_id] = buf32;
+                    break;
+
+                case 5:
+                    rental_pkm_iv_atk[rental_id] = std::min(quint8(rand_iv_5(mt_rand)),rental_ivs_max);
+                    rental_pkm_iv_def[rental_id] = std::min(quint8(rand_iv_5(mt_rand)),rental_ivs_max);
+                    rental_pkm_iv_spc[rental_id] = std::min(quint8(rand_iv_5(mt_rand)),rental_ivs_max);
+                    rental_pkm_iv_speed[rental_id] = std::min(quint8(rand_iv_5(mt_rand)),rental_ivs_max);
+
+                    buf32 = rand_stat_exp_5(mt_rand);
+                    if(buf32 > rental_stat_exp_max) buf32 = rental_stat_exp_max;
+                    rental_pkm_ev_hp[rental_id] = buf32;
+
+                    buf32 = rand_stat_exp_5(mt_rand);
+                    if(buf32 > rental_stat_exp_max) buf32 = rental_stat_exp_max;
+                    rental_pkm_ev_atk[rental_id] = buf32;
+
+                    buf32 = rand_stat_exp_5(mt_rand);
+                    if(buf32 > rental_stat_exp_max) buf32 = rental_stat_exp_max;
+                    rental_pkm_ev_def[rental_id] = buf32;
+
+                    buf32 = rand_stat_exp_5(mt_rand);
+                    if(buf32 > rental_stat_exp_max) buf32 = rental_stat_exp_max;
+                    rental_pkm_ev_spc[rental_id] = buf32;
+
+                    buf32 = rand_stat_exp_5(mt_rand);
+                    if(buf32 > rental_stat_exp_max) buf32 = rental_stat_exp_max;
+                    rental_pkm_ev_speed[rental_id] = buf32;
+                    break;
+
+                default:
+                    rental_pkm_iv_atk[rental_id] = rand_iv_6(mt_rand);
+                    rental_pkm_iv_def[rental_id] = rand_iv_6(mt_rand);
+                    rental_pkm_iv_spc[rental_id] = rand_iv_6(mt_rand);
+                    rental_pkm_iv_speed[rental_id] = rand_iv_6(mt_rand);
+                    rental_pkm_ev_hp[rental_id] = rand_stat_exp_6(mt_rand);
+                    rental_pkm_ev_atk[rental_id] = rand_stat_exp_6(mt_rand);
+                    rental_pkm_ev_def[rental_id] = rand_stat_exp_6(mt_rand);
+                    rental_pkm_ev_spc[rental_id] = rand_stat_exp_6(mt_rand);
+                    rental_pkm_ev_speed[rental_id] = rand_stat_exp_6(mt_rand);
+                    break;
+                }
+            }
+        }
+        else{
+            rental_pkm_iv_atk[rental_id] = rand_iv_5(mt_rand);
+            rental_pkm_iv_def[rental_id] = rand_iv_5(mt_rand);
+            rental_pkm_iv_spc[rental_id] = rand_iv_5(mt_rand);
+            rental_pkm_iv_speed[rental_id] = rand_iv_5(mt_rand);
+
+            rental_pkm_ev_hp[rental_id] = rand_stat_exp_default(mt_rand);
+            rental_pkm_ev_atk[rental_id] = rand_stat_exp_default(mt_rand);
+            rental_pkm_ev_def[rental_id] = rand_stat_exp_default(mt_rand);
+            rental_pkm_ev_spc[rental_id] = rand_stat_exp_default(mt_rand);
+            rental_pkm_ev_speed[rental_id] = rand_stat_exp_default(mt_rand);
+        }
+        rental_pkm_iv_hp[rental_id] = (rental_pkm_iv_atk[rental_id] & 1)*8 + (rental_pkm_iv_def[rental_id] & 1)*4 + (rental_pkm_iv_speed[rental_id] & 1)*2 + (rental_pkm_iv_spc[rental_id] & 1);
     }
 }
 
@@ -210,6 +448,7 @@ void MainWindow::randomize_rental_level(std::mt19937 &mt_rand)
 
 void MainWindow::randomize_rental_moves(std::mt19937 &mt_rand)
 {
+    bool no_illegal_moves = ui->checkBox_Randomizer_Rental_NoIllegalMoves->isChecked();
     bool no_useless_moves = ui->checkBox_Randomizer_Rental_NoUselessMoves->isChecked();
     bool no_weak_moves = ui->checkBox_Randomizer_Rental_NoWeakMoves->isChecked();
     bool no_dragon_rage = ui->checkBox_Randomizer_Rental_NoDragonRage->isChecked();
@@ -226,183 +465,260 @@ void MainWindow::randomize_rental_moves(std::mt19937 &mt_rand)
         bool learns_offensive_move = false;
         bool learns_stab_move = false;
 
-        // Starting Moves
-        if(pkm_start_move_1[buf8]>0 && pkm_start_move_1[buf8]<total_move_name){
-            // Dragon Rage
-            if(pkm_start_move_1[buf8]==0x52 && (rental_cup_id[rental_id]==0 || rental_cup_id[rental_id]==1)){
-                if(no_dragon_rage==false){
-                    moves_ids_vector.push_back(pkm_start_move_1[buf8]);
-                    learns_offensive_move = true;
-                }
-            }
-            // Double Team, Reflect
-            else if(move_effect[pkm_start_move_1[buf8]]==0xF){
-                if(no_evasion_moves==false){
-                    moves_ids_vector.push_back(pkm_start_move_1[buf8]);
-                }
-            }
-            // Fissure, Guillotine, Horn Drill
-            else if(move_effect[pkm_start_move_1[buf8]]==0x26){
-                if(no_ohko_moves==false){
-                    moves_ids_vector.push_back(pkm_start_move_1[buf8]);
-                }
-            }
-            // Other moves
-            else if(no_weak_moves==false || weak_move[pkm_start_move_1[buf8]]==false){
-                if(no_useless_moves==false || useless_move[pkm_start_move_1[buf8]]==false){
-                    moves_ids_vector.push_back(pkm_start_move_1[buf8]);
-
-                    // Offensive move and STAB move check
-                    if(move_power[pkm_start_move_1[buf8]]>1){
+        if(no_illegal_moves){
+            // Starting Moves
+            if(pkm_start_move_1[buf8]>0 && pkm_start_move_1[buf8]<total_move_name){
+                // Dragon Rage
+                if(pkm_start_move_1[buf8]==0x52 && (rental_cup_id[rental_id]==0 || rental_cup_id[rental_id]==1)){
+                    if(no_dragon_rage==false){
+                        moves_ids_vector.push_back(pkm_start_move_1[buf8]);
                         learns_offensive_move = true;
-                        if(move_type[pkm_start_move_1[buf8]] == pkm_type_1[buf8] || move_type[pkm_start_move_1[buf8]] == pkm_type_2[buf8]){
-                            learns_stab_move = true;
+                    }
+                }
+                // Double Team, Reflect
+                else if(move_effect[pkm_start_move_1[buf8]]==0xF){
+                    if(no_evasion_moves==false){
+                        moves_ids_vector.push_back(pkm_start_move_1[buf8]);
+                    }
+                }
+                // Fissure, Guillotine, Horn Drill
+                else if(move_effect[pkm_start_move_1[buf8]]==0x26){
+                    if(no_ohko_moves==false){
+                        moves_ids_vector.push_back(pkm_start_move_1[buf8]);
+                    }
+                }
+                // Other moves
+                else if(no_weak_moves==false || weak_move[pkm_start_move_1[buf8]]==false){
+                    if(no_useless_moves==false || useless_move[pkm_start_move_1[buf8]]==false){
+                        moves_ids_vector.push_back(pkm_start_move_1[buf8]);
+
+                        // Offensive move and STAB move check
+                        if(move_power[pkm_start_move_1[buf8]]>1){
+                            learns_offensive_move = true;
+                            if(move_type[pkm_start_move_1[buf8]] == pkm_type_1[buf8] || move_type[pkm_start_move_1[buf8]] == pkm_type_2[buf8]){
+                                learns_stab_move = true;
+                            }
                         }
                     }
                 }
             }
-        }
-        if(pkm_start_move_2[buf8]>0 && pkm_start_move_2[buf8]<total_move_name){
-            // Dragon Rage
-            if(pkm_start_move_2[buf8]==0x52 && (rental_cup_id[rental_id]==0 || rental_cup_id[rental_id]==1)){
-                if(no_dragon_rage==false){
-                    moves_ids_vector.push_back(pkm_start_move_2[buf8]);
-                    learns_offensive_move = true;
-                }
-            }
-            // Double Team, Reflect
-            else if(move_effect[pkm_start_move_2[buf8]]==0xF){
-                if(no_evasion_moves==false){
-                    moves_ids_vector.push_back(pkm_start_move_2[buf8]);
-                }
-            }
-            // Fissure, Guillotine, Horn Drill
-            else if(move_effect[pkm_start_move_2[buf8]]==0x26){
-                if(no_ohko_moves==false){
-                    moves_ids_vector.push_back(pkm_start_move_2[buf8]);
-                }
-            }
-            // Other moves
-            else if(no_weak_moves==false || weak_move[pkm_start_move_2[buf8]]==false){
-                if(no_useless_moves==false || useless_move[pkm_start_move_2[buf8]]==false){
-                    moves_ids_vector.push_back(pkm_start_move_2[buf8]);
-
-                    // Offensive move and STAB move check
-                    if(move_power[pkm_start_move_2[buf8]]>1){
+            if(pkm_start_move_2[buf8]>0 && pkm_start_move_2[buf8]<total_move_name){
+                // Dragon Rage
+                if(pkm_start_move_2[buf8]==0x52 && (rental_cup_id[rental_id]==0 || rental_cup_id[rental_id]==1)){
+                    if(no_dragon_rage==false){
+                        moves_ids_vector.push_back(pkm_start_move_2[buf8]);
                         learns_offensive_move = true;
-                        if(move_type[pkm_start_move_2[buf8]] == pkm_type_1[buf8] || move_type[pkm_start_move_2[buf8]] == pkm_type_2[buf8]){
-                            learns_stab_move = true;
+                    }
+                }
+                // Double Team, Reflect
+                else if(move_effect[pkm_start_move_2[buf8]]==0xF){
+                    if(no_evasion_moves==false){
+                        moves_ids_vector.push_back(pkm_start_move_2[buf8]);
+                    }
+                }
+                // Fissure, Guillotine, Horn Drill
+                else if(move_effect[pkm_start_move_2[buf8]]==0x26){
+                    if(no_ohko_moves==false){
+                        moves_ids_vector.push_back(pkm_start_move_2[buf8]);
+                    }
+                }
+                // Other moves
+                else if(no_weak_moves==false || weak_move[pkm_start_move_2[buf8]]==false){
+                    if(no_useless_moves==false || useless_move[pkm_start_move_2[buf8]]==false){
+                        moves_ids_vector.push_back(pkm_start_move_2[buf8]);
+
+                        // Offensive move and STAB move check
+                        if(move_power[pkm_start_move_2[buf8]]>1){
+                            learns_offensive_move = true;
+                            if(move_type[pkm_start_move_2[buf8]] == pkm_type_1[buf8] || move_type[pkm_start_move_2[buf8]] == pkm_type_2[buf8]){
+                                learns_stab_move = true;
+                            }
                         }
                     }
                 }
             }
-        }
-        if(pkm_start_move_3[buf8]>0 && pkm_start_move_3[buf8]<total_move_name){
-            // Dragon Rage
-            if(pkm_start_move_3[buf8]==0x52 && (rental_cup_id[rental_id]==0 || rental_cup_id[rental_id]==1)){
-                if(no_dragon_rage==false){
-                    moves_ids_vector.push_back(pkm_start_move_3[buf8]);
-                    learns_offensive_move = true;
-                }
-            }
-            // Double Team, Reflect
-            else if(move_effect[pkm_start_move_3[buf8]]==0xF){
-                if(no_evasion_moves==false){
-                    moves_ids_vector.push_back(pkm_start_move_3[buf8]);
-                }
-            }
-            // Fissure, Guillotine, Horn Drill
-            else if(move_effect[pkm_start_move_3[buf8]]==0x26){
-                if(no_ohko_moves==false){
-                    moves_ids_vector.push_back(pkm_start_move_3[buf8]);
-                }
-            }
-            // Other moves
-            else if(no_weak_moves==false || weak_move[pkm_start_move_3[buf8]]==false){
-                if(no_useless_moves==false || useless_move[pkm_start_move_3[buf8]]==false){
-                    moves_ids_vector.push_back(pkm_start_move_3[buf8]);
-
-                    // Offensive move and STAB move check
-                    if(move_power[pkm_start_move_3[buf8]]>1){
+            if(pkm_start_move_3[buf8]>0 && pkm_start_move_3[buf8]<total_move_name){
+                // Dragon Rage
+                if(pkm_start_move_3[buf8]==0x52 && (rental_cup_id[rental_id]==0 || rental_cup_id[rental_id]==1)){
+                    if(no_dragon_rage==false){
+                        moves_ids_vector.push_back(pkm_start_move_3[buf8]);
                         learns_offensive_move = true;
-                        if(move_type[pkm_start_move_3[buf8]] == pkm_type_1[buf8] || move_type[pkm_start_move_3[buf8]] == pkm_type_2[buf8]){
-                            learns_stab_move = true;
+                    }
+                }
+                // Double Team, Reflect
+                else if(move_effect[pkm_start_move_3[buf8]]==0xF){
+                    if(no_evasion_moves==false){
+                        moves_ids_vector.push_back(pkm_start_move_3[buf8]);
+                    }
+                }
+                // Fissure, Guillotine, Horn Drill
+                else if(move_effect[pkm_start_move_3[buf8]]==0x26){
+                    if(no_ohko_moves==false){
+                        moves_ids_vector.push_back(pkm_start_move_3[buf8]);
+                    }
+                }
+                // Other moves
+                else if(no_weak_moves==false || weak_move[pkm_start_move_3[buf8]]==false){
+                    if(no_useless_moves==false || useless_move[pkm_start_move_3[buf8]]==false){
+                        moves_ids_vector.push_back(pkm_start_move_3[buf8]);
+
+                        // Offensive move and STAB move check
+                        if(move_power[pkm_start_move_3[buf8]]>1){
+                            learns_offensive_move = true;
+                            if(move_type[pkm_start_move_3[buf8]] == pkm_type_1[buf8] || move_type[pkm_start_move_3[buf8]] == pkm_type_2[buf8]){
+                                learns_stab_move = true;
+                            }
                         }
                     }
                 }
             }
-        }
-        if(pkm_start_move_4[buf8]>0 && pkm_start_move_4[buf8]<total_move_name){
-            // Dragon Rage
-            if(pkm_start_move_4[buf8]==0x52 && (rental_cup_id[rental_id]==0 || rental_cup_id[rental_id]==1)){
-                if(no_dragon_rage==false){
-                    moves_ids_vector.push_back(pkm_start_move_4[buf8]);
-                    learns_offensive_move = true;
-                }
-            }
-            // Double Team, Reflect
-            else if(move_effect[pkm_start_move_4[buf8]]==0xF){
-                if(no_evasion_moves==false){
-                    moves_ids_vector.push_back(pkm_start_move_4[buf8]);
-                }
-            }
-            // Fissure, Guillotine, Horn Drill
-            else if(move_effect[pkm_start_move_4[buf8]]==0x26){
-                if(no_ohko_moves==false){
-                    moves_ids_vector.push_back(pkm_start_move_4[buf8]);
-                }
-            }
-            // Other moves
-            else if(no_weak_moves==false || weak_move[pkm_start_move_4[buf8]]==false){
-                if(no_useless_moves==false || useless_move[pkm_start_move_4[buf8]]==false){
-                    moves_ids_vector.push_back(pkm_start_move_4[buf8]);
-
-                    // Offensive move and STAB move check
-                    if(move_power[pkm_start_move_4[buf8]]>1){
+            if(pkm_start_move_4[buf8]>0 && pkm_start_move_4[buf8]<total_move_name){
+                // Dragon Rage
+                if(pkm_start_move_4[buf8]==0x52 && (rental_cup_id[rental_id]==0 || rental_cup_id[rental_id]==1)){
+                    if(no_dragon_rage==false){
+                        moves_ids_vector.push_back(pkm_start_move_4[buf8]);
                         learns_offensive_move = true;
-                        if(move_type[pkm_start_move_4[buf8]] == pkm_type_1[buf8] || move_type[pkm_start_move_4[buf8]] == pkm_type_2[buf8]){
-                            learns_stab_move = true;
+                    }
+                }
+                // Double Team, Reflect
+                else if(move_effect[pkm_start_move_4[buf8]]==0xF){
+                    if(no_evasion_moves==false){
+                        moves_ids_vector.push_back(pkm_start_move_4[buf8]);
+                    }
+                }
+                // Fissure, Guillotine, Horn Drill
+                else if(move_effect[pkm_start_move_4[buf8]]==0x26){
+                    if(no_ohko_moves==false){
+                        moves_ids_vector.push_back(pkm_start_move_4[buf8]);
+                    }
+                }
+                // Other moves
+                else if(no_weak_moves==false || weak_move[pkm_start_move_4[buf8]]==false){
+                    if(no_useless_moves==false || useless_move[pkm_start_move_4[buf8]]==false){
+                        moves_ids_vector.push_back(pkm_start_move_4[buf8]);
+
+                        // Offensive move and STAB move check
+                        if(move_power[pkm_start_move_4[buf8]]>1){
+                            learns_offensive_move = true;
+                            if(move_type[pkm_start_move_4[buf8]] == pkm_type_1[buf8] || move_type[pkm_start_move_4[buf8]] == pkm_type_2[buf8]){
+                                learns_stab_move = true;
+                            }
                         }
                     }
                 }
             }
-        }
 
-        // TM HM Moves
-        for(short j=1;j<56;j++){
-            if(move_tmhm[j]>0 && move_tmhm[j]<total_move_name){
-                move_tmhm_flag = (j-1)%8;
-                move_tmhm_byte = (j-1)/8;
+            // TM HM Moves
+            for(uint8_t j=1;j<56;j++){
+                if(move_tmhm[j]>0 && move_tmhm[j]<total_move_name){
+                    move_tmhm_flag = (j-1)%8;
+                    move_tmhm_byte = (j-1)/8;
 
-                if((1<<move_tmhm_flag) & pkm_tmhm_flags[buf8][move_tmhm_byte]){
+                    if((1<<move_tmhm_flag) & pkm_tmhm_flags[buf8][move_tmhm_byte]){
+                        // Dragon Rage
+                        if(move_tmhm[j]==0x52 && (rental_cup_id[rental_id]==0 || rental_cup_id[rental_id]==1)){
+                            if(no_dragon_rage==false){
+                                moves_ids_vector.push_back(move_tmhm[j]);
+                                learns_offensive_move = true;
+                            }
+                        }
+                        // Double Team, Reflect
+                        else if(move_effect[move_tmhm[j]]==0xF){
+                            if(no_evasion_moves==false){
+                                moves_ids_vector.push_back(move_tmhm[j]);
+                            }
+                        }
+                        // Fissure, Guillotine, Horn Drill
+                        else if(move_effect[move_tmhm[j]]==0x26){
+                            if(no_ohko_moves==false){
+                                moves_ids_vector.push_back(move_tmhm[j]);
+                            }
+                        }
+                        // Other moves
+                        else if(no_weak_moves==false || weak_move[move_tmhm[j]]==false){
+                            if(no_useless_moves==false || useless_move[move_tmhm[j]]==false){
+                                moves_ids_vector.push_back(move_tmhm[j]);
+
+                                // Offensive move and STAB move check
+                                if(move_power[move_tmhm[j]]>1){
+                                    learns_offensive_move = true;
+                                    if(move_type[move_tmhm[j]] == pkm_type_1[buf8] || move_type[move_tmhm[j]] == pkm_type_2[buf8]){
+                                        learns_stab_move = true;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            // Level-up Moves
+            for(uint8_t j=0;j<10;j++){
+                if(pkm_rb_move[buf8][j]>0 && pkm_rb_move[buf8][j]<total_move_name && pkm_rb_lvl[buf8][j]<=rental_pkm_level[rental_id]){
                     // Dragon Rage
-                    if(move_tmhm[j]==0x52 && (rental_cup_id[rental_id]==0 || rental_cup_id[rental_id]==1)){
+                    if(pkm_rb_move[buf8][j]==0x52 && (rental_cup_id[rental_id]==0 || rental_cup_id[rental_id]==1)){
                         if(no_dragon_rage==false){
-                            moves_ids_vector.push_back(move_tmhm[j]);
+                            moves_ids_vector.push_back(pkm_rb_move[buf8][j]);
                             learns_offensive_move = true;
                         }
                     }
                     // Double Team, Reflect
-                    else if(move_effect[move_tmhm[j]]==0xF){
+                    else if(move_effect[pkm_rb_move[buf8][j]]==0xF){
                         if(no_evasion_moves==false){
-                            moves_ids_vector.push_back(move_tmhm[j]);
+                            moves_ids_vector.push_back(pkm_rb_move[buf8][j]);
                         }
                     }
                     // Fissure, Guillotine, Horn Drill
-                    else if(move_effect[move_tmhm[j]]==0x26){
+                    else if(move_effect[pkm_rb_move[buf8][j]]==0x26){
                         if(no_ohko_moves==false){
-                            moves_ids_vector.push_back(move_tmhm[j]);
+                            moves_ids_vector.push_back(pkm_rb_move[buf8][j]);
                         }
                     }
                     // Other moves
-                    else if(no_weak_moves==false || weak_move[move_tmhm[j]]==false){
-                        if(no_useless_moves==false || useless_move[move_tmhm[j]]==false){
-                            moves_ids_vector.push_back(move_tmhm[j]);
+                    else if(no_weak_moves==false || weak_move[pkm_rb_move[buf8][j]]==false){
+                        if(no_useless_moves==false || useless_move[pkm_rb_move[buf8][j]]==false){
+                            moves_ids_vector.push_back(pkm_rb_move[buf8][j]);
 
                             // Offensive move and STAB move check
-                            if(move_power[move_tmhm[j]]>1){
+                            if(move_power[pkm_rb_move[buf8][j]]>1){
                                 learns_offensive_move = true;
-                                if(move_type[move_tmhm[j]] == pkm_type_1[buf8] || move_type[move_tmhm[j]] == pkm_type_2[buf8]){
+                                if(move_type[pkm_rb_move[buf8][j]] == pkm_type_1[buf8] || move_type[pkm_rb_move[buf8][j]] == pkm_type_2[buf8]){
+                                    learns_stab_move = true;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                if(pkm_y_move[buf8][j]>0 && pkm_y_move[buf8][j]<total_move_name && pkm_y_lvl[buf8][j]<=rental_pkm_level[rental_id]){
+                    // Dragon Rage
+                    if(pkm_y_move[buf8][j]==0x52 && (rental_cup_id[rental_id]==0 || rental_cup_id[rental_id]==1)){
+                        if(no_dragon_rage==false){
+                            moves_ids_vector.push_back(pkm_y_move[buf8][j]);
+                            learns_offensive_move = true;
+                        }
+                    }
+                    // Double Team, Reflect
+                    else if(move_effect[pkm_y_move[buf8][j]]==0xF){
+                        if(no_evasion_moves==false){
+                            moves_ids_vector.push_back(pkm_y_move[buf8][j]);
+                        }
+                    }
+                    // Fissure, Guillotine, Horn Drill
+                    else if(move_effect[pkm_y_move[buf8][j]]==0x26){
+                        if(no_ohko_moves==false){
+                            moves_ids_vector.push_back(pkm_y_move[buf8][j]);
+                        }
+                    }
+                    // Other moves
+                    else if(no_weak_moves==false || weak_move[pkm_y_move[buf8][j]]==false){
+                        if(no_useless_moves==false || useless_move[pkm_y_move[buf8][j]]==false){
+                            moves_ids_vector.push_back(pkm_y_move[buf8][j]);
+
+                            // Offensive move and STAB move check
+                            if(move_power[pkm_y_move[buf8][j]]>1){
+                                learns_offensive_move = true;
+                                if(move_type[pkm_y_move[buf8][j]] == pkm_type_1[buf8] || move_type[pkm_y_move[buf8][j]] == pkm_type_2[buf8]){
                                     learns_stab_move = true;
                                 }
                             }
@@ -411,82 +727,47 @@ void MainWindow::randomize_rental_moves(std::mt19937 &mt_rand)
                 }
             }
         }
-
-        // Level-up Moves
-        for(short j=0;j<10;j++){
-            if(pkm_rb_move[buf8][j]>0 && pkm_rb_move[buf8][j]<total_move_name && pkm_rb_lvl[buf8][j]<=rental_pkm_level[rental_id]){
-                // Dragon Rage
-                if(pkm_rb_move[buf8][j]==0x52 && (rental_cup_id[rental_id]==0 || rental_cup_id[rental_id]==1)){
-                    if(no_dragon_rage==false){
-                        moves_ids_vector.push_back(pkm_rb_move[buf8][j]);
-                        learns_offensive_move = true;
-                    }
-                }
-                // Double Team, Reflect
-                else if(move_effect[pkm_rb_move[buf8][j]]==0xF){
-                    if(no_evasion_moves==false){
-                        moves_ids_vector.push_back(pkm_rb_move[buf8][j]);
-                    }
-                }
-                // Fissure, Guillotine, Horn Drill
-                else if(move_effect[pkm_rb_move[buf8][j]]==0x26){
-                    if(no_ohko_moves==false){
-                        moves_ids_vector.push_back(pkm_rb_move[buf8][j]);
-                    }
-                }
-                // Other moves
-                else if(no_weak_moves==false || weak_move[pkm_rb_move[buf8][j]]==false){
-                    if(no_useless_moves==false || useless_move[pkm_rb_move[buf8][j]]==false){
-                        moves_ids_vector.push_back(pkm_rb_move[buf8][j]);
-
-                        // Offensive move and STAB move check
-                        if(move_power[pkm_rb_move[buf8][j]]>1){
+        else{
+            bool no_spore = ui->checkBox_Randomizer_Rental_NoSpore->isChecked();
+            for(uint8_t cur_illegalmove=1 ; cur_illegalmove<total_move_name ; cur_illegalmove++){
+                if(cur_illegalmove!=0x93 || no_spore==false){
+                    // TO DO: optimize this
+                    // Dragon Rage
+                    if(cur_illegalmove==0x52 && (rental_cup_id[rental_id]==0 || rental_cup_id[rental_id]==1)){
+                        if(no_dragon_rage==false){
+                            moves_ids_vector.push_back(cur_illegalmove);
                             learns_offensive_move = true;
-                            if(move_type[pkm_rb_move[buf8][j]] == pkm_type_1[buf8] || move_type[pkm_rb_move[buf8][j]] == pkm_type_2[buf8]){
-                                learns_stab_move = true;
-                            }
                         }
                     }
-                }
-            }
+                    // Double Team, Reflect
+                    else if(move_effect[cur_illegalmove]==0xF){
+                        if(no_evasion_moves==false){
+                            moves_ids_vector.push_back(cur_illegalmove);
+                        }
+                    }
+                    // Fissure, Guillotine, Horn Drill
+                    else if(move_effect[cur_illegalmove]==0x26){
+                        if(no_ohko_moves==false){
+                            moves_ids_vector.push_back(cur_illegalmove);
+                        }
+                    }
+                    // Other moves
+                    else if(no_weak_moves==false || weak_move[cur_illegalmove]==false){
+                        if(no_useless_moves==false || useless_move[cur_illegalmove]==false){
+                            moves_ids_vector.push_back(cur_illegalmove);
 
-            if(pkm_y_move[buf8][j]>0 && pkm_y_move[buf8][j]<total_move_name && pkm_rb_lvl[buf8][j]<=rental_pkm_level[rental_id]){
-                // Dragon Rage
-                if(pkm_y_move[buf8][j]==0x52 && (rental_cup_id[rental_id]==0 || rental_cup_id[rental_id]==1)){
-                    if(no_dragon_rage==false){
-                        moves_ids_vector.push_back(pkm_y_move[buf8][j]);
-                        learns_offensive_move = true;
-                    }
-                }
-                // Double Team, Reflect
-                else if(move_effect[pkm_y_move[buf8][j]]==0xF){
-                    if(no_evasion_moves==false){
-                        moves_ids_vector.push_back(pkm_y_move[buf8][j]);
-                    }
-                }
-                // Fissure, Guillotine, Horn Drill
-                else if(move_effect[pkm_y_move[buf8][j]]==0x26){
-                    if(no_ohko_moves==false){
-                        moves_ids_vector.push_back(pkm_y_move[buf8][j]);
-                    }
-                }
-                // Other moves
-                else if(no_weak_moves==false || weak_move[pkm_y_move[buf8][j]]==false){
-                    if(no_useless_moves==false || useless_move[pkm_y_move[buf8][j]]==false){
-                        moves_ids_vector.push_back(pkm_y_move[buf8][j]);
-
-                        // Offensive move and STAB move check
-                        if(move_power[pkm_y_move[buf8][j]]>1){
-                            learns_offensive_move = true;
-                            if(move_type[pkm_y_move[buf8][j]] == pkm_type_1[buf8] || move_type[pkm_y_move[buf8][j]] == pkm_type_2[buf8]){
-                                learns_stab_move = true;
+                            // Offensive move and STAB move check
+                            if(move_power[cur_illegalmove]>1){
+                                learns_offensive_move = true;
+                                if(move_type[cur_illegalmove] == pkm_type_1[buf8] || move_type[cur_illegalmove] == pkm_type_2[buf8]){
+                                    learns_stab_move = true;
+                                }
                             }
                         }
                     }
                 }
             }
         }
-
 
         /* Remove moves duplicates in the Pokémon's learnset.
         It's faster to NOT convert to a set in an unmodified Stadium ROM, as there are not a lot of duplicates.
@@ -560,8 +841,8 @@ void MainWindow::randomize_rental_moves(std::mt19937 &mt_rand)
         // Move 4
         if(moves_ids_vector.size()>3){
             offset_vector_move = 3;
-            // Force STAB move
-            if(have_stab_move && got_stab_move==false && learns_stab_move==true){
+            // Force STAB move, except on low ATK physical types like Chansey or Gastly
+            if(have_stab_move && got_stab_move==false && learns_stab_move==true && (pkm_type_1[buf8]>8 || pkm_type_2[buf8]>8 || pkm_base_atk[buf8]>=40)){
                 while(move_power[moves_ids_vector[offset_vector_move]]<=1 || (move_type[moves_ids_vector[offset_vector_move]]!=pkm_type_1[buf8] && move_type[moves_ids_vector[offset_vector_move]]!=pkm_type_2[buf8])){
                     offset_vector_move++;
                     if(offset_vector_move >= moves_ids_vector.size()){
