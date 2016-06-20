@@ -1,5 +1,13 @@
 #include "mainwindow.h"
 
+quint8 MainWindow::convert_type_id(quint8 type_id)
+{
+    // Special type
+    if(type_id>18) type_id -= 11;
+    return type_id;
+}
+
+
 void MainWindow::read_type_chart(QFile &romfile)
 {
     QDataStream read(&romfile);
