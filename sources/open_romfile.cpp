@@ -52,6 +52,7 @@ void MainWindow::on_actionOpen_triggered() {
                 initialize_char_table();
                 initialize_data();
                 initialize_min_levels();
+                initialize_iv_statexp_groups();
 
                 // Pokémon names
                 read_pkm_names(romfile);
