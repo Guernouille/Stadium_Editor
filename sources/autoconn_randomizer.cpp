@@ -20,6 +20,14 @@ void MainWindow::on_checkBox_Randomizer_Rental_NoPPUps_stateChanged(int state)
 // Randomize
 void MainWindow::on_pushButton_Randomize_pressed()
 {
+    ui->label_rom_randomized->clear();
+    prng_seed[0] = spinBox_PRNG_Seed_1->value();
+    prng_seed[1] = spinBox_PRNG_Seed_2->value();
+    prng_seed[2] = spinBox_PRNG_Seed_3->value();
+    prng_seed[3] = spinBox_PRNG_Seed_4->value();
+    prng_seed[4] = spinBox_PRNG_Seed_5->value();
+    prng_seed[5] = spinBox_PRNG_Seed_6->value();
+
     std::seed_seq seeds{prng_seed[0], prng_seed[1], prng_seed[2], prng_seed[3], prng_seed[4], prng_seed[5]};
     std::mt19937 mt_rand(seeds);
     mt_rand.discard(700000);
@@ -34,10 +42,6 @@ void MainWindow::on_pushButton_Randomize_pressed()
             randomize_cpu_level(mt_rand);
         }
 
-        if(ui->checkBox_Randomize_CPU_IVsEVs->isChecked()){
-            randomize_cpu_iv_stat_exp(mt_rand);
-        }
-
         if(ui->checkBox_Randomize_CPU_Pkmn->isChecked()){
             randomize_cpu_init_pkmn();
             randomize_cpu_pkmn(mt_rand);
@@ -45,6 +49,10 @@ void MainWindow::on_pushButton_Randomize_pressed()
 
         if(ui->checkBox_Randomize_CPU_Moves->isChecked()){
             randomize_cpu_moves(mt_rand);
+        }
+
+        if(ui->checkBox_Randomize_CPU_IVsEVs->isChecked()){
+            randomize_cpu_iv_stat_exp(mt_rand);
         }
 
         if(ui->checkBox_Randomizer_CPU_Names->isChecked()){
@@ -74,9 +82,13 @@ void MainWindow::on_pushButton_Randomize_pressed()
             randomize_rental_moves(mt_rand);
         }
 
+        if(ui->checkBox_Randomize_Rental_IVsEVs->isChecked()){
+            randomize_rental_iv_stat_exp(mt_rand);
+        }
+
         // Update display
         if(not_in_init){
-            display_rental_pkmn(ui->comboBox_Rental_Page->currentIndex());
+            display_rental_pkmn((ui->comboBox_Rental_Page->currentIndex())*6);
         }
     }
 
@@ -133,10 +145,37 @@ void MainWindow::on_pushButton_Randomize_pressed()
         prng_seed[3] = mt_rand();
         prng_seed[4] = mt_rand();
         prng_seed[5] = mt_rand();
+
+        spinBox_PRNG_Seed_1->setValue(prng_seed[0]);
+        spinBox_PRNG_Seed_2->setValue(prng_seed[1]);
+        spinBox_PRNG_Seed_3->setValue(prng_seed[2]);
+        spinBox_PRNG_Seed_4->setValue(prng_seed[3]);
+        spinBox_PRNG_Seed_5->setValue(prng_seed[4]);
+        spinBox_PRNG_Seed_6->setValue(prng_seed[5]);
+
+        buf8 = mt_rand()%16;
+        if(buf8==0) ui->label_rom_randomized->setText("Randomized!");
+        else if(buf8==1) ui->label_rom_randomized->setText("Randomized.");
+        else if(buf8==2) ui->label_rom_randomized->setText("Randomized~");
+        else if(buf8==3) ui->label_rom_randomized->setText("Randomized?");
+        else if(buf8==4) ui->label_rom_randomized->setText("Done.");
+        else if(buf8==5) ui->label_rom_randomized->setText("Complete.");
+        else if(buf8==6) ui->label_rom_randomized->setText("gl hf");
+        else if(buf8==7) ui->label_rom_randomized->setText("At your service.");
+        else if(buf8==8) ui->label_rom_randomized->setText("Aight.");
+        else if(buf8==9) ui->label_rom_randomized->setText("You got it.");
+        else if(buf8==10) ui->label_rom_randomized->setText("Mersenne Twistered.");
+        else if(buf8==11) ui->label_rom_randomized->setText("~Randomized~");
+        else if(buf8==12) ui->label_rom_randomized->setText("Randomized ROM.");
+        else if(buf8==13) ui->label_rom_randomized->setText("Good luck!");
+        else if(buf8==14) ui->label_rom_randomized->setText("Have fun.");
+        else if(buf8==15) ui->label_rom_randomized->setText("Enjoy your ROM!");
     }
-
-
+    else{
+        ui->label_rom_randomized->setText("Fixed randomization.");
+    }
 }
+
 void MainWindow::on_checkBox_CPUTeams_stateChanged(int state)
 {
     if(state == Qt::Checked){
@@ -399,6 +438,7 @@ void MainWindow::on_checkBox_Randomize_Rental_Moves_stateChanged(int state)
 {
     if(state == Qt::Checked){
         ui->checkBox_Randomizer_Rental_NoIllegalMoves->setEnabled(true);
+        if(ui->checkBox_Randomizer_Rental_NoIllegalMoves->isChecked()==false) ui->checkBox_Randomizer_Rental_NoSpore->setEnabled(true);
         ui->checkBox_Randomizer_Rental_NoUselessMoves->setEnabled(true);
         ui->checkBox_Randomizer_Rental_NoWeakMoves->setEnabled(true);
         ui->checkBox_Randomizer_Rental_NoDragonRage->setEnabled(true);
@@ -409,6 +449,7 @@ void MainWindow::on_checkBox_Randomize_Rental_Moves_stateChanged(int state)
     }
     else{
         ui->checkBox_Randomizer_Rental_NoIllegalMoves->setEnabled(false);
+        if(ui->checkBox_Randomizer_Rental_NoIllegalMoves->isChecked()==false) ui->checkBox_Randomizer_Rental_NoSpore->setEnabled(false);
         ui->checkBox_Randomizer_Rental_NoUselessMoves->setEnabled(false);
         ui->checkBox_Randomizer_Rental_NoWeakMoves->setEnabled(false);
         ui->checkBox_Randomizer_Rental_NoDragonRage->setEnabled(false);
@@ -456,6 +497,121 @@ void MainWindow::on_checkBox_Randomize_Rental_IVsEVs_stateChanged(int state)
         ui->label_Rental_StatExp_range_2->setEnabled(false);
         ui->spinBox_Rental_StatExp_min->setEnabled(false);
         ui->spinBox_Rental_StatExp_max->setEnabled(false);
+    }
+}
+void MainWindow::on_checkBox_Randomizer_Rental_NoIllegalMoves_stateChanged(int state)
+{
+    if(state == Qt::Checked){
+        ui->checkBox_Randomizer_Rental_NoSpore->setChecked(false);
+        ui->checkBox_Randomizer_Rental_NoSpore->setVisible(false);
+    }
+    else{
+        ui->checkBox_Randomizer_Rental_NoSpore->setVisible(true);
+        ui->checkBox_Randomizer_Rental_NoSpore->setChecked(true);
+    }
+
+}
+
+
+// CPU IVs range
+void MainWindow::on_spinBox_CPU_IVs_min_valueChanged(int)
+{
+    if(not_in_init){
+        not_in_init = false;
+        cpu_ivs_min = ui->spinBox_CPU_IVs_min->value();
+        if(cpu_ivs_min > cpu_ivs_max){
+            cpu_ivs_max = cpu_ivs_min;
+            ui->spinBox_CPU_IVs_max->setValue(cpu_ivs_max);
+        }
+        not_in_init = true;
+    }
+}
+void MainWindow::on_spinBox_CPU_IVs_max_valueChanged(int)
+{
+    if(not_in_init){
+        not_in_init = false;
+        cpu_ivs_max = ui->spinBox_CPU_IVs_max->value();
+        if(cpu_ivs_max < cpu_ivs_min){
+            cpu_ivs_min = cpu_ivs_max;
+            ui->spinBox_CPU_IVs_min->setValue(cpu_ivs_min);
+        }
+        not_in_init = true;
+    }
+}
+// Rental IVs range
+void MainWindow::on_spinBox_Rental_IVs_min_valueChanged(int)
+{
+    if(not_in_init){
+        not_in_init = false;
+        rental_ivs_min = ui->spinBox_Rental_IVs_min->value();
+        if(rental_ivs_min > rental_ivs_max){
+            rental_ivs_max = rental_ivs_min;
+            ui->spinBox_Rental_IVs_max->setValue(rental_ivs_max);
+        }
+        not_in_init = true;
+    }
+}
+void MainWindow::on_spinBox_Rental_IVs_max_valueChanged(int)
+{
+    if(not_in_init){
+        not_in_init = false;
+        rental_ivs_max = ui->spinBox_Rental_IVs_max->value();
+        if(rental_ivs_max < rental_ivs_min){
+            rental_ivs_min = rental_ivs_max;
+            ui->spinBox_Rental_IVs_min->setValue(rental_ivs_min);
+        }
+        not_in_init = true;
+    }
+}
+
+// CPU Stat Exp range
+void MainWindow::on_spinBox_CPU_StatExp_min_valueChanged(int)
+{
+    if(not_in_init){
+        not_in_init = false;
+        cpu_stat_exp_min = ui->spinBox_CPU_StatExp_min->value();
+        if(cpu_stat_exp_min > cpu_stat_exp_max){
+            cpu_stat_exp_max = cpu_stat_exp_min;
+            ui->spinBox_CPU_StatExp_max->setValue(cpu_stat_exp_max);
+        }
+        not_in_init = true;
+    }
+}
+void MainWindow::on_spinBox_CPU_StatExp_max_valueChanged(int)
+{
+    if(not_in_init){
+        not_in_init = false;
+        cpu_stat_exp_max = ui->spinBox_CPU_StatExp_max->value();
+        if(cpu_stat_exp_max < cpu_stat_exp_min){
+            cpu_stat_exp_min = cpu_stat_exp_max;
+            ui->spinBox_CPU_StatExp_min->setValue(cpu_stat_exp_min);
+        }
+        not_in_init = true;
+    }
+}
+// Rental Stat Exp range
+void MainWindow::on_spinBox_Rental_StatExp_min_valueChanged(int)
+{
+    if(not_in_init){
+        not_in_init = false;
+        rental_stat_exp_min = ui->spinBox_Rental_StatExp_min->value();
+        if(rental_stat_exp_min > rental_stat_exp_max){
+            rental_stat_exp_max = rental_stat_exp_min;
+            ui->spinBox_Rental_StatExp_max->setValue(rental_stat_exp_max);
+        }
+        not_in_init = true;
+    }
+}
+void MainWindow::on_spinBox_Rental_StatExp_max_valueChanged(int)
+{
+    if(not_in_init){
+        not_in_init = false;
+        rental_stat_exp_max = ui->spinBox_Rental_StatExp_max->value();
+        if(rental_stat_exp_max < rental_stat_exp_min){
+            rental_stat_exp_min = rental_stat_exp_max;
+            ui->spinBox_Rental_StatExp_min->setValue(rental_stat_exp_min);
+        }
+        not_in_init = true;
     }
 }
 
@@ -782,4 +938,3 @@ void MainWindow::on_checkBox_Randomize_TypeChart_stateChanged(int state)
         ui->checkBox_Bug_vs_Poison->setChecked(false);
     }
 }
-
