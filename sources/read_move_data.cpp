@@ -3,7 +3,7 @@
 void MainWindow::read_move_data(QFile &romfile)
 {
     // ***** Retrieve High CH moves *****
-    for(short i=0;i<4;i++){
+    for(uint8_t i=0;i<4;i++){
         rom_offset = 0x37570C + i;
 
         QDataStream read(&romfile);
@@ -13,7 +13,7 @@ void MainWindow::read_move_data(QFile &romfile)
     }
 
     // ***** Retrieve move data *****
-    for(short i=1;i<=total_move_name;i++){
+    for(uint8_t i=1;i<=total_move_name;i++){
         rom_offset = 0x736FA + i*6;
 
         QDataStream read(&romfile);
@@ -35,13 +35,13 @@ void MainWindow::read_move_data(QFile &romfile)
             weak_move[i]=true;
         }
         // Weak moves
-        if(move_effect[i]==0x08 || move_effect[i]==0x13 || move_effect[i]==0x1A || move_effect[i]==0x1C || move_effect[i]==0x2E || move_effect[i]==0x42 || move_effect[i]==0x51 || move_effect[i]==0x52 || move_effect[i]==0x54 || move_effect[i]==0x55 || move_effect[i]==0x56){
+        if(move_effect[i]==0x08 || move_effect[i]==0x0B || move_effect[i]==0x12 || move_effect[i]==0x13 || move_effect[i]==0x1A || move_effect[i]==0x1C || move_effect[i]==0x2E || move_effect[i]==0x42 || move_effect[i]==0x51 || move_effect[i]==0x52 || move_effect[i]==0x54 || move_effect[i]==0x55 || move_effect[i]==0x56){
             weak_move[i]=true;
         }
         else if(((move_effect[i]==0 || move_effect[i]==0x02 || move_effect[i]==0x10) && move_power[i]<=70) || ((move_effect[i]==3 || move_effect[i]==0x21) && move_power[i]<40) || ((move_effect[i]==4 || move_effect[i]==6 || move_effect[i]==0x1F || move_effect[i]==0x4C) && move_power[i]<=60)){
             weak_move[i]=true;
         }
-        else if((move_effect[i]==0 && move_accuracy[i]<=0xD8 && move_power[i]<=80) || (move_effect[i]==0x16 && move_accuracy[i]<=0xD8) || (move_effect[i]==0x31 && move_accuracy[i]<=0xD8)){
+        else if((move_effect[i]==0 && move_accuracy[i]<=0xD8 && move_power[i]<=80) || (move_effect[i]==0x24 && move_power[i]<=20) || (move_effect[i]==0x16 && move_accuracy[i]<=0xD8) || (move_effect[i]==0x31 && move_accuracy[i]<=0xD8)){
             weak_move[i]=true;
         }
         else if((move_effect[i]==0x1D && move_type[i]==0 && move_power[i]<25) || (move_effect[i]==0x27 && move_power[i]<=100) || (move_effect[i]==0x46 && move_power[i]<=60)){
@@ -54,7 +54,7 @@ void MainWindow::read_move_data(QFile &romfile)
         else if((move_accuracy[i]>=0xD8 && move_power[i]>=85 && move_effect[i]!=0x27 && move_effect[i]!=0x30) || (move_effect[i]==0x30 && move_accuracy[i]>=0xE5 && move_power[i]>=90) || (move_effect[i]==0x30 && move_type[i]!=0 && move_power[i]>=70) || (move_accuracy[i]>=0xCC && move_power[i]>=100 && move_effect[i]!=0x27) || (move_accuracy[i]>=0xE5 && move_power[i]>=75 && move_type[i]!=0 && move_effect[i]!=0x27)){
             strong_move[i]=true;
         }
-        else if(move_effect[i]==0xF || (move_effect[i]==0x20 && move_accuracy[i]==0xFF) || move_effect[i]==0x26 || move_effect[i]==0x2F || move_effect[i]==0x32 || move_effect[i]==0x34 || move_effect[i]==0x35 || (move_effect[i]==0x38 && i!=0x9D) || move_effect[i]==0x43 || move_effect[i]==0x4F){
+        else if(move_effect[i]==0xF || (move_effect[i]==0x20 && move_accuracy[i]==0xFF) || move_effect[i]==0x26 || move_effect[i]==0x2F || move_effect[i]==0x32 || move_effect[i]==0x34 || move_effect[i]==0x35 || (move_effect[i]==0x38 && i!=0x9C) || move_effect[i]==0x43 || move_effect[i]==0x4F){
             strong_move[i]=true;
         }
         else if((move_effect[i]==0x1D && move_accuracy[i]>=0xE5 && move_power[i]>=25) || (move_effect[i]==0x2C && move_accuracy[i]>=0xE5 && move_power[i]>=40)){
@@ -81,7 +81,7 @@ void MainWindow::read_move_descriptions(QFile &romfile)
     read>>total_move_description;
 
     // ***** Retrieve move descriptions *****
-    for(short i=1;i<=total_move_description;i++){
+    for(uint8_t i=1;i<=total_move_description;i++){
         // Retrieve string pointer
         rom_offset = 0x789D12 + i*4;
         romfile.seek(rom_offset);
@@ -133,7 +133,7 @@ void MainWindow::read_move_names(QFile &romfile)
     }
     else{
         // ***** Retrieve move names *****
-        for(short i=1;i<=total_move_name;i++){
+        for(uint8_t i=1;i<=total_move_name;i++){
             // Retrieve string pointer
             rom_offset = 0x795802 + i*4;
             romfile.seek(rom_offset);
@@ -172,7 +172,7 @@ void MainWindow::read_tmhm_data(QFile &romfile)
 {
     // ***** Retrieve TM/HM data *****
     QDataStream read(&romfile);
-    for(short i=1;i<56;i++){
+    for(uint8_t i=1;i<56;i++){
         rom_offset = 0x73E2F + i;
         romfile.seek(rom_offset);
         read>>move_tmhm[i];
@@ -195,7 +195,7 @@ void MainWindow::read_tmhm_data(QFile &romfile)
 
     // ***** Retrieve TMs HMs battle texts *****
     rom_offset = 0x78EBE6;
-    for(short i=1;i<=55;i++){
+    for(uint8_t i=1;i<=55;i++){
         rom_offset++;
         romfile.seek(rom_offset);
         read>>buf8;
