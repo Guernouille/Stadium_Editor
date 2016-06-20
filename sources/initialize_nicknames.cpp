@@ -245,7 +245,10 @@ void MainWindow::initialize_nicknames(){
     preset_nicknames[77][9]="My Little";
     preset_nicknames[78][1]="rapidash";
     preset_nicknames[78][2]="DASHRAPI";
-    preset_nicknames[78][8]="Nightmare";
+    preset_nicknames[78][5]="RAPITRASH";
+    preset_nicknames[78][6]="Nightmare";
+    preset_nicknames[78][7]="WaveDash";
+    preset_nicknames[78][8]="DashDance";
     preset_nicknames[78][9]="DashCancel";
     preset_nicknames[79][1]="slowpoke";
     preset_nicknames[79][2]="POKESLOW";
@@ -493,6 +496,7 @@ void MainWindow::initialize_nicknames(){
     preset_nicknames[145][9]="ThnderBird";
     preset_nicknames[146][1]="moltres";
     preset_nicknames[146][2]="TRESMOL";
+    preset_nicknames[146][7]="MOLTRASH";
     preset_nicknames[146][8]="Deathguise";
     preset_nicknames[146][9]="Sulfura";
     preset_nicknames[147][1]="dratini";
@@ -501,6 +505,7 @@ void MainWindow::initialize_nicknames(){
     preset_nicknames[148][2]="NAIRDRAGO";
     preset_nicknames[149][1]="dragonite";
     preset_nicknames[149][2]="NITEDRAGO";
+    preset_nicknames[149][3]="NITESTOR";
     preset_nicknames[150][1]="mewtwo";
     preset_nicknames[150][2]="TWOMEW";
     preset_nicknames[150][6]="Sponge";
