@@ -50,7 +50,8 @@ SOURCES += main.cpp\
     autoconn_edit_type_data.cpp \
     initialize_trainers_names.cpp \
     initialize_iv_groups.cpp \
-    autoconn_display_text.cpp
+    autoconn_display_text.cpp \
+    autoconn_menu_info.cpp
 
 HEADERS  += mainwindow.h \
     common.cpp \
