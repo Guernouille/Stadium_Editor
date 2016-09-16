@@ -369,6 +369,7 @@ void MainWindow::on_checkBox_RentalPkmn_stateChanged(int state)
         ui->checkBox_Randomizer_Rental_OffensiveMove->setEnabled(true);
         ui->checkBox_Randomizer_Rental_STABMove->setEnabled(true);
 
+        ui->checkBox_Randomizer_Rental_NoSpore->setEnabled(true);
         ui->checkBox_Randomizer_Rental_NoMewMewtwo->setEnabled(true);
         ui->checkBox_Randomizer_Rental_NoUselessPkmn->setEnabled(true);
         ui->checkBox_Randomizer_Rental_NoIllegalPkmn->setEnabled(true);
@@ -401,6 +402,7 @@ void MainWindow::on_checkBox_RentalPkmn_stateChanged(int state)
         ui->checkBox_Randomizer_Rental_OffensiveMove->setEnabled(false);
         ui->checkBox_Randomizer_Rental_STABMove->setEnabled(false);
 
+        ui->checkBox_Randomizer_Rental_NoSpore->setEnabled(false);
         ui->checkBox_Randomizer_Rental_NoMewMewtwo->setEnabled(false);
         ui->checkBox_Randomizer_Rental_NoUselessPkmn->setEnabled(false);
         ui->checkBox_Randomizer_Rental_NoIllegalPkmn->setEnabled(false);
