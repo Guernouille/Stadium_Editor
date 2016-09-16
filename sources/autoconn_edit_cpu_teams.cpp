@@ -485,6 +485,122 @@ void MainWindow::on_comboBox_Pkmn_6_currentIndexChanged(int) {
 }
 
 
+// Nicknames
+void MainWindow::on_lineEdit_Nickname_1_textEdited(){
+    if(not_in_init){
+        buf_text = ui->lineEdit_Nickname_1->text();
+        buf8 = ui->comboBox_CPU_Trainer->currentIndex();
+        cpu_pkm_nickname[buf8][0] = "";
+
+        for(short k=0;k<buf_text.length();k++){
+            if((buf_text.at(k).toLatin1()>=0x20 && buf_text.at(k).toLatin1()<=0x23) || (buf_text.at(k).toLatin1()>=0x27 && buf_text.at(k).toLatin1()<=0x7A) || buf_text.at(k) == char_table[0xA9] || buf_text.at(k) == char_table[0xBE] || buf_text.at(k) == char_table[0xE9]){
+                cpu_pkm_nickname[buf8][0] += buf_text.at(k);
+            }
+            else {
+                cpu_pkm_nickname[buf8][0] += "?";
+            }
+        }
+        not_in_init = false;
+        ui->lineEdit_Nickname_1->setText(cpu_pkm_nickname[buf8][0]);
+        not_in_init = true;
+    }
+}
+void MainWindow::on_lineEdit_Nickname_2_textEdited(){
+    if(not_in_init){
+        buf_text = ui->lineEdit_Nickname_2->text();
+        buf8 = ui->comboBox_CPU_Trainer->currentIndex();
+        cpu_pkm_nickname[buf8][1] = "";
+
+        for(short k=0;k<buf_text.length();k++){
+            if((buf_text.at(k).toLatin1()>=0x20 && buf_text.at(k).toLatin1()<=0x23) || (buf_text.at(k).toLatin1()>=0x27 && buf_text.at(k).toLatin1()<=0x7A) || buf_text.at(k) == char_table[0xA9] || buf_text.at(k) == char_table[0xBE] || buf_text.at(k) == char_table[0xE9]){
+                cpu_pkm_nickname[buf8][1] += buf_text.at(k);
+            }
+            else {
+                cpu_pkm_nickname[buf8][1] += "?";
+            }
+        }
+        not_in_init = false;
+        ui->lineEdit_Nickname_2->setText(cpu_pkm_nickname[buf8][1]);
+        not_in_init = true;
+    }
+}
+void MainWindow::on_lineEdit_Nickname_3_textEdited(){
+    if(not_in_init){
+        buf_text = ui->lineEdit_Nickname_3->text();
+        buf8 = ui->comboBox_CPU_Trainer->currentIndex();
+        cpu_pkm_nickname[buf8][2] = "";
+
+        for(short k=0;k<buf_text.length();k++){
+            if((buf_text.at(k).toLatin1()>=0x20 && buf_text.at(k).toLatin1()<=0x23) || (buf_text.at(k).toLatin1()>=0x27 && buf_text.at(k).toLatin1()<=0x7A) || buf_text.at(k) == char_table[0xA9] || buf_text.at(k) == char_table[0xBE] || buf_text.at(k) == char_table[0xE9]){
+                cpu_pkm_nickname[buf8][2] += buf_text.at(k);
+            }
+            else {
+                cpu_pkm_nickname[buf8][2] += "?";
+            }
+        }
+        not_in_init = false;
+        ui->lineEdit_Nickname_3->setText(cpu_pkm_nickname[buf8][2]);
+        not_in_init = true;
+    }
+}
+void MainWindow::on_lineEdit_Nickname_4_textEdited(){
+    if(not_in_init){
+        buf_text = ui->lineEdit_Nickname_4->text();
+        buf8 = ui->comboBox_CPU_Trainer->currentIndex();
+        cpu_pkm_nickname[buf8][3] = "";
+
+        for(short k=0;k<buf_text.length();k++){
+            if((buf_text.at(k).toLatin1()>=0x20 && buf_text.at(k).toLatin1()<=0x23) || (buf_text.at(k).toLatin1()>=0x27 && buf_text.at(k).toLatin1()<=0x7A) || buf_text.at(k) == char_table[0xA9] || buf_text.at(k) == char_table[0xBE] || buf_text.at(k) == char_table[0xE9]){
+                cpu_pkm_nickname[buf8][3] += buf_text.at(k);
+            }
+            else {
+                cpu_pkm_nickname[buf8][3] += "?";
+            }
+        }
+        not_in_init = false;
+        ui->lineEdit_Nickname_4->setText(cpu_pkm_nickname[buf8][3]);
+        not_in_init = true;
+    }
+}
+void MainWindow::on_lineEdit_Nickname_5_textEdited(){
+    if(not_in_init){
+        buf_text = ui->lineEdit_Nickname_5->text();
+        buf8 = ui->comboBox_CPU_Trainer->currentIndex();
+        cpu_pkm_nickname[buf8][4] = "";
+
+        for(short k=0;k<buf_text.length();k++){
+            if((buf_text.at(k).toLatin1()>=0x20 && buf_text.at(k).toLatin1()<=0x23) || (buf_text.at(k).toLatin1()>=0x27 && buf_text.at(k).toLatin1()<=0x7A) || buf_text.at(k) == char_table[0xA9] || buf_text.at(k) == char_table[0xBE] || buf_text.at(k) == char_table[0xE9]){
+                cpu_pkm_nickname[buf8][4] += buf_text.at(k);
+            }
+            else {
+                cpu_pkm_nickname[buf8][4] += "?";
+            }
+        }
+        not_in_init = false;
+        ui->lineEdit_Nickname_5->setText(cpu_pkm_nickname[buf8][4]);
+        not_in_init = true;
+    }
+}
+void MainWindow::on_lineEdit_Nickname_6_textEdited(){
+    if(not_in_init){
+        buf_text = ui->lineEdit_Nickname_6->text();
+        buf8 = ui->comboBox_CPU_Trainer->currentIndex();
+        cpu_pkm_nickname[buf8][5] = "";
+
+        for(short k=0;k<buf_text.length();k++){
+            if((buf_text.at(k).toLatin1()>=0x20 && buf_text.at(k).toLatin1()<=0x23) || (buf_text.at(k).toLatin1()>=0x27 && buf_text.at(k).toLatin1()<=0x7A) || buf_text.at(k) == char_table[0xA9] || buf_text.at(k) == char_table[0xBE] || buf_text.at(k) == char_table[0xE9]){
+                cpu_pkm_nickname[buf8][5] += buf_text.at(k);
+            }
+            else {
+                cpu_pkm_nickname[buf8][5] += "?";
+            }
+        }
+        not_in_init = false;
+        ui->lineEdit_Nickname_6->setText(cpu_pkm_nickname[buf8][5]);
+        not_in_init = true;
+    }
+}
+
 // AI ID
 void MainWindow::on_spinBox_CPU_AI_valueChanged(int){
     if(not_in_init){
