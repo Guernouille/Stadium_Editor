@@ -35,6 +35,7 @@ public:
     quint32 buf32;
     quint32 rom_offset;
     QString char_table[256];
+    QString buf_text;
 
     quint8 total_cpu_rentals_array;
     quint8 total_cpu_rentals;
@@ -57,7 +58,7 @@ public:
     QString cpu_tname[256];
     quint8  cpu_sprite_id[256];
     quint8  cpu_ai_id[256];
-    quint8  cpu_ivs_min = 0;
+    quint8  cpu_ivs_min = 2;
     quint8  cpu_ivs_max = 15;
     quint8  cpu_party_size[256];
     quint8  cpu_pkm_id[256][6];
@@ -92,7 +93,7 @@ public:
     quint16 cpu_pkm_stat_def[256][6];
     quint16 cpu_pkm_stat_spc[256][6];
     quint16 cpu_pkm_stat_speed[256][6];
-    quint16 cpu_stat_exp_min = 27600;
+    quint16 cpu_stat_exp_min = 30000;
     quint16 cpu_stat_exp_max = 65535;
 
     quint32 experience_calc;
@@ -353,6 +354,20 @@ private slots:
     void on_comboBox_Pkmn_4_currentIndexChanged(int);
     void on_comboBox_Pkmn_5_currentIndexChanged(int);
     void on_comboBox_Pkmn_6_currentIndexChanged(int);
+
+    void on_lineEdit_Nickname_1_textEdited();
+    void on_lineEdit_Nickname_2_textEdited();
+    void on_lineEdit_Nickname_3_textEdited();
+    void on_lineEdit_Nickname_4_textEdited();
+    void on_lineEdit_Nickname_5_textEdited();
+    void on_lineEdit_Nickname_6_textEdited();
+
+    void on_lineEdit_Rental_Nickname_1_textEdited();
+    void on_lineEdit_Rental_Nickname_2_textEdited();
+    void on_lineEdit_Rental_Nickname_3_textEdited();
+    void on_lineEdit_Rental_Nickname_4_textEdited();
+    void on_lineEdit_Rental_Nickname_5_textEdited();
+    void on_lineEdit_Rental_Nickname_6_textEdited();
 
     void on_spinBox_CPU_AI_valueChanged(int);
     void on_spinBox_CPU_PartySize_valueChanged(int);
