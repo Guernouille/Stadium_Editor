@@ -571,6 +571,139 @@ void MainWindow::on_comboBox_Rental_Pkmn_6_currentIndexChanged(int) {
 }
 
 
+// Nicknames
+void MainWindow::on_lineEdit_Rental_Nickname_1_textEdited(){
+    if(not_in_init){
+        buf_text = ui->lineEdit_Rental_Nickname_1->text();
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_nickname[buf16] = "";
+
+        for(short k=0;k<buf_text.length();k++){
+            if((buf_text.at(k).toLatin1()>=0x20 && buf_text.at(k).toLatin1()<=0x23) || (buf_text.at(k).toLatin1()>=0x27 && buf_text.at(k).toLatin1()<=0x7A) || buf_text.at(k) == char_table[0xA9] || buf_text.at(k) == char_table[0xBE] || buf_text.at(k) == char_table[0xE9]){
+                rental_pkm_nickname[buf16] += buf_text.at(k);
+            }
+            else {
+                rental_pkm_nickname[buf16] += "?";
+            }
+        }
+        not_in_init = false;
+        ui->lineEdit_Rental_Nickname_1->setText(rental_pkm_nickname[buf16]);
+        not_in_init = true;
+    }
+}
+void MainWindow::on_lineEdit_Rental_Nickname_2_textEdited(){
+    if(not_in_init){
+        buf_text = ui->lineEdit_Rental_Nickname_2->text();
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16++;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_nickname[buf16] = "";
+
+        for(short k=0;k<buf_text.length();k++){
+            if((buf_text.at(k).toLatin1()>=0x20 && buf_text.at(k).toLatin1()<=0x23) || (buf_text.at(k).toLatin1()>=0x27 && buf_text.at(k).toLatin1()<=0x7A) || buf_text.at(k) == char_table[0xA9] || buf_text.at(k) == char_table[0xBE] || buf_text.at(k) == char_table[0xE9]){
+                rental_pkm_nickname[buf16] += buf_text.at(k);
+            }
+            else {
+                rental_pkm_nickname[buf16] += "?";
+            }
+        }
+        not_in_init = false;
+        ui->lineEdit_Rental_Nickname_2->setText(rental_pkm_nickname[buf16]);
+        not_in_init = true;
+    }
+}
+void MainWindow::on_lineEdit_Rental_Nickname_3_textEdited(){
+    if(not_in_init){
+        buf_text = ui->lineEdit_Rental_Nickname_3->text();
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16 += 2;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_nickname[buf16] = "";
+
+        for(short k=0;k<buf_text.length();k++){
+            if((buf_text.at(k).toLatin1()>=0x20 && buf_text.at(k).toLatin1()<=0x23) || (buf_text.at(k).toLatin1()>=0x27 && buf_text.at(k).toLatin1()<=0x7A) || buf_text.at(k) == char_table[0xA9] || buf_text.at(k) == char_table[0xBE] || buf_text.at(k) == char_table[0xE9]){
+                rental_pkm_nickname[buf16] += buf_text.at(k);
+            }
+            else {
+                rental_pkm_nickname[buf16] += "?";
+            }
+        }
+        not_in_init = false;
+        ui->lineEdit_Rental_Nickname_3->setText(rental_pkm_nickname[buf16]);
+        not_in_init = true;
+    }
+}
+void MainWindow::on_lineEdit_Rental_Nickname_4_textEdited(){
+    if(not_in_init){
+        buf_text = ui->lineEdit_Rental_Nickname_4->text();
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16 += 3;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_nickname[buf16] = "";
+
+        for(short k=0;k<buf_text.length();k++){
+            if((buf_text.at(k).toLatin1()>=0x20 && buf_text.at(k).toLatin1()<=0x23) || (buf_text.at(k).toLatin1()>=0x27 && buf_text.at(k).toLatin1()<=0x7A) || buf_text.at(k) == char_table[0xA9] || buf_text.at(k) == char_table[0xBE] || buf_text.at(k) == char_table[0xE9]){
+                rental_pkm_nickname[buf16] += buf_text.at(k);
+            }
+            else {
+                rental_pkm_nickname[buf16] += "?";
+            }
+        }
+        not_in_init = false;
+        ui->lineEdit_Rental_Nickname_4->setText(rental_pkm_nickname[buf16]);
+        not_in_init = true;
+    }
+}
+void MainWindow::on_lineEdit_Rental_Nickname_5_textEdited(){
+    if(not_in_init){
+        buf_text = ui->lineEdit_Rental_Nickname_5->text();
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16 += 4;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_nickname[buf16] = "";
+
+        for(short k=0;k<buf_text.length();k++){
+            if((buf_text.at(k).toLatin1()>=0x20 && buf_text.at(k).toLatin1()<=0x23) || (buf_text.at(k).toLatin1()>=0x27 && buf_text.at(k).toLatin1()<=0x7A) || buf_text.at(k) == char_table[0xA9] || buf_text.at(k) == char_table[0xBE] || buf_text.at(k) == char_table[0xE9]){
+                rental_pkm_nickname[buf16] += buf_text.at(k);
+            }
+            else {
+                rental_pkm_nickname[buf16] += "?";
+            }
+        }
+        not_in_init = false;
+        ui->lineEdit_Rental_Nickname_5->setText(rental_pkm_nickname[buf16]);
+        not_in_init = true;
+    }
+}
+void MainWindow::on_lineEdit_Rental_Nickname_6_textEdited(){
+    if(not_in_init){
+        buf_text = ui->lineEdit_Rental_Nickname_6->text();
+        buf16 = ui->comboBox_Rental_Page->currentIndex();
+        buf16 *= 6;
+        buf16 += 5;
+        if(buf16>1023) buf16=1023;
+        rental_pkm_nickname[buf16] = "";
+
+        for(short k=0;k<buf_text.length();k++){
+            if((buf_text.at(k).toLatin1()>=0x20 && buf_text.at(k).toLatin1()<=0x23) || (buf_text.at(k).toLatin1()>=0x27 && buf_text.at(k).toLatin1()<=0x7A) || buf_text.at(k) == char_table[0xA9] || buf_text.at(k) == char_table[0xBE] || buf_text.at(k) == char_table[0xE9]){
+                rental_pkm_nickname[buf16] += buf_text.at(k);
+            }
+            else {
+                rental_pkm_nickname[buf16] += "?";
+            }
+        }
+        not_in_init = false;
+        ui->lineEdit_Rental_Nickname_6->setText(rental_pkm_nickname[buf16]);
+        not_in_init = true;
+    }
+}
+
 // Rental EVs
 void MainWindow::on_spinBox_Rental_EV_HP_1_valueChanged(int) {
     if(not_in_init){
