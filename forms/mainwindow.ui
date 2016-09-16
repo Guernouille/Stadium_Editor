@@ -367,7 +367,7 @@
         <string>Gym Leaders Pokémon*</string>
        </property>
        <property name="checked">
-        <bool>true</bool>
+        <bool>false</bool>
        </property>
       </widget>
       <widget class="QCheckBox" name="checkBox_Randomizer_CPU_StrongPkmnFinal">
@@ -618,11 +618,14 @@
          <height>22</height>
         </rect>
        </property>
+       <property name="minimum">
+        <number>2</number>
+       </property>
        <property name="maximum">
         <number>15</number>
        </property>
        <property name="value">
-        <number>0</number>
+        <number>2</number>
        </property>
       </widget>
       <widget class="QLabel" name="label_CPU_IVs_range_1">
@@ -693,7 +696,7 @@
         <number>65535</number>
        </property>
        <property name="value">
-        <number>27600</number>
+        <number>30000</number>
        </property>
       </widget>
       <widget class="QSpinBox" name="spinBox_CPU_StatExp_max">
@@ -1055,7 +1058,7 @@
         <string>Randomize Levels *</string>
        </property>
        <property name="checked">
-        <bool>true</bool>
+        <bool>false</bool>
        </property>
       </widget>
       <widget class="QCheckBox" name="checkBox_Randomize_Rental_Moves">
@@ -1504,6 +1507,19 @@
        <set>Qt::AlignCenter</set>
       </property>
      </widget>
+     <widget class="QLabel" name="label">
+      <property name="geometry">
+       <rect>
+        <x>5</x>
+        <y>570</y>
+        <width>47</width>
+        <height>13</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>v 0.11</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="tab_CPU_Teams">
      <attribute name="title">
@@ -1574,6 +1590,9 @@
        </property>
        <property name="text">
         <string/>
+       </property>
+       <property name="maxLength">
+        <number>10</number>
        </property>
       </widget>
       <widget class="QGroupBox" name="groupBox_IVEV_1">
@@ -2004,6 +2023,9 @@
        <property name="text">
         <string/>
        </property>
+       <property name="maxLength">
+        <number>10</number>
+       </property>
       </widget>
       <widget class="QGroupBox" name="groupBox_IVEV_2">
        <property name="geometry">
@@ -2432,6 +2454,9 @@
        </property>
        <property name="text">
         <string/>
+       </property>
+       <property name="maxLength">
+        <number>10</number>
        </property>
       </widget>
       <widget class="QGroupBox" name="groupBox_IVEV_3">
@@ -2862,6 +2887,9 @@
        <property name="text">
         <string/>
        </property>
+       <property name="maxLength">
+        <number>10</number>
+       </property>
       </widget>
       <widget class="QGroupBox" name="groupBox_IVEV_4">
        <property name="geometry">
@@ -3291,6 +3319,9 @@
        <property name="text">
         <string/>
        </property>
+       <property name="maxLength">
+        <number>10</number>
+       </property>
       </widget>
       <widget class="QGroupBox" name="groupBox_IVEV_5">
        <property name="geometry">
@@ -3719,6 +3750,9 @@
        </property>
        <property name="text">
         <string/>
+       </property>
+       <property name="maxLength">
+        <number>10</number>
        </property>
       </widget>
       <widget class="QGroupBox" name="groupBox_IVEV_6">
@@ -4560,6 +4594,9 @@
        <property name="text">
         <string/>
        </property>
+       <property name="maxLength">
+        <number>10</number>
+       </property>
       </widget>
       <widget class="QGroupBox" name="groupBox_Rental_IVEV_1">
        <property name="geometry">
@@ -4988,6 +5025,9 @@
        </property>
        <property name="text">
         <string/>
+       </property>
+       <property name="maxLength">
+        <number>10</number>
        </property>
       </widget>
       <widget class="QGroupBox" name="groupBox_Rental_IVEV_2">
@@ -5418,6 +5458,9 @@
        <property name="text">
         <string/>
        </property>
+       <property name="maxLength">
+        <number>10</number>
+       </property>
       </widget>
       <widget class="QGroupBox" name="groupBox_Rental_IVEV_3">
        <property name="geometry">
@@ -5846,6 +5889,9 @@
        </property>
        <property name="text">
         <string/>
+       </property>
+       <property name="maxLength">
+        <number>10</number>
        </property>
       </widget>
       <widget class="QGroupBox" name="groupBox_Rental_IVEV_4">
@@ -6276,6 +6322,9 @@
        <property name="text">
         <string/>
        </property>
+       <property name="maxLength">
+        <number>10</number>
+       </property>
       </widget>
       <widget class="QGroupBox" name="groupBox_Rental_IVEV_5">
        <property name="geometry">
@@ -6704,6 +6753,9 @@
        </property>
        <property name="text">
         <string/>
+       </property>
+       <property name="maxLength">
+        <number>10</number>
        </property>
       </widget>
       <widget class="QGroupBox" name="groupBox_Rental_IVEV_6">
