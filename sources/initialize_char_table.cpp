@@ -6,7 +6,7 @@ void MainWindow::initialize_char_table()
         char_table[i] = "";
     }
 
-    if(this->romtype == ENGLISH){
+    if(this->romtype != INVALID && this->romtype != JAPANESE){
         char_table[0x00] = "";
         char_table[0x0A] = "\n";
         char_table[0x20] = " ";
