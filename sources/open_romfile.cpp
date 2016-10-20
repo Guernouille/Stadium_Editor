@@ -14,33 +14,41 @@ void MainWindow::on_actionOpen_triggered() {
         // ***** Checks the ROM validity *****
         if(romfile.size() == 0x2000000) {
             romfile.seek(0x00);
-            read>>magic[0];
+            read>>header_PI_settings;
             romfile.seek(0x04);
-            read>>magic[1];
+            read>>header_clockrate;
             romfile.seek(0x08);
-            read>>magic[2];
+            read>>header_boot_address;
             romfile.seek(0x0C);
-            read>>magic[3];
+            read>>header_release;
             romfile.seek(0x10);
-            read>>magic[4];
+            read>>header_crc1;
             romfile.seek(0x14);
-            read>>magic[5];
+            read>>header_crc2;
+            romfile.seek(0x18);
+            read>>header_reserved1;
+            romfile.seek(0x1C);
+            read>>header_reserved2;
             romfile.seek(0x20);
-            read>>magic[6];
+            read>>header_name1;
             romfile.seek(0x24);
-            read>>magic[7];
+            read>>header_name2;
             romfile.seek(0x28);
-            read>>magic[8];
+            read>>header_name3;
             romfile.seek(0x2C);
-            read>>magic[9];
+            read>>header_name4;
             romfile.seek(0x30);
-            read>>magic[10];
-            romfile.seek(0x3B);
-            read>>magic[11];
-            romfile.seek(0x40);
-            read>>magic[12];
-            romfile.seek(0x44);
-            read>>magic[13];
+            read>>header_name5;
+            romfile.seek(0x34);
+            read>>header_reserved3;
+            romfile.seek(0x38);
+            read>>header_rom_format;
+            romfile.seek(0x3C);
+            read>>header_game_id;
+            romfile.seek(0x3E);
+            read>>header_region_code;
+            romfile.seek(0x3F);
+            read>>header_rom_version;
 
             // Checks ROM language and validity
             rom_check();
