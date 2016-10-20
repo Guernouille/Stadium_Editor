@@ -24,7 +24,24 @@ public:
 
     QString filename;
     romType romtype;
-    quint32 magic[14];
+    quint32 header_PI_settings;
+    quint32 header_clockrate;
+    quint32 header_boot_address;
+    quint32 header_release;
+    quint32 header_crc1;
+    quint32 header_crc2;
+    quint32 header_reserved1;
+    quint32 header_reserved2;
+    quint32 header_name1;
+    quint32 header_name2;
+    quint32 header_name3;
+    quint32 header_name4;
+    quint32 header_name5;
+    quint32 header_reserved3;
+    quint32 header_rom_format;
+    quint16 header_game_id;
+    quint8  header_region_code;
+    quint8  header_rom_version;
     QString img_path;
     QString widget_text;
     QString debug;
