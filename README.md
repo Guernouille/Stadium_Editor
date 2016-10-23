@@ -11,6 +11,8 @@ France / Germany / Spain versions support
 
 Randomizer: [FIX] Explosion ×2 (Can happen when a Pokémon learns Explosion and Selfdestruct)
 
-Base Stats and learnsets edition
+Learnsets edition
+
+Move data
 
 Script edition
