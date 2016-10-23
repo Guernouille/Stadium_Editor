@@ -599,6 +599,19 @@ private slots:
     void on_spinBox_Rental_PPUp3_6_valueChanged(int);
     void on_spinBox_Rental_PPUp4_6_valueChanged(int);
 
+    //edit pkm data
+    void on_comboBox_GrowthRate_currentIndexChanged(int);
+    void on_comboBox_Pokemon_Type_1_currentIndexChanged(int);
+    void on_comboBox_Pokemon_Type_2_currentIndexChanged(int);
+
+    void on_spinBox_BaseExperience_valueChanged(int);
+    void on_spinBox_CatchRate_valueChanged(int);
+    void on_spinBox_Base_HP_valueChanged(int);
+    void on_spinBox_Base_Attack_valueChanged(int);
+    void on_spinBox_Base_Defense_valueChanged(int);
+    void on_spinBox_Base_Special_valueChanged(int);
+    void on_spinBox_Base_Speed_valueChanged(int);
+
     // edit move data
     void on_spinBox_HighCH_multiplier_valueChanged(int);
 
