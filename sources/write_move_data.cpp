@@ -11,13 +11,13 @@ void MainWindow::write_move_data(QFile &romfile){
         write<<move_iid[i];
         write<<move_effect[i];
         write<<move_power[i];
-        write<<move_type[i];
-        write<<move_accuracy[i];
-        write<<move_pp[i];
 
         if(move_type[i]>8) move_type[i] += 11;
         write<<move_type[i];
         if(move_type[i]>19) move_type[i] -= 11;
+
+        write<<move_accuracy[i];
+        write<<move_pp[i];
     }
 
     // ***** Write High CH moves *****
