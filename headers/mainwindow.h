@@ -613,7 +613,17 @@ private slots:
     void on_spinBox_Base_Speed_valueChanged(int);
 
     // edit move data
+    void on_comboBox_HighCH_MovesList_1_currentIndexChanged(int);
+    void on_comboBox_HighCH_MovesList_2_currentIndexChanged(int);
+    void on_comboBox_HighCH_MovesList_3_currentIndexChanged(int);
+    void on_comboBox_HighCH_MovesList_4_currentIndexChanged(int);
+    void on_comboBox_MoveEffect_currentIndexChanged(int);
+    void on_comboBox_MoveType_currentIndexChanged(int);
+
     void on_spinBox_HighCH_multiplier_valueChanged(int);
+    void on_spinBox_MoveAccuracy_valueChanged(int);
+    void on_spinBox_MovePower_valueChanged(int);
+    void on_spinBox_MovePP_valueChanged(int);
 
     // edit type data
     void on_comboBox_Type1_1_currentIndexChanged(int);
