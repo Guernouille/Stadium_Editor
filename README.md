@@ -13,6 +13,4 @@ Randomizer: [FIX] Explosion ×2 (Can happen when a Pokémon learns Explosion and
 
 Learnsets edition
 
-Move data
-
 Script edition
