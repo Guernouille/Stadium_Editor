@@ -51,7 +51,9 @@ SOURCES += main.cpp\
     initialize_trainers_names.cpp \
     initialize_iv_groups.cpp \
     autoconn_display_text.cpp \
-    autoconn_menu_info.cpp
+    autoconn_menu_info.cpp \
+    n64crc.cpp \
+    autoconn_edit_pkm_data.cpp
 
 HEADERS  += mainwindow.h \
     common.cpp \
