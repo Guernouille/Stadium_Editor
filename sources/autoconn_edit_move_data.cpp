@@ -3,13 +3,13 @@
 void MainWindow::on_comboBox_MoveEffect_currentIndexChanged(int) {
     if(not_in_init){
         buf8 = ui->comboBox_MovesList->currentIndex();
-        move_effect[buf8] = ui->comboBox_MoveEffect->currentIndex();
+        move_effect[buf8+1] = ui->comboBox_MoveEffect->currentIndex();
     }
 }
 void MainWindow::on_comboBox_MoveType_currentIndexChanged(int) {
     if(not_in_init){
         buf8 = ui->comboBox_MovesList->currentIndex();
-        move_type[buf8] = ui->comboBox_MoveType->currentIndex();
+        move_type[buf8+1] = ui->comboBox_MoveType->currentIndex();
     }
 }
 
@@ -46,18 +46,18 @@ void MainWindow::on_spinBox_HighCH_multiplier_valueChanged(int) {
 void MainWindow::on_spinBox_MovePower_valueChanged(int) {
     if(not_in_init){
         buf8 = ui->comboBox_MovesList->currentIndex();
-        move_power[buf8] = ui->spinBox_MovePower->value();
+        move_power[buf8+1] = ui->spinBox_MovePower->value();
     }
 }
 void MainWindow::on_spinBox_MoveAccuracy_valueChanged(int) {
     if(not_in_init){
         buf8 = ui->comboBox_MovesList->currentIndex();
-        move_accuracy[buf8] = ui->spinBox_MoveAccuracy->value();
+        move_accuracy[buf8+1] = ui->spinBox_MoveAccuracy->value();
     }
 }
 void MainWindow::on_spinBox_MovePP_valueChanged(int) {
     if(not_in_init){
         buf8 = ui->comboBox_MovesList->currentIndex();
-        move_pp[buf8] = ui->spinBox_MovePP->value();
+        move_pp[buf8+1] = ui->spinBox_MovePP->value();
     }
 }
