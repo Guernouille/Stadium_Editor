@@ -19,6 +19,7 @@ void MainWindow::display_experience_max() {
 }
 
 void MainWindow::display_pkm_data(quint8 pkm_id) {
+    not_in_init=false;
     ui->lineEdit_Pokemon_Specie->setText(pkm_name[pkm_id]);
     ui->spinBox_PokemonSpecie_Pointer->setValue(pkm_name_pointer[pkm_id]);
 
@@ -104,5 +105,5 @@ void MainWindow::display_pkm_data(quint8 pkm_id) {
 
     ui->textEdit_PokedexEntry->setText(pokedex_entry[pkm_id]);
     ui->spinBox_Pokedex_Pointer->setValue(pokedex_entry_pointer[pkm_id]);
-
+    not_in_init=true;
 }
