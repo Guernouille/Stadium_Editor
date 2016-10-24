@@ -21,7 +21,7 @@ void MainWindow::write_move_data(QFile &romfile){
     }
 
     // ***** Write High CH moves *****
-    rom_offset = 0x37570C + i;
+    rom_offset = 0x37570C;
     romfile.seek(rom_offset);
 
     write<<move_high_ch[0];
