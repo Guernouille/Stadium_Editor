@@ -21,7 +21,6 @@
 #define CHECKSUM_CIC6106 0x1FEA617A
 
 unsigned int crc_table[256];
-unsigned int crc, poly, seed;
 unsigned int t1, t2, t3, t4, t5, t6;
 unsigned int r, d;
 unsigned short cic;
@@ -48,7 +47,8 @@ void MainWindow::n64crc(QFile &romfile)
         crc = (crc >> 8) ^ crc_table[(crc ^ buf8) & 0xFF];
     }
 
-    switch (~crc) {
+    crc = ~crc;
+    switch (crc) {
         case 0x6170A4A1:
             cic = 6101;
             break;
@@ -95,7 +95,7 @@ void MainWindow::n64crc(QFile &romfile)
         unsigned int i = CHECKSUM_START;
 
         while(i < (CHECKSUM_START + CHECKSUM_LENGTH)) {
-            romfile.seek(CHECKSUM_START + i);
+            romfile.seek(i);
             read>>d;
             if ((t6 + d) < t6) t4++;
             t6 += d;
