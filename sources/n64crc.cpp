@@ -91,38 +91,40 @@ void MainWindow::n64crc(QFile &romfile)
     }
     t1 = t2 = t3 = t4 = t5 = t6 = seed;
 
-    short i = CHECKSUM_START;
+    if(seed != 0){
+        short i = CHECKSUM_START;
 
-    while(i < (CHECKSUM_START + CHECKSUM_LENGTH)) {
-        romfile.seek(CHECKSUM_START + i);
-        read>>d;
-        if ((t6 + d) < t6) t4++;
-        t6 += d;
-        t3 ^= d;
-        r = ROL(d, (d & 0x1F));
-        t5 += r;
-        if (t2 > d) t2 ^= r;
-        else t2 ^= t6 ^ d;
+        while(i < (CHECKSUM_START + CHECKSUM_LENGTH)) {
+            romfile.seek(CHECKSUM_START + i);
+            read>>d;
+            if ((t6 + d) < t6) t4++;
+            t6 += d;
+            t3 ^= d;
+            r = ROL(d, (d & 0x1F));
+            t5 += r;
+            if (t2 > d) t2 ^= r;
+            else t2 ^= t6 ^ d;
 
-        if (cic == 6105) {
-            romfile.seek(N64_HEADER_SIZE + 0x710 + (i & 0xFF));
-            read>>buf32;
-            t1 += buf32 ^ d;
+            if (cic == 6105) {
+                romfile.seek(N64_HEADER_SIZE + 0x710 + (i & 0xFF));
+                read>>buf32;
+                t1 += buf32 ^ d;
+            }
+            else t1 += t5 ^ d;
+
+            i += 4;
         }
-        else t1 += t5 ^ d;
-
-        i += 4;
-    }
-    if (cic == 6103) {
-        header_crc1 = (t6 ^ t4) + t3;
-        header_crc2 = (t5 ^ t2) + t1;
-    }
-    else if (cic == 6106) {
-        header_crc1 = (t6 * t4) + t3;
-        header_crc2 = (t5 * t2) + t1;
-    }
-    else {
-        header_crc1 = t6 ^ t4 ^ t3;
-        header_crc2 = t5 ^ t2 ^ t1;
+        if (cic == 6103) {
+            header_crc1 = (t6 ^ t4) + t3;
+            header_crc2 = (t5 ^ t2) + t1;
+        }
+        else if (cic == 6106) {
+            header_crc1 = (t6 * t4) + t3;
+            header_crc2 = (t5 * t2) + t1;
+        }
+        else {
+            header_crc1 = t6 ^ t4 ^ t3;
+            header_crc2 = t5 ^ t2 ^ t1;
+        }
     }
 }
