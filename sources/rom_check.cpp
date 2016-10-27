@@ -4,17 +4,17 @@
 void MainWindow::rom_check()
 {
     if(header_PI_settings   == 0x80371240 &&
-    header_clockrate    == 0x0000000F &&
-    header_boot_address == 0x80100400 &&
-    header_release      == 0x00001449 &&
-    header_reserved1    == 0 &&
-    header_reserved2    == 0 &&
-    header_name1        == 0x504F4B45 &&
-    header_name2        == 0x4D4F4E20 &&
-    header_name3        == 0x53544144 &&
-    header_name4        == 0x49554D20 &&
-    header_name5        == 0x20202020 &&
-    header_reserved3    == 0)
+        header_clockrate    == 0x0000000F &&
+        header_boot_address == 0x80100400 &&
+        header_release      == 0x00001449 &&
+        header_reserved1    == 0 &&
+        header_reserved2    == 0 &&
+        header_name1        == 0x504F4B45 &&
+        header_name2        == 0x4D4F4E20 &&
+        header_name3        == 0x53544144 &&
+        header_name4        == 0x49554D20 &&
+        header_name5        == 0x20202020 &&
+        header_reserved3    == 0)
     {
         if(header_rom_format == 0x4E && header_game_id == 0x504F){
             if(header_region_code == 0x44){
@@ -122,7 +122,7 @@ void MainWindow::rom_check()
                     ui->label_rom_debug->setText("Japanese ROM");
                 }
                 else if((header_crc1 == 0xFE667A12 && header_crc2 == 0x0D2195AD) ||
-                    (header_crc1 == 0x058381EF && header_crc2 == 0x6A36FEC6)){
+                        (header_crc1 == 0x058381EF && header_crc2 == 0x6A36FEC6)){
                     ui->label_rom_debug->setText("Fixed Japanese ROM");
                 }
                 else{
