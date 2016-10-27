@@ -110,7 +110,7 @@ public:
     quint16 cpu_pkm_stat_def[256][6];
     quint16 cpu_pkm_stat_spc[256][6];
     quint16 cpu_pkm_stat_speed[256][6];
-    quint16 cpu_stat_exp_min = 30000;
+    quint16 cpu_stat_exp_min = 25600;
     quint16 cpu_stat_exp_max = 65535;
 
     quint32 experience_calc;
@@ -237,8 +237,8 @@ public:
     quint16 rental_pkm_stat_def[1024];
     quint16 rental_pkm_stat_spc[1024];
     quint16 rental_pkm_stat_speed[1024];
-    quint16 rental_stat_exp_min = 25600;
-    quint16 rental_stat_exp_max = 65000;
+    quint16 rental_stat_exp_min = 16000;
+    quint16 rental_stat_exp_max = 64500;
 
     QSpinBox *spinBox_PRNG_Seed_1;
     QSpinBox *spinBox_PRNG_Seed_2;
@@ -266,6 +266,9 @@ private:
     void initialize_widgets();
     void set_widgets();
 
+    // N64 CRC fix
+    void n64crc(QFile &romfile);
+
     // randomizer
     void randomize_cpu_init_pkmn();
     void randomize_cpu_iv_stat_exp(std::mt19937 &mt_rand);
@@ -292,6 +295,8 @@ private slots:
 
     // romfile
     void write_cpu_rentals(QFile &romfile);
+    void write_move_data(QFile &romfile);
+    void write_n64crc(QFile &romfile);
     void write_pkm_data(QFile &romfile);
     void write_type_chart(QFile &romfile);
 
