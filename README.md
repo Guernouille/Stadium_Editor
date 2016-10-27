@@ -7,8 +7,8 @@ TO DO:
 
 France / Germany / Spain versions support
 
-Randomizer: [FIX] Explosion ×2 (Can happen when a Pokémon learns Explosion and Selfdestruct)
-
 Learnsets edition
 
 Script edition
+
+Randomizer: [FIX] Explosion ×2 (Can happen when a Pokémon learns Explosion and Selfdestruct)
