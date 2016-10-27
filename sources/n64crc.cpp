@@ -92,7 +92,7 @@ void MainWindow::n64crc(QFile &romfile)
     t1 = t2 = t3 = t4 = t5 = t6 = seed;
 
     if(seed != 0){
-        short i = CHECKSUM_START;
+        unsigned int i = CHECKSUM_START;
 
         while(i < (CHECKSUM_START + CHECKSUM_LENGTH)) {
             romfile.seek(CHECKSUM_START + i);
