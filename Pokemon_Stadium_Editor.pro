@@ -52,8 +52,10 @@ SOURCES += main.cpp\
     initialize_iv_groups.cpp \
     autoconn_display_text.cpp \
     autoconn_menu_info.cpp \
+    autoconn_edit_pkm_data.cpp \
+    write_move_data.cpp \
     n64crc.cpp \
-    autoconn_edit_pkm_data.cpp
+    write_n64crc.cpp
 
 HEADERS  += mainwindow.h \
     common.cpp \
