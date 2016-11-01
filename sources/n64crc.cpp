@@ -1,5 +1,4 @@
-/*
- * N64 cartridge header CRC fix
+/* N64 cartridge header CRC fix
  * Adapted from n64crc.c, available on n64dev.org
  *
  * Original version is (C) 2005 Parasyte, GNU General Public License
@@ -20,21 +19,16 @@
 #define CHECKSUM_CIC6105 0xDF26F436
 #define CHECKSUM_CIC6106 0x1FEA617A
 
-unsigned int crc_table[256];
-unsigned int t1, t2, t3, t4, t5, t6;
-unsigned int r, d;
-unsigned short cic;
-
 void MainWindow::n64crc(QFile &romfile)
 {
     QDataStream read(&romfile);
 
     poly = 0xEDB88320;
 
-    for (short i=0; i<256; i++) {
+    for(short i=0; i<256; i++) {
         crc = i;
-        for (short j=8; j>0; j--) {
-            if (crc & 1) crc = (crc >> 1) ^ poly;
+        for(short j=8; j>0; j--) {
+            if(crc & 1) crc = (crc >> 1) ^ poly;
             else crc >>= 1;
         }
         crc_table[i] = crc;
@@ -48,7 +42,7 @@ void MainWindow::n64crc(QFile &romfile)
     }
 
     crc = ~crc;
-    switch (crc) {
+    switch(crc) {
         case 0x6170A4A1:
             cic = 6101;
             break;
@@ -114,15 +108,15 @@ void MainWindow::n64crc(QFile &romfile)
 
             i += 4;
         }
-        if (cic == 6103) {
+        if(cic == 6103) {
             header_crc1 = (t6 ^ t4) + t3;
             header_crc2 = (t5 ^ t2) + t1;
         }
-        else if (cic == 6106) {
+        else if(cic == 6106) {
             header_crc1 = (t6 * t4) + t3;
             header_crc2 = (t5 * t2) + t1;
         }
-        else {
+        else{
             header_crc1 = t6 ^ t4 ^ t3;
             header_crc2 = t5 ^ t2 ^ t1;
         }
