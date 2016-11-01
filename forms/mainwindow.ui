@@ -1507,7 +1507,7 @@
        <set>Qt::AlignCenter</set>
       </property>
      </widget>
-     <widget class="QLabel" name="label">
+     <widget class="QLabel" name="label_rev">
       <property name="geometry">
        <rect>
         <x>5</x>
@@ -1517,7 +1517,7 @@
        </rect>
       </property>
       <property name="text">
-       <string>v 0.11</string>
+       <string>v 0.2</string>
       </property>
      </widget>
     </widget>
@@ -7466,6 +7466,9 @@
        </property>
       </widget>
       <widget class="QSpinBox" name="spinBox_PokemonSpecie_Pointer">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
        <property name="geometry">
         <rect>
          <x>51</x>
@@ -7588,6 +7591,9 @@
        </property>
       </widget>
       <widget class="QTextEdit" name="textEdit_PokedexEntry">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
        <property name="geometry">
         <rect>
          <x>177</x>
@@ -7623,6 +7629,9 @@ p, li { white-space: pre-wrap; }
        </property>
       </widget>
       <widget class="QSpinBox" name="spinBox_Pokedex_Pointer">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
        <property name="geometry">
         <rect>
          <x>572</x>
@@ -7736,6 +7745,9 @@ p, li { white-space: pre-wrap; }
        </property>
       </widget>
       <widget class="QSpinBox" name="spinBox_MoveName_Pointer">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
        <property name="geometry">
         <rect>
          <x>58</x>
@@ -8278,6 +8290,9 @@ p, li { white-space: pre-wrap; }
        </property>
       </widget>
       <widget class="QTextEdit" name="textEdit_MoveDescrText">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
        <property name="geometry">
         <rect>
          <x>225</x>
@@ -8592,7 +8607,7 @@ p, li { white-space: pre-wrap; }
        <rect>
         <x>4</x>
         <y>435</y>
-        <width>539</width>
+        <width>563</width>
         <height>71</height>
        </rect>
       </property>
@@ -8602,7 +8617,7 @@ p, li { white-space: pre-wrap; }
       <widget class="QComboBox" name="comboBox_CH_formula_BaseStat">
        <property name="geometry">
         <rect>
-         <x>94</x>
+         <x>95</x>
          <y>15</y>
          <width>95</width>
          <height>22</height>
@@ -8637,27 +8652,19 @@ p, li { white-space: pre-wrap; }
         </property>
        </item>
       </widget>
-      <widget class="QLabel" name="label_CH_formula_add">
-       <property name="geometry">
-        <rect>
-         <x>190</x>
-         <y>20</y>
-         <width>13</width>
-         <height>13</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>+</string>
-       </property>
-      </widget>
       <widget class="QLabel" name="label_CH_formula_parenth_1">
        <property name="geometry">
         <rect>
-         <x>88</x>
-         <y>20</y>
+         <x>90</x>
+         <y>19</y>
          <width>8</width>
-         <height>13</height>
+         <height>15</height>
         </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
        </property>
        <property name="text">
         <string>(</string>
@@ -8666,7 +8673,7 @@ p, li { white-space: pre-wrap; }
       <widget class="QSpinBox" name="spinBox_CH_formula_add">
        <property name="geometry">
         <rect>
-         <x>200</x>
+         <x>205</x>
          <y>15</y>
          <width>42</width>
          <height>22</height>
@@ -8682,11 +8689,16 @@ p, li { white-space: pre-wrap; }
       <widget class="QLabel" name="label_CH_formula_parenth_2">
        <property name="geometry">
         <rect>
-         <x>242</x>
-         <y>20</y>
+         <x>248</x>
+         <y>19</y>
          <width>8</width>
-         <height>13</height>
+         <height>15</height>
         </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
        </property>
        <property name="text">
         <string>)</string>
@@ -8695,30 +8707,30 @@ p, li { white-space: pre-wrap; }
       <widget class="QComboBox" name="comboBox_CH_formula_shift_1">
        <property name="geometry">
         <rect>
-         <x>250</x>
+         <x>260</x>
          <y>15</y>
          <width>40</width>
          <height>22</height>
         </rect>
        </property>
        <property name="currentIndex">
-        <number>0</number>
+        <number>1</number>
        </property>
        <item>
         <property name="text">
-         <string>&gt;&gt;</string>
+         <string>&lt;&lt;</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>&lt;&lt;</string>
+         <string>&gt;&gt;</string>
         </property>
        </item>
       </widget>
       <widget class="QSpinBox" name="spinBox_CH_formula_shiftvalue_1">
        <property name="geometry">
         <rect>
-         <x>295</x>
+         <x>305</x>
          <y>15</y>
          <width>30</width>
          <height>22</height>
@@ -8734,30 +8746,30 @@ p, li { white-space: pre-wrap; }
       <widget class="QComboBox" name="comboBox_CH_formula_shift_2">
        <property name="geometry">
         <rect>
-         <x>330</x>
+         <x>340</x>
          <y>15</y>
          <width>40</width>
          <height>22</height>
         </rect>
        </property>
        <property name="currentIndex">
-        <number>1</number>
+        <number>0</number>
        </property>
        <item>
         <property name="text">
-         <string>&gt;&gt;</string>
+         <string>&lt;&lt;</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>&lt;&lt;</string>
+         <string>&gt;&gt;</string>
         </property>
        </item>
       </widget>
       <widget class="QSpinBox" name="spinBox_CH_formula_shiftvalue_2">
        <property name="geometry">
         <rect>
-         <x>375</x>
+         <x>385</x>
          <y>15</y>
          <width>30</width>
          <height>22</height>
@@ -8773,7 +8785,7 @@ p, li { white-space: pre-wrap; }
       <widget class="QSpinBox" name="spinBox_CH_formula_shiftvalue_3">
        <property name="geometry">
         <rect>
-         <x>505</x>
+         <x>525</x>
          <y>15</y>
          <width>30</width>
          <height>22</height>
@@ -8789,30 +8801,30 @@ p, li { white-space: pre-wrap; }
       <widget class="QComboBox" name="comboBox_CH_formula_shift_3">
        <property name="geometry">
         <rect>
-         <x>460</x>
+         <x>479</x>
          <y>15</y>
          <width>40</width>
          <height>22</height>
         </rect>
        </property>
        <property name="currentIndex">
-        <number>0</number>
+        <number>1</number>
        </property>
        <item>
         <property name="text">
-         <string>&gt;&gt;</string>
+         <string>&lt;&lt;</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>&lt;&lt;</string>
+         <string>&gt;&gt;</string>
         </property>
        </item>
       </widget>
       <widget class="QLabel" name="label_FE_CH_formula">
        <property name="geometry">
         <rect>
-         <x>8</x>
+         <x>9</x>
          <y>45</y>
          <width>70</width>
          <height>13</height>
@@ -8825,7 +8837,7 @@ p, li { white-space: pre-wrap; }
       <widget class="QLabel" name="label_CH_formula">
        <property name="geometry">
         <rect>
-         <x>8</x>
+         <x>9</x>
          <y>20</y>
          <width>80</width>
          <height>13</height>
@@ -8838,11 +8850,16 @@ p, li { white-space: pre-wrap; }
       <widget class="QLabel" name="label_CH_formula_parenth_3">
        <property name="geometry">
         <rect>
-         <x>88</x>
-         <y>45</y>
+         <x>90</x>
+         <y>44</y>
          <width>8</width>
-         <height>13</height>
+         <height>15</height>
         </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
        </property>
        <property name="text">
         <string>(</string>
@@ -8854,7 +8871,7 @@ p, li { white-space: pre-wrap; }
        </property>
        <property name="geometry">
         <rect>
-         <x>295</x>
+         <x>305</x>
          <y>40</y>
          <width>30</width>
          <height>22</height>
@@ -8873,34 +8890,39 @@ p, li { white-space: pre-wrap; }
        </property>
        <property name="geometry">
         <rect>
-         <x>250</x>
+         <x>260</x>
          <y>40</y>
          <width>40</width>
          <height>22</height>
         </rect>
        </property>
        <property name="currentIndex">
-        <number>0</number>
+        <number>1</number>
        </property>
        <item>
         <property name="text">
-         <string>&gt;&gt;</string>
+         <string>&lt;&lt;</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>&lt;&lt;</string>
+         <string>&gt;&gt;</string>
         </property>
        </item>
       </widget>
       <widget class="QLabel" name="label_CH_formula_parenth_4">
        <property name="geometry">
         <rect>
-         <x>242</x>
-         <y>45</y>
+         <x>248</x>
+         <y>44</y>
          <width>8</width>
-         <height>13</height>
+         <height>15</height>
         </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
        </property>
        <property name="text">
         <string>)</string>
@@ -8912,7 +8934,7 @@ p, li { white-space: pre-wrap; }
        </property>
        <property name="geometry">
         <rect>
-         <x>94</x>
+         <x>95</x>
          <y>40</y>
          <width>95</width>
          <height>22</height>
@@ -8947,26 +8969,13 @@ p, li { white-space: pre-wrap; }
         </property>
        </item>
       </widget>
-      <widget class="QLabel" name="label_FE_CH_formula_add_1">
-       <property name="geometry">
-        <rect>
-         <x>190</x>
-         <y>45</y>
-         <width>13</width>
-         <height>13</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>+</string>
-       </property>
-      </widget>
       <widget class="QSpinBox" name="spinBox_FE_CH_formula_add_1">
        <property name="enabled">
         <bool>false</bool>
        </property>
        <property name="geometry">
         <rect>
-         <x>200</x>
+         <x>205</x>
          <y>40</y>
          <width>42</width>
          <height>22</height>
@@ -8980,38 +8989,32 @@ p, li { white-space: pre-wrap; }
        </property>
       </widget>
       <widget class="QComboBox" name="comboBox_FE_CH_formula_shift_2">
-       <property name="enabled">
-        <bool>false</bool>
-       </property>
        <property name="geometry">
         <rect>
-         <x>330</x>
+         <x>340</x>
          <y>40</y>
          <width>40</width>
          <height>22</height>
         </rect>
        </property>
        <property name="currentIndex">
-        <number>1</number>
+        <number>0</number>
        </property>
-       <item>
-        <property name="text">
-         <string>&gt;&gt;</string>
-        </property>
-       </item>
        <item>
         <property name="text">
          <string>&lt;&lt;</string>
         </property>
        </item>
+       <item>
+        <property name="text">
+         <string>&gt;&gt;</string>
+        </property>
+       </item>
       </widget>
       <widget class="QSpinBox" name="spinBox_FE_CH_formula_shiftvalue_2">
-       <property name="enabled">
-        <bool>false</bool>
-       </property>
        <property name="geometry">
         <rect>
-         <x>375</x>
+         <x>385</x>
          <y>40</y>
          <width>30</width>
          <height>22</height>
@@ -9024,26 +9027,10 @@ p, li { white-space: pre-wrap; }
         <number>2</number>
        </property>
       </widget>
-      <widget class="QLabel" name="label_FE_CH_formula_add_2">
-       <property name="geometry">
-        <rect>
-         <x>405</x>
-         <y>45</y>
-         <width>13</width>
-         <height>13</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>+</string>
-       </property>
-      </widget>
       <widget class="QSpinBox" name="spinBox_FE_CH_formula_add_2">
-       <property name="enabled">
-        <bool>false</bool>
-       </property>
        <property name="geometry">
         <rect>
-         <x>415</x>
+         <x>431</x>
          <y>40</y>
          <width>42</width>
          <height>22</height>
@@ -9062,23 +9049,23 @@ p, li { white-space: pre-wrap; }
        </property>
        <property name="geometry">
         <rect>
-         <x>460</x>
+         <x>479</x>
          <y>40</y>
          <width>40</width>
          <height>22</height>
         </rect>
        </property>
        <property name="currentIndex">
-        <number>0</number>
+        <number>1</number>
        </property>
        <item>
         <property name="text">
-         <string>&gt;&gt;</string>
+         <string>&lt;&lt;</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>&lt;&lt;</string>
+         <string>&gt;&gt;</string>
         </property>
        </item>
       </widget>
@@ -9088,7 +9075,7 @@ p, li { white-space: pre-wrap; }
        </property>
        <property name="geometry">
         <rect>
-         <x>505</x>
+         <x>525</x>
          <y>40</y>
          <width>30</width>
          <height>22</height>
@@ -9101,13 +9088,67 @@ p, li { white-space: pre-wrap; }
         <number>1</number>
        </property>
       </widget>
+      <widget class="QLabel" name="label_CH_formula_add">
+       <property name="geometry">
+        <rect>
+         <x>192</x>
+         <y>20</y>
+         <width>15</width>
+         <height>14</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>+</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_CH_FE_formula_add_1">
+       <property name="geometry">
+        <rect>
+         <x>192</x>
+         <y>45</y>
+         <width>15</width>
+         <height>14</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>+</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_CH_FE_formula_add_2">
+       <property name="geometry">
+        <rect>
+         <x>418</x>
+         <y>45</y>
+         <width>15</width>
+         <height>14</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>+</string>
+       </property>
+      </widget>
      </widget>
      <widget class="QGroupBox" name="groupBox_DamageVariance">
       <property name="geometry">
        <rect>
-        <x>547</x>
+        <x>588</x>
         <y>435</y>
-        <width>120</width>
+        <width>115</width>
         <height>49</height>
        </rect>
       </property>
@@ -9117,7 +9158,7 @@ p, li { white-space: pre-wrap; }
       <widget class="QSpinBox" name="spinBox_DamageVariance_1">
        <property name="geometry">
         <rect>
-         <x>10</x>
+         <x>7</x>
          <y>19</y>
          <width>42</width>
          <height>22</height>
@@ -9136,7 +9177,7 @@ p, li { white-space: pre-wrap; }
        </property>
        <property name="geometry">
         <rect>
-         <x>70</x>
+         <x>67</x>
          <y>19</y>
          <width>42</width>
          <height>22</height>
@@ -9152,7 +9193,7 @@ p, li { white-space: pre-wrap; }
       <widget class="QLabel" name="label_DamageVariance">
        <property name="geometry">
         <rect>
-         <x>55</x>
+         <x>52</x>
          <y>24</y>
          <width>17</width>
          <height>13</height>
@@ -9162,24 +9203,6 @@ p, li { white-space: pre-wrap; }
         <string>to</string>
        </property>
       </widget>
-     </widget>
-     <widget class="QLabel" name="label_temp_message_1">
-      <property name="geometry">
-       <rect>
-        <x>190</x>
-        <y>530</y>
-        <width>300</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>13</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>This will be editable in the next version.</string>
-      </property>
      </widget>
     </widget>
     <widget class="QWidget" name="tab_Type_Chart">
@@ -13672,12 +13695,12 @@ p, li { white-space: pre-wrap; }
    <slot>setCurrentIndex(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>488</x>
-     <y>506</y>
+     <x>533</x>
+     <y>517</y>
     </hint>
     <hint type="destinationlabel">
-     <x>488</x>
-     <y>531</y>
+     <x>533</x>
+     <y>542</y>
     </hint>
    </hints>
   </connection>
@@ -13688,12 +13711,12 @@ p, li { white-space: pre-wrap; }
    <slot>setValue(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>528</x>
-     <y>506</y>
+     <x>573</x>
+     <y>517</y>
     </hint>
     <hint type="destinationlabel">
-     <x>528</x>
-     <y>531</y>
+     <x>573</x>
+     <y>542</y>
     </hint>
    </hints>
   </connection>
