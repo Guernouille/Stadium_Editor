@@ -46,6 +46,11 @@ public:
     QString widget_text;
     QString debug;
     bool not_in_init = true;
+    unsigned int crc, poly, seed = 0;
+    unsigned int crc_table[256] = {0};
+    unsigned int t1, t2, t3, t4, t5, t6 = 0;
+    unsigned int r, d = 0;
+    unsigned short cic = 0;
 
     quint8  buf8;
     quint16 buf16;
@@ -61,6 +66,13 @@ public:
     quint8 total_pkm_name;
     quint8 total_pokedex_entry;
     quint8 total_type_name;
+
+    quint8 ch_fe_formula_add = 160;
+    quint8 ch_fe_formula_shift = 0;
+    quint8 ch_fe_formula_shiftvalue = 0;
+    quint8 ch_formula_add = 76;
+    quint8 ch_formula_shift[3] = {0};
+    quint8 ch_formula_shiftvalue[3] = {0};
 
     quint16 current_rentals_number;
     quint8 current_rentals_cup;
@@ -294,6 +306,7 @@ private slots:
     void on_actionPika_triggered();
 
     // romfile
+    void write_ch_formula(QFile &romfile);
     void write_cpu_rentals(QFile &romfile);
     void write_move_data(QFile &romfile);
     void write_n64crc(QFile &romfile);
@@ -625,6 +638,15 @@ private slots:
     void on_comboBox_MoveEffect_currentIndexChanged(int);
     void on_comboBox_MoveType_currentIndexChanged(int);
 
+    void on_comboBox_FE_CH_formula_shift_2_currentIndexChanged(int);
+    void on_spinBox_FE_CH_formula_add_2_valueChanged(int);
+    void on_comboBox_CH_formula_shift_1_currentIndexChanged(int);
+    void on_comboBox_CH_formula_shift_2_currentIndexChanged(int);
+    void on_comboBox_CH_formula_shift_3_currentIndexChanged(int);
+    void on_spinBox_CH_formula_add_valueChanged(int);
+    void on_spinBox_CH_formula_shiftvalue_1_valueChanged(int);
+    void on_spinBox_CH_formula_shiftvalue_2_valueChanged(int);
+    void on_spinBox_CH_formula_shiftvalue_3_valueChanged(int);
     void on_spinBox_HighCH_multiplier_valueChanged(int);
     void on_spinBox_MoveAccuracy_valueChanged(int);
     void on_spinBox_MovePower_valueChanged(int);
@@ -890,6 +912,7 @@ private slots:
     void display_pkm_data(quint8 pkm_id);
     void display_rental_pkmn(quint16 rental_pkm_offset);
     void display_type_chart();
+    void read_ch_formula(QFile &romfile);
     void read_cpu_rentals(QFile &romfile);
     void read_experience_data(QFile &romfile);
     void read_move_data(QFile &romfile);
