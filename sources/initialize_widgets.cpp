@@ -273,9 +273,14 @@ void MainWindow::initialize_widgets()
     ui->textEdit_PokedexEntry->clear();
     ui->spinBox_Pokedex_Pointer->setValue(0);
 
+    ui->spinBox_CH_formula_add->setValue(76);
+    ui->spinBox_FE_CH_formula_add_1->setValue(76);
+    ui->spinBox_FE_CH_formula_add_2->setValue(160);
+
+    ui->spinBox_Status_Paralysis_probability->setValue(63);
+
     ui->textEdit_MoveTMHMText->clear();
     ui->textEdit_MoveDescrText->clear();
-
 
 
     // If the ROM is valid, populate the widgets
@@ -616,10 +621,8 @@ void MainWindow::initialize_widgets()
         ui->comboBox_MoveType->setCurrentIndex(move_type[1]);
 
 
-
         /* Rental data */
         ui->comboBox_Rental_Page->clear();
-
 
 
         // Pokémon data
@@ -644,7 +647,6 @@ void MainWindow::initialize_widgets()
         ui->tableWidget_StartingMoves->setItem(1,0,new QTableWidgetItem(move_name[pkm_start_move_2[1]]));
         ui->tableWidget_StartingMoves->setItem(2,0,new QTableWidgetItem(move_name[pkm_start_move_3[1]]));
         ui->tableWidget_StartingMoves->setItem(3,0,new QTableWidgetItem(move_name[pkm_start_move_4[1]]));
-
 
 
         ui->tableWidget_MoveLevel_RB->setRowCount(10);
@@ -724,6 +726,13 @@ void MainWindow::initialize_widgets()
         ui->comboBox_HighCH_MovesList_3->setCurrentIndex(move_high_ch[2]);
         ui->comboBox_HighCH_MovesList_4->setCurrentIndex(move_high_ch[3]);
 
+        // Critical Hit formula
+        ui->spinBox_CH_formula_add->setValue(ch_formula_add);
+        ui->spinBox_FE_CH_formula_add_1->setValue(ch_formula_add);
+        ui->spinBox_FE_CH_formula_add_2->setValue(ch_fe_formula_add);
+
+        //Battle Mechanics
+        ui->spinBox_Status_Paralysis_probability->setValue(odds_paralysis);
 
         // Misc data
         for (short i=0;i<6;i++){
