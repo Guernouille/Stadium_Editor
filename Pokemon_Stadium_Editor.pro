@@ -55,7 +55,13 @@ SOURCES += main.cpp\
     autoconn_edit_pkm_data.cpp \
     write_move_data.cpp \
     n64crc.cpp \
-    write_n64crc.cpp
+    write_n64crc.cpp \
+    autoconn_edit_ch_formula.cpp \
+    write_ch_formula.cpp \
+    read_ch_formula.cpp \
+    read_battle_mechanics.cpp \
+    write_battle_mechanics.cpp \
+    autoconn_edit_battle_mechanics.cpp
 
 HEADERS  += mainwindow.h \
     common.cpp \
