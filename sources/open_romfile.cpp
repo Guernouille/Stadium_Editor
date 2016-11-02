@@ -62,6 +62,10 @@ void MainWindow::on_actionOpen_triggered() {
                 initialize_min_levels();
                 initialize_iv_statexp_groups();
 
+                // Formulas
+                read_ch_formula(romfile);
+                read_odds_paralysis(romfile);
+
                 // Pokémon names
                 read_pkm_names(romfile);
                 initialize_nicknames();
