@@ -162,6 +162,8 @@ public:
     std::vector<quint8> moves_ids_vector;
     std::vector<quint8> strong_moves_ids_vector;
 
+    quint8 odds_paralysis = 63;
+
     QString pkm_name[256];
     quint16 pkm_name_pointer[256];
     quint8 pkm_base_hp[256];
@@ -310,6 +312,7 @@ private slots:
     void write_cpu_rentals(QFile &romfile);
     void write_move_data(QFile &romfile);
     void write_n64crc(QFile &romfile);
+    void write_odds_paralysis(QFile &romfile);
     void write_pkm_data(QFile &romfile);
     void write_type_chart(QFile &romfile);
 
@@ -652,6 +655,9 @@ private slots:
     void on_spinBox_MovePower_valueChanged(int);
     void on_spinBox_MovePP_valueChanged(int);
 
+    // edit battle mechanics
+    void on_spinBox_Status_Paralysis_probability_valueChanged(int);
+
     // edit type data
     void on_comboBox_Type1_1_currentIndexChanged(int);
     void on_comboBox_Type1_2_currentIndexChanged(int);
@@ -918,6 +924,7 @@ private slots:
     void read_move_data(QFile &romfile);
     void read_move_descriptions(QFile &romfile);
     void read_move_names(QFile &romfile);
+    void read_odds_paralysis(QFile &romfile);
     void read_pkm_data(QFile &romfile);
     void read_pkm_names(QFile &romfile);
     void read_pokedex_data(QFile &romfile);
