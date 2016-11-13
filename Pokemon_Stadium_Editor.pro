@@ -67,7 +67,8 @@ HEADERS  += mainwindow.h \
     common.cpp \
     hexqspinbox.h \
     rental_pkm.h \
-    type_chart.h
+    type_chart.h \
+    n64crc.h
 
 FORMS    += mainwindow.ui
 
