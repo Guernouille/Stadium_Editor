@@ -46,11 +46,6 @@ public:
     QString widget_text;
     QString debug;
     bool not_in_init = true;
-    unsigned int crc, poly, seed = 0;
-    unsigned int crc_table[256] = {0};
-    unsigned int t1, t2, t3, t4, t5, t6 = 0;
-    unsigned int r, d = 0;
-    unsigned short cic = 0;
 
     quint8  buf8;
     quint16 buf16;
@@ -66,6 +61,9 @@ public:
     quint8 total_pkm_name;
     quint8 total_pokedex_entry;
     quint8 total_type_name;
+
+    quint8 burn_shift = 1;
+    quint8 burn_shiftvalue = 1;
 
     quint8 ch_fe_formula_add = 160;
     quint8 ch_fe_formula_shift = 0;
@@ -125,6 +123,8 @@ public:
     quint16 cpu_stat_exp_min = 25600;
     quint16 cpu_stat_exp_max = 65535;
 
+    quint8 damage_variance_min = 217;
+
     quint32 experience_calc;
     quint32 experience_max[6];
     quint8 experience_param_1[6];
@@ -153,7 +153,8 @@ public:
     quint8 move_accuracy[256];
     quint8 move_pp[256];
     quint8 move_high_ch[4];
-    quint8 move_high_ch_multiplier;
+    quint8 move_high_ch_shift = 0;
+    quint8 move_high_ch_shiftvalue = 2;
     bool strong_move[256] = {false};
     bool useless_move[256] = {false};
     bool weak_move[256] = {false};
@@ -308,8 +309,11 @@ private slots:
     void on_actionPika_triggered();
 
     // romfile
+    void write_burn_shift(QFile &romfile);
     void write_ch_formula(QFile &romfile);
     void write_cpu_rentals(QFile &romfile);
+    void write_damage_variance(QFile &romfile);
+    void write_highCH_shift(QFile &romfile);
     void write_move_data(QFile &romfile);
     void write_n64crc(QFile &romfile);
     void write_odds_paralysis(QFile &romfile);
@@ -650,12 +654,15 @@ private slots:
     void on_spinBox_CH_formula_shiftvalue_1_valueChanged(int);
     void on_spinBox_CH_formula_shiftvalue_2_valueChanged(int);
     void on_spinBox_CH_formula_shiftvalue_3_valueChanged(int);
-    void on_spinBox_HighCH_multiplier_valueChanged(int);
+    void on_spinBox_HighCH_shiftvalue_valueChanged(int);
     void on_spinBox_MoveAccuracy_valueChanged(int);
     void on_spinBox_MovePower_valueChanged(int);
     void on_spinBox_MovePP_valueChanged(int);
 
     // edit battle mechanics
+    void on_comboBox_Status_Burn_shift_currentIndexChanged(int);
+    void on_spinBox_DamageVariance_1_valueChanged(int);
+    void on_spinBox_Status_Burn_shiftvalue_valueChanged(int);
     void on_spinBox_Status_Paralysis_probability_valueChanged(int);
 
     // edit type data
@@ -918,9 +925,12 @@ private slots:
     void display_pkm_data(quint8 pkm_id);
     void display_rental_pkmn(quint16 rental_pkm_offset);
     void display_type_chart();
+    void read_burn_shift(QFile &romfile);
     void read_ch_formula(QFile &romfile);
     void read_cpu_rentals(QFile &romfile);
+    void read_damage_variance(QFile &romfile);
     void read_experience_data(QFile &romfile);
+    void read_highCH_shift(QFile &romfile);
     void read_move_data(QFile &romfile);
     void read_move_descriptions(QFile &romfile);
     void read_move_names(QFile &romfile);
