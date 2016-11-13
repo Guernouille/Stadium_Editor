@@ -79,7 +79,7 @@ void MainWindow::initialize_data()
 
     img_path="";
 
-    move_high_ch_multiplier=0;
+    move_high_ch_shiftvalue=0;
     move_tmhm_byte=0;
     move_tmhm_flag=0;
 
