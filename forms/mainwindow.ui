@@ -66,7 +66,7 @@
       <property name="geometry">
        <rect>
         <x>410</x>
-        <y>145</y>
+        <y>285</y>
         <width>175</width>
         <height>21</height>
        </rect>
@@ -733,7 +733,7 @@
       <property name="geometry">
        <rect>
         <x>587</x>
-        <y>88</y>
+        <y>228</y>
         <width>111</width>
         <height>185</height>
        </rect>
@@ -1278,7 +1278,7 @@
       <property name="geometry">
        <rect>
         <x>600</x>
-        <y>277</y>
+        <y>417</y>
         <width>91</width>
         <height>17</height>
        </rect>
@@ -1294,8 +1294,8 @@
       <property name="geometry">
        <rect>
         <x>415</x>
-        <y>1</y>
-        <width>281</width>
+        <y>140</y>
+        <width>291</width>
         <height>88</height>
        </rect>
       </property>
@@ -1321,7 +1321,7 @@
       <widget class="QCheckBox" name="checkBox_Ice_vs_Fire">
        <property name="geometry">
         <rect>
-         <x>150</x>
+         <x>160</x>
          <y>15</y>
          <width>108</width>
          <height>17</height>
@@ -1414,7 +1414,7 @@
       <widget class="QCheckBox" name="checkBox_Bug_vs_Poison">
        <property name="geometry">
         <rect>
-         <x>150</x>
+         <x>160</x>
          <y>35</y>
          <width>125</width>
          <height>17</height>
@@ -1429,7 +1429,7 @@
       <property name="geometry">
        <rect>
         <x>410</x>
-        <y>90</y>
+        <y>230</y>
         <width>175</width>
         <height>50</height>
        </rect>
@@ -1510,15 +1510,732 @@
      <widget class="QLabel" name="label_rev">
       <property name="geometry">
        <rect>
-        <x>5</x>
+        <x>675</x>
         <y>570</y>
-        <width>47</width>
+        <width>35</width>
         <height>13</height>
        </rect>
       </property>
       <property name="text">
        <string>v 0.2</string>
       </property>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_Randomizer_PkmnData">
+      <property name="geometry">
+       <rect>
+        <x>4</x>
+        <y>445</y>
+        <width>311</width>
+        <height>138</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Pokémon data</string>
+      </property>
+      <widget class="QCheckBox" name="checkBox_PkmnData">
+       <property name="geometry">
+        <rect>
+         <x>5</x>
+         <y>15</y>
+         <width>109</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Pokémon Data</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="checkBox_Randomize_PkmnData_BS">
+       <property name="geometry">
+        <rect>
+         <x>5</x>
+         <y>55</y>
+         <width>111</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string/>
+       </property>
+       <property name="text">
+        <string>Randomize Stats</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="checkBox_Randomize_PkmnData_Types">
+       <property name="geometry">
+        <rect>
+         <x>5</x>
+         <y>75</y>
+         <width>111</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string/>
+       </property>
+       <property name="text">
+        <string>Randomize Types</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="checkBox_Randomize_PkmnData_Moves">
+       <property name="geometry">
+        <rect>
+         <x>5</x>
+         <y>95</y>
+         <width>111</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string>Randomize the learnsets of every Pokémon.</string>
+       </property>
+       <property name="text">
+        <string>Randomize Moves</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QGroupBox" name="groupBox">
+       <property name="geometry">
+        <rect>
+         <x>122</x>
+         <y>6</y>
+         <width>185</width>
+         <height>128</height>
+        </rect>
+       </property>
+       <property name="title">
+        <string>Base Stat Total</string>
+       </property>
+       <widget class="QSpinBox" name="spinBox_BST_FullyEvolved">
+        <property name="geometry">
+         <rect>
+          <x>77</x>
+          <y>72</y>
+          <width>42</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="minimum">
+         <number>6</number>
+        </property>
+        <property name="maximum">
+         <number>1530</number>
+        </property>
+        <property name="value">
+         <number>520</number>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_BST_text_3">
+        <property name="geometry">
+         <rect>
+          <x>7</x>
+          <y>77</y>
+          <width>71</width>
+          <height>13</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Fully Evolved:</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_BST_text_2">
+        <property name="geometry">
+         <rect>
+          <x>7</x>
+          <y>49</y>
+          <width>71</width>
+          <height>13</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Stage 1:</string>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_BST_Stage1">
+        <property name="geometry">
+         <rect>
+          <x>77</x>
+          <y>44</y>
+          <width>42</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="minimum">
+         <number>6</number>
+        </property>
+        <property name="maximum">
+         <number>1530</number>
+        </property>
+        <property name="value">
+         <number>450</number>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_BST_text_1">
+        <property name="geometry">
+         <rect>
+          <x>7</x>
+          <y>21</y>
+          <width>71</width>
+          <height>13</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Basic:</string>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_BST_Basic">
+        <property name="geometry">
+         <rect>
+          <x>77</x>
+          <y>16</y>
+          <width>42</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="minimum">
+         <number>6</number>
+        </property>
+        <property name="maximum">
+         <number>1530</number>
+        </property>
+        <property name="value">
+         <number>350</number>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_BST_text_4">
+        <property name="geometry">
+         <rect>
+          <x>7</x>
+          <y>105</y>
+          <width>71</width>
+          <height>13</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Legendary:</string>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_BST_Legend">
+        <property name="geometry">
+         <rect>
+          <x>77</x>
+          <y>100</y>
+          <width>42</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="minimum">
+         <number>6</number>
+        </property>
+        <property name="maximum">
+         <number>1530</number>
+        </property>
+        <property name="value">
+         <number>670</number>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_BST_text_5">
+        <property name="geometry">
+         <rect>
+          <x>122</x>
+          <y>20</y>
+          <width>16</width>
+          <height>13</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>~</string>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_BST_Legend_2">
+        <property name="geometry">
+         <rect>
+          <x>137</x>
+          <y>100</y>
+          <width>42</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="minimum">
+         <number>6</number>
+        </property>
+        <property name="maximum">
+         <number>1530</number>
+        </property>
+        <property name="value">
+         <number>700</number>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_BST_Stage1_2">
+        <property name="geometry">
+         <rect>
+          <x>137</x>
+          <y>44</y>
+          <width>42</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="minimum">
+         <number>6</number>
+        </property>
+        <property name="maximum">
+         <number>1530</number>
+        </property>
+        <property name="value">
+         <number>500</number>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_BST_FullyEvolved_2">
+        <property name="geometry">
+         <rect>
+          <x>137</x>
+          <y>72</y>
+          <width>42</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="minimum">
+         <number>6</number>
+        </property>
+        <property name="maximum">
+         <number>1530</number>
+        </property>
+        <property name="value">
+         <number>600</number>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_BST_Basic_2">
+        <property name="geometry">
+         <rect>
+          <x>137</x>
+          <y>16</y>
+          <width>42</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="minimum">
+         <number>6</number>
+        </property>
+        <property name="maximum">
+         <number>1530</number>
+        </property>
+        <property name="value">
+         <number>400</number>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_BST_text_6">
+        <property name="geometry">
+         <rect>
+          <x>122</x>
+          <y>48</y>
+          <width>16</width>
+          <height>13</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>~</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_BST_text_7">
+        <property name="geometry">
+         <rect>
+          <x>122</x>
+          <y>76</y>
+          <width>16</width>
+          <height>13</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>~</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_BST_text_8">
+        <property name="geometry">
+         <rect>
+          <x>122</x>
+          <y>104</y>
+          <width>16</width>
+          <height>13</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>~</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QCheckBox" name="checkBox">
+       <property name="geometry">
+        <rect>
+         <x>5</x>
+         <y>115</y>
+         <width>121</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string>Every Pokémon will have a damaging STAB move in its learnset.</string>
+       </property>
+       <property name="text">
+        <string>STAB starting move</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_PkmnData_NormalType">
+       <property name="geometry">
+        <rect>
+         <x>3</x>
+         <y>32</y>
+         <width>115</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>MS Shell Dlg 2</family>
+        </font>
+       </property>
+       <property name="toolTip">
+        <string>Every Pokémon will be a Normal type.</string>
+       </property>
+       <property name="text">
+        <string>Only Normal type</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_Randomizer_MoveData">
+      <property name="geometry">
+       <rect>
+        <x>415</x>
+        <y>1</y>
+        <width>291</width>
+        <height>139</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Move Data</string>
+      </property>
+      <widget class="QCheckBox" name="checkBox_MoveData">
+       <property name="geometry">
+        <rect>
+         <x>5</x>
+         <y>15</y>
+         <width>109</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string>Counter won't be modified, as its effect is hard coded.</string>
+       </property>
+       <property name="text">
+        <string>Move Data*</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_MoveData_NoEffects">
+       <property name="geometry">
+        <rect>
+         <x>3</x>
+         <y>33</y>
+         <width>115</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>MS Shell Dlg 2</family>
+        </font>
+       </property>
+       <property name="toolTip">
+        <string>Removes added effects from damaging moves</string>
+       </property>
+       <property name="text">
+        <string>No Added Effects</string>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="checkBox_Randomize_MoveData_Powers">
+       <property name="geometry">
+        <rect>
+         <x>5</x>
+         <y>58</y>
+         <width>111</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string>Will produce at least 10 different Pokémon, and will randomize moves if &quot;No illegal moves&quot; is checked</string>
+       </property>
+       <property name="text">
+        <string>Randomize Powers</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="checkBox_Randomize_MoveData_Effects">
+       <property name="geometry">
+        <rect>
+         <x>5</x>
+         <y>98</y>
+         <width>111</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string>Will also replace illegal moves if &quot;No illegal moves&quot; is checked.</string>
+       </property>
+       <property name="text">
+        <string>Randomize Effects</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="checkBox_Randomize_MoveData_Types">
+       <property name="geometry">
+        <rect>
+         <x>5</x>
+         <y>78</y>
+         <width>111</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string>Will also replace illegal moves if &quot;No illegal moves&quot; is checked.</string>
+       </property>
+       <property name="text">
+        <string>Randomize Types</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="checkBox_Randomize_MoveData_Accuracy">
+       <property name="geometry">
+        <rect>
+         <x>5</x>
+         <y>118</y>
+         <width>121</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string>Will also replace illegal moves if &quot;No illegal moves&quot; is checked.</string>
+       </property>
+       <property name="text">
+        <string>Randomize Accuracy</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="checkBox_Randomizer_MoveData_PowerAccuracy">
+       <property name="geometry">
+        <rect>
+         <x>122</x>
+         <y>10</y>
+         <width>165</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string>Moves with more power will be less accurate on average.</string>
+       </property>
+       <property name="text">
+        <string>More Power = Less Accuracy*</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="spinBox_MoveData_minPower">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>111</y>
+         <width>42</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="minimum">
+        <number>10</number>
+       </property>
+       <property name="maximum">
+        <number>250</number>
+       </property>
+       <property name="singleStep">
+        <number>10</number>
+       </property>
+       <property name="value">
+        <number>40</number>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="spinBox_MoveData_maxPower">
+       <property name="geometry">
+        <rect>
+         <x>240</x>
+         <y>111</y>
+         <width>42</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="minimum">
+        <number>10</number>
+       </property>
+       <property name="maximum">
+        <number>250</number>
+       </property>
+       <property name="singleStep">
+        <number>10</number>
+       </property>
+       <property name="value">
+        <number>140</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_MoveData_Power_2">
+       <property name="geometry">
+        <rect>
+         <x>225</x>
+         <y>116</y>
+         <width>20</width>
+         <height>13</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>to</string>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="checkBox_Randomizer_MoveData_Explosion">
+       <property name="geometry">
+        <rect>
+         <x>122</x>
+         <y>50</y>
+         <width>165</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string>Keep the same Power / Effect / Accuracy for Explosion and Selfdestruct</string>
+       </property>
+       <property name="text">
+        <string>Don't change Explosion*</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_MoveData_Power_1">
+       <property name="geometry">
+        <rect>
+         <x>140</x>
+         <y>116</y>
+         <width>40</width>
+         <height>13</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Power:</string>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="checkBox_Randomizer_MoveData_Sleep">
+       <property name="geometry">
+        <rect>
+         <x>122</x>
+         <y>70</y>
+         <width>165</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string/>
+       </property>
+       <property name="text">
+        <string>Sleep moves ≤ 75% accuracy</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="checkBox_Randomizer_MoveData_Trap">
+       <property name="geometry">
+        <rect>
+         <x>122</x>
+         <y>90</y>
+         <width>165</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string/>
+       </property>
+       <property name="text">
+        <string>Trap moves ≤ 85% accuracy</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="checkBox_Randomizer_MoveData_EffectPower">
+       <property name="geometry">
+        <rect>
+         <x>122</x>
+         <y>30</y>
+         <width>165</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string>Damaging moves without effects will be more powerful on average.</string>
+       </property>
+       <property name="text">
+        <string>No Effect = More Power*</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
      </widget>
     </widget>
     <widget class="QWidget" name="tab_CPU_Teams">
@@ -7714,7 +8431,7 @@ p, li { white-space: pre-wrap; }
        <rect>
         <x>4</x>
         <y>295</y>
-        <width>526</width>
+        <width>550</width>
         <height>141</height>
        </rect>
       </property>
@@ -8295,9 +9012,9 @@ p, li { white-space: pre-wrap; }
        </property>
        <property name="geometry">
         <rect>
-         <x>225</x>
+         <x>226</x>
          <y>15</y>
-         <width>297</width>
+         <width>320</width>
          <height>53</height>
         </rect>
        </property>
@@ -8379,7 +9096,7 @@ p, li { white-space: pre-wrap; }
         <rect>
          <x>223</x>
          <y>68</y>
-         <width>300</width>
+         <width>323</width>
          <height>68</height>
         </rect>
        </property>
@@ -8409,7 +9126,7 @@ p, li { white-space: pre-wrap; }
        <widget class="QComboBox" name="comboBox_HighCH_MovesList_3">
         <property name="geometry">
          <rect>
-          <x>130</x>
+          <x>128</x>
           <y>15</y>
           <width>115</width>
           <height>22</height>
@@ -8419,56 +9136,66 @@ p, li { white-space: pre-wrap; }
        <widget class="QComboBox" name="comboBox_HighCH_MovesList_4">
         <property name="geometry">
          <rect>
-          <x>130</x>
+          <x>128</x>
           <y>40</y>
           <width>115</width>
           <height>22</height>
          </rect>
         </property>
        </widget>
-       <widget class="QSpinBox" name="spinBox_HighCH_multiplier">
+       <widget class="QSpinBox" name="spinBox_HighCH_shiftvalue">
         <property name="geometry">
          <rect>
-          <x>260</x>
+          <x>289</x>
           <y>28</y>
-          <width>36</width>
+          <width>30</width>
           <height>22</height>
          </rect>
         </property>
         <property name="minimum">
-         <number>4</number>
+         <number>0</number>
         </property>
         <property name="maximum">
-         <number>32</number>
-        </property>
-        <property name="singleStep">
-         <number>4</number>
-        </property>
-        <property name="value">
          <number>8</number>
         </property>
+        <property name="singleStep">
+         <number>1</number>
+        </property>
+        <property name="value">
+         <number>2</number>
+        </property>
        </widget>
-       <widget class="QLabel" name="label_HighCH_multiplier">
+       <widget class="QComboBox" name="comboBox_HighCH_shift">
         <property name="geometry">
          <rect>
-          <x>250</x>
-          <y>33</y>
-          <width>13</width>
-          <height>13</height>
+          <x>247</x>
+          <y>28</y>
+          <width>39</width>
+          <height>22</height>
          </rect>
         </property>
-        <property name="text">
-         <string>×</string>
+        <property name="currentIndex">
+         <number>0</number>
         </property>
+        <item>
+         <property name="text">
+          <string>&lt;&lt;</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>&gt;&gt;</string>
+         </property>
+        </item>
        </widget>
       </widget>
      </widget>
      <widget class="QGroupBox" name="groupBox_Status_data">
       <property name="geometry">
        <rect>
-        <x>533</x>
+        <x>558</x>
         <y>295</y>
-        <width>170</width>
+        <width>145</width>
         <height>141</height>
        </rect>
       </property>
@@ -8478,8 +9205,8 @@ p, li { white-space: pre-wrap; }
       <widget class="QLabel" name="label_Status_Sleep">
        <property name="geometry">
         <rect>
-         <x>25</x>
-         <y>20</y>
+         <x>29</x>
+         <y>110</y>
          <width>33</width>
          <height>13</height>
         </rect>
@@ -8491,14 +9218,14 @@ p, li { white-space: pre-wrap; }
       <widget class="QSpinBox" name="spinBox_Status_Sleep_turns">
        <property name="geometry">
         <rect>
-         <x>65</x>
-         <y>15</y>
-         <width>42</width>
+         <x>75</x>
+         <y>105</y>
+         <width>30</width>
          <height>22</height>
         </rect>
        </property>
        <property name="maximum">
-        <number>255</number>
+        <number>3</number>
        </property>
        <property name="value">
         <number>3</number>
@@ -8508,7 +9235,7 @@ p, li { white-space: pre-wrap; }
        <property name="geometry">
         <rect>
          <x>110</x>
-         <y>20</y>
+         <y>110</y>
          <width>28</width>
          <height>13</height>
         </rect>
@@ -8520,8 +9247,8 @@ p, li { white-space: pre-wrap; }
       <widget class="QLabel" name="label_Status_Paralysis">
        <property name="geometry">
         <rect>
-         <x>10</x>
-         <y>44</y>
+         <x>13</x>
+         <y>80</y>
          <width>47</width>
          <height>13</height>
         </rect>
@@ -8534,7 +9261,7 @@ p, li { white-space: pre-wrap; }
        <property name="geometry">
         <rect>
          <x>65</x>
-         <y>39</y>
+         <y>75</y>
          <width>42</width>
          <height>22</height>
         </rect>
@@ -8550,7 +9277,7 @@ p, li { white-space: pre-wrap; }
        <property name="geometry">
         <rect>
          <x>110</x>
-         <y>44</y>
+         <y>80</y>
          <width>30</width>
          <height>13</height>
         </rect>
@@ -8562,8 +9289,8 @@ p, li { white-space: pre-wrap; }
       <widget class="QLabel" name="label_Status_Confusion">
        <property name="geometry">
         <rect>
-         <x>10</x>
-         <y>68</y>
+         <x>8</x>
+         <y>50</y>
          <width>52</width>
          <height>13</height>
         </rect>
@@ -8576,7 +9303,7 @@ p, li { white-space: pre-wrap; }
        <property name="geometry">
         <rect>
          <x>65</x>
-         <y>63</y>
+         <y>45</y>
          <width>42</width>
          <height>22</height>
         </rect>
@@ -8592,7 +9319,7 @@ p, li { white-space: pre-wrap; }
        <property name="geometry">
         <rect>
          <x>110</x>
-         <y>68</y>
+         <y>50</y>
          <width>30</width>
          <height>13</height>
         </rect>
@@ -8601,13 +9328,65 @@ p, li { white-space: pre-wrap; }
         <string>/256</string>
        </property>
       </widget>
+      <widget class="QLabel" name="label">
+       <property name="geometry">
+        <rect>
+         <x>33</x>
+         <y>20</y>
+         <width>30</width>
+         <height>13</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Burn:</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="comboBox_Status_Burn_shift">
+       <property name="geometry">
+        <rect>
+         <x>65</x>
+         <y>15</y>
+         <width>40</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="currentIndex">
+        <number>1</number>
+       </property>
+       <item>
+        <property name="text">
+         <string>&lt;&lt;</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>&gt;&gt;</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QSpinBox" name="spinBox_Status_Burn_shiftvalue">
+       <property name="geometry">
+        <rect>
+         <x>110</x>
+         <y>15</y>
+         <width>30</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="maximum">
+        <number>8</number>
+       </property>
+       <property name="value">
+        <number>1</number>
+       </property>
+      </widget>
      </widget>
      <widget class="QGroupBox" name="groupBox_CH_formula">
       <property name="geometry">
        <rect>
         <x>4</x>
         <y>435</y>
-        <width>563</width>
+        <width>570</width>
         <height>71</height>
        </rect>
       </property>
@@ -8617,7 +9396,7 @@ p, li { white-space: pre-wrap; }
       <widget class="QComboBox" name="comboBox_CH_formula_BaseStat">
        <property name="geometry">
         <rect>
-         <x>95</x>
+         <x>100</x>
          <y>15</y>
          <width>95</width>
          <height>22</height>
@@ -8651,11 +9430,16 @@ p, li { white-space: pre-wrap; }
          <string>Base SPECIAL</string>
         </property>
        </item>
+       <item>
+        <property name="text">
+         <string>Level</string>
+        </property>
+       </item>
       </widget>
       <widget class="QLabel" name="label_CH_formula_parenth_1">
        <property name="geometry">
         <rect>
-         <x>90</x>
+         <x>94</x>
          <y>19</y>
          <width>8</width>
          <height>15</height>
@@ -8673,7 +9457,7 @@ p, li { white-space: pre-wrap; }
       <widget class="QSpinBox" name="spinBox_CH_formula_add">
        <property name="geometry">
         <rect>
-         <x>205</x>
+         <x>210</x>
          <y>15</y>
          <width>42</width>
          <height>22</height>
@@ -8689,7 +9473,7 @@ p, li { white-space: pre-wrap; }
       <widget class="QLabel" name="label_CH_formula_parenth_2">
        <property name="geometry">
         <rect>
-         <x>248</x>
+         <x>255</x>
          <y>19</y>
          <width>8</width>
          <height>15</height>
@@ -8707,7 +9491,7 @@ p, li { white-space: pre-wrap; }
       <widget class="QComboBox" name="comboBox_CH_formula_shift_1">
        <property name="geometry">
         <rect>
-         <x>260</x>
+         <x>265</x>
          <y>15</y>
          <width>40</width>
          <height>22</height>
@@ -8730,7 +9514,7 @@ p, li { white-space: pre-wrap; }
       <widget class="QSpinBox" name="spinBox_CH_formula_shiftvalue_1">
        <property name="geometry">
         <rect>
-         <x>305</x>
+         <x>310</x>
          <y>15</y>
          <width>30</width>
          <height>22</height>
@@ -8746,7 +9530,7 @@ p, li { white-space: pre-wrap; }
       <widget class="QComboBox" name="comboBox_CH_formula_shift_2">
        <property name="geometry">
         <rect>
-         <x>340</x>
+         <x>347</x>
          <y>15</y>
          <width>40</width>
          <height>22</height>
@@ -8769,7 +9553,7 @@ p, li { white-space: pre-wrap; }
       <widget class="QSpinBox" name="spinBox_CH_formula_shiftvalue_2">
        <property name="geometry">
         <rect>
-         <x>385</x>
+         <x>392</x>
          <y>15</y>
          <width>30</width>
          <height>22</height>
@@ -8785,7 +9569,7 @@ p, li { white-space: pre-wrap; }
       <widget class="QSpinBox" name="spinBox_CH_formula_shiftvalue_3">
        <property name="geometry">
         <rect>
-         <x>525</x>
+         <x>530</x>
          <y>15</y>
          <width>30</width>
          <height>22</height>
@@ -8801,7 +9585,7 @@ p, li { white-space: pre-wrap; }
       <widget class="QComboBox" name="comboBox_CH_formula_shift_3">
        <property name="geometry">
         <rect>
-         <x>479</x>
+         <x>485</x>
          <y>15</y>
          <width>40</width>
          <height>22</height>
@@ -8824,7 +9608,7 @@ p, li { white-space: pre-wrap; }
       <widget class="QLabel" name="label_FE_CH_formula">
        <property name="geometry">
         <rect>
-         <x>9</x>
+         <x>10</x>
          <y>45</y>
          <width>70</width>
          <height>13</height>
@@ -8837,7 +9621,7 @@ p, li { white-space: pre-wrap; }
       <widget class="QLabel" name="label_CH_formula">
        <property name="geometry">
         <rect>
-         <x>9</x>
+         <x>10</x>
          <y>20</y>
          <width>80</width>
          <height>13</height>
@@ -8850,7 +9634,7 @@ p, li { white-space: pre-wrap; }
       <widget class="QLabel" name="label_CH_formula_parenth_3">
        <property name="geometry">
         <rect>
-         <x>90</x>
+         <x>94</x>
          <y>44</y>
          <width>8</width>
          <height>15</height>
@@ -8871,7 +9655,7 @@ p, li { white-space: pre-wrap; }
        </property>
        <property name="geometry">
         <rect>
-         <x>305</x>
+         <x>310</x>
          <y>40</y>
          <width>30</width>
          <height>22</height>
@@ -8890,7 +9674,7 @@ p, li { white-space: pre-wrap; }
        </property>
        <property name="geometry">
         <rect>
-         <x>260</x>
+         <x>265</x>
          <y>40</y>
          <width>40</width>
          <height>22</height>
@@ -8913,7 +9697,7 @@ p, li { white-space: pre-wrap; }
       <widget class="QLabel" name="label_CH_formula_parenth_4">
        <property name="geometry">
         <rect>
-         <x>248</x>
+         <x>255</x>
          <y>44</y>
          <width>8</width>
          <height>15</height>
@@ -8934,7 +9718,7 @@ p, li { white-space: pre-wrap; }
        </property>
        <property name="geometry">
         <rect>
-         <x>95</x>
+         <x>100</x>
          <y>40</y>
          <width>95</width>
          <height>22</height>
@@ -8968,6 +9752,11 @@ p, li { white-space: pre-wrap; }
          <string>Base SPECIAL</string>
         </property>
        </item>
+       <item>
+        <property name="text">
+         <string>Level</string>
+        </property>
+       </item>
       </widget>
       <widget class="QSpinBox" name="spinBox_FE_CH_formula_add_1">
        <property name="enabled">
@@ -8975,7 +9764,7 @@ p, li { white-space: pre-wrap; }
        </property>
        <property name="geometry">
         <rect>
-         <x>205</x>
+         <x>210</x>
          <y>40</y>
          <width>42</width>
          <height>22</height>
@@ -8991,7 +9780,7 @@ p, li { white-space: pre-wrap; }
       <widget class="QComboBox" name="comboBox_FE_CH_formula_shift_2">
        <property name="geometry">
         <rect>
-         <x>340</x>
+         <x>347</x>
          <y>40</y>
          <width>40</width>
          <height>22</height>
@@ -9014,7 +9803,7 @@ p, li { white-space: pre-wrap; }
       <widget class="QSpinBox" name="spinBox_FE_CH_formula_shiftvalue_2">
        <property name="geometry">
         <rect>
-         <x>385</x>
+         <x>392</x>
          <y>40</y>
          <width>30</width>
          <height>22</height>
@@ -9030,7 +9819,7 @@ p, li { white-space: pre-wrap; }
       <widget class="QSpinBox" name="spinBox_FE_CH_formula_add_2">
        <property name="geometry">
         <rect>
-         <x>431</x>
+         <x>438</x>
          <y>40</y>
          <width>42</width>
          <height>22</height>
@@ -9049,7 +9838,7 @@ p, li { white-space: pre-wrap; }
        </property>
        <property name="geometry">
         <rect>
-         <x>479</x>
+         <x>485</x>
          <y>40</y>
          <width>40</width>
          <height>22</height>
@@ -9075,7 +9864,7 @@ p, li { white-space: pre-wrap; }
        </property>
        <property name="geometry">
         <rect>
-         <x>525</x>
+         <x>530</x>
          <y>40</y>
          <width>30</width>
          <height>22</height>
@@ -9091,7 +9880,7 @@ p, li { white-space: pre-wrap; }
       <widget class="QLabel" name="label_CH_formula_add">
        <property name="geometry">
         <rect>
-         <x>192</x>
+         <x>197</x>
          <y>20</y>
          <width>15</width>
          <height>14</height>
@@ -9109,7 +9898,7 @@ p, li { white-space: pre-wrap; }
       <widget class="QLabel" name="label_CH_FE_formula_add_1">
        <property name="geometry">
         <rect>
-         <x>192</x>
+         <x>197</x>
          <y>45</y>
          <width>15</width>
          <height>14</height>
@@ -9127,7 +9916,7 @@ p, li { white-space: pre-wrap; }
       <widget class="QLabel" name="label_CH_FE_formula_add_2">
        <property name="geometry">
         <rect>
-         <x>418</x>
+         <x>425</x>
          <y>45</y>
          <width>15</width>
          <height>14</height>
@@ -9164,8 +9953,11 @@ p, li { white-space: pre-wrap; }
          <height>22</height>
         </rect>
        </property>
+       <property name="minimum">
+        <number>1</number>
+       </property>
        <property name="maximum">
-        <number>255</number>
+        <number>254</number>
        </property>
        <property name="value">
         <number>217</number>
@@ -9202,6 +9994,1032 @@ p, li { white-space: pre-wrap; }
        <property name="text">
         <string>to</string>
        </property>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_Damage_formula">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>4</x>
+        <y>507</y>
+        <width>701</width>
+        <height>76</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Damage formula</string>
+      </property>
+      <widget class="QComboBox" name="comboBox_Damage_formula_BaseStat_1">
+       <property name="geometry">
+        <rect>
+         <x>167</x>
+         <y>20</y>
+         <width>54</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="currentIndex">
+        <number>5</number>
+       </property>
+       <item>
+        <property name="text">
+         <string>HP</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>ATK</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>DEF</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>SPEED</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>SPC</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Level</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Power</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QComboBox" name="comboBox_Damage_formula_shift_1">
+       <property name="geometry">
+        <rect>
+         <x>224</x>
+         <y>20</y>
+         <width>40</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="currentIndex">
+        <number>0</number>
+       </property>
+       <item>
+        <property name="text">
+         <string>&lt;&lt;</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>&gt;&gt;</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QSpinBox" name="spinBox_Damage_formula_shiftvalue_1">
+       <property name="geometry">
+        <rect>
+         <x>267</x>
+         <y>20</y>
+         <width>30</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="maximum">
+        <number>8</number>
+       </property>
+       <property name="value">
+        <number>1</number>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="comboBox_Damage_formula_DivMult">
+       <property name="geometry">
+        <rect>
+         <x>300</x>
+         <y>20</y>
+         <width>32</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="currentIndex">
+        <number>1</number>
+       </property>
+       <item>
+        <property name="text">
+         <string>×</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>÷</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QSpinBox" name="spinBox_Damage_formula_DivMultvalue">
+       <property name="geometry">
+        <rect>
+         <x>335</x>
+         <y>20</y>
+         <width>36</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="maximum">
+        <number>99</number>
+       </property>
+       <property name="value">
+        <number>5</number>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="comboBox_Damage_formula_AddSub">
+       <property name="geometry">
+        <rect>
+         <x>379</x>
+         <y>20</y>
+         <width>32</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="currentIndex">
+        <number>0</number>
+       </property>
+       <item>
+        <property name="text">
+         <string>+</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>-</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QSpinBox" name="spinBox_Damage_formula_AddSub">
+       <property name="geometry">
+        <rect>
+         <x>414</x>
+         <y>20</y>
+         <width>36</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="maximum">
+        <number>99</number>
+       </property>
+       <property name="value">
+        <number>2</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_Damage_formula_parenth_2">
+       <property name="geometry">
+        <rect>
+         <x>371</x>
+         <y>24</y>
+         <width>8</width>
+         <height>15</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>)</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_CH_formula_parenth_5">
+       <property name="geometry">
+        <rect>
+         <x>161</x>
+         <y>24</y>
+         <width>8</width>
+         <height>15</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>(</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_CH_formula_parenth_6">
+       <property name="geometry">
+        <rect>
+         <x>156</x>
+         <y>24</y>
+         <width>8</width>
+         <height>15</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>(</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_Damage_formula_parenth_3">
+       <property name="geometry">
+        <rect>
+         <x>450</x>
+         <y>24</y>
+         <width>8</width>
+         <height>15</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>)</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="comboBox_Damage_formula_DivMult_2">
+       <property name="geometry">
+        <rect>
+         <x>458</x>
+         <y>20</y>
+         <width>32</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="currentIndex">
+        <number>1</number>
+       </property>
+       <item>
+        <property name="text">
+         <string>×</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>÷</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QComboBox" name="comboBox_Damage_formula_BaseStat_2">
+       <property name="geometry">
+        <rect>
+         <x>493</x>
+         <y>20</y>
+         <width>54</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="currentIndex">
+        <number>2</number>
+       </property>
+       <item>
+        <property name="text">
+         <string>HP</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>ATK</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>DEF</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>SPEED</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>SPC</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Level</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Power</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QComboBox" name="comboBox_Damage_formula_DivMult_3">
+       <property name="geometry">
+        <rect>
+         <x>550</x>
+         <y>20</y>
+         <width>32</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="currentIndex">
+        <number>1</number>
+       </property>
+       <item>
+        <property name="text">
+         <string>×</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>÷</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QSpinBox" name="spinBox_Damage_formula_DivMult">
+       <property name="geometry">
+        <rect>
+         <x>585</x>
+         <y>20</y>
+         <width>36</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="maximum">
+        <number>99</number>
+       </property>
+       <property name="value">
+        <number>50</number>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="comboBox_Damage_formula_AddSub_2">
+       <property name="geometry">
+        <rect>
+         <x>625</x>
+         <y>20</y>
+         <width>32</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="currentIndex">
+        <number>0</number>
+       </property>
+       <item>
+        <property name="text">
+         <string>+</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>-</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QSpinBox" name="spinBox_Damage_formula_AddSub_2">
+       <property name="geometry">
+        <rect>
+         <x>660</x>
+         <y>20</y>
+         <width>36</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="maximum">
+        <number>99</number>
+       </property>
+       <property name="value">
+        <number>2</number>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="comboBox_Damage_formula_BaseStat_3">
+       <property name="geometry">
+        <rect>
+         <x>64</x>
+         <y>20</y>
+         <width>54</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="currentIndex">
+        <number>1</number>
+       </property>
+       <item>
+        <property name="text">
+         <string>HP</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>ATK</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>DEF</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>SPEED</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>SPC</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Level</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Power</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QComboBox" name="comboBox_Damage_formula_DivMult_4">
+       <property name="geometry">
+        <rect>
+         <x>121</x>
+         <y>20</y>
+         <width>32</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="currentIndex">
+        <number>0</number>
+       </property>
+       <item>
+        <property name="text">
+         <string>×</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>÷</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QComboBox" name="comboBox_Damage_formula_BaseStat_4">
+       <property name="geometry">
+        <rect>
+         <x>7</x>
+         <y>20</y>
+         <width>54</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="currentIndex">
+        <number>6</number>
+       </property>
+       <item>
+        <property name="text">
+         <string>HP</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>ATK</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>DEF</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>SPEED</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>SPC</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Level</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Power</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QLabel" name="label_Damage_formula_parenth_4">
+       <property name="geometry">
+        <rect>
+         <x>450</x>
+         <y>51</y>
+         <width>8</width>
+         <height>15</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>)</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="comboBox_Damage_formula_DivMult_5">
+       <property name="geometry">
+        <rect>
+         <x>458</x>
+         <y>47</y>
+         <width>32</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="currentIndex">
+        <number>1</number>
+       </property>
+       <item>
+        <property name="text">
+         <string>×</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>÷</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QSpinBox" name="spinBox_Damage_formula_DivMultvalue_2">
+       <property name="geometry">
+        <rect>
+         <x>335</x>
+         <y>47</y>
+         <width>36</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="maximum">
+        <number>99</number>
+       </property>
+       <property name="value">
+        <number>5</number>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="spinBox_Damage_formula_DivMult_2">
+       <property name="geometry">
+        <rect>
+         <x>585</x>
+         <y>47</y>
+         <width>36</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="maximum">
+        <number>99</number>
+       </property>
+       <property name="value">
+        <number>50</number>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="comboBox_Damage_formula_BaseStat_5">
+       <property name="geometry">
+        <rect>
+         <x>7</x>
+         <y>47</y>
+         <width>54</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="currentIndex">
+        <number>6</number>
+       </property>
+       <item>
+        <property name="text">
+         <string>HP</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>ATK</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>DEF</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>SPEED</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>SPC</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Level</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Power</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QSpinBox" name="spinBox_Damage_formula_AddSub_3">
+       <property name="geometry">
+        <rect>
+         <x>660</x>
+         <y>47</y>
+         <width>36</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="maximum">
+        <number>99</number>
+       </property>
+       <property name="value">
+        <number>2</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_CH_formula_parenth_7">
+       <property name="geometry">
+        <rect>
+         <x>156</x>
+         <y>51</y>
+         <width>8</width>
+         <height>15</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>(</string>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="spinBox_Damage_formula_shiftvalue_2">
+       <property name="geometry">
+        <rect>
+         <x>267</x>
+         <y>47</y>
+         <width>30</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="maximum">
+        <number>8</number>
+       </property>
+       <property name="value">
+        <number>1</number>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="spinBox_Damage_formula_AddSub_4">
+       <property name="geometry">
+        <rect>
+         <x>414</x>
+         <y>47</y>
+         <width>36</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="maximum">
+        <number>99</number>
+       </property>
+       <property name="value">
+        <number>2</number>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="comboBox_Damage_formula_DivMult_6">
+       <property name="geometry">
+        <rect>
+         <x>121</x>
+         <y>47</y>
+         <width>32</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="currentIndex">
+        <number>0</number>
+       </property>
+       <item>
+        <property name="text">
+         <string>×</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>÷</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QComboBox" name="comboBox_Damage_formula_DivMult_7">
+       <property name="geometry">
+        <rect>
+         <x>300</x>
+         <y>47</y>
+         <width>32</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="currentIndex">
+        <number>1</number>
+       </property>
+       <item>
+        <property name="text">
+         <string>×</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>÷</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QLabel" name="label_Damage_formula_parenth_5">
+       <property name="geometry">
+        <rect>
+         <x>371</x>
+         <y>51</y>
+         <width>8</width>
+         <height>15</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>)</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="comboBox_Damage_formula_BaseStat_6">
+       <property name="geometry">
+        <rect>
+         <x>493</x>
+         <y>47</y>
+         <width>54</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="currentIndex">
+        <number>4</number>
+       </property>
+       <item>
+        <property name="text">
+         <string>HP</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>ATK</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>DEF</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>SPEED</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>SPC</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Level</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Power</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QComboBox" name="comboBox_Damage_formula_BaseStat_7">
+       <property name="geometry">
+        <rect>
+         <x>64</x>
+         <y>47</y>
+         <width>54</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="currentIndex">
+        <number>4</number>
+       </property>
+       <item>
+        <property name="text">
+         <string>HP</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>ATK</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>DEF</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>SPEED</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>SPC</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Level</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Power</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QComboBox" name="comboBox_Damage_formula_BaseStat_8">
+       <property name="geometry">
+        <rect>
+         <x>167</x>
+         <y>47</y>
+         <width>54</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="currentIndex">
+        <number>5</number>
+       </property>
+       <item>
+        <property name="text">
+         <string>HP</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>ATK</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>DEF</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>SPEED</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>SPC</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Level</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Power</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QComboBox" name="comboBox_Damage_formula_AddSub_3">
+       <property name="geometry">
+        <rect>
+         <x>625</x>
+         <y>47</y>
+         <width>32</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="currentIndex">
+        <number>0</number>
+       </property>
+       <item>
+        <property name="text">
+         <string>+</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>-</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QComboBox" name="comboBox_Damage_formula_DivMult_8">
+       <property name="geometry">
+        <rect>
+         <x>550</x>
+         <y>47</y>
+         <width>32</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="currentIndex">
+        <number>1</number>
+       </property>
+       <item>
+        <property name="text">
+         <string>×</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>÷</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QLabel" name="label_CH_formula_parenth_8">
+       <property name="geometry">
+        <rect>
+         <x>161</x>
+         <y>51</y>
+         <width>8</width>
+         <height>15</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>(</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="comboBox_Damage_formula_AddSub_4">
+       <property name="geometry">
+        <rect>
+         <x>379</x>
+         <y>47</y>
+         <width>32</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="currentIndex">
+        <number>0</number>
+       </property>
+       <item>
+        <property name="text">
+         <string>+</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>-</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QComboBox" name="comboBox_Damage_formula_shift_2">
+       <property name="geometry">
+        <rect>
+         <x>224</x>
+         <y>47</y>
+         <width>40</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="currentIndex">
+        <number>0</number>
+       </property>
+       <item>
+        <property name="text">
+         <string>&lt;&lt;</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>&gt;&gt;</string>
+        </property>
+       </item>
       </widget>
      </widget>
     </widget>
@@ -12743,7 +14561,7 @@ p, li { white-space: pre-wrap; }
        </font>
       </property>
       <property name="text">
-       <string>This will be editable in the next version.</string>
+       <string>This will be editable in another version.</string>
       </property>
      </widget>
      <widget class="QGroupBox" name="groupBox_Text_Items">
@@ -12778,7 +14596,7 @@ p, li { white-space: pre-wrap; }
         <x>10</x>
         <y>190</y>
         <width>410</width>
-        <height>55</height>
+        <height>91</height>
        </rect>
       </property>
       <property name="title">
@@ -13349,7 +15167,7 @@ p, li { white-space: pre-wrap; }
   <tabstop>comboBox_HighCH_MovesList_2</tabstop>
   <tabstop>comboBox_HighCH_MovesList_3</tabstop>
   <tabstop>comboBox_HighCH_MovesList_4</tabstop>
-  <tabstop>spinBox_HighCH_multiplier</tabstop>
+  <tabstop>spinBox_HighCH_shiftvalue</tabstop>
   <tabstop>spinBox_Status_Sleep_turns</tabstop>
   <tabstop>spinBox_Status_Paralysis_probability</tabstop>
   <tabstop>spinBox_Status_Confusion_probability</tabstop>
