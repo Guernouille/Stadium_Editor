@@ -581,7 +581,7 @@ void MainWindow::on_lineEdit_Rental_Nickname_1_textEdited(){
         rental_pkm_nickname[buf16] = "";
 
         for(short k=0;k<buf_text.length();k++){
-            if((buf_text.at(k).toLatin1()>=0x20 && buf_text.at(k).toLatin1()<=0x23) || (buf_text.at(k).toLatin1()>=0x27 && buf_text.at(k).toLatin1()<=0x7A) || buf_text.at(k) == char_table[0xA9] || buf_text.at(k) == char_table[0xBE] || buf_text.at(k) == char_table[0xE9]){
+            if((buf_text.at(k).toLatin1()>=0x20 && buf_text.at(k).toLatin1()<=0x23) || (buf_text.at(k).toLatin1()>=0x27 && buf_text.at(k).toLatin1()<=0x7A) || buf_text.at(k) == char_table[0xA9] || buf_text.at(k) == char_table[0xAA] || buf_text.at(k) == char_table[0xBE] || buf_text.at(k) == char_table[0xE9]){
                 rental_pkm_nickname[buf16] += buf_text.at(k);
             }
             else {
@@ -603,7 +603,7 @@ void MainWindow::on_lineEdit_Rental_Nickname_2_textEdited(){
         rental_pkm_nickname[buf16] = "";
 
         for(short k=0;k<buf_text.length();k++){
-            if((buf_text.at(k).toLatin1()>=0x20 && buf_text.at(k).toLatin1()<=0x23) || (buf_text.at(k).toLatin1()>=0x27 && buf_text.at(k).toLatin1()<=0x7A) || buf_text.at(k) == char_table[0xA9] || buf_text.at(k) == char_table[0xBE] || buf_text.at(k) == char_table[0xE9]){
+            if((buf_text.at(k).toLatin1()>=0x20 && buf_text.at(k).toLatin1()<=0x23) || (buf_text.at(k).toLatin1()>=0x27 && buf_text.at(k).toLatin1()<=0x7A) || buf_text.at(k) == char_table[0xA9] || buf_text.at(k) == char_table[0xAA] || buf_text.at(k) == char_table[0xBE] || buf_text.at(k) == char_table[0xE9]){
                 rental_pkm_nickname[buf16] += buf_text.at(k);
             }
             else {
@@ -625,7 +625,7 @@ void MainWindow::on_lineEdit_Rental_Nickname_3_textEdited(){
         rental_pkm_nickname[buf16] = "";
 
         for(short k=0;k<buf_text.length();k++){
-            if((buf_text.at(k).toLatin1()>=0x20 && buf_text.at(k).toLatin1()<=0x23) || (buf_text.at(k).toLatin1()>=0x27 && buf_text.at(k).toLatin1()<=0x7A) || buf_text.at(k) == char_table[0xA9] || buf_text.at(k) == char_table[0xBE] || buf_text.at(k) == char_table[0xE9]){
+            if((buf_text.at(k).toLatin1()>=0x20 && buf_text.at(k).toLatin1()<=0x23) || (buf_text.at(k).toLatin1()>=0x27 && buf_text.at(k).toLatin1()<=0x7A) || buf_text.at(k) == char_table[0xA9] || buf_text.at(k) == char_table[0xAA] || buf_text.at(k) == char_table[0xBE] || buf_text.at(k) == char_table[0xE9]){
                 rental_pkm_nickname[buf16] += buf_text.at(k);
             }
             else {
@@ -647,7 +647,7 @@ void MainWindow::on_lineEdit_Rental_Nickname_4_textEdited(){
         rental_pkm_nickname[buf16] = "";
 
         for(short k=0;k<buf_text.length();k++){
-            if((buf_text.at(k).toLatin1()>=0x20 && buf_text.at(k).toLatin1()<=0x23) || (buf_text.at(k).toLatin1()>=0x27 && buf_text.at(k).toLatin1()<=0x7A) || buf_text.at(k) == char_table[0xA9] || buf_text.at(k) == char_table[0xBE] || buf_text.at(k) == char_table[0xE9]){
+            if((buf_text.at(k).toLatin1()>=0x20 && buf_text.at(k).toLatin1()<=0x23) || (buf_text.at(k).toLatin1()>=0x27 && buf_text.at(k).toLatin1()<=0x7A) || buf_text.at(k) == char_table[0xA9] || buf_text.at(k) == char_table[0xAA] || buf_text.at(k) == char_table[0xBE] || buf_text.at(k) == char_table[0xE9]){
                 rental_pkm_nickname[buf16] += buf_text.at(k);
             }
             else {
@@ -669,7 +669,7 @@ void MainWindow::on_lineEdit_Rental_Nickname_5_textEdited(){
         rental_pkm_nickname[buf16] = "";
 
         for(short k=0;k<buf_text.length();k++){
-            if((buf_text.at(k).toLatin1()>=0x20 && buf_text.at(k).toLatin1()<=0x23) || (buf_text.at(k).toLatin1()>=0x27 && buf_text.at(k).toLatin1()<=0x7A) || buf_text.at(k) == char_table[0xA9] || buf_text.at(k) == char_table[0xBE] || buf_text.at(k) == char_table[0xE9]){
+            if((buf_text.at(k).toLatin1()>=0x20 && buf_text.at(k).toLatin1()<=0x23) || (buf_text.at(k).toLatin1()>=0x27 && buf_text.at(k).toLatin1()<=0x7A) || buf_text.at(k) == char_table[0xA9] || buf_text.at(k) == char_table[0xAA] || buf_text.at(k) == char_table[0xBE] || buf_text.at(k) == char_table[0xE9]){
                 rental_pkm_nickname[buf16] += buf_text.at(k);
             }
             else {
@@ -691,7 +691,7 @@ void MainWindow::on_lineEdit_Rental_Nickname_6_textEdited(){
         rental_pkm_nickname[buf16] = "";
 
         for(short k=0;k<buf_text.length();k++){
-            if((buf_text.at(k).toLatin1()>=0x20 && buf_text.at(k).toLatin1()<=0x23) || (buf_text.at(k).toLatin1()>=0x27 && buf_text.at(k).toLatin1()<=0x7A) || buf_text.at(k) == char_table[0xA9] || buf_text.at(k) == char_table[0xBE] || buf_text.at(k) == char_table[0xE9]){
+            if((buf_text.at(k).toLatin1()>=0x20 && buf_text.at(k).toLatin1()<=0x23) || (buf_text.at(k).toLatin1()>=0x27 && buf_text.at(k).toLatin1()<=0x7A) || buf_text.at(k) == char_table[0xA9] || buf_text.at(k) == char_table[0xAA] || buf_text.at(k) == char_table[0xBE] || buf_text.at(k) == char_table[0xE9]){
                 rental_pkm_nickname[buf16] += buf_text.at(k);
             }
             else {
