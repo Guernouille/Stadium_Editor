@@ -660,8 +660,10 @@ private slots:
     void on_spinBox_MovePP_valueChanged(int);
 
     // edit battle mechanics
+    void on_comboBox_HighCH_shift_currentIndexChanged(int);
     void on_comboBox_Status_Burn_shift_currentIndexChanged(int);
     void on_spinBox_DamageVariance_1_valueChanged(int);
+    void on_spinBox_HighCH_shiftvalue_shiftvalue_valueChanged(int);
     void on_spinBox_Status_Burn_shiftvalue_valueChanged(int);
     void on_spinBox_Status_Paralysis_probability_valueChanged(int);
 
