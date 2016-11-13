@@ -9,6 +9,9 @@ void MainWindow::on_actionSave_triggered(){
     write_cpu_rentals(romfile);
     write_type_chart(romfile);
     write_ch_formula(romfile);
+    write_damage_variance(romfile);
+    write_highCH_shift(romfile);
+    write_burn_shift(romfile);
     write_odds_paralysis(romfile);
     n64crc(romfile);
     write_n64crc(romfile);
