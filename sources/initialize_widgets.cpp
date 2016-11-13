@@ -79,6 +79,7 @@ void MainWindow::initialize_widgets()
     ui->comboBox_HighCH_MovesList_2->clear();
     ui->comboBox_HighCH_MovesList_3->clear();
     ui->comboBox_HighCH_MovesList_4->clear();
+    ui->spinBox_HighCH_shiftvalue->setValue(0);
 
     ui->comboBox_Pokemon_Type_1->clear();
     ui->comboBox_Pokemon_Type_2->clear();
@@ -277,6 +278,9 @@ void MainWindow::initialize_widgets()
     ui->spinBox_FE_CH_formula_add_1->setValue(76);
     ui->spinBox_FE_CH_formula_add_2->setValue(160);
 
+    ui->comboBox_Status_Burn_shift->setCurrentIndex(1);
+    ui->spinBox_Status_Burn_shiftvalue->setValue(1);
+    ui->spinBox_DamageVariance_1->setValue(217);
     ui->spinBox_Status_Paralysis_probability->setValue(63);
 
     ui->textEdit_MoveTMHMText->clear();
@@ -725,6 +729,8 @@ void MainWindow::initialize_widgets()
         ui->comboBox_HighCH_MovesList_2->setCurrentIndex(move_high_ch[1]);
         ui->comboBox_HighCH_MovesList_3->setCurrentIndex(move_high_ch[2]);
         ui->comboBox_HighCH_MovesList_4->setCurrentIndex(move_high_ch[3]);
+        ui->comboBox_HighCH_shift->setCurrentIndex(burn_shift);
+        ui->spinBox_HighCH_shiftvalue->setValue(burn_shiftvalue);
 
         // Critical Hit formula
         ui->spinBox_CH_formula_add->setValue(ch_formula_add);
@@ -732,6 +738,9 @@ void MainWindow::initialize_widgets()
         ui->spinBox_FE_CH_formula_add_2->setValue(ch_fe_formula_add);
 
         //Battle Mechanics
+        ui->comboBox_Status_Burn_shift->setCurrentIndex(burn_shift);
+        ui->spinBox_Status_Burn_shiftvalue->setValue(burn_shiftvalue);
+        ui->spinBox_DamageVariance_1->setValue(damage_variance_min);
         ui->spinBox_Status_Paralysis_probability->setValue(odds_paralysis);
 
         // Misc data
