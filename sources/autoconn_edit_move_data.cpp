@@ -36,12 +36,11 @@ void MainWindow::on_comboBox_HighCH_MovesList_4_currentIndexChanged(int) {
 }
 
 
-void MainWindow::on_spinBox_HighCH_multiplier_valueChanged(int) {
+void MainWindow::on_spinBox_HighCH_shiftvalue_valueChanged(int) {
     if(not_in_init){
-        move_high_ch_multiplier = ui->spinBox_HighCH_multiplier->value();
+        move_high_ch_shiftvalue = ui->spinBox_HighCH_shiftvalue->value();
     }
 }
-
 
 void MainWindow::on_spinBox_MovePower_valueChanged(int) {
     if(not_in_init){
