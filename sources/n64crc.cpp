@@ -6,6 +6,7 @@
  */
 
 #include "mainwindow.h"
+#include "n64crc.h"
 
 #define ROL(i, b) (((i) << (b)) | ((i) >> (32 - (b))))
 
