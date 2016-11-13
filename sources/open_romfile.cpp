@@ -64,6 +64,9 @@ void MainWindow::on_actionOpen_triggered() {
 
                 // Formulas
                 read_ch_formula(romfile);
+                read_damage_variance(romfile);
+                read_highCH_shift(romfile);
+                read_burn_shift(romfile);
                 read_odds_paralysis(romfile);
 
                 // Pokémon names
