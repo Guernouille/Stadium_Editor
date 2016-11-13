@@ -69,6 +69,7 @@ void MainWindow::initialize_nicknames(){
     preset_nicknames[12][8]="Margarine";
     preset_nicknames[12][9]="G. Freeman";
     preset_nicknames[13][1]="weedle";
+    preset_nicknames[13][4]="WEEDLY";
     preset_nicknames[13][9]="CUDDLEME";
     preset_nicknames[14][1]="kakuna";
     preset_nicknames[14][2]="NAKAKU";
@@ -133,11 +134,13 @@ void MainWindow::initialize_nicknames(){
     preset_nicknames[27][9]="Badger";
     preset_nicknames[28][1]="sandslash";
     preset_nicknames[28][2]="SLASHSAND";
+    preset_nicknames[28][6]="WantPinMsl";
     preset_nicknames[29][1]="nidoran♀";
     preset_nicknames[30][1]="nidorina";
     preset_nicknames[30][2]="RINANIDO";
     preset_nicknames[31][1]="nidoqueen";
     preset_nicknames[31][2]="QUEENNIDO";
+    preset_nicknames[31][9]="Wrong Nido";
     preset_nicknames[32][1]="nidoran♂";
     preset_nicknames[32][7]="DSUM Manip";
     preset_nicknames[33][1]="nidorino";
@@ -171,6 +174,7 @@ void MainWindow::initialize_nicknames(){
     preset_nicknames[41][2]="BATZU";
     preset_nicknames[42][1]="golbat";
     preset_nicknames[42][2]="BATGOL";
+    preset_nicknames[42][3]="GOLBACT1";
     preset_nicknames[42][8]="Batman";
     preset_nicknames[42][9]="FirstBlood";
     preset_nicknames[43][1]="oddish";
@@ -189,6 +193,7 @@ void MainWindow::initialize_nicknames(){
     preset_nicknames[46][9]="Mushroom";
     preset_nicknames[47][1]="parasect";
     preset_nicknames[47][2]="SECTPARA";
+    preset_nicknames[47][7]="TPP";
     preset_nicknames[47][8]="SPIKE";
     preset_nicknames[47][9]="Mushroom";
     preset_nicknames[48][1]="venonat";
@@ -203,6 +208,7 @@ void MainWindow::initialize_nicknames(){
     preset_nicknames[50][9]="Boota";
     preset_nicknames[51][1]="dugtrio";
     preset_nicknames[51][2]="TRIODIG";
+    preset_nicknames[51][8]="It's a CH!";
     preset_nicknames[51][9]="DUGGY";
     preset_nicknames[52][1]="meowth";
     preset_nicknames[52][8]="ThatsRight";
@@ -235,7 +241,9 @@ void MainWindow::initialize_nicknames(){
     preset_nicknames[60][9]="POLIWISH";
     preset_nicknames[60][7]="Tajiri";
     preset_nicknames[61][1]="poliwhirl";
+    preset_nicknames[61][2]="WHIRLPOLI";
     preset_nicknames[62][1]="poliwrath";
+    preset_nicknames[62][2]="WRATHPOLI";
     preset_nicknames[63][1]="abra";
     preset_nicknames[64][1]="kadabra";
     preset_nicknames[64][2]="DABRAKA";
@@ -263,12 +271,12 @@ void MainWindow::initialize_nicknames(){
     preset_nicknames[69][2]="SPROUTBELL";
     preset_nicknames[69][9]="JUDOPLANT";
     preset_nicknames[70][1]="weepinbell";
-    preset_nicknames[70][9]="Ringabel";
+    preset_nicknames[70][9]="Ringabell";
     preset_nicknames[71][1]="victreebel";
     preset_nicknames[71][9]="Ringabel";
     preset_nicknames[72][1]="tentacool";
     preset_nicknames[72][2]="COOLTENTA";
-    preset_nicknames[72][2]="COOLISH";
+    preset_nicknames[72][3]="COOLISH";
     preset_nicknames[73][1]="tentacruel";
     preset_nicknames[73][2]="CRUELTENTA";
     preset_nicknames[73][3]="CRUELAR";
@@ -276,8 +284,10 @@ void MainWindow::initialize_nicknames(){
     preset_nicknames[74][1]="geodude";
     preset_nicknames[74][9]="Hey dude";
     preset_nicknames[75][1]="graveler";
+    preset_nicknames[75][2]="ERGRAVEL";
     preset_nicknames[76][1]="golem";
     preset_nicknames[76][2]="LEMGO";
+    preset_nicknames[76][7]="The Rock";
     preset_nicknames[76][8]="Pebble";
     preset_nicknames[76][9]="Rhinestone";
     preset_nicknames[77][1]="ponyta";
@@ -312,7 +322,7 @@ void MainWindow::initialize_nicknames(){
     preset_nicknames[82][8]="Magnemite3";
     preset_nicknames[82][9]="MAGGIE";
     preset_nicknames[83][1]="farfetch'd";
-    preset_nicknames[83][7]="CH'DING";
+    preset_nicknames[83][6]="CH'DING";
     preset_nicknames[83][7]="Canard WC";
     preset_nicknames[83][8]="ToiletDuck";
     preset_nicknames[83][9]="DUX";
@@ -325,8 +335,10 @@ void MainWindow::initialize_nicknames(){
     preset_nicknames[85][8]="DORIS";
     preset_nicknames[85][9]="I can fly";
     preset_nicknames[86][1]="seel";
+    preset_nicknames[86][9]="SealOfQual";
     preset_nicknames[87][1]="dewgong";
     preset_nicknames[87][2]="GONGDEW";
+    preset_nicknames[87][9]="MiniLapras";
     preset_nicknames[88][1]="grimer";
     preset_nicknames[88][2]="MERGRI";
     preset_nicknames[88][7]="Grimace";
@@ -335,7 +347,10 @@ void MainWindow::initialize_nicknames(){
     preset_nicknames[89][1]="muk";
     preset_nicknames[89][9]="DansGame";
     preset_nicknames[90][1]="shellder";
+    preset_nicknames[90][2]="DERSHELL";
+    preset_nicknames[90][9]="PowerShell";
     preset_nicknames[91][1]="cloyster";
+    preset_nicknames[91][2]="STERCLOY";
     preset_nicknames[91][3]="CLOYSTOR";
     preset_nicknames[92][1]="gastly";
     preset_nicknames[92][2]="TLYGAS";
@@ -356,6 +371,7 @@ void MainWindow::initialize_nicknames(){
     preset_nicknames[95][8]="Onixpected";
     preset_nicknames[95][9]="Rocky";
     preset_nicknames[96][1]="drowzee";
+    preset_nicknames[96][2]="ZEEDROW";
     preset_nicknames[96][9]="ZZZzzzZZZ";
     preset_nicknames[97][1]="hypno";
     preset_nicknames[97][2]="NOHYP";
@@ -376,6 +392,7 @@ void MainWindow::initialize_nicknames(){
     preset_nicknames[100][9]="Poké Ball";
     preset_nicknames[101][1]="electrode";
     preset_nicknames[101][2]="TRODEELEC";
+    preset_nicknames[101][8]="CH Emperor";
     preset_nicknames[101][9]="Poké Ball";
     preset_nicknames[102][1]="exeggcute";
     preset_nicknames[102][2]="CUTEEXEGG";
@@ -387,6 +404,8 @@ void MainWindow::initialize_nicknames(){
     preset_nicknames[103][8]="Eggy";
     preset_nicknames[103][9]="Aubergine";
     preset_nicknames[104][1]="cubone";
+    preset_nicknames[104][2]="BONECU";
+    preset_nicknames[104][9]="Sans";
     preset_nicknames[105][1]="marowak";
     preset_nicknames[105][2]="WAKMARO";
     preset_nicknames[105][9]="JoltWak";
@@ -400,9 +419,12 @@ void MainWindow::initialize_nicknames(){
     preset_nicknames[107][9]="JackieChan";
     preset_nicknames[108][1]="lickitung";
     preset_nicknames[108][2]="TUNGLICKY";
+    preset_nicknames[108][8]="Sharptung";
+    preset_nicknames[108][9]="Luckytung";
     preset_nicknames[109][1]="koffing";
     preset_nicknames[109][2]="FINGKOF";
     preset_nicknames[109][3]="KngOfFghtr";
+    preset_nicknames[109][4]="KOF 98";
     preset_nicknames[109][7]="ITSPIKACHU";
     preset_nicknames[109][8]="AzurHeight";
     preset_nicknames[109][9]="Smogon";
@@ -417,6 +439,7 @@ void MainWindow::initialize_nicknames(){
     preset_nicknames[112][2]="DONRHY";
     preset_nicknames[112][3]="DONSTOR";
     preset_nicknames[113][1]="chansey";
+    preset_nicknames[113][9]="NotAChance";
     preset_nicknames[114][1]="tangela";
     preset_nicknames[114][2]="GELATAN";
     preset_nicknames[114][6]="WIGGLYWOO";
@@ -431,8 +454,8 @@ void MainWindow::initialize_nicknames(){
     preset_nicknames[116][4]="Seahorse";
     preset_nicknames[116][9]="WaterBirdo";
     preset_nicknames[117][1]="seadra";
-    preset_nicknames[117][4]="Sea Dragon";
     preset_nicknames[117][2]="DRASEA";
+    preset_nicknames[117][4]="Sea Dragon";
     preset_nicknames[117][9]="Not Dragon";
     preset_nicknames[118][1]="goldeen";
     preset_nicknames[118][2]="DEENGOL";
@@ -484,7 +507,7 @@ void MainWindow::initialize_nicknames(){
     preset_nicknames[129][2]="KARPMAGI";
     preset_nicknames[129][9]="Magikrap";
     preset_nicknames[130][1]="gyarados";
-    preset_nicknames[130][1]="DOSGYARA";
+    preset_nicknames[130][2]="DOSGYARA";
     preset_nicknames[130][9]="Serpentide";
     preset_nicknames[131][1]="lapras";
     preset_nicknames[131][2]="PRASLA";
@@ -492,6 +515,7 @@ void MainWindow::initialize_nicknames(){
     preset_nicknames[131][9]="Loch Ness";
     preset_nicknames[132][1]="ditto";
     preset_nicknames[132][2]="TTODI";
+    preset_nicknames[132][3]="no u";
     preset_nicknames[132][8]="Mirror";
     preset_nicknames[132][9]="Shapeshift";
     preset_nicknames[133][1]="eevee";
@@ -502,6 +526,7 @@ void MainWindow::initialize_nicknames(){
     preset_nicknames[135][1]="jolteon";
     preset_nicknames[135][2]="EONJOLT";
     preset_nicknames[135][3]="JOLTESTOR";
+    preset_nicknames[135][6]="JoltWak";
     preset_nicknames[135][8]="Usain Jolt";
     preset_nicknames[135][9]="King of CH";
     preset_nicknames[136][1]="flareon";
@@ -510,9 +535,10 @@ void MainWindow::initialize_nicknames(){
     preset_nicknames[136][9]="Hot Dog";
     preset_nicknames[137][1]="porygon";
     preset_nicknames[137][2]="GONPORY";
+    preset_nicknames[137][3]="000 drop";
     preset_nicknames[137][4]="PokéPlayer";
     preset_nicknames[137][5]="Debian0.93";
-    preset_nicknames[137][6]="Rndmzr 0.1";
+    preset_nicknames[137][6]="Rndmzr 0.2";
     preset_nicknames[137][7]="255 items";
     preset_nicknames[137][8]="8F ACE";
     preset_nicknames[137][9]="AzurHeight";
