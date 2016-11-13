@@ -729,8 +729,8 @@ void MainWindow::initialize_widgets()
         ui->comboBox_HighCH_MovesList_2->setCurrentIndex(move_high_ch[1]);
         ui->comboBox_HighCH_MovesList_3->setCurrentIndex(move_high_ch[2]);
         ui->comboBox_HighCH_MovesList_4->setCurrentIndex(move_high_ch[3]);
-        ui->comboBox_HighCH_shift->setCurrentIndex(burn_shift);
-        ui->spinBox_HighCH_shiftvalue->setValue(burn_shiftvalue);
+        ui->comboBox_HighCH_shift->setCurrentIndex(move_high_ch_shift);
+        ui->spinBox_HighCH_shiftvalue->setValue(move_high_ch_shiftvalue);
 
         // Critical Hit formula
         ui->spinBox_CH_formula_add->setValue(ch_formula_add);
