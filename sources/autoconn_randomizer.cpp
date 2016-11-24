@@ -32,6 +32,20 @@ void MainWindow::on_pushButton_Randomize_pressed()
     std::mt19937 mt_rand(seeds);
     mt_rand.discard(700000);
 
+    // Pokémon data
+    if(ui->checkBox_PkmnData->isChecked()){
+        if(ui->checkBox_Randomize_PkmnData_BS->isChecked()){
+            randomize_pkm_base_stats(mt_rand);
+        }
+
+        // Update display
+        if(not_in_init){
+            buf8 = ui->comboBox_PokemonSpecies->currentIndex();
+            display_pkm_data(buf8+1);
+        }
+    }
+
+
     // CPU Teams
     if(ui->checkBox_CPUTeams->isChecked()){
         if(ui->checkBox_Randomize_CPU_Sprites->isChecked()){
@@ -257,6 +271,68 @@ void MainWindow::on_checkBox_CPUTeams_stateChanged(int state)
         ui->spinBox_CPU_StatExp_max->setEnabled(false);
     }
 }
+void MainWindow::on_checkBox_MoveData_stateChanged(int state)
+{
+    if(state == Qt::Checked){
+        ui->checkBox_Randomize_MoveData_Powers->setEnabled(true);
+        ui->checkBox_Randomize_MoveData_Types->setEnabled(true);
+        ui->checkBox_Randomize_MoveData_Effects->setEnabled(true);
+        ui->checkBox_Randomize_MoveData_Accuracy->setEnabled(true);
+        ui->checkBox_Randomizer_MoveData_Explosion->setEnabled(true);
+
+        if(ui->checkBox_Randomize_MoveData_Accuracy->isChecked()){
+            ui->checkBox_Randomizer_MoveData_PowerAccuracy->setEnabled(true);
+            ui->checkBox_Randomizer_MoveData_Sleep->setEnabled(true);
+            ui->checkBox_Randomizer_MoveData_Trap->setEnabled(true);
+        }
+        if(ui->checkBox_Randomize_MoveData_Powers->isChecked()){
+            ui->checkBox_Randomizer_MoveData_EffectPower->setEnabled(true);
+            ui->label_MoveData_Power_1->setEnabled(true);
+            ui->label_MoveData_Power_2->setEnabled(true);
+            ui->spinBox_MoveData_minPower->setEnabled(true);
+            ui->spinBox_MoveData_maxPower->setEnabled(true);
+        }
+    }
+    else{
+        ui->checkBox_Randomize_MoveData_Powers->setEnabled(false);
+        ui->checkBox_Randomize_MoveData_Types->setEnabled(false);
+        ui->checkBox_Randomize_MoveData_Effects->setEnabled(false);
+        ui->checkBox_Randomizer_MoveData_Explosion->setEnabled(false);
+        ui->checkBox_Randomize_MoveData_Accuracy->setEnabled(false);
+        ui->checkBox_Randomizer_MoveData_PowerAccuracy->setEnabled(false);
+        ui->checkBox_Randomizer_MoveData_Sleep->setEnabled(false);
+        ui->checkBox_Randomizer_MoveData_Trap->setEnabled(false);
+        ui->checkBox_Randomizer_MoveData_EffectPower->setEnabled(false);
+        ui->label_MoveData_Power_1->setEnabled(false);
+        ui->label_MoveData_Power_2->setEnabled(false);
+        ui->spinBox_MoveData_minPower->setEnabled(false);
+        ui->spinBox_MoveData_maxPower->setEnabled(false);
+    }
+}
+void MainWindow::on_checkBox_PkmnData_stateChanged(int state)
+{
+    if(state == Qt::Checked){
+        ui->checkBox_Randomize_PkmnData_BS->setEnabled(true);
+        ui->checkBox_Randomize_PkmnData_Types->setEnabled(true);
+        ui->checkBox_Randomize_PkmnData_Moves->setEnabled(true);
+
+        if(ui->checkBox_Randomize_PkmnData_BS->isChecked()){
+            ui->groupBox_PkmnData_MaxBS->setEnabled(true);
+            ui->groupBox_PkmnData_BST->setEnabled(true);
+        }
+        if(ui->checkBox_Randomize_PkmnData_Moves->isChecked()){
+            ui->Randomize_PkmnData_STABmove->setEnabled(true);
+        }
+    }
+    else{
+        ui->checkBox_Randomize_PkmnData_BS->setEnabled(false);
+        ui->checkBox_Randomize_PkmnData_Types->setEnabled(false);
+        ui->checkBox_Randomize_PkmnData_Moves->setEnabled(false);
+        ui->Randomize_PkmnData_STABmove->setEnabled(false);
+        ui->groupBox_PkmnData_MaxBS->setEnabled(false);
+        ui->groupBox_PkmnData_BST->setEnabled(false);
+    }
+}
 void MainWindow::on_checkBox_Randomize_CPU_Pkmn_stateChanged(int state)
 {
     if(state == Qt::Checked){
@@ -349,6 +425,59 @@ void MainWindow::on_checkBox_Randomize_CPU_IVsEVs_stateChanged(int state)
         ui->label_CPU_StatExp_range_2->setEnabled(false);
         ui->spinBox_CPU_StatExp_min->setEnabled(false);
         ui->spinBox_CPU_StatExp_max->setEnabled(false);
+    }
+}
+
+void MainWindow::on_checkBox_Randomize_MoveData_Accuracy_stateChanged(int state)
+{
+    if(state == Qt::Checked) {
+        ui->checkBox_Randomizer_MoveData_PowerAccuracy->setEnabled(true);
+        ui->checkBox_Randomizer_MoveData_Sleep->setEnabled(true);
+        ui->checkBox_Randomizer_MoveData_Trap->setEnabled(true);
+    }
+    else {
+        ui->checkBox_Randomizer_MoveData_PowerAccuracy->setEnabled(false);
+        ui->checkBox_Randomizer_MoveData_Sleep->setEnabled(false);
+        ui->checkBox_Randomizer_MoveData_Trap->setEnabled(false);
+    }
+}
+void MainWindow::on_checkBox_Randomize_MoveData_Powers_stateChanged(int state)
+{
+    if(state == Qt::Checked) {
+        ui->checkBox_Randomizer_MoveData_EffectPower->setEnabled(true);
+        ui->label_MoveData_Power_1->setEnabled(true);
+        ui->label_MoveData_Power_2->setEnabled(true);
+        ui->spinBox_MoveData_minPower->setEnabled(true);
+        ui->spinBox_MoveData_maxPower->setEnabled(true);
+    }
+    else {
+        ui->checkBox_Randomizer_MoveData_EffectPower->setEnabled(false);
+        ui->label_MoveData_Power_1->setEnabled(false);
+        ui->label_MoveData_Power_2->setEnabled(false);
+        ui->spinBox_MoveData_minPower->setEnabled(false);
+        ui->spinBox_MoveData_maxPower->setEnabled(false);
+    }
+}
+
+
+void MainWindow::on_checkBox_Randomize_PkmnData_BS_stateChanged(int state)
+{
+    if(state == Qt::Checked) {
+        ui->groupBox_PkmnData_MaxBS->setEnabled(true);
+        ui->groupBox_PkmnData_BST->setEnabled(true);
+    }
+    else {
+        ui->groupBox_PkmnData_MaxBS->setEnabled(false);
+        ui->groupBox_PkmnData_BST->setEnabled(false);
+    }
+}
+void MainWindow::on_checkBox_Randomize_PkmnData_Moves_stateChanged(int state)
+{
+    if(state == Qt::Checked) {
+        ui->Randomize_PkmnData_STABmove->setEnabled(true);
+    }
+    else {
+        ui->Randomize_PkmnData_STABmove->setEnabled(false);
     }
 }
 
@@ -514,6 +643,188 @@ void MainWindow::on_checkBox_Randomizer_Rental_NoIllegalMoves_stateChanged(int s
 
 }
 
+// Base Stats range
+void MainWindow::on_spinBox_BSmax_HP_valueChanged(int)
+{
+    if(not_in_init){
+        bsmax_hp = ui->spinBox_BSmax_HP->value();
+        refresh_bs_parameters();
+    }
+}
+void MainWindow::on_spinBox_BSmax_ATK_valueChanged(int)
+{
+    if(not_in_init){
+        bsmax_atk = ui->spinBox_BSmax_ATK->value();
+        refresh_bs_parameters();
+    }
+}
+void MainWindow::on_spinBox_BSmax_DEF_valueChanged(int)
+{
+    if(not_in_init){
+        bsmax_def = ui->spinBox_BSmax_DEF->value();
+        refresh_bs_parameters();
+    }
+}
+void MainWindow::on_spinBox_BSmax_SPC_valueChanged(int)
+{
+    if(not_in_init){
+        bsmax_spc = ui->spinBox_BSmax_SPC->value();
+        refresh_bs_parameters();
+    }
+}
+void MainWindow::on_spinBox_BSmax_SPEED_valueChanged(int)
+{
+    if(not_in_init){
+        bsmax_speed = ui->spinBox_BSmax_SPEED->value();
+        refresh_bs_parameters();
+    }
+}
+void MainWindow::on_spinBox_BSmin_HP_valueChanged(int)
+{
+    if(not_in_init){
+        bsmin_hp = ui->spinBox_BSmin_HP->value();
+        refresh_bs_parameters();
+    }
+}
+void MainWindow::on_spinBox_BSmin_ATK_valueChanged(int)
+{
+    if(not_in_init){
+        bsmin_atk = ui->spinBox_BSmin_ATK->value();
+        refresh_bs_parameters();
+    }
+}
+void MainWindow::on_spinBox_BSmin_DEF_valueChanged(int)
+{
+    if(not_in_init){
+        bsmin_def = ui->spinBox_BSmin_DEF->value();
+        refresh_bs_parameters();
+    }
+}
+void MainWindow::on_spinBox_BSmin_SPC_valueChanged(int)
+{
+    if(not_in_init){
+        bsmin_spc = ui->spinBox_BSmin_SPC->value();
+        refresh_bs_parameters();
+    }
+}
+void MainWindow::on_spinBox_BSmin_SPEED_valueChanged(int)
+{
+    if(not_in_init){
+        bsmin_speed = ui->spinBox_BSmin_SPEED->value();
+        refresh_bs_parameters();
+    }
+}
+
+void MainWindow::on_spinBox_BSTmin_Basic_valueChanged(int)
+{
+    if(not_in_init){
+        bstmin_basic = ui->spinBox_BSTmin_Basic->value();
+        if(bstmin_basic > bstmax_basic) {
+            bstmax_basic = bstmin_basic;
+            ui->spinBox_BSTmax_Basic->setValue(bstmax_basic);
+        }
+        refresh_bs_parameters();
+    }
+}
+void MainWindow::on_spinBox_BSTmin_Stage1_valueChanged(int)
+{
+    if(not_in_init){
+        bstmin_stage1 = ui->spinBox_BSTmin_Stage1->value();
+        if(bstmin_stage1 > bstmax_stage1) {
+            bstmax_stage1 = bstmin_stage1;
+            ui->spinBox_BSTmax_Stage1->setValue(bstmax_stage1);
+        }
+        refresh_bs_parameters();
+    }
+}
+void MainWindow::on_spinBox_BSTmin_FullyEvolved_valueChanged(int)
+{
+    if(not_in_init){
+        bstmin_fullevo = ui->spinBox_BSTmin_FullyEvolved->value();
+        if(bstmin_fullevo > bstmax_fullevo) {
+            bstmax_fullevo = bstmin_fullevo;
+            ui->spinBox_BSTmax_FullyEvolved->setValue(bstmax_fullevo);
+        }
+        refresh_bs_parameters();
+    }
+}
+void MainWindow::on_spinBox_BSTmin_Legend_valueChanged(int)
+{
+    if(not_in_init){
+        bstmin_legend = ui->spinBox_BSTmin_Legend->value();
+        if(bstmin_legend > bstmax_legend) {
+            bstmax_legend = bstmin_legend;
+            ui->spinBox_BSTmax_Legend->setValue(bstmax_legend);
+        }
+        refresh_bs_parameters();
+    }
+}
+void MainWindow::on_spinBox_BSTmax_Basic_valueChanged(int)
+{
+    if(not_in_init){
+        bstmax_basic = ui->spinBox_BSTmax_Basic->value();
+        if(bstmin_basic > bstmax_basic) {
+            bstmin_basic = bstmax_basic;
+            ui->spinBox_BSTmin_Basic->setValue(bstmin_basic);
+        }
+        refresh_bs_parameters();
+    }
+}
+void MainWindow::on_spinBox_BSTmax_Stage1_valueChanged(int)
+{
+    if(not_in_init){
+        bstmax_stage1 = ui->spinBox_BSTmax_Stage1->value();
+        if(bstmin_stage1 > bstmax_stage1) {
+            bstmin_stage1 = bstmax_stage1;
+            ui->spinBox_BSTmin_Stage1->setValue(bstmin_stage1);
+        }
+        refresh_bs_parameters();
+    }
+}
+void MainWindow::on_spinBox_BSTmax_FullyEvolved_valueChanged(int)
+{
+    if(not_in_init){
+        bstmax_fullevo = ui->spinBox_BSTmax_FullyEvolved->value();
+        if(bstmin_fullevo > bstmax_fullevo) {
+            bstmin_fullevo = bstmax_fullevo;
+            ui->spinBox_BSTmin_FullyEvolved->setValue(bstmin_fullevo);
+        }
+        refresh_bs_parameters();
+    }
+}
+void MainWindow::on_spinBox_BSTmax_Legend_valueChanged(int)
+{
+    if(not_in_init){
+        bstmax_legend = ui->spinBox_BSTmax_Legend->value();
+        if(bstmin_legend > bstmax_legend) {
+            bstmin_legend = bstmax_legend;
+            ui->spinBox_BSTmin_Legend->setValue(bstmin_legend);
+        }
+        refresh_bs_parameters();
+    }
+}
+
+// Move Powers range
+void MainWindow::on_spinBox_MoveData_minPower_valueChanged(int)
+{
+    if(not_in_init) {
+        moverand_min = ui->spinBox_MoveData_minPower->value();
+        if(moverand_min > moverand_max) {
+            moverand_max = moverand_min;
+            ui->spinBox_MoveData_maxPower->setValue(moverand_max);
+        }
+    }
+}
+void MainWindow::on_spinBox_MoveData_maxPower_valueChanged(int)
+{
+    if(not_in_init) {
+        moverand_max = ui->spinBox_MoveData_maxPower->value();
+        if(moverand_min > moverand_max) {
+            moverand_min = moverand_max;
+            ui->spinBox_MoveData_minPower->setValue(moverand_min);
+        }
+    }
+}
 
 // CPU IVs range
 void MainWindow::on_spinBox_CPU_IVs_min_valueChanged(int)
