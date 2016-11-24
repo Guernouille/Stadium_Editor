@@ -61,7 +61,9 @@ SOURCES += main.cpp\
     read_ch_formula.cpp \
     read_battle_mechanics.cpp \
     write_battle_mechanics.cpp \
-    autoconn_edit_battle_mechanics.cpp
+    autoconn_edit_battle_mechanics.cpp \
+    randomize_pkm_data.cpp \
+    initialize_evo_stages.cpp
 
 HEADERS  += mainwindow.h \
     common.cpp \
