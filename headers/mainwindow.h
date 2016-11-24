@@ -47,8 +47,10 @@ public:
     QString debug;
     bool not_in_init = true;
 
+    bool    bufbool;
     quint8  buf8;
     quint16 buf16;
+    qint16  buf16s;
     quint32 buf32;
     quint32 rom_offset;
     QString char_table[256];
@@ -62,6 +64,27 @@ public:
     quint8 total_pokedex_entry;
     quint8 total_type_name;
 
+    quint8 bsmin_hp = 10;
+    quint8 bsmin_atk = 10;
+    quint8 bsmin_def = 10;
+    quint8 bsmin_spc = 10;
+    quint8 bsmin_speed = 10;
+    quint16 bsmin_total = 50;
+    quint8 bsmax_hp = 130;
+    quint8 bsmax_atk = 130;
+    quint8 bsmax_def = 130;
+    quint8 bsmax_spc = 130;
+    quint8 bsmax_speed = 130;
+    quint16 bsmax_total = 650;
+    quint16 bstmin_basic = 270;
+    quint16 bstmin_stage1 = 355;
+    quint16 bstmin_fullevo = 435;
+    quint16 bstmin_legend = 500;
+    quint16 bstmax_basic = 325;
+    quint16 bstmax_stage1 = 410;
+    quint16 bstmax_fullevo = 500;
+    quint16 bstmax_legend = 600;
+    quint16 bst_temp = 0;
     quint8 burn_shift = 1;
     quint8 burn_shiftvalue = 1;
 
@@ -158,6 +181,8 @@ public:
     bool strong_move[256] = {false};
     bool useless_move[256] = {false};
     bool weak_move[256] = {false};
+    quint8 moverand_min = 40;
+    quint8 moverand_max = 140;
 
     std::vector<quint8> gambler_moves_ids_vector;
     std::vector<quint8> moves_ids_vector;
@@ -174,6 +199,7 @@ public:
     quint8 pkm_base_speed[256];
     quint8 pkm_base_experience[256];
     quint8 pkm_catch_rate[256];
+    quint8 pkm_evo_stage[256] = {0};
     quint8 pkm_growth_rate[256];
     quint8 pkm_min_level[256];
     quint8 pkm_rb_lvl[256][10];
@@ -274,6 +300,7 @@ private:
     // initialize
     void initialize_char_table();
     void initialize_data();
+    void initialize_evo_stages();
     void initialize_iv_statexp_groups();
     void initialize_min_levels();
     void initialize_nicknames();
@@ -293,12 +320,16 @@ private:
     void randomize_cpu_pkmn(std::mt19937 &mt_rand);
     void randomize_cpu_sprites(std::mt19937 &mt_rand);
     void randomize_cpu_trainer_names(std::mt19937 &mt_rand);
+    void randomize_pkm_base_stats(std::mt19937 &mt_rand);
     void randomize_rental_init_pkmn();
     void randomize_rental_iv_stat_exp(std::mt19937 &mt_rand);
     void randomize_rental_level(std::mt19937 &mt_rand);
     void randomize_rental_moves(std::mt19937 &mt_rand);
     void randomize_rental_pkmn(std::mt19937 &mt_rand);
     void randomize_type_chart(std::mt19937 &mt_rand);
+
+    // pkm data parameters
+    void refresh_bs_parameters();
 
 private slots:
     // menu
@@ -325,10 +356,16 @@ private slots:
     void on_checkBox_CPUTeams_stateChanged(int state);
     void on_checkBox_Ghost_vs_Psychic_stateChanged(int state);
     void on_checkBox_Ice_vs_Fire_stateChanged(int state);
+    void on_checkBox_MoveData_stateChanged(int state);
+    void on_checkBox_PkmnData_stateChanged(int state);
     void on_checkBox_Randomize_CPU_IVsEVs_stateChanged(int state);
     void on_checkBox_Randomize_CPU_Levels_stateChanged(int state);
     void on_checkBox_Randomize_CPU_Moves_stateChanged(int state);
     void on_checkBox_Randomize_CPU_Pkmn_stateChanged(int state);
+    void on_checkBox_Randomize_MoveData_Accuracy_stateChanged(int state);
+    void on_checkBox_Randomize_MoveData_Powers_stateChanged(int state);
+    void on_checkBox_Randomize_PkmnData_BS_stateChanged(int state);
+    void on_checkBox_Randomize_PkmnData_Moves_stateChanged(int state);
     void on_checkBox_Randomize_Rental_IVsEVs_stateChanged(int state);
     void on_checkBox_Randomize_Rental_Levels_stateChanged(int state);
     void on_checkBox_Randomize_Rental_Moves_stateChanged(int state);
@@ -346,10 +383,30 @@ private slots:
     void on_pushButton_Rental_Metronome_pressed();
     void on_spinBox_Randomizer_GLCLevelRange_1_valueChanged(int);
     void on_spinBox_Randomizer_GLCLevelRange_2_valueChanged(int);
+    void on_spinBox_BSmax_HP_valueChanged(int);
+    void on_spinBox_BSmax_ATK_valueChanged(int);
+    void on_spinBox_BSmax_DEF_valueChanged(int);
+    void on_spinBox_BSmax_SPC_valueChanged(int);
+    void on_spinBox_BSmax_SPEED_valueChanged(int);
+    void on_spinBox_BSmin_HP_valueChanged(int);
+    void on_spinBox_BSmin_ATK_valueChanged(int);
+    void on_spinBox_BSmin_DEF_valueChanged(int);
+    void on_spinBox_BSmin_SPC_valueChanged(int);
+    void on_spinBox_BSmin_SPEED_valueChanged(int);
+    void on_spinBox_BSTmin_Basic_valueChanged(int);
+    void on_spinBox_BSTmin_Stage1_valueChanged(int);
+    void on_spinBox_BSTmin_FullyEvolved_valueChanged(int);
+    void on_spinBox_BSTmin_Legend_valueChanged(int);
+    void on_spinBox_BSTmax_Basic_valueChanged(int);
+    void on_spinBox_BSTmax_Stage1_valueChanged(int);
+    void on_spinBox_BSTmax_FullyEvolved_valueChanged(int);
+    void on_spinBox_BSTmax_Legend_valueChanged(int);
     void on_spinBox_CPU_IVs_min_valueChanged(int);
     void on_spinBox_CPU_IVs_max_valueChanged(int);
     void on_spinBox_CPU_StatExp_min_valueChanged(int);
     void on_spinBox_CPU_StatExp_max_valueChanged(int);
+    void on_spinBox_MoveData_minPower_valueChanged(int);
+    void on_spinBox_MoveData_maxPower_valueChanged(int);
     void on_spinBox_Rental_IVs_min_valueChanged(int);
     void on_spinBox_Rental_IVs_max_valueChanged(int);
     void on_spinBox_Rental_StatExp_min_valueChanged(int);
@@ -654,7 +711,6 @@ private slots:
     void on_spinBox_CH_formula_shiftvalue_1_valueChanged(int);
     void on_spinBox_CH_formula_shiftvalue_2_valueChanged(int);
     void on_spinBox_CH_formula_shiftvalue_3_valueChanged(int);
-    void on_spinBox_HighCH_shiftvalue_valueChanged(int);
     void on_spinBox_MoveAccuracy_valueChanged(int);
     void on_spinBox_MovePower_valueChanged(int);
     void on_spinBox_MovePP_valueChanged(int);
@@ -663,7 +719,7 @@ private slots:
     void on_comboBox_HighCH_shift_currentIndexChanged(int);
     void on_comboBox_Status_Burn_shift_currentIndexChanged(int);
     void on_spinBox_DamageVariance_1_valueChanged(int);
-    void on_spinBox_HighCH_shiftvalue_shiftvalue_valueChanged(int);
+    void on_spinBox_HighCH_shiftvalue_valueChanged(int);
     void on_spinBox_Status_Burn_shiftvalue_valueChanged(int);
     void on_spinBox_Status_Paralysis_probability_valueChanged(int);
 
