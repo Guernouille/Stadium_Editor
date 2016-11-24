@@ -67,7 +67,7 @@
        <rect>
         <x>410</x>
         <y>285</y>
-        <width>175</width>
+        <width>180</width>
         <height>21</height>
        </rect>
       </property>
@@ -732,7 +732,7 @@
      <widget class="QGroupBox" name="groupBox_PRNG_Seeds">
       <property name="geometry">
        <rect>
-        <x>587</x>
+        <x>594</x>
         <y>228</y>
         <width>111</width>
         <height>185</height>
@@ -1277,7 +1277,7 @@
      <widget class="QCheckBox" name="checkBox_FixedSeeds">
       <property name="geometry">
        <rect>
-        <x>600</x>
+        <x>605</x>
         <y>417</y>
         <width>91</width>
         <height>17</height>
@@ -1428,7 +1428,7 @@
      <widget class="QPushButton" name="pushButton_Randomize">
       <property name="geometry">
        <rect>
-        <x>410</x>
+        <x>413</x>
         <y>230</y>
         <width>175</width>
         <height>50</height>
@@ -1487,8 +1487,8 @@
       <property name="geometry">
        <rect>
         <x>410</x>
-        <y>170</y>
-        <width>175</width>
+        <y>310</y>
+        <width>180</width>
         <height>21</height>
        </rect>
       </property>
@@ -1525,8 +1525,8 @@
        <rect>
         <x>4</x>
         <y>445</y>
-        <width>311</width>
-        <height>138</height>
+        <width>463</width>
+        <height>140</height>
        </rect>
       </property>
       <property name="title">
@@ -1545,33 +1545,39 @@
         <string>Pokémon Data</string>
        </property>
        <property name="checked">
-        <bool>true</bool>
+        <bool>false</bool>
        </property>
       </widget>
       <widget class="QCheckBox" name="checkBox_Randomize_PkmnData_BS">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
        <property name="geometry">
         <rect>
          <x>5</x>
-         <y>55</y>
+         <y>57</y>
          <width>111</width>
          <height>17</height>
         </rect>
        </property>
        <property name="toolTip">
-        <string/>
+        <string>Farfetch'd and Ditto will have Basic Base Stats, for Petit Cup balance reasons.</string>
        </property>
        <property name="text">
-        <string>Randomize Stats</string>
+        <string>Randomize Stats*</string>
        </property>
        <property name="checked">
         <bool>true</bool>
        </property>
       </widget>
       <widget class="QCheckBox" name="checkBox_Randomize_PkmnData_Types">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
        <property name="geometry">
         <rect>
          <x>5</x>
-         <y>75</y>
+         <y>77</y>
          <width>111</width>
          <height>17</height>
         </rect>
@@ -1587,10 +1593,13 @@
        </property>
       </widget>
       <widget class="QCheckBox" name="checkBox_Randomize_PkmnData_Moves">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
        <property name="geometry">
         <rect>
          <x>5</x>
-         <y>95</y>
+         <y>97</y>
          <width>111</width>
          <height>17</height>
         </rect>
@@ -1605,35 +1614,41 @@
         <bool>true</bool>
        </property>
       </widget>
-      <widget class="QGroupBox" name="groupBox">
+      <widget class="QGroupBox" name="groupBox_PkmnData_BST">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
        <property name="geometry">
         <rect>
-         <x>122</x>
+         <x>275</x>
          <y>6</y>
-         <width>185</width>
-         <height>128</height>
+         <width>184</width>
+         <height>130</height>
         </rect>
        </property>
        <property name="title">
         <string>Base Stat Total</string>
        </property>
-       <widget class="QSpinBox" name="spinBox_BST_FullyEvolved">
+       <widget class="QSpinBox" name="spinBox_BSTmin_FullyEvolved">
         <property name="geometry">
          <rect>
-          <x>77</x>
+          <x>75</x>
           <y>72</y>
-          <width>42</width>
+          <width>45</width>
           <height>22</height>
          </rect>
         </property>
         <property name="minimum">
-         <number>6</number>
+         <number>25</number>
         </property>
         <property name="maximum">
-         <number>1530</number>
+         <number>1275</number>
+        </property>
+        <property name="singleStep">
+         <number>5</number>
         </property>
         <property name="value">
-         <number>520</number>
+         <number>435</number>
         </property>
        </widget>
        <widget class="QLabel" name="label_BST_text_3">
@@ -1662,23 +1677,26 @@
          <string>Stage 1:</string>
         </property>
        </widget>
-       <widget class="QSpinBox" name="spinBox_BST_Stage1">
+       <widget class="QSpinBox" name="spinBox_BSTmin_Stage1">
         <property name="geometry">
          <rect>
-          <x>77</x>
+          <x>75</x>
           <y>44</y>
-          <width>42</width>
+          <width>45</width>
           <height>22</height>
          </rect>
         </property>
         <property name="minimum">
-         <number>6</number>
+         <number>25</number>
         </property>
         <property name="maximum">
-         <number>1530</number>
+         <number>1275</number>
+        </property>
+        <property name="singleStep">
+         <number>5</number>
         </property>
         <property name="value">
-         <number>450</number>
+         <number>355</number>
         </property>
        </widget>
        <widget class="QLabel" name="label_BST_text_1">
@@ -1694,23 +1712,26 @@
          <string>Basic:</string>
         </property>
        </widget>
-       <widget class="QSpinBox" name="spinBox_BST_Basic">
+       <widget class="QSpinBox" name="spinBox_BSTmin_Basic">
         <property name="geometry">
          <rect>
-          <x>77</x>
+          <x>75</x>
           <y>16</y>
-          <width>42</width>
+          <width>45</width>
           <height>22</height>
          </rect>
         </property>
         <property name="minimum">
-         <number>6</number>
+         <number>25</number>
         </property>
         <property name="maximum">
-         <number>1530</number>
+         <number>1275</number>
+        </property>
+        <property name="singleStep">
+         <number>5</number>
         </property>
         <property name="value">
-         <number>350</number>
+         <number>270</number>
         </property>
        </widget>
        <widget class="QLabel" name="label_BST_text_4">
@@ -1726,23 +1747,26 @@
          <string>Legendary:</string>
         </property>
        </widget>
-       <widget class="QSpinBox" name="spinBox_BST_Legend">
+       <widget class="QSpinBox" name="spinBox_BSTmin_Legend">
         <property name="geometry">
          <rect>
-          <x>77</x>
+          <x>75</x>
           <y>100</y>
-          <width>42</width>
+          <width>45</width>
           <height>22</height>
          </rect>
         </property>
         <property name="minimum">
-         <number>6</number>
+         <number>25</number>
         </property>
         <property name="maximum">
-         <number>1530</number>
+         <number>1275</number>
+        </property>
+        <property name="singleStep">
+         <number>5</number>
         </property>
         <property name="value">
-         <number>670</number>
+         <number>500</number>
         </property>
        </widget>
        <widget class="QLabel" name="label_BST_text_5">
@@ -1765,80 +1789,92 @@
          <string>~</string>
         </property>
        </widget>
-       <widget class="QSpinBox" name="spinBox_BST_Legend_2">
+       <widget class="QSpinBox" name="spinBox_BSTmax_Legend">
         <property name="geometry">
          <rect>
-          <x>137</x>
+          <x>135</x>
           <y>100</y>
-          <width>42</width>
+          <width>45</width>
           <height>22</height>
          </rect>
         </property>
         <property name="minimum">
-         <number>6</number>
+         <number>25</number>
         </property>
         <property name="maximum">
-         <number>1530</number>
+         <number>1275</number>
         </property>
-        <property name="value">
-         <number>700</number>
-        </property>
-       </widget>
-       <widget class="QSpinBox" name="spinBox_BST_Stage1_2">
-        <property name="geometry">
-         <rect>
-          <x>137</x>
-          <y>44</y>
-          <width>42</width>
-          <height>22</height>
-         </rect>
-        </property>
-        <property name="minimum">
-         <number>6</number>
-        </property>
-        <property name="maximum">
-         <number>1530</number>
-        </property>
-        <property name="value">
-         <number>500</number>
-        </property>
-       </widget>
-       <widget class="QSpinBox" name="spinBox_BST_FullyEvolved_2">
-        <property name="geometry">
-         <rect>
-          <x>137</x>
-          <y>72</y>
-          <width>42</width>
-          <height>22</height>
-         </rect>
-        </property>
-        <property name="minimum">
-         <number>6</number>
-        </property>
-        <property name="maximum">
-         <number>1530</number>
+        <property name="singleStep">
+         <number>5</number>
         </property>
         <property name="value">
          <number>600</number>
         </property>
        </widget>
-       <widget class="QSpinBox" name="spinBox_BST_Basic_2">
+       <widget class="QSpinBox" name="spinBox_BSTmax_Stage1">
         <property name="geometry">
          <rect>
-          <x>137</x>
-          <y>16</y>
-          <width>42</width>
+          <x>135</x>
+          <y>44</y>
+          <width>45</width>
           <height>22</height>
          </rect>
         </property>
         <property name="minimum">
-         <number>6</number>
+         <number>25</number>
         </property>
         <property name="maximum">
-         <number>1530</number>
+         <number>1275</number>
+        </property>
+        <property name="singleStep">
+         <number>5</number>
         </property>
         <property name="value">
-         <number>400</number>
+         <number>410</number>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_BSTmax_FullyEvolved">
+        <property name="geometry">
+         <rect>
+          <x>135</x>
+          <y>72</y>
+          <width>45</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="minimum">
+         <number>25</number>
+        </property>
+        <property name="maximum">
+         <number>1275</number>
+        </property>
+        <property name="singleStep">
+         <number>5</number>
+        </property>
+        <property name="value">
+         <number>500</number>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_BSTmax_Basic">
+        <property name="geometry">
+         <rect>
+          <x>135</x>
+          <y>16</y>
+          <width>45</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="minimum">
+         <number>25</number>
+        </property>
+        <property name="maximum">
+         <number>1275</number>
+        </property>
+        <property name="singleStep">
+         <number>5</number>
+        </property>
+        <property name="value">
+         <number>325</number>
         </property>
        </widget>
        <widget class="QLabel" name="label_BST_text_6">
@@ -1902,11 +1938,14 @@
         </property>
        </widget>
       </widget>
-      <widget class="QCheckBox" name="checkBox">
+      <widget class="QCheckBox" name="Randomize_PkmnData_STABmove">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
        <property name="geometry">
         <rect>
          <x>5</x>
-         <y>115</y>
+         <y>117</y>
          <width>121</width>
          <height>17</height>
         </rect>
@@ -1925,7 +1964,7 @@
        <property name="geometry">
         <rect>
          <x>3</x>
-         <y>32</y>
+         <y>33</y>
          <width>115</width>
          <height>23</height>
         </rect>
@@ -1941,6 +1980,407 @@
        <property name="text">
         <string>Only Normal type</string>
        </property>
+      </widget>
+      <widget class="QGroupBox" name="groupBox_PkmnData_MaxBS">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>122</x>
+         <y>6</y>
+         <width>150</width>
+         <height>131</height>
+        </rect>
+       </property>
+       <property name="title">
+        <string>Base Stats ranges</string>
+       </property>
+       <widget class="QSpinBox" name="spinBox_BSmax_HP">
+        <property name="geometry">
+         <rect>
+          <x>102</x>
+          <y>14</y>
+          <width>42</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="minimum">
+         <number>5</number>
+        </property>
+        <property name="maximum">
+         <number>255</number>
+        </property>
+        <property name="singleStep">
+         <number>5</number>
+        </property>
+        <property name="value">
+         <number>130</number>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_2">
+        <property name="geometry">
+         <rect>
+          <x>7</x>
+          <y>19</y>
+          <width>35</width>
+          <height>13</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>HP:</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_3">
+        <property name="geometry">
+         <rect>
+          <x>7</x>
+          <y>42</y>
+          <width>35</width>
+          <height>13</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>ATK:</string>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_BSmax_ATK">
+        <property name="geometry">
+         <rect>
+          <x>102</x>
+          <y>37</y>
+          <width>42</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="minimum">
+         <number>5</number>
+        </property>
+        <property name="maximum">
+         <number>255</number>
+        </property>
+        <property name="singleStep">
+         <number>5</number>
+        </property>
+        <property name="value">
+         <number>130</number>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_4">
+        <property name="geometry">
+         <rect>
+          <x>7</x>
+          <y>65</y>
+          <width>35</width>
+          <height>13</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>DEF:</string>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_BSmax_DEF">
+        <property name="geometry">
+         <rect>
+          <x>102</x>
+          <y>60</y>
+          <width>42</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="minimum">
+         <number>5</number>
+        </property>
+        <property name="maximum">
+         <number>255</number>
+        </property>
+        <property name="singleStep">
+         <number>5</number>
+        </property>
+        <property name="value">
+         <number>130</number>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_5">
+        <property name="geometry">
+         <rect>
+          <x>7</x>
+          <y>88</y>
+          <width>35</width>
+          <height>13</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>SPC:</string>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_BSmax_SPC">
+        <property name="geometry">
+         <rect>
+          <x>102</x>
+          <y>83</y>
+          <width>42</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="minimum">
+         <number>5</number>
+        </property>
+        <property name="maximum">
+         <number>255</number>
+        </property>
+        <property name="singleStep">
+         <number>5</number>
+        </property>
+        <property name="value">
+         <number>130</number>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_BSmax_SPEED">
+        <property name="geometry">
+         <rect>
+          <x>102</x>
+          <y>106</y>
+          <width>42</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="minimum">
+         <number>5</number>
+        </property>
+        <property name="maximum">
+         <number>255</number>
+        </property>
+        <property name="singleStep">
+         <number>5</number>
+        </property>
+        <property name="value">
+         <number>130</number>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_6">
+        <property name="geometry">
+         <rect>
+          <x>7</x>
+          <y>111</y>
+          <width>35</width>
+          <height>13</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>SPEED:</string>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_BSmin_ATK">
+        <property name="geometry">
+         <rect>
+          <x>44</x>
+          <y>37</y>
+          <width>42</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="minimum">
+         <number>5</number>
+        </property>
+        <property name="maximum">
+         <number>255</number>
+        </property>
+        <property name="singleStep">
+         <number>5</number>
+        </property>
+        <property name="value">
+         <number>10</number>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_BSmin_SPC">
+        <property name="geometry">
+         <rect>
+          <x>44</x>
+          <y>83</y>
+          <width>42</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="minimum">
+         <number>5</number>
+        </property>
+        <property name="maximum">
+         <number>255</number>
+        </property>
+        <property name="singleStep">
+         <number>5</number>
+        </property>
+        <property name="value">
+         <number>10</number>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_BSmin_SPEED">
+        <property name="geometry">
+         <rect>
+          <x>44</x>
+          <y>106</y>
+          <width>42</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="minimum">
+         <number>5</number>
+        </property>
+        <property name="maximum">
+         <number>255</number>
+        </property>
+        <property name="singleStep">
+         <number>5</number>
+        </property>
+        <property name="value">
+         <number>10</number>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_BSmin_HP">
+        <property name="geometry">
+         <rect>
+          <x>44</x>
+          <y>14</y>
+          <width>42</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="minimum">
+         <number>5</number>
+        </property>
+        <property name="maximum">
+         <number>255</number>
+        </property>
+        <property name="singleStep">
+         <number>5</number>
+        </property>
+        <property name="value">
+         <number>10</number>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="spinBox_BSmin_DEF">
+        <property name="geometry">
+         <rect>
+          <x>44</x>
+          <y>60</y>
+          <width>42</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="minimum">
+         <number>5</number>
+        </property>
+        <property name="maximum">
+         <number>255</number>
+        </property>
+        <property name="singleStep">
+         <number>5</number>
+        </property>
+        <property name="value">
+         <number>10</number>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_BST_text_9">
+        <property name="geometry">
+         <rect>
+          <x>89</x>
+          <y>63</y>
+          <width>16</width>
+          <height>13</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>~</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_BST_text_10">
+        <property name="geometry">
+         <rect>
+          <x>89</x>
+          <y>17</y>
+          <width>16</width>
+          <height>13</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>~</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_BST_text_11">
+        <property name="geometry">
+         <rect>
+          <x>89</x>
+          <y>40</y>
+          <width>16</width>
+          <height>13</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>~</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_BST_text_12">
+        <property name="geometry">
+         <rect>
+          <x>89</x>
+          <y>86</y>
+          <width>16</width>
+          <height>13</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>~</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_BST_text_13">
+        <property name="geometry">
+         <rect>
+          <x>89</x>
+          <y>109</y>
+          <width>16</width>
+          <height>13</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>~</string>
+        </property>
+       </widget>
       </widget>
      </widget>
      <widget class="QGroupBox" name="groupBox_Randomizer_MoveData">
@@ -1971,7 +2411,7 @@
         <string>Move Data*</string>
        </property>
        <property name="checked">
-        <bool>true</bool>
+        <bool>false</bool>
        </property>
       </widget>
       <widget class="QPushButton" name="pushButton_MoveData_NoEffects">
@@ -1996,6 +2436,9 @@
        </property>
       </widget>
       <widget class="QCheckBox" name="checkBox_Randomize_MoveData_Powers">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
        <property name="geometry">
         <rect>
          <x>5</x>
@@ -2015,6 +2458,9 @@
        </property>
       </widget>
       <widget class="QCheckBox" name="checkBox_Randomize_MoveData_Effects">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
        <property name="geometry">
         <rect>
          <x>5</x>
@@ -2034,6 +2480,9 @@
        </property>
       </widget>
       <widget class="QCheckBox" name="checkBox_Randomize_MoveData_Types">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
        <property name="geometry">
         <rect>
          <x>5</x>
@@ -2053,6 +2502,9 @@
        </property>
       </widget>
       <widget class="QCheckBox" name="checkBox_Randomize_MoveData_Accuracy">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
        <property name="geometry">
         <rect>
          <x>5</x>
@@ -2072,10 +2524,13 @@
        </property>
       </widget>
       <widget class="QCheckBox" name="checkBox_Randomizer_MoveData_PowerAccuracy">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
        <property name="geometry">
         <rect>
          <x>122</x>
-         <y>10</y>
+         <y>30</y>
          <width>165</width>
          <height>17</height>
         </rect>
@@ -2091,6 +2546,9 @@
        </property>
       </widget>
       <widget class="QSpinBox" name="spinBox_MoveData_minPower">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
        <property name="geometry">
         <rect>
          <x>180</x>
@@ -2113,6 +2571,9 @@
        </property>
       </widget>
       <widget class="QSpinBox" name="spinBox_MoveData_maxPower">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
        <property name="geometry">
         <rect>
          <x>240</x>
@@ -2135,6 +2596,9 @@
        </property>
       </widget>
       <widget class="QLabel" name="label_MoveData_Power_2">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
        <property name="geometry">
         <rect>
          <x>225</x>
@@ -2147,26 +2611,10 @@
         <string>to</string>
        </property>
       </widget>
-      <widget class="QCheckBox" name="checkBox_Randomizer_MoveData_Explosion">
-       <property name="geometry">
-        <rect>
-         <x>122</x>
-         <y>50</y>
-         <width>165</width>
-         <height>17</height>
-        </rect>
-       </property>
-       <property name="toolTip">
-        <string>Keep the same Power / Effect / Accuracy for Explosion and Selfdestruct</string>
-       </property>
-       <property name="text">
-        <string>Don't change Explosion*</string>
-       </property>
-       <property name="checked">
-        <bool>true</bool>
-       </property>
-      </widget>
       <widget class="QLabel" name="label_MoveData_Power_1">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
        <property name="geometry">
         <rect>
          <x>140</x>
@@ -2180,10 +2628,13 @@
        </property>
       </widget>
       <widget class="QCheckBox" name="checkBox_Randomizer_MoveData_Sleep">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
        <property name="geometry">
         <rect>
          <x>122</x>
-         <y>70</y>
+         <y>50</y>
          <width>165</width>
          <height>17</height>
         </rect>
@@ -2199,10 +2650,13 @@
        </property>
       </widget>
       <widget class="QCheckBox" name="checkBox_Randomizer_MoveData_Trap">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
        <property name="geometry">
         <rect>
          <x>122</x>
-         <y>90</y>
+         <y>70</y>
          <width>165</width>
          <height>17</height>
         </rect>
@@ -2218,10 +2672,13 @@
        </property>
       </widget>
       <widget class="QCheckBox" name="checkBox_Randomizer_MoveData_EffectPower">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
        <property name="geometry">
         <rect>
          <x>122</x>
-         <y>30</y>
+         <y>10</y>
          <width>165</width>
          <height>17</height>
         </rect>
@@ -2231,6 +2688,28 @@
        </property>
        <property name="text">
         <string>No Effect = More Power*</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="checkBox_Randomizer_MoveData_Explosion">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>122</x>
+         <y>90</y>
+         <width>165</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string>Keep the same Power / Type / Effect / Accuracy for Explosion and Selfdestruct</string>
+       </property>
+       <property name="text">
+        <string>Don't change Explosion*</string>
        </property>
        <property name="checked">
         <bool>true</bool>
@@ -9216,6 +9695,9 @@ p, li { white-space: pre-wrap; }
        </property>
       </widget>
       <widget class="QSpinBox" name="spinBox_Status_Sleep_turns">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
        <property name="geometry">
         <rect>
          <x>75</x>
