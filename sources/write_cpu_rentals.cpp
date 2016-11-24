@@ -63,6 +63,14 @@ void MainWindow::write_cpu_rentals(QFile &romfile)
                 write<<rental_pkm_stat_hp[i];
                 write<<rental_pkm_level[i];
 
+                rom_offset = 0x89800A + (i-current_rentals_number)*84 + *set_iter;
+                if(pkm_type_1[i]>8) pkm_type_1[i] += 11;
+                if(pkm_type_2[i]>8) pkm_type_2[i] += 11;
+                write<<pkm_type_1[rental_pkm_id[i]];
+                write<<pkm_type_2[rental_pkm_id[i]];
+                if(pkm_type_1[i]>19) pkm_type_1[i] -= 11;
+                if(pkm_type_2[i]>19) pkm_type_2[i] -= 11;
+
                 rom_offset = 0x89800D + (i-current_rentals_number)*84 + *set_iter;
                 romfile.seek(rom_offset);
                 write<<rental_pkm_move_1[i];
