@@ -15315,6 +15315,7 @@ p, li { white-space: pre-wrap; }
   <tabstop>checkBox_Randomizer_CPU_OffensiveMove</tabstop>
   <tabstop>checkBox_Randomizer_CPU_STABMove</tabstop>
   <tabstop>checkBox_Randomizer_CPU_GamblerMoves</tabstop>
+  <tabstop>checkBox_Randomizer_CPU_NFE_IVsEVs</tabstop>
   <tabstop>checkBox_Randomizer_CPU_MaxIVsEVsFinal</tabstop>
   <tabstop>checkBox_Randomizer_CPU_MewPrimeCup</tabstop>
   <tabstop>checkBox_Randomizer_CPU_MewtwoMewtwo</tabstop>
@@ -15326,6 +15327,10 @@ p, li { white-space: pre-wrap; }
   <tabstop>checkBox_Randomizer_CPU_FullyEvolved</tabstop>
   <tabstop>checkBox_Randomizer_CPU_GLPkmn</tabstop>
   <tabstop>checkBox_Randomizer_CPU_StrongPkmnFinal</tabstop>
+  <tabstop>spinBox_CPU_IVs_min</tabstop>
+  <tabstop>spinBox_CPU_IVs_max</tabstop>
+  <tabstop>spinBox_CPU_StatExp_min</tabstop>
+  <tabstop>spinBox_CPU_StatExp_max</tabstop>
   <tabstop>checkBox_RentalPkmn</tabstop>
   <tabstop>pushButton_Rental_Metronome</tabstop>
   <tabstop>pushButton_Maximize_Rental_EVsIVs</tabstop>
@@ -15341,16 +15346,58 @@ p, li { white-space: pre-wrap; }
   <tabstop>checkBox_Randomizer_Rental_NoOHKOMoves</tabstop>
   <tabstop>checkBox_Randomizer_Rental_OffensiveMove</tabstop>
   <tabstop>checkBox_Randomizer_Rental_STABMove</tabstop>
+  <tabstop>checkBox_Randomizer_Rental_NoSpore</tabstop>
   <tabstop>checkBox_Randomizer_Rental_NoMewMewtwo</tabstop>
   <tabstop>checkBox_Randomizer_Rental_NoUselessPkmn</tabstop>
   <tabstop>checkBox_Randomizer_Rental_NoIllegalPkmn</tabstop>
   <tabstop>checkBox_Randomizer_Rental_FullyEvolved</tabstop>
-  <tabstop>checkBox_Rental_NFE_IVsEVs</tabstop>
   <tabstop>checkBox_Randomizer_Rental_MaxPPUps</tabstop>
   <tabstop>checkBox_Randomizer_Rental_NoPPUps</tabstop>
+  <tabstop>checkBox_Rental_NFE_IVsEVs</tabstop>
+  <tabstop>spinBox_Rental_IVs_min</tabstop>
+  <tabstop>spinBox_Rental_IVs_max</tabstop>
+  <tabstop>spinBox_Rental_StatExp_min</tabstop>
+  <tabstop>spinBox_Rental_StatExp_max</tabstop>
+  <tabstop>checkBox_PkmnData</tabstop>
+  <tabstop>pushButton_PkmnData_NormalType</tabstop>
+  <tabstop>checkBox_Randomize_PkmnData_BS</tabstop>
+  <tabstop>checkBox_Randomize_PkmnData_Types</tabstop>
+  <tabstop>checkBox_Randomize_PkmnData_Moves</tabstop>
+  <tabstop>Randomize_PkmnData_STABmove</tabstop>
+  <tabstop>spinBox_BSmin_HP</tabstop>
+  <tabstop>spinBox_BSmax_HP</tabstop>
+  <tabstop>spinBox_BSmin_ATK</tabstop>
+  <tabstop>spinBox_BSmax_ATK</tabstop>
+  <tabstop>spinBox_BSmin_DEF</tabstop>
+  <tabstop>spinBox_BSmax_DEF</tabstop>
+  <tabstop>spinBox_BSmin_SPC</tabstop>
+  <tabstop>spinBox_BSmax_SPC</tabstop>
+  <tabstop>spinBox_BSmin_SPEED</tabstop>
+  <tabstop>spinBox_BSmax_SPEED</tabstop>
+  <tabstop>spinBox_BSTmin_Basic</tabstop>
+  <tabstop>spinBox_BSTmax_Basic</tabstop>
+  <tabstop>spinBox_BSTmin_Stage1</tabstop>
+  <tabstop>spinBox_BSTmax_Stage1</tabstop>
+  <tabstop>spinBox_BSTmin_FullyEvolved</tabstop>
+  <tabstop>spinBox_BSTmax_FullyEvolved</tabstop>
+  <tabstop>spinBox_BSTmin_Legend</tabstop>
+  <tabstop>spinBox_BSTmax_Legend</tabstop>
+  <tabstop>checkBox_MoveData</tabstop>
+  <tabstop>pushButton_MoveData_NoEffects</tabstop>
+  <tabstop>checkBox_Randomize_MoveData_Powers</tabstop>
+  <tabstop>checkBox_Randomize_MoveData_Types</tabstop>
+  <tabstop>checkBox_Randomize_MoveData_Effects</tabstop>
+  <tabstop>checkBox_Randomize_MoveData_Accuracy</tabstop>
+  <tabstop>checkBox_Randomizer_MoveData_EffectPower</tabstop>
+  <tabstop>checkBox_Randomizer_MoveData_PowerAccuracy</tabstop>
+  <tabstop>checkBox_Randomizer_MoveData_Sleep</tabstop>
+  <tabstop>checkBox_Randomizer_MoveData_Trap</tabstop>
+  <tabstop>checkBox_Randomizer_MoveData_Explosion</tabstop>
+  <tabstop>spinBox_MoveData_minPower</tabstop>
+  <tabstop>spinBox_MoveData_maxPower</tabstop>
   <tabstop>checkBox_Ghost_vs_Psychic</tabstop>
-  <tabstop>checkBox_Ice_vs_Fire</tabstop>
   <tabstop>checkBox_Randomize_TypeChart</tabstop>
+  <tabstop>checkBox_Ice_vs_Fire</tabstop>
   <tabstop>checkBox_Bug_vs_Poison</tabstop>
   <tabstop>spinBox_Randomizer_GLCLevelRange_1</tabstop>
   <tabstop>spinBox_Randomizer_GLCLevelRange_2</tabstop>
@@ -15637,22 +15684,20 @@ p, li { white-space: pre-wrap; }
   <tabstop>tableWidget_MoveTM</tabstop>
   <tabstop>comboBox_MovesList</tabstop>
   <tabstop>lineEdit_Move_Name</tabstop>
-  <tabstop>spinBox_MoveName_Pointer</tabstop>
-  <tabstop>spinBox_MoveID</tabstop>
   <tabstop>comboBox_MoveType</tabstop>
   <tabstop>spinBox_MovePower</tabstop>
   <tabstop>spinBox_MoveAccuracy</tabstop>
   <tabstop>spinBox_MovePP</tabstop>
+  <tabstop>spinBox_MoveName_Pointer</tabstop>
+  <tabstop>spinBox_MoveID</tabstop>
   <tabstop>comboBox_MoveEffect</tabstop>
   <tabstop>textEdit_MoveDescrText</tabstop>
   <tabstop>comboBox_HighCH_MovesList_1</tabstop>
   <tabstop>comboBox_HighCH_MovesList_2</tabstop>
   <tabstop>comboBox_HighCH_MovesList_3</tabstop>
   <tabstop>comboBox_HighCH_MovesList_4</tabstop>
+  <tabstop>comboBox_HighCH_shift</tabstop>
   <tabstop>spinBox_HighCH_shiftvalue</tabstop>
-  <tabstop>spinBox_Status_Sleep_turns</tabstop>
-  <tabstop>spinBox_Status_Paralysis_probability</tabstop>
-  <tabstop>spinBox_Status_Confusion_probability</tabstop>
   <tabstop>comboBox_CH_formula_BaseStat</tabstop>
   <tabstop>spinBox_CH_formula_add</tabstop>
   <tabstop>comboBox_CH_formula_shift_1</tabstop>
@@ -15670,8 +15715,45 @@ p, li { white-space: pre-wrap; }
   <tabstop>spinBox_FE_CH_formula_add_2</tabstop>
   <tabstop>comboBox_FE_CH_formula_shift_3</tabstop>
   <tabstop>spinBox_FE_CH_formula_shiftvalue_3</tabstop>
+  <tabstop>comboBox_Status_Burn_shift</tabstop>
+  <tabstop>spinBox_Status_Burn_shiftvalue</tabstop>
+  <tabstop>spinBox_Status_Confusion_probability</tabstop>
+  <tabstop>spinBox_Status_Paralysis_probability</tabstop>
+  <tabstop>spinBox_Status_Sleep_turns</tabstop>
   <tabstop>spinBox_DamageVariance_1</tabstop>
   <tabstop>spinBox_DamageVariance_2</tabstop>
+  <tabstop>comboBox_Damage_formula_BaseStat_4</tabstop>
+  <tabstop>comboBox_Damage_formula_BaseStat_3</tabstop>
+  <tabstop>comboBox_Damage_formula_DivMult_4</tabstop>
+  <tabstop>comboBox_Damage_formula_BaseStat_1</tabstop>
+  <tabstop>comboBox_Damage_formula_shift_1</tabstop>
+  <tabstop>spinBox_Damage_formula_shiftvalue_1</tabstop>
+  <tabstop>comboBox_Damage_formula_DivMult</tabstop>
+  <tabstop>spinBox_Damage_formula_DivMultvalue</tabstop>
+  <tabstop>comboBox_Damage_formula_AddSub</tabstop>
+  <tabstop>spinBox_Damage_formula_AddSub</tabstop>
+  <tabstop>comboBox_Damage_formula_DivMult_2</tabstop>
+  <tabstop>comboBox_Damage_formula_BaseStat_2</tabstop>
+  <tabstop>comboBox_Damage_formula_DivMult_3</tabstop>
+  <tabstop>spinBox_Damage_formula_DivMult</tabstop>
+  <tabstop>comboBox_Damage_formula_AddSub_2</tabstop>
+  <tabstop>spinBox_Damage_formula_AddSub_2</tabstop>
+  <tabstop>comboBox_Damage_formula_BaseStat_5</tabstop>
+  <tabstop>comboBox_Damage_formula_BaseStat_7</tabstop>
+  <tabstop>comboBox_Damage_formula_DivMult_6</tabstop>
+  <tabstop>comboBox_Damage_formula_BaseStat_8</tabstop>
+  <tabstop>comboBox_Damage_formula_shift_2</tabstop>
+  <tabstop>spinBox_Damage_formula_shiftvalue_2</tabstop>
+  <tabstop>comboBox_Damage_formula_DivMult_7</tabstop>
+  <tabstop>spinBox_Damage_formula_DivMultvalue_2</tabstop>
+  <tabstop>comboBox_Damage_formula_AddSub_4</tabstop>
+  <tabstop>spinBox_Damage_formula_AddSub_4</tabstop>
+  <tabstop>comboBox_Damage_formula_DivMult_5</tabstop>
+  <tabstop>comboBox_Damage_formula_BaseStat_6</tabstop>
+  <tabstop>comboBox_Damage_formula_DivMult_8</tabstop>
+  <tabstop>spinBox_Damage_formula_DivMult_2</tabstop>
+  <tabstop>comboBox_Damage_formula_AddSub_3</tabstop>
+  <tabstop>spinBox_Damage_formula_AddSub_3</tabstop>
   <tabstop>comboBox_Type1_1</tabstop>
   <tabstop>comboBox_Type2_1</tabstop>
   <tabstop>spinBox_Multiplier_1</tabstop>
@@ -15918,7 +16000,10 @@ p, li { white-space: pre-wrap; }
   <tabstop>comboBox_Type1_82</tabstop>
   <tabstop>comboBox_Type2_82</tabstop>
   <tabstop>spinBox_Multiplier_82</tabstop>
+  <tabstop>comboBox_TMsHMsNames</tabstop>
   <tabstop>textEdit_MoveTMHMText</tabstop>
+  <tabstop>listWidget_Scripts</tabstop>
+  <tabstop>textEdit</tabstop>
  </tabstops>
  <resources>
   <include location="resources.qrc"/>
