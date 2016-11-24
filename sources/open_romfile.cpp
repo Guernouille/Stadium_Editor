@@ -59,8 +59,9 @@ void MainWindow::on_actionOpen_triggered() {
                 // Initialization
                 initialize_char_table();
                 initialize_data();
-                initialize_min_levels();
+                initialize_evo_stages();
                 initialize_iv_statexp_groups();
+                initialize_min_levels();
 
                 // Formulas
                 read_ch_formula(romfile);
