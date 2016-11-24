@@ -287,6 +287,37 @@ void MainWindow::randomize_pkm_base_stats(std::mt19937 &mt_rand)
 void MainWindow::refresh_bs_parameters()
 {
     if(not_in_init) {
+        if(bsmax_hp < bsmin_hp) {
+            bsmax_hp = bsmin_hp;
+            not_in_init = false;
+            ui->spinBox_BSmax_HP->setValue(bsmax_hp);
+            not_in_init = true;
+        }
+        if(bsmax_atk < bsmin_atk) {
+            bsmax_atk = bsmin_atk;
+            not_in_init = false;
+            ui->spinBox_BSmax_ATK->setValue(bsmax_atk);
+            not_in_init = true;
+        }
+        if(bsmax_def < bsmin_def) {
+            bsmax_def = bsmin_def;
+            not_in_init = false;
+            ui->spinBox_BSmax_DEF->setValue(bsmax_def);
+            not_in_init = true;
+        }
+        if(bsmax_spc < bsmin_spc) {
+            bsmax_spc = bsmin_spc;
+            not_in_init = false;
+            ui->spinBox_BSmax_SPC->setValue(bsmax_spc);
+            not_in_init = true;
+        }
+        if(bsmax_speed < bsmin_speed) {
+            bsmax_speed = bsmin_speed;
+            not_in_init = false;
+            ui->spinBox_BSmax_SPEED->setValue(bsmax_speed);
+            not_in_init = true;
+        }
+
         bsmax_total = bsmax_hp + bsmax_atk + bsmax_def + bsmax_spc + bsmax_speed;
         bsmin_total = bsmin_hp + bsmin_atk + bsmin_def + bsmin_spc + bsmin_speed;
 
