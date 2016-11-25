@@ -37,6 +37,12 @@ void MainWindow::on_pushButton_Randomize_pressed()
         if(ui->checkBox_Randomize_PkmnData_BS->isChecked()){
             randomize_pkm_base_stats(mt_rand);
         }
+        if(ui->checkBox_Randomize_PkmnData_Types->isChecked()){
+            randomize_pkm_types(mt_rand);
+        }
+        if(ui->checkBox_Randomize_PkmnData_Moves->isChecked()){
+            randomize_pkm_learnsets(mt_rand);
+        }
 
         // Update display
         if(not_in_init){
@@ -200,36 +206,42 @@ void MainWindow::on_checkBox_CPUTeams_stateChanged(int state)
         ui->checkBox_Randomize_CPU_Sprites->setEnabled(true);
         ui->checkBox_Randomizer_CPU_Names->setEnabled(true);
 
-        ui->checkBox_Randomizer_CPU_NoIllegalMoves->setEnabled(true);
-        ui->checkBox_Randomizer_CPU_NoUselessMoves->setEnabled(true);
-        ui->checkBox_Randomizer_CPU_NoWeakMoves->setEnabled(true);
-        ui->checkBox_Randomizer_CPU_NoDragonRage->setEnabled(true);
-        ui->checkBox_Randomizer_CPU_NoEvasion->setEnabled(true);
-        ui->checkBox_Randomizer_CPU_OffensiveMove->setEnabled(true);
-        ui->checkBox_Randomizer_CPU_STABMove->setEnabled(true);
-        ui->checkBox_Randomizer_CPU_GamblerMoves->setEnabled(true);
-        ui->checkBox_Randomizer_CPU_NFE_IVsEVs->setEnabled(true);
-        ui->checkBox_Randomizer_CPU_MaxIVsEVsFinal->setEnabled(true);
+        if(ui->checkBox_Randomize_CPU_Pkmn->isChecked()){
+            ui->checkBox_Randomizer_CPU_MewPrimeCup->setEnabled(true);
+            ui->checkBox_Randomizer_CPU_MewtwoMewtwo->setEnabled(true);
+            ui->checkBox_Randomizer_CPU_MewtwoFullParty->setEnabled(true);
+            ui->checkBox_Randomizer_CPU_NoMewMewtwo->setEnabled(true);
+            ui->checkBox_Randomizer_CPU_NoUselessPkmn->setEnabled(true);
+            ui->checkBox_Randomizer_CPU_NoIllegalPkmn->setEnabled(true);
+            ui->checkBox_Randomizer_CPU_NoSpeciesClause->setEnabled(true);
+            ui->checkBox_Randomizer_CPU_FullyEvolved->setEnabled(true);
+            ui->checkBox_Randomizer_CPU_GLPkmn->setEnabled(true);
+            ui->checkBox_Randomizer_CPU_StrongPkmnFinal->setEnabled(true);
+        }
 
-        ui->checkBox_Randomizer_CPU_MewPrimeCup->setEnabled(true);
-        ui->checkBox_Randomizer_CPU_MewtwoMewtwo->setEnabled(true);
-        ui->checkBox_Randomizer_CPU_MewtwoFullParty->setEnabled(true);
-        ui->checkBox_Randomizer_CPU_NoMewMewtwo->setEnabled(true);
-        ui->checkBox_Randomizer_CPU_NoUselessPkmn->setEnabled(true);
-        ui->checkBox_Randomizer_CPU_NoIllegalPkmn->setEnabled(true);
-        ui->checkBox_Randomizer_CPU_NoSpeciesClause->setEnabled(true);
-        ui->checkBox_Randomizer_CPU_FullyEvolved->setEnabled(true);
-        ui->checkBox_Randomizer_CPU_GLPkmn->setEnabled(true);
-        ui->checkBox_Randomizer_CPU_StrongPkmnFinal->setEnabled(true);
+        if(ui->checkBox_Randomize_CPU_Moves->isChecked()){
+            ui->checkBox_Randomizer_CPU_NoIllegalMoves->setEnabled(true);
+            ui->checkBox_Randomizer_CPU_NoUselessMoves->setEnabled(true);
+            ui->checkBox_Randomizer_CPU_NoWeakMoves->setEnabled(true);
+            ui->checkBox_Randomizer_CPU_NoDragonRage->setEnabled(true);
+            ui->checkBox_Randomizer_CPU_NoEvasion->setEnabled(true);
+            ui->checkBox_Randomizer_CPU_OffensiveMove->setEnabled(true);
+            ui->checkBox_Randomizer_CPU_STABMove->setEnabled(true);
+            ui->checkBox_Randomizer_CPU_GamblerMoves->setEnabled(true);
+        }
 
-        ui->label_CPU_IVs_range_1->setEnabled(true);
-        ui->label_CPU_IVs_range_2->setEnabled(true);
-        ui->spinBox_CPU_IVs_min->setEnabled(true);
-        ui->spinBox_CPU_IVs_max->setEnabled(true);
-        ui->label_CPU_StatExp_range_1->setEnabled(true);
-        ui->label_CPU_StatExp_range_2->setEnabled(true);
-        ui->spinBox_CPU_StatExp_min->setEnabled(true);
-        ui->spinBox_CPU_StatExp_max->setEnabled(true);
+        if(ui->checkBox_Randomize_CPU_IVsEVs->isChecked()){
+            ui->checkBox_Randomizer_CPU_NFE_IVsEVs->setEnabled(true);
+            ui->checkBox_Randomizer_CPU_MaxIVsEVsFinal->setEnabled(true);
+            ui->label_CPU_IVs_range_1->setEnabled(true);
+            ui->label_CPU_IVs_range_2->setEnabled(true);
+            ui->spinBox_CPU_IVs_min->setEnabled(true);
+            ui->spinBox_CPU_IVs_max->setEnabled(true);
+            ui->label_CPU_StatExp_range_1->setEnabled(true);
+            ui->label_CPU_StatExp_range_2->setEnabled(true);
+            ui->spinBox_CPU_StatExp_min->setEnabled(true);
+            ui->spinBox_CPU_StatExp_max->setEnabled(true);
+        }
     }
     else{
         ui->checkBox_Randomize_CPU_Pkmn->setEnabled(false);
@@ -322,6 +334,8 @@ void MainWindow::on_checkBox_PkmnData_stateChanged(int state)
         }
         if(ui->checkBox_Randomize_PkmnData_Moves->isChecked()){
             ui->Randomize_PkmnData_STABmove->setEnabled(true);
+            ui->Randomize_PkmnData_NoSpore->setEnabled(true);
+            ui->Randomize_PkmnData_NoAmnesia->setEnabled(true);
         }
     }
     else{
@@ -329,6 +343,8 @@ void MainWindow::on_checkBox_PkmnData_stateChanged(int state)
         ui->checkBox_Randomize_PkmnData_Types->setEnabled(false);
         ui->checkBox_Randomize_PkmnData_Moves->setEnabled(false);
         ui->Randomize_PkmnData_STABmove->setEnabled(false);
+        ui->Randomize_PkmnData_NoSpore->setEnabled(false);
+        ui->Randomize_PkmnData_NoAmnesia->setEnabled(false);
         ui->groupBox_PkmnData_MaxBS->setEnabled(false);
         ui->groupBox_PkmnData_BST->setEnabled(false);
     }
@@ -459,7 +475,6 @@ void MainWindow::on_checkBox_Randomize_MoveData_Powers_stateChanged(int state)
     }
 }
 
-
 void MainWindow::on_checkBox_Randomize_PkmnData_BS_stateChanged(int state)
 {
     if(state == Qt::Checked) {
@@ -475,9 +490,13 @@ void MainWindow::on_checkBox_Randomize_PkmnData_Moves_stateChanged(int state)
 {
     if(state == Qt::Checked) {
         ui->Randomize_PkmnData_STABmove->setEnabled(true);
+        ui->Randomize_PkmnData_NoSpore->setEnabled(true);
+        ui->Randomize_PkmnData_NoAmnesia->setEnabled(true);
     }
     else {
         ui->Randomize_PkmnData_STABmove->setEnabled(false);
+        ui->Randomize_PkmnData_NoSpore->setEnabled(false);
+        ui->Randomize_PkmnData_NoAmnesia->setEnabled(false);
     }
 }
 
@@ -489,32 +508,39 @@ void MainWindow::on_checkBox_RentalPkmn_stateChanged(int state)
         ui->checkBox_Randomize_Rental_Levels->setEnabled(true);
         ui->checkBox_Randomize_Rental_IVsEVs->setEnabled(true);
 
-        ui->checkBox_Randomizer_Rental_NoIllegalMoves->setEnabled(true);
-        ui->checkBox_Randomizer_Rental_NoUselessMoves->setEnabled(true);
-        ui->checkBox_Randomizer_Rental_NoWeakMoves->setEnabled(true);
-        ui->checkBox_Randomizer_Rental_NoDragonRage->setEnabled(true);
-        ui->checkBox_Randomizer_Rental_NoEvasion->setEnabled(true);
-        ui->checkBox_Randomizer_Rental_NoOHKOMoves->setEnabled(true);
-        ui->checkBox_Randomizer_Rental_OffensiveMove->setEnabled(true);
-        ui->checkBox_Randomizer_Rental_STABMove->setEnabled(true);
+        if(ui->checkBox_Randomize_Rental_Pkmn->isChecked()){
+            ui->checkBox_Randomizer_Rental_NoMewMewtwo->setEnabled(true);
+            ui->checkBox_Randomizer_Rental_NoUselessPkmn->setEnabled(true);
+            ui->checkBox_Randomizer_Rental_NoIllegalPkmn->setEnabled(true);
+            ui->checkBox_Randomizer_Rental_FullyEvolved->setEnabled(true);
+        }
 
-        ui->checkBox_Randomizer_Rental_NoSpore->setEnabled(true);
-        ui->checkBox_Randomizer_Rental_NoMewMewtwo->setEnabled(true);
-        ui->checkBox_Randomizer_Rental_NoUselessPkmn->setEnabled(true);
-        ui->checkBox_Randomizer_Rental_NoIllegalPkmn->setEnabled(true);
-        ui->checkBox_Randomizer_Rental_FullyEvolved->setEnabled(true);
-        ui->checkBox_Rental_NFE_IVsEVs->setEnabled(true);
+        if(ui->checkBox_Randomize_Rental_Moves->isChecked()){
+            ui->checkBox_Randomizer_Rental_NoIllegalMoves->setEnabled(true);
+            ui->checkBox_Randomizer_Rental_NoUselessMoves->setEnabled(true);
+            ui->checkBox_Randomizer_Rental_NoWeakMoves->setEnabled(true);
+            ui->checkBox_Randomizer_Rental_NoDragonRage->setEnabled(true);
+            ui->checkBox_Randomizer_Rental_NoEvasion->setEnabled(true);
+            ui->checkBox_Randomizer_Rental_NoOHKOMoves->setEnabled(true);
+            ui->checkBox_Randomizer_Rental_OffensiveMove->setEnabled(true);
+            ui->checkBox_Randomizer_Rental_STABMove->setEnabled(true);
+            ui->checkBox_Randomizer_Rental_NoSpore->setEnabled(true);
+        }
+
+        if(ui->checkBox_Randomize_Rental_IVsEVs->isChecked()){
+            ui->checkBox_Rental_NFE_IVsEVs->setEnabled(true);
+            ui->label_Rental_IVs_range_1->setEnabled(true);
+            ui->label_Rental_IVs_range_2->setEnabled(true);
+            ui->spinBox_Rental_IVs_min->setEnabled(true);
+            ui->spinBox_Rental_IVs_max->setEnabled(true);
+            ui->label_Rental_StatExp_range_1->setEnabled(true);
+            ui->label_Rental_StatExp_range_2->setEnabled(true);
+            ui->spinBox_Rental_StatExp_min->setEnabled(true);
+            ui->spinBox_Rental_StatExp_max->setEnabled(true);
+        }
+
         ui->checkBox_Randomizer_Rental_MaxPPUps->setEnabled(true);
         ui->checkBox_Randomizer_Rental_NoPPUps->setEnabled(true);
-
-        ui->label_Rental_IVs_range_1->setEnabled(true);
-        ui->label_Rental_IVs_range_2->setEnabled(true);
-        ui->spinBox_Rental_IVs_min->setEnabled(true);
-        ui->spinBox_Rental_IVs_max->setEnabled(true);
-        ui->label_Rental_StatExp_range_1->setEnabled(true);
-        ui->label_Rental_StatExp_range_2->setEnabled(true);
-        ui->spinBox_Rental_StatExp_min->setEnabled(true);
-        ui->spinBox_Rental_StatExp_max->setEnabled(true);
     }
     else{
         ui->checkBox_Randomize_Rental_Pkmn->setEnabled(false);
