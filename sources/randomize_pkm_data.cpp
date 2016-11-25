@@ -293,6 +293,7 @@ void MainWindow::randomize_pkm_learnsets(std::mt19937 &mt_rand)
     if(total_move_name > 4){
         bool noSpore = ui->Randomize_PkmnData_NoSpore->isChecked();
         bool noAmnesia = ui->Randomize_PkmnData_NoAmnesia->isChecked();
+        bool noRecover = ui->Randomize_PkmnData_NoRecover->isChecked();
         std::uniform_int_distribution<> rand_move(1,total_move_name);
 
         // Initialize randomized moves vector
@@ -303,11 +304,14 @@ void MainWindow::randomize_pkm_learnsets(std::mt19937 &mt_rand)
         for(uint8_t i=0; i<16; i++) mat_stab_moves[i].push_back(0);
 
         for(uint8_t i=1; i<total_move_name; i++) {
-            // Remove Spore and Amnesia-like moves if options are checked
+            // Remove banned moves if options are checked
             if((noSpore==false || move_effect[i]!=0x20 || move_accuracy[i]<=0xBF) &&
-               (noAmnesia==false || move_effect[i]!=0x35)){
+               (noAmnesia==false || move_effect[i]!=0x35) &&
+               (noRecover==false || move_effect[i]!=0x38)){
                 vec_randomized_moves.push_back(i);
             }
+
+            if(move_effect[i]==0x35) pkm_start_move_3[150] = i;
         }
 
         // Lists STAB moves of each type
@@ -323,6 +327,7 @@ void MainWindow::randomize_pkm_learnsets(std::mt19937 &mt_rand)
         for(uint8_t i=1;i<=total_pkm_name;i++) {
             // Shuffle move vector
             std::shuffle(vec_randomized_moves.begin(), vec_randomized_moves.end(), mt_rand);
+
 
             // Starting moves
             if(ui->Randomize_PkmnData_STABmove->isChecked()) {
@@ -347,25 +352,48 @@ void MainWindow::randomize_pkm_learnsets(std::mt19937 &mt_rand)
                 else pkm_start_move_2[i] = rand_move(mt_rand);
             }
 
-            if(vec_randomized_moves.size() > 2) pkm_start_move_3[i] = vec_randomized_moves[2];
-            else pkm_start_move_3[i] = rand_move(mt_rand);
+            if(i != 150){
+                if(vec_randomized_moves.size() > 2) pkm_start_move_3[i] = vec_randomized_moves[2];
+                else pkm_start_move_3[i] = rand_move(mt_rand);
+            }
+            else if((pkm_start_move_3[i] == 0) || (pkm_start_move_3[i] > total_move_name)) {
+                if(vec_randomized_moves.size() > 2) pkm_start_move_3[i] = vec_randomized_moves[2];
+                else pkm_start_move_3[i] = rand_move(mt_rand);
+            }
             if(vec_randomized_moves.size() > 3) pkm_start_move_4[i] = vec_randomized_moves[3];
             else pkm_start_move_4[i] = rand_move(mt_rand);
+
 
             // Level-up moves
             for(uint8_t j=0; j<10; j++) {
                 if(pkm_rb_lvl[i][j]>0) {
-                    if(vec_randomized_moves.size() > (j+4)) pkm_rb_move[i][j] = vec_randomized_moves[j+4];
+                    buf8 = j+4;
+                    if(vec_randomized_moves.size() > buf8) pkm_rb_move[i][j] = vec_randomized_moves[buf8];
                     else pkm_rb_move[i][j] = rand_move(mt_rand);
                 }
             }
             for(uint8_t j=0; j<10; j++) {
                 if(pkm_y_lvl[i][j]>0) {
-                    if(vec_randomized_moves.size() > (j+14)) pkm_y_move[i][j] = vec_randomized_moves[j+14];
+                    buf8 = j+14;
+                    if(vec_randomized_moves.size() > (buf8)) pkm_y_move[i][j] = vec_randomized_moves[buf8];
                     else pkm_y_move[i][j] = rand_move(mt_rand);
                 }
             }
+
+
+            // TM HM moves
+            for(uint8_t j=0; j<6; j++) {
+                pkm_tmhm_flags[i][j] = mt_rand()%256;
+            }
+            pkm_tmhm_flags[i][6] = mt_rand()%128;
         }
+
+        // Mew learns every TM and HM
+
+        for(uint8_t j=0; j<6; j++) {
+            pkm_tmhm_flags[151][j] = 255;
+        }
+        pkm_tmhm_flags[151][6] = 127;
     }
 }
 
