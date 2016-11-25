@@ -302,7 +302,7 @@ void MainWindow::randomize_pkm_learnsets(std::mt19937 &mt_rand)
         std::vector<std::vector<uint8_t> > mat_stab_moves(16);
         for(uint8_t i=0; i<16; i++) mat_stab_moves[i].push_back(0);
 
-        for(uint8_t i=0; i<total_move_name; i++) {
+        for(uint8_t i=1; i<total_move_name; i++) {
             // Remove Spore and Amnesia-like moves if options are checked
             if((noSpore==false || move_effect[i]!=0x20 || move_accuracy[i]<=0xBF) &&
                (noAmnesia==false || move_effect[i]!=0x35)){
@@ -323,7 +323,6 @@ void MainWindow::randomize_pkm_learnsets(std::mt19937 &mt_rand)
         for(uint8_t i=1;i<=total_pkm_name;i++) {
             // Shuffle move vector
             std::shuffle(vec_randomized_moves.begin(), vec_randomized_moves.end(), mt_rand);
-
 
             // Starting moves
             if(ui->Randomize_PkmnData_STABmove->isChecked()) {
@@ -353,6 +352,19 @@ void MainWindow::randomize_pkm_learnsets(std::mt19937 &mt_rand)
             if(vec_randomized_moves.size() > 3) pkm_start_move_4[i] = vec_randomized_moves[3];
             else pkm_start_move_4[i] = rand_move(mt_rand);
 
+            // Level-up moves
+            for(uint8_t j=0; j<10; j++) {
+                if(pkm_rb_lvl[i][j]>0) {
+                    if(vec_randomized_moves.size() > (j+4)) pkm_rb_move[i][j] = vec_randomized_moves[j+4];
+                    else pkm_rb_move[i][j] = rand_move(mt_rand);
+                }
+            }
+            for(uint8_t j=0; j<10; j++) {
+                if(pkm_y_lvl[i][j]>0) {
+                    if(vec_randomized_moves.size() > (j+14)) pkm_y_move[i][j] = vec_randomized_moves[j+14];
+                    else pkm_y_move[i][j] = rand_move(mt_rand);
+                }
+            }
         }
     }
 }
