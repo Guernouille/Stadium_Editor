@@ -68,7 +68,11 @@ void MainWindow::randomize_pkm_base_stats(std::mt19937 &mt_rand)
                 bst_temp = rand_bst_fullevo(mt_rand);
                 break;
             case 3:
-                if(i != 150) bst_temp = rand_bst_legend(mt_rand);
+                if(i < 150) bst_temp = rand_bst_legend(mt_rand);
+                else if(i == 150) {
+                    if(bsmin_total <= (bstmax_legend+80) && bsmax_total >= (bstmax_legend+80)) bst_temp = bstmax_legend+80;
+                    else bst_temp = std::max(bsmax_total,bstmax_legend);
+                }
                 else bst_temp = bstmax_legend;
                 break;
             default:
@@ -280,6 +284,102 @@ void MainWindow::randomize_pkm_base_stats(std::mt19937 &mt_rand)
                 pkm_base_speed[i] = bst_temp;
                 break;
             }
+        }
+    }
+}
+
+void MainWindow::randomize_pkm_learnsets(std::mt19937 &mt_rand)
+{
+    if(total_move_name > 4){
+        bool noSpore = ui->Randomize_PkmnData_NoSpore->isChecked();
+        bool noAmnesia = ui->Randomize_PkmnData_NoAmnesia->isChecked();
+        std::uniform_int_distribution<> rand_move(1,total_move_name);
+
+        // Initialize randomized moves vector
+        std::vector<quint8> vec_randomized_moves;
+
+        // Initialize STAB moves matrix
+        std::vector<std::vector<uint8_t> > mat_stab_moves(16);
+        for(uint8_t i=0; i<16; i++) mat_stab_moves[i].push_back(0);
+
+        for(uint8_t i=0; i<total_move_name; i++) {
+            // Remove Spore and Amnesia-like moves if options are checked
+            if((noSpore==false || move_effect[i]!=0x20 || move_accuracy[i]<=0xBF) &&
+               (noAmnesia==false || move_effect[i]!=0x35)){
+                vec_randomized_moves.push_back(i);
+            }
+        }
+
+        // Lists STAB moves of each type
+        if(ui->Randomize_PkmnData_STABmove->isChecked()) {
+            for(uint8_t i=1;i<=total_move_name;i++){
+                if(move_power[i]>1) {
+                    if(mat_stab_moves[move_type[i]][0] == 0) mat_stab_moves[move_type[i]][0] = i;
+                    else mat_stab_moves[move_type[i]].push_back(i);
+                }
+            }
+        }
+
+        for(uint8_t i=1;i<=total_pkm_name;i++) {
+            // Shuffle move vector
+            std::shuffle(vec_randomized_moves.begin(), vec_randomized_moves.end(), mt_rand);
+
+
+            // Starting moves
+            if(ui->Randomize_PkmnData_STABmove->isChecked()) {
+                std::shuffle(mat_stab_moves[move_type[i]].begin(), mat_stab_moves[move_type[i]].end(), mt_rand);
+
+                if(mat_stab_moves[pkm_type_1[i]][0] != 0) pkm_start_move_1[i] = mat_stab_moves[pkm_type_1[i]][0];
+                else if(vec_randomized_moves.size() > 0) pkm_start_move_1[i] = vec_randomized_moves[0];
+                else pkm_start_move_1[i] = rand_move(mt_rand);
+
+                if(pkm_type_1[i] != pkm_type_2[i]) {
+                    if(mat_stab_moves[pkm_type_2[i]][0] != 0) pkm_start_move_2[i] = mat_stab_moves[pkm_type_2[i]][0];
+                    else if(vec_randomized_moves.size() > 1) pkm_start_move_2[i] = vec_randomized_moves[1];
+                    else pkm_start_move_2[i] = rand_move(mt_rand);
+                }
+                else if(vec_randomized_moves.size() > 1) pkm_start_move_2[i] = vec_randomized_moves[1];
+                else pkm_start_move_2[i] = rand_move(mt_rand);
+            }
+            else {
+                if(vec_randomized_moves.size() > 0) pkm_start_move_1[i] = vec_randomized_moves[0];
+                else pkm_start_move_1[i] = rand_move(mt_rand);
+                if(vec_randomized_moves.size() > 1) pkm_start_move_2[i] = vec_randomized_moves[1];
+                else pkm_start_move_2[i] = rand_move(mt_rand);
+            }
+
+            if(vec_randomized_moves.size() > 2) pkm_start_move_3[i] = vec_randomized_moves[2];
+            else pkm_start_move_3[i] = rand_move(mt_rand);
+            if(vec_randomized_moves.size() > 3) pkm_start_move_4[i] = vec_randomized_moves[3];
+            else pkm_start_move_4[i] = rand_move(mt_rand);
+
+        }
+    }
+}
+
+void MainWindow::randomize_pkm_types(std::mt19937 &mt_rand)
+{
+    // Retrieves number of Types
+    buf8 = total_type_name;
+
+    // Ignore unused Bird Type
+    if(buf8 == 16 && type_name[6]=="Bird") buf8 = 15;
+
+    // Randomize Types
+    if(buf8 > 1) {
+        buf8--;
+        std::uniform_int_distribution<> rand_type(0,buf8);
+        std::uniform_int_distribution<> rand_mono(0,100);
+
+        for(short i=1;i<=total_pkm_name;i++) {
+            pkm_type_1[i] = rand_type(mt_rand);
+
+            // About 60% mono-Type, 40% dual-Type
+            if(rand_mono(mt_rand) > 42) pkm_type_2[i] = pkm_type_1[i];
+            else pkm_type_2[i] = rand_type(mt_rand);
+
+            if(pkm_type_1[i] >=6) pkm_type_1[i]++;
+            if(pkm_type_2[i] >=6) pkm_type_2[i]++;
         }
     }
 }
