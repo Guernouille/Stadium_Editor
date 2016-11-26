@@ -435,13 +435,14 @@ void MainWindow::randomize_cpu_iv_stat_exp(std::mt19937 &mt_rand)
     std::uniform_int_distribution<> rand_iv_5(std::max(cpu_ivs_min,std::min(quint8(1),cpu_ivs_max)),(cpu_ivs_max));
     std::uniform_int_distribution<> rand_iv_6(cpu_ivs_min,cpu_ivs_max);
     std::uniform_int_distribution<> rand_stat_exp_1(std::max(cpu_stat_exp_min,std::min(quint16(50025),cpu_stat_exp_max)),(cpu_stat_exp_max+18432));
-    std::uniform_int_distribution<> rand_stat_exp_2(std::max(cpu_stat_exp_min,std::min(quint16(43792),cpu_stat_exp_max)),(cpu_stat_exp_max+12288));
+    std::uniform_int_distribution<> rand_stat_exp_2(std::max(cpu_stat_exp_min,std::min(quint16(43792),cpu_stat_exp_max)),(cpu_stat_exp_max+10288));
     std::uniform_int_distribution<> rand_stat_exp_3(std::max(cpu_stat_exp_min,std::min(quint16(27600),cpu_stat_exp_max)),(cpu_stat_exp_max+384));
     std::uniform_int_distribution<> rand_stat_exp_4(std::max(cpu_stat_exp_min,std::min(quint16(14400),cpu_stat_exp_max)),cpu_stat_exp_max);
-    if(cpu_stat_exp_max>=1152) buf32 = std::max(quint16(cpu_stat_exp_max-1152),cpu_stat_exp_min);
+    if(cpu_stat_exp_max>1111) buf32 = std::max(quint16(cpu_stat_exp_max-1111),cpu_stat_exp_min);
     else buf32 = cpu_stat_exp_max;
     std::uniform_int_distribution<> rand_stat_exp_5(std::max(cpu_stat_exp_min,std::min(quint16(6400),cpu_stat_exp_max)),buf32);
     std::uniform_int_distribution<> rand_stat_exp_6(cpu_stat_exp_min,buf32);
+    std::uniform_int_distribution<> rand_stat_exp_def(cpu_stat_exp_min,cpu_stat_exp_max);
     bool max_stats_finals = ui->checkBox_Randomizer_CPU_MaxIVsEVsFinal->isChecked();
     bool better_stats_nfe = ui->checkBox_Randomizer_CPU_NFE_IVsEVs->isChecked();
 
@@ -474,21 +475,50 @@ void MainWindow::randomize_cpu_iv_stat_exp(std::mt19937 &mt_rand)
                 if(better_stats_nfe){
                     // Petit Cup
                     if(cpu_cup_id[cpu_trainer_id]==0 || cpu_cup_id[cpu_trainer_id]==22){
-                        switch(iv_statexp_groups[cpu_pkm_id[cpu_trainer_id][i]]){
-                        case 0:
-                            cpu_pkm_iv_atk[cpu_trainer_id][i] = cpu_ivs_max;
-                            cpu_pkm_iv_def[cpu_trainer_id][i] = cpu_ivs_max;
-                            cpu_pkm_iv_spc[cpu_trainer_id][i] = cpu_ivs_max;
-                            cpu_pkm_iv_speed[cpu_trainer_id][i] = cpu_ivs_max;
+                        if(ui->checkBox_PkmnData->isChecked() == false) {
+                            switch(iv_statexp_groups[cpu_pkm_id[cpu_trainer_id][i]]){
+                            case 0:
+                                cpu_pkm_iv_atk[cpu_trainer_id][i] = cpu_ivs_max;
+                                cpu_pkm_iv_def[cpu_trainer_id][i] = cpu_ivs_max;
+                                cpu_pkm_iv_spc[cpu_trainer_id][i] = cpu_ivs_max;
+                                cpu_pkm_iv_speed[cpu_trainer_id][i] = cpu_ivs_max;
 
-                            cpu_pkm_ev_hp[cpu_trainer_id][i] = cpu_stat_exp_max;
-                            cpu_pkm_ev_atk[cpu_trainer_id][i] = cpu_stat_exp_max;
-                            cpu_pkm_ev_def[cpu_trainer_id][i] = cpu_stat_exp_max;
-                            cpu_pkm_ev_spc[cpu_trainer_id][i] = cpu_stat_exp_max;
-                            cpu_pkm_ev_speed[cpu_trainer_id][i] = cpu_stat_exp_max;
-                            break;
+                                cpu_pkm_ev_hp[cpu_trainer_id][i] = cpu_stat_exp_max;
+                                cpu_pkm_ev_atk[cpu_trainer_id][i] = cpu_stat_exp_max;
+                                cpu_pkm_ev_def[cpu_trainer_id][i] = cpu_stat_exp_max;
+                                cpu_pkm_ev_spc[cpu_trainer_id][i] = cpu_stat_exp_max;
+                                cpu_pkm_ev_speed[cpu_trainer_id][i] = cpu_stat_exp_max;
+                                break;
 
-                        default:
+                            default:
+                                cpu_pkm_iv_atk[cpu_trainer_id][i] = rand_iv_1(mt_rand);
+                                cpu_pkm_iv_def[cpu_trainer_id][i] = rand_iv_1(mt_rand);
+                                cpu_pkm_iv_spc[cpu_trainer_id][i] = rand_iv_1(mt_rand);
+                                cpu_pkm_iv_speed[cpu_trainer_id][i] = rand_iv_1(mt_rand);
+
+                                buf32 = rand_stat_exp_3(mt_rand);
+                                if(buf32 > cpu_stat_exp_max) buf32 = cpu_stat_exp_max;
+                                cpu_pkm_ev_hp[cpu_trainer_id][i] = buf32;
+
+                                buf32 = rand_stat_exp_3(mt_rand);
+                                if(buf32 > cpu_stat_exp_max) buf32 = cpu_stat_exp_max;
+                                cpu_pkm_ev_atk[cpu_trainer_id][i] = buf32;
+
+                                buf32 = rand_stat_exp_2(mt_rand);
+                                if(buf32 > cpu_stat_exp_max) buf32 = cpu_stat_exp_max;
+                                cpu_pkm_ev_def[cpu_trainer_id][i] = buf32;
+
+                                buf32 = rand_stat_exp_2(mt_rand);
+                                if(buf32 > cpu_stat_exp_max) buf32 = cpu_stat_exp_max;
+                                cpu_pkm_ev_spc[cpu_trainer_id][i] = buf32;
+
+                                buf32 = rand_stat_exp_3(mt_rand);
+                                if(buf32 > cpu_stat_exp_max) buf32 = cpu_stat_exp_max;
+                                cpu_pkm_ev_speed[cpu_trainer_id][i] = buf32;
+                                break;
+                            }
+                        }
+                        else {
                             cpu_pkm_iv_atk[cpu_trainer_id][i] = rand_iv_1(mt_rand);
                             cpu_pkm_iv_def[cpu_trainer_id][i] = rand_iv_1(mt_rand);
                             cpu_pkm_iv_spc[cpu_trainer_id][i] = rand_iv_1(mt_rand);
@@ -516,8 +546,8 @@ void MainWindow::randomize_cpu_iv_stat_exp(std::mt19937 &mt_rand)
                             break;
                         }
                     }
-                    else{
-                        switch(iv_statexp_groups[cpu_pkm_id[cpu_trainer_id][i]]){
+                    else if(ui->checkBox_PkmnData->isChecked() == false) {
+                        switch(iv_statexp_groups[cpu_pkm_id[cpu_trainer_id][i]]) {
                         case 0:
                             cpu_pkm_iv_atk[cpu_trainer_id][i] = cpu_ivs_max;
                             cpu_pkm_iv_def[cpu_trainer_id][i] = cpu_ivs_max;
@@ -651,6 +681,117 @@ void MainWindow::randomize_cpu_iv_stat_exp(std::mt19937 &mt_rand)
                             break;
                         }
                     }
+                    else {
+                        switch(pkm_evo_stage[cpu_pkm_id[cpu_trainer_id][i]]) {
+                        case 0:
+                            cpu_pkm_iv_atk[cpu_trainer_id][i] = cpu_ivs_max;
+                            cpu_pkm_iv_def[cpu_trainer_id][i] = cpu_ivs_max;
+                            cpu_pkm_iv_spc[cpu_trainer_id][i] = cpu_ivs_max;
+                            cpu_pkm_iv_speed[cpu_trainer_id][i] = cpu_ivs_max;
+
+                            buf32 = rand_stat_exp_1(mt_rand);
+                            if(buf32 > cpu_stat_exp_max) buf32 = cpu_stat_exp_max;
+                            cpu_pkm_ev_hp[cpu_trainer_id][i] = buf32;
+
+                            buf32 = rand_stat_exp_1(mt_rand);
+                            if(buf32 > cpu_stat_exp_max) buf32 = cpu_stat_exp_max;
+                            cpu_pkm_ev_atk[cpu_trainer_id][i] = buf32;
+
+                            buf32 = rand_stat_exp_1(mt_rand);
+                            if(buf32 > cpu_stat_exp_max) buf32 = cpu_stat_exp_max;
+                            cpu_pkm_ev_def[cpu_trainer_id][i] = buf32;
+
+                            buf32 = rand_stat_exp_1(mt_rand);
+                            if(buf32 > cpu_stat_exp_max) buf32 = cpu_stat_exp_max;
+                            cpu_pkm_ev_spc[cpu_trainer_id][i] = buf32;
+
+                            buf32 = rand_stat_exp_1(mt_rand);
+                            if(buf32 > cpu_stat_exp_max) buf32 = cpu_stat_exp_max;
+                            cpu_pkm_ev_speed[cpu_trainer_id][i] = buf32;
+
+                            break;
+                        case 1:
+                            cpu_pkm_iv_atk[cpu_trainer_id][i] = std::min(quint8(rand_iv_1(mt_rand)),cpu_ivs_max);
+                            cpu_pkm_iv_def[cpu_trainer_id][i] = std::min(quint8(rand_iv_1(mt_rand)),cpu_ivs_max);
+                            cpu_pkm_iv_spc[cpu_trainer_id][i] = std::min(quint8(rand_iv_1(mt_rand)),cpu_ivs_max);
+                            cpu_pkm_iv_speed[cpu_trainer_id][i] = std::min(quint8(rand_iv_1(mt_rand)),cpu_ivs_max);
+
+                            buf32 = rand_stat_exp_2(mt_rand);
+                            if(buf32 > cpu_stat_exp_max) buf32 = cpu_stat_exp_max;
+                            cpu_pkm_ev_hp[cpu_trainer_id][i] = buf32;
+
+                            buf32 = rand_stat_exp_2(mt_rand);
+                            if(buf32 > cpu_stat_exp_max) buf32 = cpu_stat_exp_max;
+                            cpu_pkm_ev_atk[cpu_trainer_id][i] = buf32;
+
+                            buf32 = rand_stat_exp_2(mt_rand);
+                            if(buf32 > cpu_stat_exp_max) buf32 = cpu_stat_exp_max;
+                            cpu_pkm_ev_def[cpu_trainer_id][i] = buf32;
+
+                            buf32 = rand_stat_exp_2(mt_rand);
+                            if(buf32 > cpu_stat_exp_max) buf32 = cpu_stat_exp_max;
+                            cpu_pkm_ev_spc[cpu_trainer_id][i] = buf32;
+
+                            buf32 = rand_stat_exp_2(mt_rand);
+                            if(buf32 > cpu_stat_exp_max) buf32 = cpu_stat_exp_max;
+                            cpu_pkm_ev_speed[cpu_trainer_id][i] = buf32;
+
+                            break;
+                        case 2:
+                            cpu_pkm_iv_atk[cpu_trainer_id][i] = std::min(quint8(rand_iv_4(mt_rand)),cpu_ivs_max);
+                            cpu_pkm_iv_def[cpu_trainer_id][i] = std::min(quint8(rand_iv_4(mt_rand)),cpu_ivs_max);
+                            cpu_pkm_iv_spc[cpu_trainer_id][i] = std::min(quint8(rand_iv_4(mt_rand)),cpu_ivs_max);
+                            cpu_pkm_iv_speed[cpu_trainer_id][i] = std::min(quint8(rand_iv_4(mt_rand)),cpu_ivs_max);
+
+                            buf32 = rand_stat_exp_3(mt_rand);
+                            if(buf32 > cpu_stat_exp_max) buf32 = cpu_stat_exp_max;
+                            cpu_pkm_ev_hp[cpu_trainer_id][i] = buf32;
+
+                            buf32 = rand_stat_exp_3(mt_rand);
+                            if(buf32 > cpu_stat_exp_max) buf32 = cpu_stat_exp_max;
+                            cpu_pkm_ev_atk[cpu_trainer_id][i] = buf32;
+
+                            buf32 = rand_stat_exp_3(mt_rand);
+                            if(buf32 > cpu_stat_exp_max) buf32 = cpu_stat_exp_max;
+                            cpu_pkm_ev_def[cpu_trainer_id][i] = buf32;
+
+                            buf32 = rand_stat_exp_3(mt_rand);
+                            if(buf32 > cpu_stat_exp_max) buf32 = cpu_stat_exp_max;
+                            cpu_pkm_ev_spc[cpu_trainer_id][i] = buf32;
+
+                            buf32 = rand_stat_exp_3(mt_rand);
+                            if(buf32 > cpu_stat_exp_max) buf32 = cpu_stat_exp_max;
+                            cpu_pkm_ev_speed[cpu_trainer_id][i] = buf32;
+
+                            break;
+                        default:
+                            if(cpu_pkm_id[cpu_trainer_id][i]<150){
+                                cpu_pkm_iv_atk[cpu_trainer_id][i] = rand_iv_5(mt_rand);
+                                cpu_pkm_iv_def[cpu_trainer_id][i] = rand_iv_5(mt_rand);
+                                cpu_pkm_iv_spc[cpu_trainer_id][i] = rand_iv_5(mt_rand);
+                                cpu_pkm_iv_speed[cpu_trainer_id][i] = rand_iv_5(mt_rand);
+
+                                cpu_pkm_ev_hp[cpu_trainer_id][i] = rand_stat_exp_4(mt_rand);
+                                cpu_pkm_ev_atk[cpu_trainer_id][i] = rand_stat_exp_4(mt_rand);
+                                cpu_pkm_ev_def[cpu_trainer_id][i] = rand_stat_exp_4(mt_rand);
+                                cpu_pkm_ev_spc[cpu_trainer_id][i] = rand_stat_exp_4(mt_rand);
+                                cpu_pkm_ev_speed[cpu_trainer_id][i] = rand_stat_exp_4(mt_rand);
+                            }
+                            else{
+                                cpu_pkm_iv_atk[cpu_trainer_id][i] = rand_iv_6(mt_rand);
+                                cpu_pkm_iv_def[cpu_trainer_id][i] = rand_iv_6(mt_rand);
+                                cpu_pkm_iv_spc[cpu_trainer_id][i] = rand_iv_6(mt_rand);
+                                cpu_pkm_iv_speed[cpu_trainer_id][i] = rand_iv_6(mt_rand);
+
+                                cpu_pkm_ev_hp[cpu_trainer_id][i] = rand_stat_exp_6(mt_rand);
+                                cpu_pkm_ev_atk[cpu_trainer_id][i] = rand_stat_exp_6(mt_rand);
+                                cpu_pkm_ev_def[cpu_trainer_id][i] = rand_stat_exp_6(mt_rand);
+                                cpu_pkm_ev_spc[cpu_trainer_id][i] = rand_stat_exp_6(mt_rand);
+                                cpu_pkm_ev_speed[cpu_trainer_id][i] = rand_stat_exp_6(mt_rand);
+                            }
+                            break;
+                        }
+                    }
                 }
                 else{
                     cpu_pkm_iv_atk[cpu_trainer_id][i] = rand_iv_6(mt_rand);
@@ -658,11 +799,11 @@ void MainWindow::randomize_cpu_iv_stat_exp(std::mt19937 &mt_rand)
                     cpu_pkm_iv_spc[cpu_trainer_id][i] = rand_iv_6(mt_rand);
                     cpu_pkm_iv_speed[cpu_trainer_id][i] = rand_iv_6(mt_rand);
 
-                    cpu_pkm_ev_hp[cpu_trainer_id][i] = rand_stat_exp_6(mt_rand);
-                    cpu_pkm_ev_atk[cpu_trainer_id][i] = rand_stat_exp_6(mt_rand);
-                    cpu_pkm_ev_def[cpu_trainer_id][i] = rand_stat_exp_6(mt_rand);
-                    cpu_pkm_ev_spc[cpu_trainer_id][i] = rand_stat_exp_6(mt_rand);
-                    cpu_pkm_ev_speed[cpu_trainer_id][i] = rand_stat_exp_6(mt_rand);
+                    cpu_pkm_ev_hp[cpu_trainer_id][i] = rand_stat_exp_def(mt_rand);
+                    cpu_pkm_ev_atk[cpu_trainer_id][i] = rand_stat_exp_def(mt_rand);
+                    cpu_pkm_ev_def[cpu_trainer_id][i] = rand_stat_exp_def(mt_rand);
+                    cpu_pkm_ev_spc[cpu_trainer_id][i] = rand_stat_exp_def(mt_rand);
+                    cpu_pkm_ev_speed[cpu_trainer_id][i] = rand_stat_exp_def(mt_rand);
                 }
                 cpu_pkm_iv_hp[cpu_trainer_id][i] = (cpu_pkm_iv_atk[cpu_trainer_id][i] & 1)*8 + (cpu_pkm_iv_def[cpu_trainer_id][i] & 1)*4 + (cpu_pkm_iv_speed[cpu_trainer_id][i] & 1)*2 + (cpu_pkm_iv_spc[cpu_trainer_id][i] & 1);
             }
