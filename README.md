@@ -5,7 +5,7 @@ Work in progress, about 70% done at the moment.
 
 TO DO:
 
-Pokémon and Move randomization (Base Stats done)
+Move randomization
 
 France / Germany / Spain versions support (recognizes language, need to list pointers)
 
