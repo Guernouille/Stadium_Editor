@@ -48,7 +48,9 @@ void MainWindow::on_pushButton_Randomize_pressed()
         // Update display
         if(not_in_init){
             buf8 = ui->comboBox_PokemonSpecies->currentIndex();
+            not_in_init=false;
             display_pkm_data(buf8+1);
+            not_in_init=true;
         }
     }
 
