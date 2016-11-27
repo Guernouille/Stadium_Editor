@@ -5,6 +5,7 @@ void MainWindow::on_actionSave_triggered(){
     romfile.open(QIODevice::ReadWrite);
 
     write_move_data(romfile);
+    write_tmhm_data(romfile);
     write_pkm_data(romfile);
     write_cpu_rentals(romfile);
     write_type_chart(romfile);
@@ -15,6 +16,11 @@ void MainWindow::on_actionSave_triggered(){
     write_odds_paralysis(romfile);
     n64crc(romfile);
     write_n64crc(romfile);
+
+    // Display CRC and Region Code info
+    ui->lineEdit_crc1->setText(QString("%1").arg(header_crc1,8,16,QLatin1Char('0')).toUpper());
+    ui->lineEdit_crc2->setText(QString("%1").arg(header_crc2,8,16,QLatin1Char('0')).toUpper());
+    ui->lineEdit_RegionCode->setText(QString("%1").arg(header_region_code,2,16,QLatin1Char('0')).toUpper());
 
     romfile.close();
 }
