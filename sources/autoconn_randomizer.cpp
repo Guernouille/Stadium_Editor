@@ -42,6 +42,7 @@ void MainWindow::on_pushButton_Randomize_pressed()
         }
         if(ui->checkBox_Randomize_PkmnData_Moves->isChecked()){
             randomize_pkm_learnsets(mt_rand);
+            display_tmhm_data();
         }
 
         // Update display
@@ -336,6 +337,7 @@ void MainWindow::on_checkBox_PkmnData_stateChanged(int state)
             ui->Randomize_PkmnData_STABmove->setEnabled(true);
             ui->Randomize_PkmnData_NoSpore->setEnabled(true);
             ui->Randomize_PkmnData_NoAmnesia->setEnabled(true);
+            ui->Randomize_PkmnData_NoRecover->setEnabled(true);
         }
     }
     else{
@@ -345,6 +347,7 @@ void MainWindow::on_checkBox_PkmnData_stateChanged(int state)
         ui->Randomize_PkmnData_STABmove->setEnabled(false);
         ui->Randomize_PkmnData_NoSpore->setEnabled(false);
         ui->Randomize_PkmnData_NoAmnesia->setEnabled(false);
+        ui->Randomize_PkmnData_NoRecover->setEnabled(false);
         ui->groupBox_PkmnData_MaxBS->setEnabled(false);
         ui->groupBox_PkmnData_BST->setEnabled(false);
     }
@@ -492,11 +495,13 @@ void MainWindow::on_checkBox_Randomize_PkmnData_Moves_stateChanged(int state)
         ui->Randomize_PkmnData_STABmove->setEnabled(true);
         ui->Randomize_PkmnData_NoSpore->setEnabled(true);
         ui->Randomize_PkmnData_NoAmnesia->setEnabled(true);
+        ui->Randomize_PkmnData_NoRecover->setEnabled(true);
     }
     else {
         ui->Randomize_PkmnData_STABmove->setEnabled(false);
         ui->Randomize_PkmnData_NoSpore->setEnabled(false);
         ui->Randomize_PkmnData_NoAmnesia->setEnabled(false);
+        ui->Randomize_PkmnData_NoRecover->setEnabled(false);
     }
 }
 
