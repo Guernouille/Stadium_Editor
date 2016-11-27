@@ -63,7 +63,8 @@ SOURCES += main.cpp\
     write_battle_mechanics.cpp \
     autoconn_edit_battle_mechanics.cpp \
     randomize_pkm_data.cpp \
-    initialize_evo_stages.cpp
+    initialize_evo_stages.cpp \
+    randomize_move_data.cpp
 
 HEADERS  += mainwindow.h \
     common.cpp \
