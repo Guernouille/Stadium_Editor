@@ -52,9 +52,9 @@ public:
     quint16 buf16;
     qint16  buf16s;
     quint32 buf32;
+    QString buf_text;
     quint32 rom_offset;
     QString char_table[256];
-    QString buf_text;
 
     quint8 total_cpu_rentals_array;
     quint8 total_cpu_rentals;
@@ -65,25 +65,25 @@ public:
     quint8 total_type_name;
 
     quint8 bsmin_hp = 10;
-    quint8 bsmin_atk = 10;
-    quint8 bsmin_def = 10;
+    quint8 bsmin_atk = 20;
+    quint8 bsmin_def = 20;
     quint8 bsmin_spc = 10;
-    quint8 bsmin_speed = 10;
-    quint16 bsmin_total = 50;
-    quint8 bsmax_hp = 130;
+    quint8 bsmin_speed = 20;
+    quint16 bsmin_total = 80;
+    quint8 bsmax_hp = 120;
     quint8 bsmax_atk = 130;
     quint8 bsmax_def = 130;
-    quint8 bsmax_spc = 130;
+    quint8 bsmax_spc = 120;
     quint8 bsmax_speed = 130;
-    quint16 bsmax_total = 650;
+    quint16 bsmax_total = 630;
     quint16 bstmin_basic = 270;
-    quint16 bstmin_stage1 = 355;
-    quint16 bstmin_fullevo = 435;
-    quint16 bstmin_legend = 500;
-    quint16 bstmax_basic = 325;
-    quint16 bstmax_stage1 = 410;
-    quint16 bstmax_fullevo = 500;
-    quint16 bstmax_legend = 600;
+    quint16 bstmin_stage1 = 350;
+    quint16 bstmin_fullevo = 430;
+    quint16 bstmin_legend = 480;
+    quint16 bstmax_basic = 310;
+    quint16 bstmax_stage1 = 400;
+    quint16 bstmax_fullevo = 480;
+    quint16 bstmax_legend = 510;
     quint16 bst_temp = 0;
     quint8 burn_shift = 1;
     quint8 burn_shiftvalue = 1;
@@ -320,7 +320,10 @@ private:
     void randomize_cpu_pkmn(std::mt19937 &mt_rand);
     void randomize_cpu_sprites(std::mt19937 &mt_rand);
     void randomize_cpu_trainer_names(std::mt19937 &mt_rand);
+    void randomize_moves_tmhm(std::mt19937 &mt_rand);
     void randomize_pkm_base_stats(std::mt19937 &mt_rand);
+    void randomize_pkm_learnsets(std::mt19937 &mt_rand);
+    void randomize_pkm_types(std::mt19937 &mt_rand);
     void randomize_rental_init_pkmn();
     void randomize_rental_iv_stat_exp(std::mt19937 &mt_rand);
     void randomize_rental_level(std::mt19937 &mt_rand);
@@ -349,6 +352,7 @@ private slots:
     void write_n64crc(QFile &romfile);
     void write_odds_paralysis(QFile &romfile);
     void write_pkm_data(QFile &romfile);
+    void write_tmhm_data(QFile &romfile);
     void write_type_chart(QFile &romfile);
 
     // autoconnect randomizer
@@ -982,6 +986,7 @@ private slots:
     void display_move_data(quint8 move_id);
     void display_pkm_data(quint8 pkm_id);
     void display_rental_pkmn(quint16 rental_pkm_offset);
+    void display_tmhm_data();
     void display_type_chart();
     void read_burn_shift(QFile &romfile);
     void read_ch_formula(QFile &romfile);
