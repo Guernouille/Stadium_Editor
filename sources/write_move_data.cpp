@@ -35,12 +35,11 @@ void MainWindow::write_tmhm_data(QFile &romfile)
     QDataStream write(&romfile);
 
     // ***** Write TM/HM data *****
-    for(uint8_t i=1;i<56;i++){
-        rom_offset = 0x73E2F + i;
-        romfile.seek(rom_offset);
-        write<<move_tmhm[i];
-        rom_offset = 0x375873 + i;
-        romfile.seek(rom_offset);
-        write<<move_tmhm[i];
-    }
+    rom_offset = 0x73E30;
+    romfile.seek(rom_offset);
+    for(uint8_t i=1;i<56;i++) write<<move_tmhm[i];
+
+    rom_offset = 0x375874;
+    romfile.seek(rom_offset);
+    for(uint8_t i=1;i<56;i++) write<<move_tmhm[i];
 }
