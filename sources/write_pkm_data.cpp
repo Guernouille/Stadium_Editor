@@ -38,5 +38,27 @@ void MainWindow::write_pkm_data(QFile &romfile){
         write<<pkm_tmhm_flags[i][5];
         write<<pkm_tmhm_flags[i][6];
 
+        // RB Level-up moves
+        for(short i=1;i<=total_pkm_name;i++){
+            rom_offset = 0x77FB00+(i*32);
+            romfile.seek(rom_offset);
+            for(uint8_t j=0;j<10;j++){
+                write<<pkm_rb_lvl[i][j];
+            }
+            for(uint8_t j=0;j<10;j++){
+                write<<pkm_rb_move[i][j];
+            }
+        }
+        // Y Level-up moves
+        for(short i=1;i<=total_pkm_name;i++){
+            rom_offset = 0x780DE0+(i*32);
+            romfile.seek(rom_offset);
+            for(uint8_t j=0;j<10;j++){
+                write<<pkm_y_lvl[i][j];
+            }
+            for(uint8_t j=0;j<10;j++){
+                write<<pkm_y_move[i][j];
+            }
+        }
     }
 }
