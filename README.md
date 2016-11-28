@@ -1,13 +1,13 @@
 # Stadium_Editor
 An editor and randomizer for Pokémon Stadium
 
-Work in progress, about 70% done at the moment.
+Work in progress, about 75% done at the moment.
 
 TO DO:
 
-Move randomization
-
 France / Germany / Spain versions support (recognizes language, need to list pointers)
+
+WIGGLYWOO!
 
 Learnsets edition
 
