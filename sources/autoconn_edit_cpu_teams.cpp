@@ -493,7 +493,7 @@ void MainWindow::on_lineEdit_Nickname_1_textEdited(){
         cpu_pkm_nickname[buf8][0] = "";
 
         for(short k=0;k<buf_text.length();k++){
-            if((buf_text.at(k).toLatin1()>=0x20 && buf_text.at(k).toLatin1()<=0x23) || (buf_text.at(k).toLatin1()>=0x27 && buf_text.at(k).toLatin1()<=0x7A) || buf_text.at(k) == char_table[0xA9] || buf_text.at(k) == char_table[0xAA] || buf_text.at(k) == char_table[0xBE] || buf_text.at(k) == char_table[0xE9]){
+            if(control_char_table(buf_text.at(k)) < 253) {
                 cpu_pkm_nickname[buf8][0] += buf_text.at(k);
             }
             else {
@@ -512,7 +512,7 @@ void MainWindow::on_lineEdit_Nickname_2_textEdited(){
         cpu_pkm_nickname[buf8][1] = "";
 
         for(short k=0;k<buf_text.length();k++){
-            if((buf_text.at(k).toLatin1()>=0x20 && buf_text.at(k).toLatin1()<=0x23) || (buf_text.at(k).toLatin1()>=0x27 && buf_text.at(k).toLatin1()<=0x7A) || buf_text.at(k) == char_table[0xA9] || buf_text.at(k) == char_table[0xAA] || buf_text.at(k) == char_table[0xBE] || buf_text.at(k) == char_table[0xE9]){
+            if(control_char_table(buf_text.at(k)) < 253) {
                 cpu_pkm_nickname[buf8][1] += buf_text.at(k);
             }
             else {
@@ -531,7 +531,7 @@ void MainWindow::on_lineEdit_Nickname_3_textEdited(){
         cpu_pkm_nickname[buf8][2] = "";
 
         for(short k=0;k<buf_text.length();k++){
-            if((buf_text.at(k).toLatin1()>=0x20 && buf_text.at(k).toLatin1()<=0x23) || (buf_text.at(k).toLatin1()>=0x27 && buf_text.at(k).toLatin1()<=0x7A) || buf_text.at(k) == char_table[0xA9] || buf_text.at(k) == char_table[0xAA] || buf_text.at(k) == char_table[0xBE] || buf_text.at(k) == char_table[0xE9]){
+            if(control_char_table(buf_text.at(k)) < 253) {
                 cpu_pkm_nickname[buf8][2] += buf_text.at(k);
             }
             else {
@@ -550,7 +550,7 @@ void MainWindow::on_lineEdit_Nickname_4_textEdited(){
         cpu_pkm_nickname[buf8][3] = "";
 
         for(short k=0;k<buf_text.length();k++){
-            if((buf_text.at(k).toLatin1()>=0x20 && buf_text.at(k).toLatin1()<=0x23) || (buf_text.at(k).toLatin1()>=0x27 && buf_text.at(k).toLatin1()<=0x7A) || buf_text.at(k) == char_table[0xA9] || buf_text.at(k) == char_table[0xAA] || buf_text.at(k) == char_table[0xBE] || buf_text.at(k) == char_table[0xE9]){
+            if(control_char_table(buf_text.at(k)) < 253) {
                 cpu_pkm_nickname[buf8][3] += buf_text.at(k);
             }
             else {
@@ -569,7 +569,7 @@ void MainWindow::on_lineEdit_Nickname_5_textEdited(){
         cpu_pkm_nickname[buf8][4] = "";
 
         for(short k=0;k<buf_text.length();k++){
-            if((buf_text.at(k).toLatin1()>=0x20 && buf_text.at(k).toLatin1()<=0x23) || (buf_text.at(k).toLatin1()>=0x27 && buf_text.at(k).toLatin1()<=0x7A) || buf_text.at(k) == char_table[0xA9] || buf_text.at(k) == char_table[0xAA] || buf_text.at(k) == char_table[0xBE] || buf_text.at(k) == char_table[0xE9]){
+            if(control_char_table(buf_text.at(k)) < 253) {
                 cpu_pkm_nickname[buf8][4] += buf_text.at(k);
             }
             else {
@@ -588,7 +588,7 @@ void MainWindow::on_lineEdit_Nickname_6_textEdited(){
         cpu_pkm_nickname[buf8][5] = "";
 
         for(short k=0;k<buf_text.length();k++){
-            if((buf_text.at(k).toLatin1()>=0x20 && buf_text.at(k).toLatin1()<=0x23) || (buf_text.at(k).toLatin1()>=0x27 && buf_text.at(k).toLatin1()<=0x7A) || buf_text.at(k) == char_table[0xA9] || buf_text.at(k) == char_table[0xAA] || buf_text.at(k) == char_table[0xBE] || buf_text.at(k) == char_table[0xE9]){
+            if(control_char_table(buf_text.at(k)) < 253) {
                 cpu_pkm_nickname[buf8][5] += buf_text.at(k);
             }
             else {
@@ -600,6 +600,29 @@ void MainWindow::on_lineEdit_Nickname_6_textEdited(){
         not_in_init = true;
     }
 }
+
+
+// Trainer Name
+void MainWindow::on_lineEdit_CPU_TrainerName_textEdited(){
+    if(not_in_init){
+        buf_text = ui->lineEdit_CPU_TrainerName->text();
+        buf8 = ui->comboBox_CPU_Trainer->currentIndex();
+        cpu_tname[buf8] = "";
+
+        for(short k=0;k<buf_text.length();k++){
+            if(control_char_table(buf_text.at(k)) < 253) {
+                cpu_tname[buf8] += buf_text.at(k);
+            }
+            else {
+                cpu_tname[buf8] += "?";
+            }
+        }
+        not_in_init = false;
+        ui->lineEdit_CPU_TrainerName->setText(cpu_tname[buf8]);
+        not_in_init = true;
+    }
+}
+
 
 // AI ID
 void MainWindow::on_spinBox_CPU_AI_valueChanged(int){
