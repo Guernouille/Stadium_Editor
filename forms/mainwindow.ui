@@ -1801,7 +1801,7 @@
          <number>5</number>
         </property>
         <property name="value">
-         <number>505</number>
+         <number>500</number>
         </property>
        </widget>
        <widget class="QSpinBox" name="spinBox_BSTmax_Stage1">
