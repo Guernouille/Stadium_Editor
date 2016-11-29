@@ -3,11 +3,11 @@
 void MainWindow::write_move_data(QFile &romfile){
     QDataStream write(&romfile);
 
+    rom_offset = 0x73700;
+    romfile.seek(rom_offset);
+
     // ***** Write move data *****
     for(short i=1;i<=total_move_name;i++){
-        rom_offset = 0x736FA + i*6;
-        romfile.seek(rom_offset);
-
         write<<move_iid[i];
         write<<move_effect[i];
         write<<move_power[i];
@@ -18,6 +18,13 @@ void MainWindow::write_move_data(QFile &romfile){
 
         write<<move_accuracy[i];
         write<<move_pp[i];
+    }
+
+    // ***** Write move type icons IDs *****
+    for(short i=1;i<=total_move_name;i++){
+        rom_offset = 0x72F2D + i*12;
+        romfile.seek(rom_offset);
+        write<<move_type[i];
     }
 
     // ***** Write High CH moves *****
