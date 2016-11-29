@@ -34,7 +34,7 @@ void MainWindow::randomize_cpu_init_pkmn(){
 
     uint8_t pkm_list_petitcup_toptier[] = {25,50,52,60,63,74,90,92,100,102,37};
 
-    if(ui->checkBox_PkmnData->isChecked() == false) {
+    if(randomized_pkm_data == false) {
         pkm_ids_vector_petitcup_toptier.assign(pkm_list_petitcup_toptier,pkm_list_petitcup_toptier+(sizeof(pkm_list_petitcup_toptier)/sizeof(*pkm_list_petitcup_toptier)));
 
         // Charmander > Vulpix if Dragon Rage is allowed
@@ -95,7 +95,7 @@ void MainWindow::randomize_cpu_init_pkmn(){
             }
         }
 
-        if(ui->checkBox_PkmnData->isChecked() == false) {
+        if(randomized_pkm_data == false) {
             uint8_t pkm_list_pikacup_toptier[] = {26,34,36,55,65,68,76,80,91,94,103,112,113,115,121,124,130,131};
             pkm_ids_vector_pikacup_toptier.assign(pkm_list_pikacup_toptier,pkm_list_pikacup_toptier+(sizeof(pkm_list_pikacup_toptier)/sizeof(*pkm_list_pikacup_toptier)));
         }
@@ -166,7 +166,7 @@ void MainWindow::randomize_cpu_init_pkmn(){
             }
         }
 
-        if(ui->checkBox_PkmnData->isChecked() == false) {
+        if(randomized_pkm_data == false) {
             uint8_t pkm_list_pikacup_toptier[] = {53,65,76,80,91,94,97,103,112,113,121,124,128,131,135,143,144,145,146,149};
             pkm_ids_vector_pikacup_toptier.assign(pkm_list_pikacup_toptier,pkm_list_pikacup_toptier+(sizeof(pkm_list_pikacup_toptier)/sizeof(*pkm_list_pikacup_toptier)));
 
@@ -237,7 +237,7 @@ void MainWindow::randomize_cpu_init_pkmn(){
         pkm_ids_vector_primecup.pop_back();
     }
 
-    if(ui->checkBox_PkmnData->isChecked() == false) {
+    if(randomized_pkm_data == false) {
         uint8_t pkm_list_primecup_toptier[] = {53,65,76,80,91,94,97,103,112,113,121,124,128,131,135,143,144,145,146,149};
         pkm_ids_vector_primecup_toptier.assign(pkm_list_primecup_toptier,pkm_list_primecup_toptier+(sizeof(pkm_list_primecup_toptier)/sizeof(*pkm_list_primecup_toptier)));
     }
@@ -317,7 +317,7 @@ void MainWindow::randomize_cpu_init_pkmn(){
         }
     }
 
-    if(ui->checkBox_PkmnData->isChecked() == false) {
+    if(randomized_pkm_data == false) {
         uint8_t pkm_list_pokecup_toptier[] = {53,65,76,80,91,94,97,103,112,113,121,124,128,131,135,143,144,145,146,149};
         pkm_ids_vector_pokecup_toptier.assign(pkm_list_pokecup_toptier,pkm_list_pokecup_toptier+(sizeof(pkm_list_pokecup_toptier)/sizeof(*pkm_list_pokecup_toptier)));
     }
@@ -391,7 +391,7 @@ void MainWindow::randomize_cpu_init_pkmn(){
             pkm_ids_vector_vs_mewtwo.push_back(i);
         }
     }
-    if(ui->checkBox_PkmnData->isChecked() == false) {
+    if(randomized_pkm_data == false) {
         uint8_t pkm_list_vs_mewtwo_toptier[] = {53,62,65,76,80,91,94,97,103,112,113,121,124,128,131,135,143,144,145,146,149,151};
         pkm_ids_vector_vs_mewtwo_toptier.assign(pkm_list_vs_mewtwo_toptier,pkm_list_vs_mewtwo_toptier+(sizeof(pkm_list_vs_mewtwo_toptier)/sizeof(*pkm_list_vs_mewtwo_toptier)));
     }
@@ -446,8 +446,10 @@ void MainWindow::randomize_cpu_iv_stat_exp(std::mt19937 &mt_rand)
     std::uniform_int_distribution<> rand_stat_exp_5(std::max(cpu_stat_exp_min,std::min(quint16(6400),cpu_stat_exp_max)),buf32);
     std::uniform_int_distribution<> rand_stat_exp_6(cpu_stat_exp_min,buf32);
     std::uniform_int_distribution<> rand_stat_exp_def(cpu_stat_exp_min,cpu_stat_exp_max);
+
     bool max_stats_finals = ui->checkBox_Randomizer_CPU_MaxIVsEVsFinal->isChecked();
     bool better_stats_nfe = ui->checkBox_Randomizer_CPU_NFE_IVsEVs->isChecked();
+    bool randomized_pkm_data = ui->checkBox_PkmnData->isChecked();
 
     for(uint8_t cpu_trainer_id=0;cpu_trainer_id<current_cpu_trainers_number;cpu_trainer_id++){
         if(max_stats_finals
@@ -478,7 +480,7 @@ void MainWindow::randomize_cpu_iv_stat_exp(std::mt19937 &mt_rand)
                 if(better_stats_nfe){
                     // Petit Cup
                     if(cpu_cup_id[cpu_trainer_id]==0 || cpu_cup_id[cpu_trainer_id]==22){
-                        if(ui->checkBox_PkmnData->isChecked() == false) {
+                        if(randomized_pkm_data == false) {
                             switch(iv_statexp_groups[cpu_pkm_id[cpu_trainer_id][i]]){
                             case 0:
                                 cpu_pkm_iv_atk[cpu_trainer_id][i] = cpu_ivs_max;
@@ -546,10 +548,9 @@ void MainWindow::randomize_cpu_iv_stat_exp(std::mt19937 &mt_rand)
                             buf32 = rand_stat_exp_3(mt_rand);
                             if(buf32 > cpu_stat_exp_max) buf32 = cpu_stat_exp_max;
                             cpu_pkm_ev_speed[cpu_trainer_id][i] = buf32;
-                            break;
                         }
                     }
-                    else if(ui->checkBox_PkmnData->isChecked() == false) {
+                    else if(randomized_pkm_data == false) {
                         switch(iv_statexp_groups[cpu_pkm_id[cpu_trainer_id][i]]) {
                         case 0:
                             cpu_pkm_iv_atk[cpu_trainer_id][i] = cpu_ivs_max;
