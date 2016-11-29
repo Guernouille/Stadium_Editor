@@ -41,10 +41,10 @@ void MainWindow::read_pkm_data(QFile &romfile)
     for(short i=1;i<=total_pkm_name;i++){
         rom_offset = 0x77FB00+(i*32);
         romfile.seek(rom_offset);
-        for(short j=0;j<10;j++){
+        for(uint8_t j=0;j<10;j++){
             read>>pkm_rb_lvl[i][j];
         }
-        for(short j=0;j<10;j++){
+        for(uint8_t j=0;j<10;j++){
             read>>pkm_rb_move[i][j];
         }
     }
@@ -52,10 +52,10 @@ void MainWindow::read_pkm_data(QFile &romfile)
     for(short i=1;i<=total_pkm_name;i++){
         rom_offset = 0x780DE0+(i*32);
         romfile.seek(rom_offset);
-        for(short j=0;j<10;j++){
+        for(uint8_t j=0;j<10;j++){
             read>>pkm_y_lvl[i][j];
         }
-        for(short j=0;j<10;j++){
+        for(uint8_t j=0;j<10;j++){
             read>>pkm_y_move[i][j];
         }
     }
