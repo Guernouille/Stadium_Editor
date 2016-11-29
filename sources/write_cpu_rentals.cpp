@@ -12,7 +12,7 @@ void MainWindow::write_cpu_rentals(QFile &romfile)
     romfile.seek(rom_offset);
     write>>total_cpu_rentals_array;
 
-    for(short i=0;i<total_cpu_rentals_array;i++){
+    for(short i = 0; i < total_cpu_rentals_array; i++){
         rom_offset = 0x898010 + i*16;
         romfile.seek(rom_offset);
         write>>cpu_rentals_pointer[i];
@@ -25,13 +25,13 @@ void MainWindow::write_cpu_rentals(QFile &romfile)
 
     std::set<int>::const_iterator set_iter(cpu_rentals_pointers.begin()), set_end(cpu_rentals_pointers.end());
 
-    for(;set_iter!=set_end;++set_iter){
+    for(; set_iter!=set_end; ++set_iter){
         rom_offset = 0x898003 + *set_iter;
         romfile.seek(rom_offset);
         write>>total_cpu_rentals;
 
         // Rental Pokémon
-        if(total_cpu_rentals>16){
+        if(total_cpu_rentals > 16){
             for(short i=current_rentals_number;i<(total_cpu_rentals+current_rentals_number);i++){
                 // Stats calculation
                 // Stat Exp : E = floor(min(255, floor(√(max(0, Stat Experience - 1)) + 1)) / 4)
@@ -144,23 +144,10 @@ void MainWindow::write_cpu_rentals(QFile &romfile)
 
                 rom_offset = 0x898034 + (i-current_rentals_number)*84 + *set_iter;
                 romfile.seek(rom_offset);
-                if(rental_pkm_nickname[i].length()<11){
+                if(rental_pkm_nickname[i].size()<11){
                     for(short k=0;k<rental_pkm_nickname[i].length();k++){
-                        if(rental_pkm_nickname[i].at(k).toLatin1()>0x1F && rental_pkm_nickname[i].at(k).toLatin1()<0x7B){
-                            buf8=rental_pkm_nickname[i].at(k).toLatin1();
-                        }
-                        else if(rental_pkm_nickname[i].at(k) == char_table[0xA9]){
-                            buf8=0xA9;
-                        }
-                        else if(rental_pkm_nickname[i].at(k) == char_table[0xBE]){
-                            buf8=0xBE;
-                        }
-                        else if(rental_pkm_nickname[i].at(k) == char_table[0xE9]){
-                            buf8=0xE9;
-                        }
-                        else{
-                            buf8=0x20;
-                        }
+                        buf8 = control_char_table(rental_pkm_nickname[i].at(k));
+                        if(buf8 > 253) buf8=0x20;
                         write<<buf8;
                     }
                     buf8=0;
@@ -200,58 +187,43 @@ void MainWindow::write_cpu_rentals(QFile &romfile)
                 cpu_cup_id[i] = current_cpu_trainers_cup;
 
                 // CPU Trainer name
-                rom_offset = 0x898004 + (i-current_cpu_trainers_number)*560 + *set_iter;
-                romfile.seek(rom_offset);
-                for(short l=0;l<2;l++){
-                    if(cpu_tname[i].length()<11){
-                        for(short k=0;k<cpu_tname[i].length();k++){
-                            if(cpu_tname[i].at(k).toLatin1()>0x1F && cpu_tname[i].at(k).toLatin1()<0x7B){
-                                buf8=cpu_tname[i].at(k).toLatin1();
-                            }
-                            else if(cpu_tname[i].at(k) == char_table[0xA9]){
-                                buf8=0xA9;
-                            }
-                            else if(cpu_tname[i].at(k) == char_table[0xBE]){
-                                buf8=0xBE;
-                            }
-                            else if(cpu_tname[i].at(k) == char_table[0xE9]){
-                                buf8=0xE9;
-                            }
-                            else{
-                                buf8=0x20;
-                            }
-                            write<<buf8;
-                        }
-                        buf8=0;
-                        for(short k=0;k<(11-cpu_tname[i].length());k++){
+                for(uint8_t l = 0; l < 2; l++) {
+                    if(cpu_tname[i].length() < 1 || cpu_tname[i].size() > 11) cpu_tname[i] = "Fail-Safe";
+
+                    for(uint8_t k = 0; k < cpu_tname[i].size(); k++){
+                        buf8 = control_char_table(cpu_tname[i].at(k));
+                        if(buf8 > 253) buf8 = 0x20;
+
+                        rom_offset = 0x898004 + (i-current_cpu_trainers_number)*560 + k + *set_iter;
+                        romfile.seek(rom_offset);
+                        write<<buf8;
+
+                        rom_offset = 0x898010 + (i-current_cpu_trainers_number)*560 + k + *set_iter;
+                        romfile.seek(rom_offset);
+                        write<<buf8;
+
+                        for(uint8_t pkt = 0; pkt < 6; pkt++) {
+                            buf16 = pkt * 0x54;
+                            buf16 += k;
+                            rom_offset = 0x898077 + (i-current_cpu_trainers_number)*560 + buf16 + *set_iter;
+                            romfile.seek(rom_offset);
                             write<<buf8;
                         }
                     }
-                    else{
-                        buf8=0x46;
+
+                    // Fill remaining characters with 00s
+                    buf8=0;
+
+                    for(short k = 0; k < (11-cpu_tname[i].size()); k++){
+                        buf16 = cpu_tname[i].size() + k;
+                        rom_offset = 0x898004 + (i-current_cpu_trainers_number)*560 + buf16 + *set_iter;
+                        romfile.seek(rom_offset);
                         write<<buf8;
-                        buf8=0x61;
-                        write<<buf8;
-                        buf8=0x69;
-                        write<<buf8;
-                        buf8=0x6C;
-                        write<<buf8;
-                        buf8=0x2D;
-                        write<<buf8;
-                        buf8=0x53;
-                        write<<buf8;
-                        buf8=0x61;
-                        write<<buf8;
-                        buf8=0x66;
-                        write<<buf8;
-                        buf8=0x65;
-                        write<<buf8;
-                        buf8=0;
-                        write<<buf8;
+
+                        rom_offset = 0x898010 + (i-current_cpu_trainers_number)*560 + buf16 + *set_iter;
+                        romfile.seek(rom_offset);
                         write<<buf8;
                     }
-                    rom_offset = 0x898010 + (i-current_cpu_trainers_number)*560 + *set_iter;
-                    romfile.seek(rom_offset);
                 }
 
                 // CPU Trainer sprite
@@ -372,27 +344,15 @@ void MainWindow::write_cpu_rentals(QFile &romfile)
                     // CPU Trainer Pokémon nickname
                     rom_offset = 0x89806C + (i-current_cpu_trainers_number)*560 + j*84 + *set_iter;
                     romfile.seek(rom_offset);
+
                     if(cpu_pkm_nickname[i][j].length()<11){
-                        for(short k=0;k<cpu_pkm_nickname[i][j].length();k++){
-                            if(cpu_pkm_nickname[i][j].at(k).toLatin1()>0x1F && cpu_pkm_nickname[i][j].at(k).toLatin1()<0x7B){
-                                buf8=cpu_pkm_nickname[i][j].at(k).toLatin1();
-                            }
-                            else if(cpu_pkm_nickname[i][j].at(k) == char_table[0xA9]){
-                                buf8=0xA9;
-                            }
-                            else if(cpu_pkm_nickname[i][j].at(k) == char_table[0xBE]){
-                                buf8=0xBE;
-                            }
-                            else if(cpu_pkm_nickname[i][j].at(k) == char_table[0xE9]){
-                                buf8=0xE9;
-                            }
-                            else{
-                                buf8=0x20;
-                            }
+                        for(short k = 0; k < cpu_pkm_nickname[i][j].size(); k++){
+                            buf8 = control_char_table(cpu_pkm_nickname[i][j].at(k));
+                            if(buf8 > 253) buf8=0x20;
                             write<<buf8;
                         }
                         buf8=0;
-                        for(short k=0;k<(11-cpu_pkm_nickname[i][j].length());k++){
+                        for(short k = 0; k < (11-cpu_pkm_nickname[i][j].size()); k++){
                             write<<buf8;
                         }
                     }
