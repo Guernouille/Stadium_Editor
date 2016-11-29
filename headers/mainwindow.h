@@ -65,25 +65,25 @@ public:
     quint8 total_type_name;
 
     quint8 bsmin_hp = 10;
-    quint8 bsmin_atk = 20;
+    quint8 bsmin_atk = 40;
     quint8 bsmin_def = 20;
-    quint8 bsmin_spc = 10;
+    quint8 bsmin_spc = 20;
     quint8 bsmin_speed = 20;
-    quint16 bsmin_total = 80;
-    quint8 bsmax_hp = 120;
+    quint16 bsmin_total = 110;
+    quint8 bsmax_hp = 110;
     quint8 bsmax_atk = 130;
-    quint8 bsmax_def = 130;
+    quint8 bsmax_def = 120;
     quint8 bsmax_spc = 120;
-    quint8 bsmax_speed = 130;
-    quint16 bsmax_total = 630;
-    quint16 bstmin_basic = 270;
+    quint8 bsmax_speed = 120;
+    quint16 bsmax_total = 600;
+    quint16 bstmin_basic = 275;
     quint16 bstmin_stage1 = 350;
     quint16 bstmin_fullevo = 430;
     quint16 bstmin_legend = 480;
     quint16 bstmax_basic = 310;
     quint16 bstmax_stage1 = 400;
     quint16 bstmax_fullevo = 480;
-    quint16 bstmax_legend = 510;
+    quint16 bstmax_legend = 500;
     quint16 bst_temp = 0;
     quint8 burn_shift = 1;
     quint8 burn_shiftvalue = 1;
@@ -278,7 +278,7 @@ public:
     quint16 rental_pkm_stat_def[1024];
     quint16 rental_pkm_stat_spc[1024];
     quint16 rental_pkm_stat_speed[1024];
-    quint16 rental_stat_exp_min = 16000;
+    quint16 rental_stat_exp_min = 16500;
     quint16 rental_stat_exp_max = 64500;
 
     QSpinBox *spinBox_PRNG_Seed_1;
@@ -296,6 +296,9 @@ private:
 
     // type chart
     quint8 convert_type_id(quint8 type_id);
+
+    // control
+    quint8 control_char_table(QString character_id);
 
     // initialize
     void initialize_char_table();
@@ -475,6 +478,8 @@ private slots:
     void on_lineEdit_Rental_Nickname_4_textEdited();
     void on_lineEdit_Rental_Nickname_5_textEdited();
     void on_lineEdit_Rental_Nickname_6_textEdited();
+
+    void on_lineEdit_CPU_TrainerName_textEdited();
 
     void on_spinBox_CPU_AI_valueChanged(int);
     void on_spinBox_CPU_PartySize_valueChanged(int);
