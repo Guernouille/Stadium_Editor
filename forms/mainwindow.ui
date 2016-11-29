@@ -66,7 +66,7 @@
       <property name="geometry">
        <rect>
         <x>410</x>
-        <y>285</y>
+        <y>58</y>
         <width>180</width>
         <height>21</height>
        </rect>
@@ -732,8 +732,8 @@
      <widget class="QGroupBox" name="groupBox_PRNG_Seeds">
       <property name="geometry">
        <rect>
-        <x>594</x>
-        <y>228</y>
+        <x>593</x>
+        <y>4</y>
         <width>111</width>
         <height>185</height>
        </rect>
@@ -1278,7 +1278,7 @@
       <property name="geometry">
        <rect>
         <x>605</x>
-        <y>417</y>
+        <y>193</y>
         <width>91</width>
         <height>17</height>
        </rect>
@@ -1293,9 +1293,9 @@
      <widget class="QGroupBox" name="groupBox_Randomizer_Misc">
       <property name="geometry">
        <rect>
-        <x>415</x>
-        <y>140</y>
-        <width>291</width>
+        <x>413</x>
+        <y>256</y>
+        <width>293</width>
         <height>88</height>
        </rect>
       </property>
@@ -1327,11 +1327,14 @@
          <height>17</height>
         </rect>
        </property>
+       <property name="toolTip">
+        <string>Replace Dragon vs Dragon</string>
+       </property>
        <property name="text">
-        <string>Ice ×0.5 vs Fire</string>
+        <string>Ice ×0.5 vs Fire*</string>
        </property>
        <property name="checked">
-        <bool>true</bool>
+        <bool>false</bool>
        </property>
       </widget>
       <widget class="QLabel" name="label_Randomizer_GLCLevelRange_2">
@@ -1429,7 +1432,7 @@
       <property name="geometry">
        <rect>
         <x>413</x>
-        <y>230</y>
+        <y>5</y>
         <width>175</width>
         <height>50</height>
        </rect>
@@ -1487,7 +1490,7 @@
       <property name="geometry">
        <rect>
         <x>410</x>
-        <y>310</y>
+        <y>80</y>
         <width>180</width>
         <height>21</height>
        </rect>
@@ -1507,25 +1510,12 @@
        <set>Qt::AlignCenter</set>
       </property>
      </widget>
-     <widget class="QLabel" name="label_rev">
-      <property name="geometry">
-       <rect>
-        <x>675</x>
-        <y>570</y>
-        <width>35</width>
-        <height>13</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>v 0.2</string>
-      </property>
-     </widget>
      <widget class="QGroupBox" name="groupBox_Randomizer_PkmnData">
       <property name="geometry">
        <rect>
         <x>4</x>
         <y>445</y>
-        <width>463</width>
+        <width>614</width>
         <height>140</height>
        </rect>
       </property>
@@ -1620,7 +1610,7 @@
        </property>
        <property name="geometry">
         <rect>
-         <x>275</x>
+         <x>425</x>
          <y>6</y>
          <width>184</width>
          <height>130</height>
@@ -1648,7 +1638,7 @@
          <number>5</number>
         </property>
         <property name="value">
-         <number>435</number>
+         <number>430</number>
         </property>
        </widget>
        <widget class="QLabel" name="label_BST_text_3">
@@ -1696,7 +1686,7 @@
          <number>5</number>
         </property>
         <property name="value">
-         <number>355</number>
+         <number>350</number>
         </property>
        </widget>
        <widget class="QLabel" name="label_BST_text_1">
@@ -1743,8 +1733,11 @@
           <height>13</height>
          </rect>
         </property>
+        <property name="toolTip">
+         <string>Mewtwo will have max BST + 75 if possible</string>
+        </property>
         <property name="text">
-         <string>Legendary:</string>
+         <string>Legendary*:</string>
         </property>
        </widget>
        <widget class="QSpinBox" name="spinBox_BSTmin_Legend">
@@ -1766,7 +1759,7 @@
          <number>5</number>
         </property>
         <property name="value">
-         <number>500</number>
+         <number>480</number>
         </property>
        </widget>
        <widget class="QLabel" name="label_BST_text_5">
@@ -1808,7 +1801,7 @@
          <number>5</number>
         </property>
         <property name="value">
-         <number>600</number>
+         <number>510</number>
         </property>
        </widget>
        <widget class="QSpinBox" name="spinBox_BSTmax_Stage1">
@@ -1830,7 +1823,7 @@
          <number>5</number>
         </property>
         <property name="value">
-         <number>410</number>
+         <number>400</number>
         </property>
        </widget>
        <widget class="QSpinBox" name="spinBox_BSTmax_FullyEvolved">
@@ -1852,7 +1845,7 @@
          <number>5</number>
         </property>
         <property name="value">
-         <number>500</number>
+         <number>480</number>
         </property>
        </widget>
        <widget class="QSpinBox" name="spinBox_BSTmax_Basic">
@@ -1874,7 +1867,7 @@
          <number>5</number>
         </property>
         <property name="value">
-         <number>325</number>
+         <number>310</number>
         </property>
        </widget>
        <widget class="QLabel" name="label_BST_text_6">
@@ -1944,23 +1937,26 @@
        </property>
        <property name="geometry">
         <rect>
-         <x>5</x>
-         <y>117</y>
-         <width>121</width>
+         <x>122</x>
+         <y>15</y>
+         <width>147</width>
          <height>17</height>
         </rect>
        </property>
        <property name="toolTip">
-        <string>Every Pokémon will have a damaging STAB move in its learnset.</string>
+        <string>Every Pokémon will have a damaging STAB move in its learnset, if it exists</string>
        </property>
        <property name="text">
-        <string>STAB starting move</string>
+        <string>STAB starting move*</string>
        </property>
        <property name="checked">
         <bool>true</bool>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_PkmnData_NormalType">
+      <widget class="QPushButton" name="pushButton_PkmnData_WIGGLYWOO">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
        <property name="geometry">
         <rect>
          <x>3</x>
@@ -1975,10 +1971,10 @@
         </font>
        </property>
        <property name="toolTip">
-        <string>Every Pokémon will be a Normal type.</string>
+        <string>WIGGLYWOO! (not yet implemented)</string>
        </property>
        <property name="text">
-        <string>Only Normal type</string>
+        <string>???</string>
        </property>
       </widget>
       <widget class="QGroupBox" name="groupBox_PkmnData_MaxBS">
@@ -1987,7 +1983,7 @@
        </property>
        <property name="geometry">
         <rect>
-         <x>122</x>
+         <x>271</x>
          <y>6</y>
          <width>150</width>
          <height>131</height>
@@ -2015,7 +2011,7 @@
          <number>5</number>
         </property>
         <property name="value">
-         <number>130</number>
+         <number>120</number>
         </property>
        </widget>
        <widget class="QLabel" name="label_2">
@@ -2133,7 +2129,7 @@
          <number>5</number>
         </property>
         <property name="value">
-         <number>130</number>
+         <number>120</number>
         </property>
        </widget>
        <widget class="QSpinBox" name="spinBox_BSmax_SPEED">
@@ -2190,7 +2186,7 @@
          <number>5</number>
         </property>
         <property name="value">
-         <number>10</number>
+         <number>20</number>
         </property>
        </widget>
        <widget class="QSpinBox" name="spinBox_BSmin_SPC">
@@ -2234,7 +2230,7 @@
          <number>5</number>
         </property>
         <property name="value">
-         <number>10</number>
+         <number>20</number>
         </property>
        </widget>
        <widget class="QSpinBox" name="spinBox_BSmin_HP">
@@ -2278,7 +2274,7 @@
          <number>5</number>
         </property>
         <property name="value">
-         <number>10</number>
+         <number>20</number>
         </property>
        </widget>
        <widget class="QLabel" name="label_BST_text_9">
@@ -2382,14 +2378,105 @@
         </property>
        </widget>
       </widget>
+      <widget class="QCheckBox" name="Randomize_PkmnData_NoSpore">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>122</x>
+         <y>35</y>
+         <width>147</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string>Remove Sleep-inducing moves with more than 75% Accuracy. tl;dr: No Spore</string>
+       </property>
+       <property name="text">
+        <string>No accurate Sleep move*</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="Randomize_PkmnData_NoAmnesia">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>122</x>
+         <y>55</y>
+         <width>147</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string>Bar Mewtwo. Remove moves that raise Special stat by two levels. tl;dr: No Amnesia</string>
+       </property>
+       <property name="text">
+        <string>No +2 Special stat move*</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="Randomize_PkmnData_NoRecover">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>122</x>
+         <y>75</y>
+         <width>147</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string>Bar Mewtwo. Remove healing moves. tl;dr: No Recover / Softboiled / Rest</string>
+       </property>
+       <property name="text">
+        <string>No Healing  move*</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="checkBox_Randomize_PkmnData_3dModels">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>5</x>
+         <y>117</y>
+         <width>131</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string>Randomizes 3D Pokémon models and their cries (not yet implemented)</string>
+       </property>
+       <property name="text">
+        <string>Randomize 3D Models</string>
+       </property>
+       <property name="checkable">
+        <bool>false</bool>
+       </property>
+       <property name="checked">
+        <bool>false</bool>
+       </property>
+      </widget>
      </widget>
      <widget class="QGroupBox" name="groupBox_Randomizer_MoveData">
       <property name="geometry">
        <rect>
-        <x>415</x>
-        <y>1</y>
-        <width>291</width>
-        <height>139</height>
+        <x>413</x>
+        <y>344</y>
+        <width>293</width>
+        <height>101</height>
        </rect>
       </property>
       <property name="title">
@@ -2405,34 +2492,15 @@
         </rect>
        </property>
        <property name="toolTip">
-        <string>Counter won't be modified, as its effect is hard coded.</string>
+        <string>Damaging moves will remain damaging moves, status moves will remain status moves.
+Counter, Metronome, Transform and fixed damage moves won't be modified.
+Psywave and Toxic will have 100% Accuracy.</string>
        </property>
        <property name="text">
         <string>Move Data*</string>
        </property>
        <property name="checked">
         <bool>false</bool>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="pushButton_MoveData_NoEffects">
-       <property name="geometry">
-        <rect>
-         <x>3</x>
-         <y>33</y>
-         <width>115</width>
-         <height>23</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <family>MS Shell Dlg 2</family>
-        </font>
-       </property>
-       <property name="toolTip">
-        <string>Removes added effects from damaging moves</string>
-       </property>
-       <property name="text">
-        <string>No Added Effects</string>
        </property>
       </widget>
       <widget class="QCheckBox" name="checkBox_Randomize_MoveData_Powers">
@@ -2442,16 +2510,18 @@
        <property name="geometry">
         <rect>
          <x>5</x>
-         <y>58</y>
-         <width>111</width>
+         <y>35</y>
+         <width>116</width>
          <height>17</height>
         </rect>
        </property>
        <property name="toolTip">
-        <string>Will produce at least 10 different Pokémon, and will randomize moves if &quot;No illegal moves&quot; is checked</string>
+        <string>Two-turn moves (like Sky Attack, not Fly), Recharge moves, and Explosion moves will have more than max Power.
+Recoil moves will have better Accuracy and higher than average Power.
+Wrap moves will be 15~35, Multi-hit moves 15~25, Two-hit moves up to 50% of max power</string>
        </property>
        <property name="text">
-        <string>Randomize Powers</string>
+        <string>Randomize Powers*</string>
        </property>
        <property name="checked">
         <bool>true</bool>
@@ -2464,13 +2534,13 @@
        <property name="geometry">
         <rect>
          <x>5</x>
-         <y>98</y>
+         <y>75</y>
          <width>111</width>
          <height>17</height>
         </rect>
        </property>
        <property name="toolTip">
-        <string>Will also replace illegal moves if &quot;No illegal moves&quot; is checked.</string>
+        <string>Status moves will still be status moves. Counter, Metronome, Transform and fixed damage moves won't be modified</string>
        </property>
        <property name="text">
         <string>Randomize Effects</string>
@@ -2486,38 +2556,16 @@
        <property name="geometry">
         <rect>
          <x>5</x>
-         <y>78</y>
+         <y>55</y>
          <width>111</width>
          <height>17</height>
         </rect>
        </property>
        <property name="toolTip">
-        <string>Will also replace illegal moves if &quot;No illegal moves&quot; is checked.</string>
+        <string/>
        </property>
        <property name="text">
         <string>Randomize Types</string>
-       </property>
-       <property name="checked">
-        <bool>true</bool>
-       </property>
-      </widget>
-      <widget class="QCheckBox" name="checkBox_Randomize_MoveData_Accuracy">
-       <property name="enabled">
-        <bool>false</bool>
-       </property>
-       <property name="geometry">
-        <rect>
-         <x>5</x>
-         <y>118</y>
-         <width>121</width>
-         <height>17</height>
-        </rect>
-       </property>
-       <property name="toolTip">
-        <string>Will also replace illegal moves if &quot;No illegal moves&quot; is checked.</string>
-       </property>
-       <property name="text">
-        <string>Randomize Accuracy</string>
        </property>
        <property name="checked">
         <bool>true</bool>
@@ -2529,14 +2577,14 @@
        </property>
        <property name="geometry">
         <rect>
-         <x>122</x>
+         <x>125</x>
          <y>30</y>
          <width>165</width>
          <height>17</height>
         </rect>
        </property>
        <property name="toolTip">
-        <string>Moves with more power will be less accurate on average.</string>
+        <string>Moves with more power will be less accurate on average</string>
        </property>
        <property name="text">
         <string>More Power = Less Accuracy*</string>
@@ -2551,8 +2599,8 @@
        </property>
        <property name="geometry">
         <rect>
-         <x>180</x>
-         <y>111</y>
+         <x>173</x>
+         <y>70</y>
          <width>42</width>
          <height>22</height>
         </rect>
@@ -2564,7 +2612,7 @@
         <number>250</number>
        </property>
        <property name="singleStep">
-        <number>10</number>
+        <number>5</number>
        </property>
        <property name="value">
         <number>40</number>
@@ -2576,8 +2624,8 @@
        </property>
        <property name="geometry">
         <rect>
-         <x>240</x>
-         <y>111</y>
+         <x>233</x>
+         <y>70</y>
          <width>42</width>
          <height>22</height>
         </rect>
@@ -2589,10 +2637,10 @@
         <number>250</number>
        </property>
        <property name="singleStep">
-        <number>10</number>
+        <number>5</number>
        </property>
        <property name="value">
-        <number>140</number>
+        <number>125</number>
        </property>
       </widget>
       <widget class="QLabel" name="label_MoveData_Power_2">
@@ -2601,8 +2649,8 @@
        </property>
        <property name="geometry">
         <rect>
-         <x>225</x>
-         <y>116</y>
+         <x>218</x>
+         <y>75</y>
          <width>20</width>
          <height>13</height>
         </rect>
@@ -2617,58 +2665,19 @@
        </property>
        <property name="geometry">
         <rect>
-         <x>140</x>
-         <y>116</y>
-         <width>40</width>
+         <x>128</x>
+         <y>75</y>
+         <width>45</width>
          <height>13</height>
         </rect>
        </property>
-       <property name="text">
-        <string>Power:</string>
-       </property>
-      </widget>
-      <widget class="QCheckBox" name="checkBox_Randomizer_MoveData_Sleep">
-       <property name="enabled">
-        <bool>false</bool>
-       </property>
-       <property name="geometry">
-        <rect>
-         <x>122</x>
-         <y>50</y>
-         <width>165</width>
-         <height>17</height>
-        </rect>
-       </property>
        <property name="toolTip">
-        <string/>
+        <string>Two-turn moves (like Sky Attack, not Fly), Recharge moves, and Explosion moves will have more than max Power.
+Recoil moves will have better Accuracy and higher than average Power.
+Wrap moves will be 15~35, Multi-hit moves 15~25, Two-hit moves up to 50% of max power</string>
        </property>
        <property name="text">
-        <string>Sleep moves ≤ 75% accuracy</string>
-       </property>
-       <property name="checked">
-        <bool>true</bool>
-       </property>
-      </widget>
-      <widget class="QCheckBox" name="checkBox_Randomizer_MoveData_Trap">
-       <property name="enabled">
-        <bool>false</bool>
-       </property>
-       <property name="geometry">
-        <rect>
-         <x>122</x>
-         <y>70</y>
-         <width>165</width>
-         <height>17</height>
-        </rect>
-       </property>
-       <property name="toolTip">
-        <string/>
-       </property>
-       <property name="text">
-        <string>Trap moves ≤ 85% accuracy</string>
-       </property>
-       <property name="checked">
-        <bool>true</bool>
+        <string>Power*:</string>
        </property>
       </widget>
       <widget class="QCheckBox" name="checkBox_Randomizer_MoveData_EffectPower">
@@ -2677,14 +2686,14 @@
        </property>
        <property name="geometry">
         <rect>
-         <x>122</x>
+         <x>125</x>
          <y>10</y>
          <width>165</width>
          <height>17</height>
         </rect>
        </property>
        <property name="toolTip">
-        <string>Damaging moves without effects will be more powerful on average.</string>
+        <string>Damaging moves without effects will be more powerful on average</string>
        </property>
        <property name="text">
         <string>No Effect = More Power*</string>
@@ -2699,8 +2708,8 @@
        </property>
        <property name="geometry">
         <rect>
-         <x>122</x>
-         <y>90</y>
+         <x>125</x>
+         <y>50</y>
          <width>165</width>
          <height>17</height>
         </rect>
@@ -2715,6 +2724,153 @@
         <bool>true</bool>
        </property>
       </widget>
+     </widget>
+     <widget class="QLabel" name="label_crc1">
+      <property name="geometry">
+       <rect>
+        <x>440</x>
+        <y>108</y>
+        <width>40</width>
+        <height>13</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>CRC 1:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_crc2">
+      <property name="geometry">
+       <rect>
+        <x>440</x>
+        <y>130</y>
+        <width>40</width>
+        <height>13</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>CRC 2:</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_crc1">
+      <property name="geometry">
+       <rect>
+        <x>485</x>
+        <y>106</y>
+        <width>75</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Courier New</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="maxLength">
+       <number>8</number>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_crc2">
+      <property name="geometry">
+       <rect>
+        <x>485</x>
+        <y>128</y>
+        <width>75</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Courier New</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="maxLength">
+       <number>8</number>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_RegionCode">
+      <property name="geometry">
+       <rect>
+        <x>440</x>
+        <y>153</y>
+        <width>70</width>
+        <height>13</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Region Code:</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_RegionCode">
+      <property name="geometry">
+       <rect>
+        <x>510</x>
+        <y>150</y>
+        <width>25</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Courier New</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="maxLength">
+       <number>2</number>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_PJ64_Warning">
+      <property name="geometry">
+       <rect>
+        <x>410</x>
+        <y>170</y>
+        <width>181</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Leelawadee</family>
+        <pointsize>8</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>^^ You might need these values ^^
+if you edited Pokémon/Moves data
+and you play with PJ64 (see Help)</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
      </widget>
     </widget>
     <widget class="QWidget" name="tab_CPU_Teams">
@@ -14720,7 +14876,7 @@ p, li { white-space: pre-wrap; }
        <rect>
         <x>10</x>
         <y>0</y>
-        <width>410</width>
+        <width>420</width>
         <height>55</height>
        </rect>
       </property>
@@ -14730,7 +14886,7 @@ p, li { white-space: pre-wrap; }
       <widget class="QTextEdit" name="textEdit_MoveTMHMText">
        <property name="geometry">
         <rect>
-         <x>110</x>
+         <x>120</x>
          <y>10</y>
          <width>293</width>
          <height>38</height>
@@ -14745,7 +14901,7 @@ p, li { white-space: pre-wrap; }
       <widget class="QComboBox" name="comboBox_TMsHMsNames">
        <property name="geometry">
         <rect>
-         <x>8</x>
+         <x>7</x>
          <y>15</y>
          <width>90</width>
          <height>22</height>
@@ -15051,13 +15207,433 @@ p, li { white-space: pre-wrap; }
        <rect>
         <x>10</x>
         <y>55</y>
-        <width>410</width>
+        <width>420</width>
         <height>55</height>
        </rect>
       </property>
       <property name="title">
        <string>Items</string>
       </property>
+      <widget class="QComboBox" name="comboBox_ItemsNames">
+       <property name="geometry">
+        <rect>
+         <x>7</x>
+         <y>15</y>
+         <width>109</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <item>
+        <property name="text">
+         <string>MASTER BALL</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>ULTRA BALL</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>GREAT BALL</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>POKé BALL</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>TOWN MAP</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>BICYCLE</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>SAFARI BALL</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>POKéDEX</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>MOON STONE</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>ANTIDOTE</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>BURN HEAL</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>ICE HEAL</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>AWAKENING</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>PARLYZ HEAL</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>FULL RESTORE</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>MAX POTION</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>HYPER POTION</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>SUPER POTION</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>POTION</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>BOULDERBADGE</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>CASCADEBADGE</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>THUNDERBADGE</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>RAINBOWBADGE</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>SOULBADGE</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>MARSHBADGE</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>VOLCANOBADGE</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>EARTHBADGE</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>ESCAPE ROPE</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>REPEL</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>OLD AMBER</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>FIRE STONE</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>THUNDERSTONE</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>WATER STONE</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>HP UP</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>PROTEIN</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>IRON</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>CARBOS</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>CALCIUM</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>RARE CANDY</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>DOME FOSSIL</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>HELIX FOSSIL</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>SECRET KEY</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>BIKE VOUCHER</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>X ACCURACY</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>LEAF STONE</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>CARD KEY</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>NUGGET</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>POKé DOLL</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>FULL HEAL</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>REVIVE</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>MAX REVIVE</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>GUARD SPEC</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>SUPER REPEL</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>MAX REPEL</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>DIRE HIT</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>FRESH WATER</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>SODA POP</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>LEMONADE</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>S.S.TICKET</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>GOLD TEETH</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>X ATTACK</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>X DEFEND</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>X SPEED</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>X SPECIAL</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>COIN CASE</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>OAK'S PARCEL</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>ITEMFINDER</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>SILPH SCOPE</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>POKé FLUTE</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>LIFT KEY</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>EXP.ALL</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>OLD ROD</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>GOOD ROD</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>SUPER ROD</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>PP UP</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>ETHER</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>MAX ETHER</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>ELIXER</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>MAX ELIXER</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QTextEdit" name="textEdit_MoveItemsText">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>10</y>
+         <width>293</width>
+         <height>38</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Courier New</family>
+        </font>
+       </property>
+      </widget>
      </widget>
      <widget class="QGroupBox" name="groupBox_Text_Battle">
       <property name="geometry">
@@ -15198,6 +15774,22 @@ p, li { white-space: pre-wrap; }
       </item>
      </widget>
     </widget>
+   </widget>
+   <widget class="QLabel" name="label_rev">
+    <property name="geometry">
+     <rect>
+      <x>683</x>
+      <y>5</y>
+      <width>32</width>
+      <height>13</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color:blue;</string>
+    </property>
+    <property name="text">
+     <string>v 0.2</string>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -15359,7 +15951,7 @@ p, li { white-space: pre-wrap; }
   <tabstop>spinBox_Rental_StatExp_min</tabstop>
   <tabstop>spinBox_Rental_StatExp_max</tabstop>
   <tabstop>checkBox_PkmnData</tabstop>
-  <tabstop>pushButton_PkmnData_NormalType</tabstop>
+  <tabstop>pushButton_PkmnData_WIGGLYWOO</tabstop>
   <tabstop>checkBox_Randomize_PkmnData_BS</tabstop>
   <tabstop>checkBox_Randomize_PkmnData_Types</tabstop>
   <tabstop>checkBox_Randomize_PkmnData_Moves</tabstop>
@@ -15383,15 +15975,11 @@ p, li { white-space: pre-wrap; }
   <tabstop>spinBox_BSTmin_Legend</tabstop>
   <tabstop>spinBox_BSTmax_Legend</tabstop>
   <tabstop>checkBox_MoveData</tabstop>
-  <tabstop>pushButton_MoveData_NoEffects</tabstop>
   <tabstop>checkBox_Randomize_MoveData_Powers</tabstop>
   <tabstop>checkBox_Randomize_MoveData_Types</tabstop>
   <tabstop>checkBox_Randomize_MoveData_Effects</tabstop>
-  <tabstop>checkBox_Randomize_MoveData_Accuracy</tabstop>
   <tabstop>checkBox_Randomizer_MoveData_EffectPower</tabstop>
   <tabstop>checkBox_Randomizer_MoveData_PowerAccuracy</tabstop>
-  <tabstop>checkBox_Randomizer_MoveData_Sleep</tabstop>
-  <tabstop>checkBox_Randomizer_MoveData_Trap</tabstop>
   <tabstop>checkBox_Randomizer_MoveData_Explosion</tabstop>
   <tabstop>spinBox_MoveData_minPower</tabstop>
   <tabstop>spinBox_MoveData_maxPower</tabstop>
