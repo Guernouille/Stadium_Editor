@@ -101,14 +101,14 @@ void MainWindow::randomize_cpu_init_pkmn(){
         }
         else {
             uint8_t j = 0;
-            for(uint8_t i; i<=total_pkm_name;i++) {
+            for(uint8_t i = 1; i<=total_pkm_name;i++) {
                 if(pkm_min_level[i]<=20 && pkm_evo_stage[i]==2) {
                     pkm_ids_vector_pikacup_toptier.push_back(i);
                     j++;
                 }
             }
             if(j<=6) {
-                for(uint8_t i; i<=total_pkm_name;i++) {
+                for(uint8_t i = 1; i<=total_pkm_name;i++) {
                     if(pkm_min_level[i]<=20 && pkm_evo_stage[i]==1) {
                         pkm_ids_vector_pikacup_toptier.push_back(i);
                         j++;
@@ -116,7 +116,7 @@ void MainWindow::randomize_cpu_init_pkmn(){
                 }
             }
             if(j<=6) {
-                for(uint8_t i; i<=total_pkm_name;i++) {
+                for(uint8_t i = 1; i<=total_pkm_name;i++) {
                     if(pkm_min_level[i]<=20 && pkm_evo_stage[i]==0) pkm_ids_vector_pikacup_toptier.push_back(i);
                 }
             }
@@ -177,7 +177,7 @@ void MainWindow::randomize_cpu_init_pkmn(){
         }
         else {
             uint8_t j = 0;
-            for(uint8_t i; i<=total_pkm_name;i++) {
+            for(uint8_t i = 1; i<=total_pkm_name;i++) {
                 if(pkm_evo_stage[i]==2) {
                     pkm_ids_vector_pikacup_toptier.push_back(i);
                     j++;
@@ -189,7 +189,7 @@ void MainWindow::randomize_cpu_init_pkmn(){
                 j += 2;
             }
             if(j<=6) {
-                for(uint8_t i; i<=total_pkm_name;i++) {
+                for(uint8_t i = 1; i<=total_pkm_name;i++) {
                     if(pkm_evo_stage[i]==1) {
                         pkm_ids_vector_pikacup_toptier.push_back(i);
                         j++;
@@ -197,7 +197,7 @@ void MainWindow::randomize_cpu_init_pkmn(){
                 }
             }
             if(j<=6) {
-                for(uint8_t i; i<=total_pkm_name;i++) {
+                for(uint8_t i = 1; i<=total_pkm_name;i++) {
                     if(pkm_evo_stage[i]==0) pkm_ids_vector_pikacup_toptier.push_back(i);
                 }
             }
@@ -243,14 +243,14 @@ void MainWindow::randomize_cpu_init_pkmn(){
     }
     else {
         uint8_t j = 0;
-        for(uint8_t i; i<=total_pkm_name;i++) {
+        for(uint8_t i = 1; i<=total_pkm_name;i++) {
             if(pkm_evo_stage[i]==3 && i!=150 && i!=151) {
                 pkm_ids_vector_primecup_toptier.push_back(i);
                 j++;
             }
         }
         if(j<=6) {
-            for(uint8_t i; i<=total_pkm_name;i++) {
+            for(uint8_t i = 1; i<=total_pkm_name;i++) {
                 if(pkm_evo_stage[i]==2) {
                     pkm_ids_vector_primecup_toptier.push_back(i);
                     j++;
@@ -258,7 +258,7 @@ void MainWindow::randomize_cpu_init_pkmn(){
             }
         }
         if(j<=6) {
-            for(uint8_t i; i<=total_pkm_name;i++) {
+            for(uint8_t i = 1; i<=total_pkm_name;i++) {
                 if(pkm_evo_stage[i]==1) {
                     pkm_ids_vector_primecup_toptier.push_back(i);
                     j++;
@@ -266,7 +266,7 @@ void MainWindow::randomize_cpu_init_pkmn(){
             }
         }
         if(j<=6) {
-            for(uint8_t i; i<=total_pkm_name;i++) {
+            for(uint8_t i = 1; i<=total_pkm_name;i++) {
                 if(pkm_evo_stage[i]==0) pkm_ids_vector_primecup_toptier.push_back(i);
             }
         }
@@ -323,14 +323,14 @@ void MainWindow::randomize_cpu_init_pkmn(){
     }
     else {
         uint8_t j = 0;
-        for(uint8_t i; i<=total_pkm_name;i++) {
+        for(uint8_t i = 1; i<=total_pkm_name;i++) {
             if(pkm_evo_stage[i]==3 && i!=150 && i!=151) {
                 pkm_ids_vector_pokecup_toptier.push_back(i);
                 j++;
             }
         }
         if(j<=6) {
-            for(uint8_t i; i<=total_pkm_name;i++) {
+            for(uint8_t i = 1; i<=total_pkm_name;i++) {
                 if(pkm_evo_stage[i]==2) {
                     pkm_ids_vector_pokecup_toptier.push_back(i);
                     j++;
@@ -338,7 +338,7 @@ void MainWindow::randomize_cpu_init_pkmn(){
             }
         }
         if(j<=6) {
-            for(uint8_t i; i<=total_pkm_name;i++) {
+            for(uint8_t i = 1; i<=total_pkm_name;i++) {
                 if(pkm_evo_stage[i]==1) {
                     pkm_ids_vector_pokecup_toptier.push_back(i);
                     j++;
@@ -346,7 +346,7 @@ void MainWindow::randomize_cpu_init_pkmn(){
             }
         }
         if(j<=6) {
-            for(uint8_t i; i<=total_pkm_name;i++) {
+            for(uint8_t i = 1; i<=total_pkm_name;i++) {
                 if(pkm_evo_stage[i]==0) pkm_ids_vector_pokecup_toptier.push_back(i);
             }
         }
@@ -397,14 +397,14 @@ void MainWindow::randomize_cpu_init_pkmn(){
     }
     else {
         uint8_t j = 0;
-        for(uint8_t i; i<=total_pkm_name;i++) {
+        for(uint8_t i = 1; i<=total_pkm_name;i++) {
             if(pkm_evo_stage[i]==3 && i!=150 && i!=151) {
                 pkm_ids_vector_vs_mewtwo_toptier.push_back(i);
                 j++;
             }
         }
         if(j<=6) {
-            for(uint8_t i; i<=total_pkm_name;i++) {
+            for(uint8_t i = 1; i<=total_pkm_name;i++) {
                 if(pkm_evo_stage[i]==2) {
                     pkm_ids_vector_vs_mewtwo_toptier.push_back(i);
                     j++;
@@ -412,7 +412,7 @@ void MainWindow::randomize_cpu_init_pkmn(){
             }
         }
         if(j<=6) {
-            for(uint8_t i; i<=total_pkm_name;i++) {
+            for(uint8_t i = 1; i<=total_pkm_name;i++) {
                 if(pkm_evo_stage[i]==1) {
                     pkm_ids_vector_vs_mewtwo_toptier.push_back(i);
                     j++;
@@ -420,7 +420,7 @@ void MainWindow::randomize_cpu_init_pkmn(){
             }
         }
         if(j<=6) {
-            for(uint8_t i; i<=total_pkm_name;i++) {
+            for(uint8_t i = 1; i<=total_pkm_name;i++) {
                 if(pkm_evo_stage[i]==0) pkm_ids_vector_vs_mewtwo_toptier.push_back(i);
             }
         }
