@@ -69,10 +69,12 @@ void MainWindow::randomize_pkm_base_stats(std::mt19937 &mt_rand)
                 break;
             case 3:
                 if(i < 150) bst_temp = rand_bst_legend(mt_rand);
+                // Mewtwo
                 else if(i == 150) {
                     if(bsmin_total <= (bstmax_legend+80) && bsmax_total >= (bstmax_legend+80)) bst_temp = bstmax_legend+80;
                     else bst_temp = std::max(bsmax_total,bstmax_legend);
                 }
+                // Mew
                 else bst_temp = bstmax_legend;
                 break;
             default:
@@ -377,7 +379,7 @@ void MainWindow::randomize_pkm_learnsets(std::mt19937 &mt_rand)
                 }
                 else if(j==0) { // ensure at least one level-up move
                     buf8 = 4;
-                    pkm_rb_move[i][0] = 1;
+                    pkm_rb_lvl[i][0] = 1;
                     if(vec_randomized_moves.size() > (buf8)) pkm_rb_move[i][0] = vec_randomized_moves[buf8];
                     else pkm_rb_move[i][j] = rand_move(mt_rand);
                 }
@@ -401,7 +403,7 @@ void MainWindow::randomize_pkm_learnsets(std::mt19937 &mt_rand)
             for(uint8_t j=0; j<6; j++) {
                 pkm_tmhm_flags[i][j] = mt_rand()%256;
                 // Mewtwo learns a little more TMs on average
-                if(i==150) pkm_tmhm_flags[i][j] &= 3;
+                if(i==150) pkm_tmhm_flags[i][j] |= 3;
             }
             pkm_tmhm_flags[i][6] = mt_rand()%128;
         }
