@@ -42,6 +42,7 @@ void MainWindow::on_actionSave_triggered(){
     write_n64crc(romfile);
     ui->progressBar->setValue(99);
 
+    romfile.close();
 
     // Display CRC and Region Code info
     ui->lineEdit_crc1->setText(QString("%1").arg(header_crc1,8,16,QLatin1Char('0')).toUpper());
@@ -51,5 +52,4 @@ void MainWindow::on_actionSave_triggered(){
     ui->progressBar->setValue(100);
     ui->label_StatusBar->setText("ROM saved!");
 
-    romfile.close();
 }
