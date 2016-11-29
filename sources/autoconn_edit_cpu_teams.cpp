@@ -615,6 +615,7 @@ void MainWindow::on_lineEdit_CPU_TrainerName_textEdited(){
         }
         not_in_init = false;
         ui->lineEdit_CPU_TrainerName->setText(cpu_tname[buf8]);
+        ui->comboBox_CPU_Trainer->setItemText(buf8,cpu_tname[buf8]);
         not_in_init = true;
     }
 }
