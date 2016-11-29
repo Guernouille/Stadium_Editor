@@ -182,7 +182,7 @@ public:
     bool useless_move[256] = {false};
     bool weak_move[256] = {false};
     quint8 moverand_min = 40;
-    quint8 moverand_max = 140;
+    quint8 moverand_max = 125;
 
     std::vector<quint8> gambler_moves_ids_vector;
     std::vector<quint8> moves_ids_vector;
@@ -320,7 +320,12 @@ private:
     void randomize_cpu_pkmn(std::mt19937 &mt_rand);
     void randomize_cpu_sprites(std::mt19937 &mt_rand);
     void randomize_cpu_trainer_names(std::mt19937 &mt_rand);
+    void randomize_moves_accuracy(std::mt19937 &mt_rand);
+    void randomize_moves_effects(std::mt19937 &mt_rand);
+    void randomize_moves_power(std::mt19937 &mt_rand);
+    void randomize_moves_pp(std::mt19937 &mt_rand);
     void randomize_moves_tmhm(std::mt19937 &mt_rand);
+    void randomize_moves_types(std::mt19937 &mt_rand);
     void randomize_pkm_base_stats(std::mt19937 &mt_rand);
     void randomize_pkm_learnsets(std::mt19937 &mt_rand);
     void randomize_pkm_types(std::mt19937 &mt_rand);
@@ -366,7 +371,6 @@ private slots:
     void on_checkBox_Randomize_CPU_Levels_stateChanged(int state);
     void on_checkBox_Randomize_CPU_Moves_stateChanged(int state);
     void on_checkBox_Randomize_CPU_Pkmn_stateChanged(int state);
-    void on_checkBox_Randomize_MoveData_Accuracy_stateChanged(int state);
     void on_checkBox_Randomize_MoveData_Powers_stateChanged(int state);
     void on_checkBox_Randomize_PkmnData_BS_stateChanged(int state);
     void on_checkBox_Randomize_PkmnData_Moves_stateChanged(int state);
