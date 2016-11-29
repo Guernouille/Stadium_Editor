@@ -5,6 +5,9 @@
 
 void MainWindow::randomize_rental_init_pkmn(){
     bool no_mew_mewtwo = ui->checkBox_Randomizer_Rental_NoMewMewtwo->isChecked();
+    bool no_useless_pokemon = ui->checkBox_Randomizer_Rental_NoUselessPkmn->isChecked();
+    bool randomized_pkm_data = ui->checkBox_PkmnData->isChecked();
+    bool randomized_base_stats = ui->checkBox_Randomize_PkmnData_BS->isChecked();
 
     pkm_ids_vector_rental_petitcup.clear();
     pkm_ids_vector_rental_pikacup.clear();
@@ -14,7 +17,7 @@ void MainWindow::randomize_rental_init_pkmn(){
     // Petit Cup
     short pkm_list_petitcup[] = {1,4,7,16,19,21,23,25,27,32,35,37,39,43,46,50,52,54,58,60,63,66,69,74,81,83,90,92,98,100,102,104,109,116,118,133,138,140,147};
     pkm_ids_vector_rental_petitcup.assign(pkm_list_petitcup,pkm_list_petitcup+(sizeof(pkm_list_petitcup)/sizeof(*pkm_list_petitcup)));
-    if(ui->checkBox_Randomizer_Rental_NoUselessPkmn->isChecked() == false){
+    if(no_useless_pokemon == false || (randomized_pkm_data && randomized_base_stats)){
         pkm_ids_vector_rental_petitcup.push_back(10);
         pkm_ids_vector_rental_petitcup.push_back(13);
         pkm_ids_vector_rental_petitcup.push_back(29);
@@ -28,7 +31,7 @@ void MainWindow::randomize_rental_init_pkmn(){
     if(ui->checkBox_Randomizer_Rental_FullyEvolved->isChecked()){
         short pkm_list_pikacup[] = {2,5,8,12,15,17,20,22,26,31,34,36,38,40,47,51,55,59,62,65,68,73,76,80,87,89,91,94,95,99,101,103,106,107,108,112,113,114,115,117,121,122,123,124,127,130,131,137,148};
         pkm_ids_vector_rental_pikacup.assign(pkm_list_pikacup,pkm_list_pikacup+(sizeof(pkm_list_pikacup)/sizeof(*pkm_list_pikacup)));
-        if(ui->checkBox_Randomizer_Rental_NoUselessPkmn->isChecked() == false){
+        if(no_useless_pokemon == false){
             pkm_ids_vector_rental_pikacup.push_back(83);
             pkm_ids_vector_rental_pikacup.push_back(132);
         }
@@ -51,7 +54,7 @@ void MainWindow::randomize_rental_init_pkmn(){
                 }
             }
         }
-        if(ui->checkBox_Randomizer_Rental_NoUselessPkmn->isChecked() == false){
+        if(no_useless_pokemon == false){
             pkm_ids_vector_rental_pikacup.push_back(10);
             pkm_ids_vector_rental_pikacup.push_back(11);
             pkm_ids_vector_rental_pikacup.push_back(13);
@@ -71,14 +74,14 @@ void MainWindow::randomize_rental_init_pkmn(){
     if(ui->checkBox_Randomizer_Rental_FullyEvolved->isChecked()){
         short pkm_list_primecup[] = {3,6,9,12,15,18,20,22,24,26,28,31,34,36,38,40,42,45,47,49,51,53,55,57,59,62,65,68,71,73,76,78,80,82,85,87,89,91,94,95,97,99,101,103,105,106,107,108,110,112,113,114,115,117,119,121,122,123,124,125,126,127,128,130,131,134,135,136,137,139,141,142,143,144,145,146,149};
         pkm_ids_vector_rental_primecup.assign(pkm_list_primecup,pkm_list_primecup+(sizeof(pkm_list_primecup)/sizeof(*pkm_list_primecup)));
-        if(ui->checkBox_Randomizer_Rental_NoUselessPkmn->isChecked() == false){
+        if(no_useless_pokemon == false){
             pkm_ids_vector_rental_primecup.push_back(83);
             pkm_ids_vector_rental_primecup.push_back(132);
         }
         pkm_ids_vector_rental_primecup.push_back(150);
         pkm_ids_vector_rental_primecup.push_back(151);
     }
-    else if(ui->checkBox_Randomizer_Rental_NoUselessPkmn->isChecked()){
+    else if(no_useless_pokemon == false){
         for(short i=1;i<=(total_pkm_name);i++){
             if(i!=10 && i!=11 && i!=13 && i!=14 && i!=29 && i!=41 && i!=48 && i!=129 && i!=132){
                 pkm_ids_vector_rental_primecup.push_back(i);
@@ -100,12 +103,12 @@ void MainWindow::randomize_rental_init_pkmn(){
     if(ui->checkBox_Randomizer_Rental_FullyEvolved->isChecked()){
         short pkm_list_pokecup[] = {3,6,9,12,15,18,20,22,24,26,28,31,34,36,38,40,42,45,47,49,51,53,55,57,59,62,65,68,71,73,76,78,80,82,85,87,89,91,94,95,97,99,101,103,105,106,107,108,110,112,113,114,115,117,119,121,122,123,124,125,126,127,128,130,131,134,135,136,137,139,141,142,143,144,145,146,149};
         pkm_ids_vector_rental_pokecup.assign(pkm_list_pokecup,pkm_list_pokecup+(sizeof(pkm_list_pokecup)/sizeof(*pkm_list_pokecup)));
-        if(ui->checkBox_Randomizer_Rental_NoUselessPkmn->isChecked() == false){
+        if(no_useless_pokemon == false){
             pkm_ids_vector_rental_pokecup.push_back(83);
             pkm_ids_vector_rental_pokecup.push_back(132);
         }
     }
-    else if(ui->checkBox_Randomizer_Rental_NoUselessPkmn->isChecked()){
+    else if(no_useless_pokemon == false){
         for(short i=1;i<=(total_pkm_name);i++){
             if(i!=10 && i!=11 && i!=13 && i!=14 && i!=29 && i!=41 && i!=48 && i!=129 && i!=132 && i!=150 && i!=151){
                 pkm_ids_vector_rental_pokecup.push_back(i);
@@ -132,7 +135,7 @@ void MainWindow::randomize_rental_iv_stat_exp(std::mt19937 &mt_rand)
     else buf32 = rental_ivs_max;
     std::uniform_int_distribution<> rand_iv_6(rental_ivs_min,buf32);
 
-    std::uniform_int_distribution<> rand_stat_exp_1(std::max(rental_stat_exp_min,std::min(quint16(46898),rental_stat_exp_max)),(rental_stat_exp_max+18432));
+    std::uniform_int_distribution<> rand_stat_exp_1(std::max(rental_stat_exp_min,std::min(quint16(44444),rental_stat_exp_max)),65535);
     std::uniform_int_distribution<> rand_stat_exp_2(std::max(rental_stat_exp_min,std::min(quint16(33792),rental_stat_exp_max)),(rental_stat_exp_max+12288));
     std::uniform_int_distribution<> rand_stat_exp_3(std::max(rental_stat_exp_min,std::min(quint16(25600),rental_stat_exp_max)),rental_stat_exp_max);
     if(rental_stat_exp_max>=1152) buf32 = std::max(quint16(rental_stat_exp_max-1152),rental_stat_exp_min);
@@ -169,11 +172,11 @@ void MainWindow::randomize_rental_iv_stat_exp(std::mt19937 &mt_rand)
                     rental_pkm_iv_spc[rental_id] = rand_iv_5(mt_rand);
                     rental_pkm_iv_speed[rental_id] = rand_iv_5(mt_rand);
 
-                    rental_pkm_ev_hp[rental_id] = rand_stat_exp_5(mt_rand);
-                    rental_pkm_ev_atk[rental_id] = rand_stat_exp_5(mt_rand);
-                    rental_pkm_ev_def[rental_id] = rand_stat_exp_5(mt_rand);
-                    rental_pkm_ev_spc[rental_id] = rand_stat_exp_5(mt_rand);
-                    rental_pkm_ev_speed[rental_id] = rand_stat_exp_5(mt_rand);
+                    rental_pkm_ev_hp[rental_id] = rand_stat_exp_6(mt_rand);
+                    rental_pkm_ev_atk[rental_id] = rand_stat_exp_6(mt_rand);
+                    rental_pkm_ev_def[rental_id] = rand_stat_exp_6(mt_rand);
+                    rental_pkm_ev_spc[rental_id] = rand_stat_exp_6(mt_rand);
+                    rental_pkm_ev_speed[rental_id] = rand_stat_exp_6(mt_rand);
                     break;
                 }
             }
@@ -389,7 +392,7 @@ void MainWindow::randomize_rental_level(std::mt19937 &mt_rand)
                 rental_pkm_level[rental_id]=25;
             }
             else{
-                std::uniform_int_distribution<> level(23,30);
+                std::uniform_int_distribution<> level(22,30);
                 rental_pkm_level[rental_id] = level(mt_rand);
                 if(rental_pkm_level[rental_id]<25) rental_pkm_level[rental_id] = 25;
                 if(rental_pkm_level[rental_id]==25 && min_lv_rolled_petitcup==false)
@@ -402,7 +405,7 @@ void MainWindow::randomize_rental_level(std::mt19937 &mt_rand)
                 rental_pkm_level[rental_id]=15;
             }
             else{
-                std::uniform_int_distribution<> level(14,20);
+                std::uniform_int_distribution<> level(13,20);
                 rental_pkm_level[rental_id] = level(mt_rand);
                 if(rental_pkm_level[rental_id]<15) rental_pkm_level[rental_id] = 15;
                 if(rental_pkm_level[rental_id]==15 && min_lv_rolled_pikacup==false)
