@@ -5,6 +5,9 @@
 void MainWindow::randomize_cpu_init_pkmn(){
     bool no_mew_mewtwo = ui->checkBox_Randomizer_CPU_NoMewMewtwo->isChecked();
     bool no_illegal_pkmn = ui->checkBox_Randomizer_CPU_NoIllegalPkmn->isChecked();
+    bool no_useless_pokemon = ui->checkBox_Randomizer_CPU_NoUselessPkmn->isChecked();
+    bool randomized_pkm_data = ui->checkBox_PkmnData->isChecked();
+    bool randomized_base_stats = ui->checkBox_Randomize_PkmnData_BS->isChecked();
 
     pkm_ids_vector_petitcup.clear();
     pkm_ids_vector_petitcup_toptier.clear();
@@ -20,7 +23,7 @@ void MainWindow::randomize_cpu_init_pkmn(){
     uint8_t pkm_list_petitcup[] = {1,4,7,16,19,21,23,25,27,32,35,37,39,43,46,50,52,54,58,60,63,66,69,74,81,83,90,92,98,100,102,104,109,116,118,133,138,140,147};
     pkm_ids_vector_petitcup.assign(pkm_list_petitcup,pkm_list_petitcup+(sizeof(pkm_list_petitcup)/sizeof(*pkm_list_petitcup)));
 
-    if(ui->checkBox_Randomizer_CPU_NoUselessPkmn->isChecked() == false){
+    if(no_useless_pokemon == false || (randomized_pkm_data && randomized_base_stats)){
         pkm_ids_vector_petitcup.push_back(10);
         pkm_ids_vector_petitcup.push_back(13);
         pkm_ids_vector_petitcup.push_back(29);
@@ -54,7 +57,7 @@ void MainWindow::randomize_cpu_init_pkmn(){
         if(ui->checkBox_Randomizer_CPU_FullyEvolved->isChecked()){
             uint8_t pkm_list_pikacup[] = {2,5,8,12,15,17,20,22,26,31,34,36,38,40,47,51,55,59,62,65,68,73,76,80,87,89,91,94,95,99,101,103,106,107,108,112,113,114,115,117,121,122,123,124,127,130,131,137,148};
             pkm_ids_vector_pikacup.assign(pkm_list_pikacup,pkm_list_pikacup+(sizeof(pkm_list_pikacup)/sizeof(*pkm_list_pikacup)));
-            if(ui->checkBox_Randomizer_CPU_NoUselessPkmn->isChecked() == false){
+            if(no_useless_pokemon == false){
                 pkm_ids_vector_pikacup.push_back(83);
                 pkm_ids_vector_pikacup.push_back(132);
             }
@@ -77,7 +80,7 @@ void MainWindow::randomize_cpu_init_pkmn(){
                     }
                 }
             }
-            if(ui->checkBox_Randomizer_CPU_NoUselessPkmn->isChecked() == false){
+            if(no_useless_pokemon == false){
                 pkm_ids_vector_pikacup.push_back(10);
                 pkm_ids_vector_pikacup.push_back(11);
                 pkm_ids_vector_pikacup.push_back(13);
@@ -131,7 +134,7 @@ void MainWindow::randomize_cpu_init_pkmn(){
         if(ui->checkBox_Randomizer_CPU_FullyEvolved->isChecked()){
             uint8_t pkm_list_pikacup[] = {3,6,9,12,15,18,20,22,24,26,28,31,34,36,38,40,42,45,47,49,51,53,55,57,59,62,65,68,71,73,76,78,80,82,85,87,89,91,94,95,97,99,101,103,105,106,107,108,110,112,113,114,115,117,119,121,122,123,124,125,126,127,128,130,131,134,135,136,137,139,141,142,143,144,145,146,149};
             pkm_ids_vector_pikacup.assign(pkm_list_pikacup,pkm_list_pikacup+(sizeof(pkm_list_pikacup)/sizeof(*pkm_list_pikacup)));
-            if(ui->checkBox_Randomizer_CPU_NoUselessPkmn->isChecked() == false){
+            if(no_useless_pokemon == false){
                 pkm_ids_vector_pikacup.push_back(83);
                 pkm_ids_vector_pikacup.push_back(132);
             }
@@ -148,7 +151,7 @@ void MainWindow::randomize_cpu_init_pkmn(){
                     }
                 }
             }
-            if(ui->checkBox_Randomizer_CPU_NoUselessPkmn->isChecked() == false){
+            if(no_useless_pokemon == false){
                 pkm_ids_vector_pikacup.push_back(10);
                 pkm_ids_vector_pikacup.push_back(11);
                 pkm_ids_vector_pikacup.push_back(13);
@@ -210,14 +213,14 @@ void MainWindow::randomize_cpu_init_pkmn(){
     if(ui->checkBox_Randomizer_CPU_FullyEvolved->isChecked()){
         uint8_t pkm_list_primecup[] = {3,6,9,12,15,18,20,22,24,26,28,31,34,36,38,40,42,45,47,49,51,53,55,57,59,62,65,68,71,73,76,78,80,82,85,87,89,91,94,95,97,99,101,103,105,106,107,108,110,112,113,114,115,117,119,121,122,123,124,125,126,127,128,130,131,134,135,136,137,139,141,142,143,144,145,146,149};
         pkm_ids_vector_primecup.assign(pkm_list_primecup,pkm_list_primecup+(sizeof(pkm_list_primecup)/sizeof(*pkm_list_primecup)));
-        if(ui->checkBox_Randomizer_CPU_NoUselessPkmn->isChecked() == false){
+        if(no_useless_pokemon == false){
             pkm_ids_vector_primecup.push_back(83);
             pkm_ids_vector_primecup.push_back(132);
         }
         pkm_ids_vector_primecup.push_back(150);
         pkm_ids_vector_primecup.push_back(151);
     }
-    else if(ui->checkBox_Randomizer_CPU_NoUselessPkmn->isChecked()){
+    else if(no_useless_pokemon == false){
         for(uint8_t i=1;i<=(total_pkm_name);i++){
             if(i!=10 && i!=11 && i!=13 && i!=14 && i!=29 && i!=41 && i!=48 && i!=129 && i!=132){
                 pkm_ids_vector_primecup.push_back(i);
@@ -285,7 +288,7 @@ void MainWindow::randomize_cpu_init_pkmn(){
     if(ui->checkBox_Randomizer_CPU_FullyEvolved->isChecked()){
         uint8_t pkm_list_pokecup[] = {3,6,9,12,15,18,20,22,24,26,28,31,34,36,38,40,42,45,47,49,51,53,55,57,59,62,65,68,71,73,76,78,80,82,85,87,89,91,94,95,97,99,101,103,105,106,107,108,110,112,113,114,115,117,119,121,122,123,124,125,126,127,128,130,131,134,135,136,137,139,141,142,143,144,145,146,149};
         pkm_ids_vector_pokecup.assign(pkm_list_pokecup,pkm_list_pokecup+(sizeof(pkm_list_pokecup)/sizeof(*pkm_list_pokecup)));
-        if(ui->checkBox_Randomizer_CPU_NoUselessPkmn->isChecked() == false){
+        if(no_useless_pokemon == false){
             pkm_ids_vector_pokecup.push_back(83);
             pkm_ids_vector_pokecup.push_back(132);
         }
@@ -294,7 +297,7 @@ void MainWindow::randomize_cpu_init_pkmn(){
             if(pkm_min_level[151]<=55 || no_illegal_pkmn==false) pkm_ids_vector_pokecup.push_back(151);
         }
     }
-    else if(ui->checkBox_Randomizer_CPU_NoUselessPkmn->isChecked()){
+    else if(no_useless_pokemon == false){
         for(uint8_t i=1;i<=(total_pkm_name);i++){
             if(i!=10 && i!=11 && i!=13 && i!=14 && i!=29 && i!=41 && i!=48 && i!=129 && i!=132){
                 if(no_mew_mewtwo==false || (i!=150 && i!=151)){
@@ -371,12 +374,12 @@ void MainWindow::randomize_cpu_init_pkmn(){
     if(ui->checkBox_Randomizer_CPU_FullyEvolved->isChecked()){
         uint8_t pkm_list_vs_mewtwo[] = {3,6,9,12,15,18,20,22,24,26,28,31,34,36,38,40,42,45,47,49,51,53,55,57,59,62,65,68,71,73,76,78,80,82,85,87,89,91,94,95,97,99,101,103,105,106,107,108,110,112,113,114,115,117,119,121,122,123,124,125,126,127,128,130,131,134,135,136,137,139,141,142,143,144,145,146,149,151};
         pkm_ids_vector_vs_mewtwo.assign(pkm_list_vs_mewtwo,pkm_list_vs_mewtwo+(sizeof(pkm_list_vs_mewtwo)/sizeof(*pkm_list_vs_mewtwo)));
-        if(ui->checkBox_Randomizer_CPU_NoUselessPkmn->isChecked() == false){
+        if(no_useless_pokemon == false){
             pkm_ids_vector_vs_mewtwo.push_back(83);
             pkm_ids_vector_vs_mewtwo.push_back(132);
         }
     }
-    else if(ui->checkBox_Randomizer_CPU_NoUselessPkmn->isChecked()){
+    else if(no_useless_pokemon == false){
         for(uint8_t i=1;i<=(total_pkm_name);i++){
             if(i!=10 && i!=11 && i!=13 && i!=14 && i!=29 && i!=41 && i!=48 && i!=129 && i!=132){
                 pkm_ids_vector_vs_mewtwo.push_back(i);
