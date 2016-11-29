@@ -1,5 +1,16 @@
 #include "mainwindow.h"
 
+quint8 MainWindow::control_char_table(QString char_checked)
+{
+    uint8_t char_id;
+    for(char_id=32; char_id<255; char_id++) {
+        if(char_checked == char_table[char_id]) {
+            break;
+        }
+    }
+    return char_id;
+}
+
 void MainWindow::initialize_char_table()
 {
     for (short i=0;i<256;i++){
