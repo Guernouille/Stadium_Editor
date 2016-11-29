@@ -311,6 +311,7 @@ void MainWindow::randomize_pkm_learnsets(std::mt19937 &mt_rand)
                 vec_randomized_moves.push_back(i);
             }
 
+            if(move_effect[i]==0x39) pkm_start_move_3[132] = i;
             if(move_effect[i]==0x35) pkm_start_move_3[150] = i;
         }
 
@@ -325,18 +326,21 @@ void MainWindow::randomize_pkm_learnsets(std::mt19937 &mt_rand)
         }
 
         for(uint8_t i=1;i<=total_pkm_name;i++) {
-            // Shuffle move vector
+            // Shuffle moves vector
             std::shuffle(vec_randomized_moves.begin(), vec_randomized_moves.end(), mt_rand);
-
 
             // Starting moves
             if(ui->Randomize_PkmnData_STABmove->isChecked()) {
-                std::shuffle(mat_stab_moves[move_type[i]].begin(), mat_stab_moves[move_type[i]].end(), mt_rand);
+                // Shuffle STAB moves vectors
+                std::shuffle(mat_stab_moves[pkm_type_1[i]].begin(), mat_stab_moves[pkm_type_1[i]].end(), mt_rand);
+                if(pkm_type_1[i] != pkm_type_2[i]) std::shuffle(mat_stab_moves[pkm_type_2[i]].begin(), mat_stab_moves[pkm_type_2[i]].end(), mt_rand);
 
+                // Pokémon learns a random STAB move if one exists
                 if(mat_stab_moves[pkm_type_1[i]][0] != 0) pkm_start_move_1[i] = mat_stab_moves[pkm_type_1[i]][0];
                 else if(vec_randomized_moves.size() > 0) pkm_start_move_1[i] = vec_randomized_moves[0];
                 else pkm_start_move_1[i] = rand_move(mt_rand);
 
+                // Pokémon can get a second STAB move if it has a secondary Type
                 if(pkm_type_1[i] != pkm_type_2[i]) {
                     if(mat_stab_moves[pkm_type_2[i]][0] != 0) pkm_start_move_2[i] = mat_stab_moves[pkm_type_2[i]][0];
                     else if(vec_randomized_moves.size() > 1) pkm_start_move_2[i] = vec_randomized_moves[1];
@@ -352,7 +356,7 @@ void MainWindow::randomize_pkm_learnsets(std::mt19937 &mt_rand)
                 else pkm_start_move_2[i] = rand_move(mt_rand);
             }
 
-            if(i != 150){
+            if(i != 132 && i != 150){
                 if(vec_randomized_moves.size() > 2) pkm_start_move_3[i] = vec_randomized_moves[2];
                 else pkm_start_move_3[i] = rand_move(mt_rand);
             }
@@ -371,6 +375,12 @@ void MainWindow::randomize_pkm_learnsets(std::mt19937 &mt_rand)
                     if(vec_randomized_moves.size() > buf8) pkm_rb_move[i][j] = vec_randomized_moves[buf8];
                     else pkm_rb_move[i][j] = rand_move(mt_rand);
                 }
+                else if(j==0) { // ensure at least one level-up move
+                    buf8 = 4;
+                    pkm_rb_move[i][0] = 1;
+                    if(vec_randomized_moves.size() > (buf8)) pkm_rb_move[i][0] = vec_randomized_moves[buf8];
+                    else pkm_rb_move[i][j] = rand_move(mt_rand);
+                }
             }
             for(uint8_t j=0; j<10; j++) {
                 if(pkm_y_lvl[i][j]>0) {
@@ -378,22 +388,32 @@ void MainWindow::randomize_pkm_learnsets(std::mt19937 &mt_rand)
                     if(vec_randomized_moves.size() > (buf8)) pkm_y_move[i][j] = vec_randomized_moves[buf8];
                     else pkm_y_move[i][j] = rand_move(mt_rand);
                 }
+                else if(j==0) { // ensure at least one level-up move
+                    buf8 = 14;
+                    pkm_y_lvl[i][0] = 1;
+                    if(vec_randomized_moves.size() > (buf8)) pkm_y_move[i][0] = vec_randomized_moves[buf8];
+                    else pkm_y_move[i][j] = rand_move(mt_rand);
+                }
             }
 
 
-            // TM HM moves
+            // TM HM flags
             for(uint8_t j=0; j<6; j++) {
                 pkm_tmhm_flags[i][j] = mt_rand()%256;
+                // Mewtwo learns a little more TMs on average
+                if(i==150) pkm_tmhm_flags[i][j] &= 3;
             }
             pkm_tmhm_flags[i][6] = mt_rand()%128;
         }
 
         // Mew learns every TM and HM
-
         for(uint8_t j=0; j<6; j++) {
             pkm_tmhm_flags[151][j] = 255;
         }
         pkm_tmhm_flags[151][6] = 127;
+
+        // TM HM moves
+        randomize_moves_tmhm(mt_rand);
     }
 }
 
