@@ -4,6 +4,8 @@
 
 void MainWindow::randomize_moves_accuracy(std::mt19937 &mt_rand)
 {
+    bool more_power_less_accuracy = ui->checkBox_Randomizer_MoveData_PowerAccuracy->isChecked();
+
     std::uniform_int_distribution<> rand_accuracy_1(243,255);
     std::uniform_int_distribution<> rand_accuracy_2(226,255);
     std::uniform_int_distribution<> rand_accuracy_3(216,240);
@@ -14,15 +16,13 @@ void MainWindow::randomize_moves_accuracy(std::mt19937 &mt_rand)
     std::uniform_int_distribution<> rand_accuracy_sleep(150,200);
     std::uniform_int_distribution<> rand_accuracy_wrap(183,222);
 
-    bool more_power_less_accuracy = ui->checkBox_Randomizer_MoveData_PowerAccuracy->isChecked();
-
     for(uint8_t i=1; i<total_move_name; i++) {
         // OHKO
         if(move_effect[i] == 0x26)
             move_accuracy[i] = 76;
 
         // Super Fang
-        if(move_effect[i] == 0x28)
+        else if(move_effect[i] == 0x28)
             move_accuracy[i] = 229;
 
         // 100% Accuracy (mostly status, Explosion and Fixed damage moves)
@@ -198,8 +198,69 @@ void MainWindow::randomize_moves_accuracy(std::mt19937 &mt_rand)
     }
 }
 
+void MainWindow::randomize_moves_effects(std::mt19937 &mt_rand)
+{
+    bool no_explosion_change = ui->checkBox_Randomizer_MoveData_Explosion->isChecked();
+
+    std::array<int,36> effects_nodmg {0x9,0xA,0xB,0xC,0xD,0xE,0xF,0x12,0x13,0x14,0x16,0x17,0x18,0x19,0x20,0x2E,0x2F,0x31,0x32,0x33,0x34,0x35,0x39,0x3A,0x3B,0x3C,0x3F,0x40,0x41,0x43,0x4F,0x52,0x53,0x54,0x55,0x56};
+    std::array<int,30> effects_dmg {0x2,0x3,0x4,0x5,0x6,0x7,0x8,0x11,0x1B,0x1D,0x1F,0x21,0x22,0x23,0x24,0x25,0x27,0x2A,0x2B,0x2C,0x2D,0x30,0x44,0x45,0x46,0x47,0x49,0x4C,0x4D,0x50};
+    std::array<int,5> ohko_types{0,1,4,8,12};
+
+    buf8 = 0;
+
+    for(uint8_t i=1; i<total_move_name; i++) {
+        /* Exclude Counter, Metronome, Quick Attack, Toxic, Transform and Fixed damage moves.
+         * Exclude Explosion and Selfdestruct if the option is checked
+         */
+        if((no_explosion_change == false || move_effect[i] != 7) && move_effect[i] != 0x28 && move_effect[i] != 0x29 && move_effect[i] != 0x39 && move_effect[i] != 0x53 &&
+            i != 0x44 && i != 0x5C && i != 0x62)
+        {
+            // Non-damaging moves
+            if(move_power[i] == 0) {
+                std::shuffle(effects_nodmg.begin(), effects_nodmg.end(), mt_rand);
+
+                move_effect[i] = effects_nodmg[0];
+                // 0x35: Special +2
+                if(move_effect[i] == 0x35 && (buf8 & 1) == 1) move_effect[i] = effects_nodmg[1];
+                else buf8 &= 1;
+
+                // 0x38: Recover (except Rest)
+                if(move_effect[i] == 0x38 && (buf8 & 2) == 2 && i != 0x9C) move_effect[i] = effects_nodmg[2];
+                else if(i !=0x9C) buf8 &= 2;
+            }
+            // Damaging moves
+            else if(move_power[i] > 1){
+                // No added effect
+                if(mt_rand()%32<0x10) move_effect[i] = 0;
+                else {
+                    std::shuffle(effects_dmg.begin(), effects_dmg.end(), mt_rand);
+
+                    move_effect[i] = effects_dmg[0];
+
+                    // 0x08: Dream Eater
+                    if(move_effect[i] == 0x08 && (buf8 & 4) == 4) move_effect[i] = effects_dmg[1];
+                    else buf8 &= 4;
+
+                    // 0x26: OHKO
+                    if(move_effect[i] == 0x26) {
+                        std::shuffle(ohko_types.begin(), ohko_types.end(), mt_rand);
+                        move_type[i] = ohko_types[0];
+                    }
+
+                    // 0x47: 30% Special -1
+                    if(move_effect[i] == 0x47 && (buf8 & 8) == 8) move_effect[i] = effects_dmg[1];
+                    else buf8 &= 8;
+                }
+            }
+        }
+    }
+}
+
 void MainWindow::randomize_moves_power(std::mt19937 &mt_rand)
 {
+    bool no_explosion_change = ui->checkBox_Randomizer_MoveData_Explosion->isChecked();
+    bool no_effect_more_power = ui->checkBox_Randomizer_MoveData_EffectPower->isChecked();
+
     // Range for most moves
     std::uniform_int_distribution<> rand_power(moverand_min,moverand_max);
 
@@ -245,24 +306,33 @@ void MainWindow::randomize_moves_power(std::mt19937 &mt_rand)
     buf8 = buf16/2;
     std::uniform_int_distribution<> rand_power_good_effect(moverand_min,buf8);
 
-    // High CH moves
-    buf8 = moverand_max/2;
-    std::uniform_int_distribution<> rand_power_high_ch(moverand_min,buf8);
+    // Dream Eater
+    buf16 = moverand_min + moverand_max;
+    buf8 = buf16/2;
+    buf16 = buf8 + moverand_max;
+    buf8 = buf16/2;
+    std::uniform_int_distribution<> rand_power_high_ch(buf8,moverand_max);
 
-    bool no_explosion_change = ui->checkBox_Randomizer_MoveData_Explosion->isChecked();
-    bool no_effect_more_power = ui->checkBox_Randomizer_MoveData_EffectPower->isChecked();
+    // High CH moves + Quick Attack
+    buf8 = moverand_max/2;
+    std::uniform_int_distribution<> rand_power_dream_eater(moverand_min,buf8);
+
 
     // Randomize Base Powers
     for(uint8_t i=1; i<total_move_name; i++) {
         // Exclude Explosion and Selfdestruct if the option is checked
         if(move_power[i] > 1 && (no_explosion_change==false || move_effect[i]!=7)) {
-            // High CH moves
-            if(i == move_high_ch[0] || i == move_high_ch[1] || i == move_high_ch[2] || i == move_high_ch[3])
+            // High CH moves + Quick Attack
+            if(i == move_high_ch[0] || i == move_high_ch[1] || i == move_high_ch[2] || i == move_high_ch[3] || i == 0x62)
                 move_power[i] = rand_power_high_ch(mt_rand);
 
             // No added effect
             else if(no_effect_more_power && (move_effect[i]==0 || move_effect[i] == 0x10))
                 move_power[i] = rand_power_no_effect(mt_rand);
+
+            // Dream Eater
+            else if(move_effect[i] == 0x08)
+                move_power[i] = rand_power_dream_eater(mt_rand);
 
             // Recoil moves, Hi Jump Kick, Thrash
             else if(move_effect[i] == 0x1B || move_effect[i] == 0x2D || move_effect[i] == 0x30)
@@ -307,13 +377,13 @@ void MainWindow::randomize_moves_pp(std::mt19937 &mt_rand) {
 
     for(uint8_t i=1; i<total_move_name; i++) {
         // Exclude Explosion and Selfdestruct if the option is checked, and Fixed damage moves
-        if((no_explosion_change==false || move_effect[i]!=7) && move_effect[i] != 0x29) {
+        if((no_explosion_change==false || move_effect[i]!=7) && move_effect[i] != 0x28 && move_effect[i] != 0x29) {
             // Explosion, OHKO, Evasion -2
             if(move_effect[i] == 0x7 || move_effect[i] == 0x26 || move_effect[i] == 0x3F)
                 move_pp[i] = 5;
 
-            // Evasion +1, Bide, Super Fang, Special +2, Focus Energy, Confusion, Recover, Transform, ATK -2, DEF -2, SPEED -2, Toxic/Poison, Substitute, Mimic
-            else if(move_effect[i] == 0xF || move_effect[i] == 0x1A || move_effect[i] == 0x28 || move_effect[i] == 0x2F || move_effect[i] == 0x31 || move_effect[i] == 0x35 ||
+            // Evasion +1, Bide, Special +2, Focus Energy, Confusion, Recover, Transform, ATK -2, DEF -2, SPEED -2, Toxic/Poison, Substitute, Mimic
+            else if(move_effect[i] == 0xF || move_effect[i] == 0x1A || move_effect[i] == 0x2F || move_effect[i] == 0x31 || move_effect[i] == 0x35 ||
                (move_effect[i] >= 0x38 && move_effect[i] <= 0x3C) || move_effect[i] == 0x42 || move_effect[i] == 0x4F || move_effect[i] == 0x52)
                 move_pp[i] = 10;
 
@@ -344,8 +414,8 @@ void MainWindow::randomize_moves_pp(std::mt19937 &mt_rand) {
             else if((move_effect[i] >= 0x14 && move_effect[i] <= 0x19) || move_effect[i] == 0x2E || move_effect[i] == 0x40 || move_effect[i] == 0x41 || move_effect[i] == 0x43)
                 move_pp[i] = 15;
 
-            // Mirror Move, Stat +1 (bar Evasion)
-            else if(move_effect[i] == 0x9 || (move_effect[i] >= 0xA && move_effect[i] <= 0xE))
+            // Mirror Move, Stat +1 (bar Evasion), Counter
+            else if(move_effect[i] == 0x9 || (move_effect[i] >= 0xA && move_effect[i] <= 0xE) || i == 0x44)
                 move_pp[i] = 20;
 
             // ATK -1, DEF -1
@@ -523,6 +593,24 @@ void MainWindow::randomize_moves_tmhm(std::mt19937 &mt_rand)
             for(uint8_t i=1; i<56; i++) {
                 move_tmhm[i] = vec_randomized_tmhms[i];
             }
+        }
+    }
+}
+
+void MainWindow::randomize_moves_types(std::mt19937 &mt_rand)
+{
+    bool no_explosion_change = ui->checkBox_Randomizer_MoveData_Explosion->isChecked();
+
+    for(uint8_t i=1; i<total_move_name; i++) {
+        /* Exclude Counter, Metronome, Toxic, Transform and Fixed damage moves.
+         * Exclude OHKO as their Type is defined in randomize_moves_effects
+         * Exclude Explosion and Selfdestruct if the option is checked
+         */
+        if((no_explosion_change == false || move_effect[i] != 7) && move_effect[i] != 0x26 && move_effect[i] != 0x28 && move_effect[i] != 0x29 && move_effect[i] != 0x39 &&
+            move_effect[i] != 0x53 && i != 0x44 && i != 0x5C)
+        {
+            move_type[i] = mt_rand()%16;
+            if(move_type[i] == 6) move_type[i] = 0;
         }
     }
 }
