@@ -29,7 +29,9 @@ void MainWindow::read_move_data(QFile &romfile)
         if(move_type[i]>19) move_type[i] -= 11;
 
         // Useless moves: Bide, Constrict, Mist, Poison Gas, Poison Powder, Psywave, Roar, Splash, Teleport, Whirlwind
-        if(i==0x12||i==0x2E||i==0x36||i==0x4D||i==0x64||i==0x75||i==0x84||i==0x8B||i==0x95||i==0x96){
+        if(move_effect[i] == 0x1A || move_effect[i] == 0x1C || (move_effect[i] == 0x29 && move_accuracy[i] < 255 && i==0x95) || move_effect[i] == 0x2E ||
+           (move_effect[i] == 0x42 && move_accuracy[i] < 255 && i != 0x5C) || (move_effect[i] == 0x46 && move_power[i] < 15) || move_effect[i] == 0x55)
+        {
             useless_move[i]=true;
             // Temporary
             weak_move[i]=true;
