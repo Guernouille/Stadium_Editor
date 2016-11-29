@@ -7,7 +7,7 @@ void MainWindow::write_type_chart(QFile &romfile)
     rom_offset = 0x3755B0;
     romfile.seek(rom_offset);
 
-    for(short i=0;i<82;i++){
+    for(uint8_t i=0;i<82;i++){
         write<<type_chart[i].getType1();
         write<<type_chart[i].getType2();
         write<<type_chart[i].getMultiplier();
