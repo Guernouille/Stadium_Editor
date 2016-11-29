@@ -2540,7 +2540,7 @@ Wrap moves will be 15~35, Multi-hit moves 15~25, Two-hit moves up to 50% of max 
         </rect>
        </property>
        <property name="toolTip">
-        <string>The AI may act weirdly</string>
+        <string>The AI may act weirdly, because it's coded to use some specific moves depending on their ID (R2 Amnesia Mewtwo for instance)</string>
        </property>
        <property name="text">
         <string>Randomize Effects*</string>
