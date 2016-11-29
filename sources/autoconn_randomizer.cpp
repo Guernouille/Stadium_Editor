@@ -32,6 +32,30 @@ void MainWindow::on_pushButton_Randomize_pressed()
     std::mt19937 mt_rand(seeds);
     mt_rand.discard(700000);
 
+    // Move data
+    if(ui->checkBox_MoveData->isChecked()) {
+        // Moves data
+        if(ui->checkBox_Randomize_MoveData_Effects->isChecked()){
+            randomize_moves_effects(mt_rand);
+        }
+        if(ui->checkBox_Randomize_MoveData_Types->isChecked()){
+            randomize_moves_types(mt_rand);
+        }
+        if(ui->checkBox_Randomize_MoveData_Powers->isChecked()){
+            randomize_moves_power(mt_rand);
+        }
+        randomize_moves_accuracy(mt_rand);
+        randomize_moves_pp(mt_rand);
+
+        // Update display
+        if(not_in_init){
+            buf8 = ui->comboBox_MovesList->currentIndex();
+            not_in_init=false;
+            display_move_data(buf8+1);
+            not_in_init=true;
+        }
+    }
+
     // Pokémon data
     if(ui->checkBox_PkmnData->isChecked()){
         if(ui->checkBox_Randomize_PkmnData_BS->isChecked()){
@@ -180,7 +204,7 @@ void MainWindow::on_pushButton_Randomize_pressed()
         if(buf8==0) ui->label_rom_randomized->setText("Randomized!");
         else if(buf8==1) ui->label_rom_randomized->setText("Randomized.");
         else if(buf8==2) ui->label_rom_randomized->setText("Randomized~");
-        else if(buf8==3) ui->label_rom_randomized->setText("Randomized?");
+        else if(buf8==3) ui->label_rom_randomized->setText("Randomized#");
         else if(buf8==4) ui->label_rom_randomized->setText("Done.");
         else if(buf8==5) ui->label_rom_randomized->setText("Complete.");
         else if(buf8==6) ui->label_rom_randomized->setText("gl hf");
@@ -292,14 +316,9 @@ void MainWindow::on_checkBox_MoveData_stateChanged(int state)
         ui->checkBox_Randomize_MoveData_Powers->setEnabled(true);
         ui->checkBox_Randomize_MoveData_Types->setEnabled(true);
         ui->checkBox_Randomize_MoveData_Effects->setEnabled(true);
-        ui->checkBox_Randomize_MoveData_Accuracy->setEnabled(true);
         ui->checkBox_Randomizer_MoveData_Explosion->setEnabled(true);
+        ui->checkBox_Randomizer_MoveData_PowerAccuracy->setEnabled(true);
 
-        if(ui->checkBox_Randomize_MoveData_Accuracy->isChecked()){
-            ui->checkBox_Randomizer_MoveData_PowerAccuracy->setEnabled(true);
-            ui->checkBox_Randomizer_MoveData_Sleep->setEnabled(true);
-            ui->checkBox_Randomizer_MoveData_Trap->setEnabled(true);
-        }
         if(ui->checkBox_Randomize_MoveData_Powers->isChecked()){
             ui->checkBox_Randomizer_MoveData_EffectPower->setEnabled(true);
             ui->label_MoveData_Power_1->setEnabled(true);
@@ -313,10 +332,7 @@ void MainWindow::on_checkBox_MoveData_stateChanged(int state)
         ui->checkBox_Randomize_MoveData_Types->setEnabled(false);
         ui->checkBox_Randomize_MoveData_Effects->setEnabled(false);
         ui->checkBox_Randomizer_MoveData_Explosion->setEnabled(false);
-        ui->checkBox_Randomize_MoveData_Accuracy->setEnabled(false);
         ui->checkBox_Randomizer_MoveData_PowerAccuracy->setEnabled(false);
-        ui->checkBox_Randomizer_MoveData_Sleep->setEnabled(false);
-        ui->checkBox_Randomizer_MoveData_Trap->setEnabled(false);
         ui->checkBox_Randomizer_MoveData_EffectPower->setEnabled(false);
         ui->label_MoveData_Power_1->setEnabled(false);
         ui->label_MoveData_Power_2->setEnabled(false);
@@ -449,19 +465,6 @@ void MainWindow::on_checkBox_Randomize_CPU_IVsEVs_stateChanged(int state)
     }
 }
 
-void MainWindow::on_checkBox_Randomize_MoveData_Accuracy_stateChanged(int state)
-{
-    if(state == Qt::Checked) {
-        ui->checkBox_Randomizer_MoveData_PowerAccuracy->setEnabled(true);
-        ui->checkBox_Randomizer_MoveData_Sleep->setEnabled(true);
-        ui->checkBox_Randomizer_MoveData_Trap->setEnabled(true);
-    }
-    else {
-        ui->checkBox_Randomizer_MoveData_PowerAccuracy->setEnabled(false);
-        ui->checkBox_Randomizer_MoveData_Sleep->setEnabled(false);
-        ui->checkBox_Randomizer_MoveData_Trap->setEnabled(false);
-    }
-}
 void MainWindow::on_checkBox_Randomize_MoveData_Powers_stateChanged(int state)
 {
     if(state == Qt::Checked) {
