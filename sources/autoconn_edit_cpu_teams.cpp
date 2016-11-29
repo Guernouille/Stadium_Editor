@@ -610,12 +610,8 @@ void MainWindow::on_lineEdit_CPU_TrainerName_textEdited(){
         cpu_tname[buf8] = "";
 
         for(short k=0;k<buf_text.length();k++){
-            if(control_char_table(buf_text.at(k)) < 253) {
-                cpu_tname[buf8] += buf_text.at(k);
-            }
-            else {
-                cpu_tname[buf8] += "?";
-            }
+            if(control_char_table(buf_text.at(k)) < 253) cpu_tname[buf8] += buf_text.at(k);
+            else cpu_tname[buf8] += "?";
         }
         not_in_init = false;
         ui->lineEdit_CPU_TrainerName->setText(cpu_tname[buf8]);
