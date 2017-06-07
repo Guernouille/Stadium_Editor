@@ -4,7 +4,7 @@
 class TypeChart
 {
 public:
-    TypeChart(int8_t type1=0, int8_t type2=0, int8_t multiplier=10){
+    TypeChart(uint8_t type1=0, uint8_t type2=0, uint8_t multiplier=10){
         cl_type1 = type1;
         cl_type2 = type2;
         cl_multiplier = multiplier;
