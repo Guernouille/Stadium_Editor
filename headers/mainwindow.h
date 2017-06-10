@@ -328,6 +328,14 @@ private:
 
     // randomizer
     void randomize_cpu_init_pkmn();
+
+    void init_petit_cup_pool();
+    void init_pika_cup_pool();
+    void init_prime_cup_pool();
+    void init_poke_cup_pool();
+    void init_glc_lowlvl_pool();
+    void init_vs_mewtwo_pool();
+
     void randomize_cpu_iv_stat_exp(std::mt19937 &mt_rand);
     void randomize_cpu_level(std::mt19937 &mt_rand);
     void randomize_cpu_moves(std::mt19937 &mt_rand);
