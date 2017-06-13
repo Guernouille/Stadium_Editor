@@ -9,6 +9,7 @@ struct Trainer
     quint8 cup_id;
     QString name;
     quint8 sprite_id;
+    quint8 ai_id;
 };
 
 bool is_petit_trainer(const Trainer&);

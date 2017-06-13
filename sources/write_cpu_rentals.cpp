@@ -232,7 +232,7 @@ void MainWindow::write_cpu_rentals(QFile &romfile)
                 write<<cpu_trainers[i].sprite_id;
 
                 // CPU AI id
-                write<<cpu_ai_id[i];
+                write<<cpu_trainers[i].ai_id;
 
                 // CPU Trainer party size
                 rom_offset = 0x89803B + (i-current_cpu_trainers_number)*560 + *set_iter;

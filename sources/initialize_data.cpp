@@ -10,7 +10,7 @@ void MainWindow::initialize_data()
     }
 
     for (short i=0;i<256;i++){
-        cpu_ai_id[i]=0;
+        cpu_trainers[i].ai_id=0;
         cpu_trainers[i].cup_id=0;
         cpu_cup_offset[i]=0;
         cpu_trainers[i].name="";

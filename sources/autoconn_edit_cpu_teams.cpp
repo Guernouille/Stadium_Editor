@@ -625,7 +625,7 @@ void MainWindow::on_lineEdit_CPU_TrainerName_textEdited(){
 void MainWindow::on_spinBox_CPU_AI_valueChanged(int){
     if(not_in_init){
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_ai_id[buf8] = ui->spinBox_CPU_AI->value();
+        cpu_trainers[buf8].ai_id = ui->spinBox_CPU_AI->value();
     }
 }
 
