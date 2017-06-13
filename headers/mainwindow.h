@@ -106,7 +106,6 @@ public:
 
     std::array<Trainer, 256> cpu_trainers;
     quint8  cpu_cup_offset[256];
-    quint8  cpu_sprite_id[256];
     quint8  cpu_ai_id[256];
     quint8  cpu_ivs_min = 2;
     quint8  cpu_ivs_max = 15;

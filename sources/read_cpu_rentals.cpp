@@ -123,7 +123,7 @@ void MainWindow::read_cpu_rentals(QFile &romfile)
                 // CPU Trainer sprite
                 rom_offset = 0x898038 + (i-current_cpu_trainers_number)*560 + *set_iter;
                 romfile.seek(rom_offset);
-                read>>cpu_sprite_id[i];
+                read>>cpu_trainers[i].sprite_id;
 
                 // CPU AI id
                 read>>cpu_ai_id[i];

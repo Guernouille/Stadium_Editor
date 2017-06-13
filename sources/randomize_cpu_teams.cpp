@@ -1069,7 +1069,7 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
                         strong_moves_ids_vector.push_back(pkm_start_move_1[buf8]);
                     }
                     // Gambler moves
-                    if(gambler_luck_moves && cpu_sprite_id[cpu_trainer_id]==0x22){
+                    if(gambler_luck_moves && cpu_trainers[cpu_trainer_id].sprite_id==0x22){
                         if((move_effect[pkm_start_move_1[buf8]]==0xF && no_evasion_moves==false) || move_effect[pkm_start_move_1[buf8]]==7 || move_effect[pkm_start_move_1[buf8]]==0x24 || move_effect[pkm_start_move_1[buf8]]==0x26 || move_effect[pkm_start_move_1[buf8]]==0x34 || move_effect[pkm_start_move_1[buf8]]==0x43 || (move_effect[pkm_start_move_1[buf8]]==0x46 && move_power[pkm_start_move_1[buf8]]>=65) || move_effect[pkm_start_move_1[buf8]]==0x53 || (pkm_start_move_1[buf8]==95 && no_weak_moves==false)){
                             gambler_moves_ids_vector.push_back(pkm_start_move_1[buf8]);
                         }
@@ -1130,7 +1130,7 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
                         strong_moves_ids_vector.push_back(pkm_start_move_2[buf8]);
                     }
                     // Gambler moves
-                    if(gambler_luck_moves && cpu_sprite_id[cpu_trainer_id]==0x22){
+                    if(gambler_luck_moves && cpu_trainers[cpu_trainer_id].sprite_id==0x22){
                         if((move_effect[pkm_start_move_2[buf8]]==0xF && no_evasion_moves==false) || move_effect[pkm_start_move_2[buf8]]==7 || move_effect[pkm_start_move_2[buf8]]==0x24 || move_effect[pkm_start_move_2[buf8]]==0x26 || move_effect[pkm_start_move_2[buf8]]==0x34 || move_effect[pkm_start_move_2[buf8]]==0x43 || (move_effect[pkm_start_move_2[buf8]]==0x46 && move_power[pkm_start_move_2[buf8]]>=65) || move_effect[pkm_start_move_2[buf8]]==0x53 || (pkm_start_move_2[buf8]==95 && no_weak_moves==false)){
                             gambler_moves_ids_vector.push_back(pkm_start_move_2[buf8]);
                         }
@@ -1191,7 +1191,7 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
                         strong_moves_ids_vector.push_back(pkm_start_move_3[buf8]);
                     }
                     // Gambler Moves
-                    if(gambler_luck_moves && cpu_sprite_id[cpu_trainer_id]==0x22){
+                    if(gambler_luck_moves && cpu_trainers[cpu_trainer_id].sprite_id==0x22){
                         if((move_effect[pkm_start_move_3[buf8]]==0xF && no_evasion_moves==false) || move_effect[pkm_start_move_3[buf8]]==7 || move_effect[pkm_start_move_3[buf8]]==0x24 || move_effect[pkm_start_move_3[buf8]]==0x26 || move_effect[pkm_start_move_3[buf8]]==0x34 || move_effect[pkm_start_move_3[buf8]]==0x43 || (move_effect[pkm_start_move_3[buf8]]==0x46 && move_power[pkm_start_move_3[buf8]]>=65) || move_effect[pkm_start_move_3[buf8]]==0x53 || (pkm_start_move_3[buf8]==95 && no_weak_moves==false)){
                             gambler_moves_ids_vector.push_back(pkm_start_move_3[buf8]);
                         }
@@ -1252,7 +1252,7 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
                         strong_moves_ids_vector.push_back(pkm_start_move_4[buf8]);
                     }
                     // Gambler moves
-                    if(gambler_luck_moves && cpu_sprite_id[cpu_trainer_id]==0x22){
+                    if(gambler_luck_moves && cpu_trainers[cpu_trainer_id].sprite_id==0x22){
                         if((move_effect[pkm_start_move_4[buf8]]==0xF && no_evasion_moves==false) || move_effect[pkm_start_move_4[buf8]]==7 || move_effect[pkm_start_move_4[buf8]]==0x24 || move_effect[pkm_start_move_4[buf8]]==0x26 || move_effect[pkm_start_move_4[buf8]]==0x34 || move_effect[pkm_start_move_4[buf8]]==0x43 || (move_effect[pkm_start_move_4[buf8]]==0x46 && move_power[pkm_start_move_4[buf8]]>=65) || move_effect[pkm_start_move_4[buf8]]==0x53 || (pkm_start_move_4[buf8]==95 && no_weak_moves==false)){
                             gambler_moves_ids_vector.push_back(pkm_start_move_4[buf8]);
                         }
@@ -1319,7 +1319,7 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
                                 strong_moves_ids_vector.push_back(move_tmhm[j]);
                             }
                             // Gambler moves
-                            if(gambler_luck_moves && cpu_sprite_id[cpu_trainer_id]==0x22){
+                            if(gambler_luck_moves && cpu_trainers[cpu_trainer_id].sprite_id==0x22){
                                 if((move_effect[move_tmhm[j]]==0xF && no_evasion_moves==false) || move_effect[move_tmhm[j]]==7 || move_effect[move_tmhm[j]]==0x24 || move_effect[move_tmhm[j]]==0x26 || move_effect[move_tmhm[j]]==0x34 || move_effect[move_tmhm[j]]==0x43 || (move_effect[move_tmhm[j]]==0x46 && move_power[move_tmhm[j]]>=65) || move_effect[move_tmhm[j]]==0x53 || (move_tmhm[j]==95 && no_weak_moves==false)){
                                     gambler_moves_ids_vector.push_back(move_tmhm[j]);
                                 }
@@ -1385,7 +1385,7 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
                             strong_moves_ids_vector.push_back(pkm_rb_move[buf8][j]);
                         }
                         // Gambler moves
-                        if(gambler_luck_moves && cpu_sprite_id[cpu_trainer_id]==0x22){
+                        if(gambler_luck_moves && cpu_trainers[cpu_trainer_id].sprite_id==0x22){
                             if((move_effect[pkm_rb_move[buf8][j]]==0xF && no_evasion_moves==false) || move_effect[pkm_rb_move[buf8][j]]==7 || move_effect[pkm_rb_move[buf8][j]]==0x24 || move_effect[pkm_rb_move[buf8][j]]==0x26 || move_effect[pkm_rb_move[buf8][j]]==0x34 || move_effect[pkm_rb_move[buf8][j]]==0x43 || (move_effect[pkm_rb_move[buf8][j]]==0x46 && move_power[pkm_rb_move[buf8][j]]>=65) || move_effect[pkm_rb_move[buf8][j]]==0x53 || (pkm_rb_move[buf8][j]==95 && no_weak_moves==false)){
                                 gambler_moves_ids_vector.push_back(pkm_rb_move[buf8][j]);
                             }
@@ -1446,7 +1446,7 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
                             strong_moves_ids_vector.push_back(pkm_y_move[buf8][j]);
                         }
                         // Gambler moves
-                        if(gambler_luck_moves && cpu_sprite_id[cpu_trainer_id]==0x22){
+                        if(gambler_luck_moves && cpu_trainers[cpu_trainer_id].sprite_id==0x22){
                             if((move_effect[pkm_y_move[buf8][j]]==0xF && no_evasion_moves==false) || move_effect[pkm_y_move[buf8][j]]==7 || move_effect[pkm_y_move[buf8][j]]==0x24 || move_effect[pkm_y_move[buf8][j]]==0x26 || move_effect[pkm_y_move[buf8][j]]==0x34 || move_effect[pkm_y_move[buf8][j]]==0x43 || (move_effect[pkm_y_move[buf8][j]]==0x46 && move_power[pkm_y_move[buf8][j]]>=65) || move_effect[pkm_y_move[buf8][j]]==0x53 || (pkm_y_move[buf8][j]==95 && no_weak_moves==false)){
                                 gambler_moves_ids_vector.push_back(pkm_y_move[buf8][j]);
                             }
@@ -1511,7 +1511,7 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
                         strong_moves_ids_vector.push_back(cur_illegalmove);
                     }
                     // Gambler moves
-                    if(gambler_luck_moves && cpu_sprite_id[cpu_trainer_id]==0x22){
+                    if(gambler_luck_moves && cpu_trainers[cpu_trainer_id].sprite_id==0x22){
                         if((move_effect[cur_illegalmove]==0xF && no_evasion_moves==false) || move_effect[cur_illegalmove]==7 || move_effect[cur_illegalmove]==0x24 || move_effect[cur_illegalmove]==0x26 || move_effect[cur_illegalmove]==0x34 || move_effect[cur_illegalmove]==0x43 || (move_effect[cur_illegalmove]==0x46 && move_power[cur_illegalmove]>=65) || move_effect[cur_illegalmove]==0x53 || (cur_illegalmove==95 && no_weak_moves==false)){
                             gambler_moves_ids_vector.push_back(cur_illegalmove);
                         }
@@ -1537,7 +1537,7 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
                 sort(strong_moves_ids_vector.begin(), strong_moves_ids_vector.end());
                 strong_moves_ids_vector.erase(std::unique(strong_moves_ids_vector.begin(), strong_moves_ids_vector.end()), strong_moves_ids_vector.end());
             }
-            if(gambler_luck_moves && cpu_sprite_id[cpu_trainer_id]==0x22 && gambler_moves_ids_vector.size()>0){
+            if(gambler_luck_moves && cpu_trainers[cpu_trainer_id].sprite_id==0x22 && gambler_moves_ids_vector.size()>0){
                 sort(gambler_moves_ids_vector.begin(), gambler_moves_ids_vector.end());
                 gambler_moves_ids_vector.erase(std::unique(gambler_moves_ids_vector.begin(), gambler_moves_ids_vector.end()), gambler_moves_ids_vector.end());
             }
@@ -1554,7 +1554,7 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
             uint8_t offset_vector_move = 0;
 
             // Gambler
-            if(gambler_luck_moves && cpu_sprite_id[cpu_trainer_id]==0x22){
+            if(gambler_luck_moves && cpu_trainers[cpu_trainer_id].sprite_id==0x22){
                 // Move 1
                 cpu_pkm_ppup_1[cpu_trainer_id][i] = 3;
                 if(gambler_moves_ids_vector.size()>0){
@@ -2398,7 +2398,7 @@ void MainWindow::randomize_cpu_pkmn(std::mt19937 &mt_rand)
             std::shuffle(pkm_ids_vector_petitcup.begin(), pkm_ids_vector_petitcup.end(), mt_rand);
             std::shuffle(pkm_ids_vector_petitcup_toptier.begin(), pkm_ids_vector_petitcup_toptier.end(), mt_rand);
 
-            if(gambler_luck_moves && cpu_sprite_id[cpu_trainer_id]==0x22 && pkm_ids_vector_petitcup_gambler.size()>0){
+            if(gambler_luck_moves && cpu_trainers[cpu_trainer_id].sprite_id==0x22 && pkm_ids_vector_petitcup_gambler.size()>0){
                 std::shuffle(pkm_ids_vector_petitcup_gambler.begin(), pkm_ids_vector_petitcup_gambler.end(), mt_rand);
             }
 
@@ -2425,7 +2425,7 @@ void MainWindow::randomize_cpu_pkmn(std::mt19937 &mt_rand)
                     cpu_pkm_nickname[cpu_trainer_id][i] = pkm_name[pkm_ids_vector_petitcup_toptier[i]];
                 }
                 // Gambler
-                else if(gambler_luck_moves && cpu_sprite_id[cpu_trainer_id]==0x22 && pkm_ids_vector_petitcup_gambler.size()>0){
+                else if(gambler_luck_moves && cpu_trainers[cpu_trainer_id].sprite_id==0x22 && pkm_ids_vector_petitcup_gambler.size()>0){
                     if(no_illegal_pkmn){
                         while(cpu_pkm_level[cpu_trainer_id][i]<pkm_min_level[pkm_ids_vector_petitcup_gambler[i+offset_vector_pkm]]){
                             offset_vector_pkm++;
@@ -2472,7 +2472,7 @@ void MainWindow::randomize_cpu_pkmn(std::mt19937 &mt_rand)
                     }
                 }
                 if(no_species_clause){
-                    if(gambler_luck_moves && cpu_sprite_id[cpu_trainer_id]==0x22 && pkm_ids_vector_petitcup_gambler.size()>0){
+                    if(gambler_luck_moves && cpu_trainers[cpu_trainer_id].sprite_id==0x22 && pkm_ids_vector_petitcup_gambler.size()>0){
                         std::shuffle(pkm_ids_vector_petitcup_gambler.begin(), pkm_ids_vector_petitcup_gambler.end(), mt_rand);
                     }
                     else{
@@ -2489,7 +2489,7 @@ void MainWindow::randomize_cpu_pkmn(std::mt19937 &mt_rand)
             std::shuffle(pkm_ids_vector_pikacup.begin(), pkm_ids_vector_pikacup.end(), mt_rand);
             std::shuffle(pkm_ids_vector_pikacup_toptier.begin(), pkm_ids_vector_pikacup_toptier.end(), mt_rand);
 
-            if(gambler_luck_moves && cpu_sprite_id[cpu_trainer_id]==0x22 && pkm_ids_vector_petitcup_gambler.size()>0){
+            if(gambler_luck_moves && cpu_trainers[cpu_trainer_id].sprite_id==0x22 && pkm_ids_vector_petitcup_gambler.size()>0){
                 std::shuffle(pkm_ids_vector_pikacup_gambler.begin(), pkm_ids_vector_pikacup_gambler.end(), mt_rand);
             }
 
@@ -2516,7 +2516,7 @@ void MainWindow::randomize_cpu_pkmn(std::mt19937 &mt_rand)
                     cpu_pkm_nickname[cpu_trainer_id][i] = pkm_name[pkm_ids_vector_pikacup_toptier[i]];
                 }
                 // Gambler
-                else if(gambler_luck_moves && cpu_sprite_id[cpu_trainer_id]==0x22 && pkm_ids_vector_pikacup_gambler.size()>0){
+                else if(gambler_luck_moves && cpu_trainers[cpu_trainer_id].sprite_id==0x22 && pkm_ids_vector_pikacup_gambler.size()>0){
                     if(no_illegal_pkmn){
                         while(cpu_pkm_level[cpu_trainer_id][i]<pkm_min_level[pkm_ids_vector_pikacup_gambler[i+offset_vector_pkm]]){
                             offset_vector_pkm++;
@@ -2564,7 +2564,7 @@ void MainWindow::randomize_cpu_pkmn(std::mt19937 &mt_rand)
                     }
                 }
                 if(no_species_clause){
-                    if(gambler_luck_moves && cpu_sprite_id[cpu_trainer_id]==0x22 && pkm_ids_vector_petitcup_gambler.size()>0){
+                    if(gambler_luck_moves && cpu_trainers[cpu_trainer_id].sprite_id==0x22 && pkm_ids_vector_petitcup_gambler.size()>0){
                         std::shuffle(pkm_ids_vector_pikacup_gambler.begin(), pkm_ids_vector_pikacup_gambler.end(), mt_rand);
                     }
                     else{
@@ -2581,7 +2581,7 @@ void MainWindow::randomize_cpu_pkmn(std::mt19937 &mt_rand)
             std::shuffle(pkm_ids_vector_primecup.begin(), pkm_ids_vector_primecup.end(), mt_rand);
             std::shuffle(pkm_ids_vector_primecup_toptier.begin(), pkm_ids_vector_primecup_toptier.end(), mt_rand);
 
-            if(gambler_luck_moves && cpu_sprite_id[cpu_trainer_id]==0x22 && pkm_ids_vector_petitcup_gambler.size()>0){
+            if(gambler_luck_moves && cpu_trainers[cpu_trainer_id].sprite_id==0x22 && pkm_ids_vector_petitcup_gambler.size()>0){
                 std::shuffle(pkm_ids_vector_primecup_gambler.begin(), pkm_ids_vector_primecup_gambler.end(), mt_rand);
             }
 
@@ -2617,7 +2617,7 @@ void MainWindow::randomize_cpu_pkmn(std::mt19937 &mt_rand)
                     }
                 }
                 // Gambler
-                else if(gambler_luck_moves && cpu_sprite_id[cpu_trainer_id]==0x22 && pkm_ids_vector_primecup_gambler.size()>0){
+                else if(gambler_luck_moves && cpu_trainers[cpu_trainer_id].sprite_id==0x22 && pkm_ids_vector_primecup_gambler.size()>0){
                     if(no_illegal_pkmn){
                         while(cpu_pkm_level[cpu_trainer_id][i]<pkm_min_level[pkm_ids_vector_primecup_gambler[i+offset_vector_pkm]]){
                             offset_vector_pkm++;
@@ -2652,7 +2652,7 @@ void MainWindow::randomize_cpu_pkmn(std::mt19937 &mt_rand)
                     }
                 }
                 if(no_species_clause){
-                    if(gambler_luck_moves && cpu_sprite_id[cpu_trainer_id]==0x22 && pkm_ids_vector_petitcup_gambler.size()>0){
+                    if(gambler_luck_moves && cpu_trainers[cpu_trainer_id].sprite_id==0x22 && pkm_ids_vector_petitcup_gambler.size()>0){
                         std::shuffle(pkm_ids_vector_primecup_gambler.begin(), pkm_ids_vector_primecup_gambler.end(), mt_rand);
                     }
                     else{
@@ -2669,7 +2669,7 @@ void MainWindow::randomize_cpu_pkmn(std::mt19937 &mt_rand)
             std::shuffle(pkm_ids_vector_pokecup.begin(), pkm_ids_vector_pokecup.end(), mt_rand);
             std::shuffle(pkm_ids_vector_pokecup_toptier.begin(), pkm_ids_vector_pokecup_toptier.end(), mt_rand);
 
-            if(gambler_luck_moves && cpu_sprite_id[cpu_trainer_id]==0x22 && pkm_ids_vector_petitcup_gambler.size()>0){
+            if(gambler_luck_moves && cpu_trainers[cpu_trainer_id].sprite_id==0x22 && pkm_ids_vector_petitcup_gambler.size()>0){
                 std::shuffle(pkm_ids_vector_pokecup_gambler.begin(), pkm_ids_vector_pokecup_gambler.end(), mt_rand);
             }
 
@@ -2696,7 +2696,7 @@ void MainWindow::randomize_cpu_pkmn(std::mt19937 &mt_rand)
                     cpu_pkm_nickname[cpu_trainer_id][i] = pkm_name[pkm_ids_vector_pokecup_toptier[i]];
                 }
                 // Gambler
-                else if(gambler_luck_moves && cpu_sprite_id[cpu_trainer_id]==0x22 && pkm_ids_vector_pokecup_gambler.size()>0){
+                else if(gambler_luck_moves && cpu_trainers[cpu_trainer_id].sprite_id==0x22 && pkm_ids_vector_pokecup_gambler.size()>0){
                     if(no_illegal_pkmn){
                         while(cpu_pkm_level[cpu_trainer_id][i]<pkm_min_level[pkm_ids_vector_pokecup_gambler[i+offset_vector_pkm]]){
                             offset_vector_pkm++;
@@ -2744,7 +2744,7 @@ void MainWindow::randomize_cpu_pkmn(std::mt19937 &mt_rand)
                     }
                 }
                 if(no_species_clause){
-                    if(gambler_luck_moves && cpu_sprite_id[cpu_trainer_id]==0x22 && pkm_ids_vector_petitcup_gambler.size()>0){
+                    if(gambler_luck_moves && cpu_trainers[cpu_trainer_id].sprite_id==0x22 && pkm_ids_vector_petitcup_gambler.size()>0){
                         std::shuffle(pkm_ids_vector_pokecup_gambler.begin(), pkm_ids_vector_pokecup_gambler.end(), mt_rand);
                     }
                     else{
@@ -2985,7 +2985,7 @@ void MainWindow::randomize_cpu_pkmn(std::mt19937 &mt_rand)
                         }
                         // Rival
                         if(cpu_trainers[cpu_trainer_id].cup_id==19){
-                            cpu_sprite_id[cpu_trainer_id] = 14;
+                            cpu_trainers[cpu_trainer_id].sprite_id = 14;
                             cpu_trainers[cpu_trainer_id].name = "BLUE";
                             ui->comboBox_CPU_Trainer->setItemText(cpu_trainer_id,cpu_trainers[cpu_trainer_id].name);
                             cpu_pkm_id[cpu_trainer_id][0] = 65;
@@ -2997,7 +2997,7 @@ void MainWindow::randomize_cpu_pkmn(std::mt19937 &mt_rand)
                         }
                         // Red
                         if(cpu_trainers[cpu_trainer_id].cup_id==41){
-                            cpu_sprite_id[cpu_trainer_id] = 1;
+                            cpu_trainers[cpu_trainer_id].sprite_id = 1;
                             cpu_trainers[cpu_trainer_id].name = "RED";
                             ui->comboBox_CPU_Trainer->setItemText(cpu_trainer_id,cpu_trainers[cpu_trainer_id].name);
                             cpu_pkm_id[cpu_trainer_id][0] = 25;
@@ -3210,9 +3210,9 @@ void MainWindow::randomize_cpu_sprites(std::mt19937 &mt_rand)
                 && cpu_trainer_id!=229
                 && cpu_trainer_id!=233
                 && cpu_trainer_id!=237)){
-            cpu_sprite_id[cpu_trainer_id] = rand_sprite(mt_rand);
+            cpu_trainers[cpu_trainer_id].sprite_id = rand_sprite(mt_rand);
             if(ui->checkBox_Randomizer_CPU_Names->isChecked() == false){
-                cpu_trainers[cpu_trainer_id].name = preset_trainers_names[cpu_sprite_id[cpu_trainer_id]][0];
+                cpu_trainers[cpu_trainer_id].name = preset_trainers_names[cpu_trainers[cpu_trainer_id].sprite_id][0];
                 ui->comboBox_CPU_Trainer->setItemText(cpu_trainer_id,cpu_trainers[cpu_trainer_id].name);
             }
         }
@@ -3229,7 +3229,7 @@ void MainWindow::randomize_cpu_trainer_names(std::mt19937 &mt_rand)
         // Not Blue / Red
         if((cpu_trainers[cpu_trainer_id].cup_id!=19 && cpu_trainers[cpu_trainer_id].cup_id!=41) || gym_leaders_pokemon==false){
             tname_id = distrib_tnames(mt_rand);
-            cpu_trainers[cpu_trainer_id].name = preset_trainers_names[cpu_sprite_id[cpu_trainer_id]][tname_id];
+            cpu_trainers[cpu_trainer_id].name = preset_trainers_names[cpu_trainers[cpu_trainer_id].sprite_id][tname_id];
             ui->comboBox_CPU_Trainer->setItemText(cpu_trainer_id,cpu_trainers[cpu_trainer_id].name);
         }
     }

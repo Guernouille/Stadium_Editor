@@ -1627,11 +1627,11 @@ void MainWindow::on_spinBox_PPUp4_6_valueChanged(int) {
 void MainWindow::on_spinBox_TrainerSpriteID_valueChanged(int) {
     if(not_in_init){
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_sprite_id[buf8] = ui->spinBox_TrainerSpriteID->value();
-        if(cpu_sprite_id[buf8]>53){
-            cpu_sprite_id[buf8]=0;
+        cpu_trainers[buf8].sprite_id = ui->spinBox_TrainerSpriteID->value();
+        if(cpu_trainers[buf8].sprite_id>53){
+            cpu_trainers[buf8].sprite_id=0;
             ui->spinBox_TrainerSpriteID->setValue(0);
         }
-        display_cpu_trainer_sprite(cpu_sprite_id[buf8]);
+        display_cpu_trainer_sprite(cpu_trainers[buf8].sprite_id);
     }
 }

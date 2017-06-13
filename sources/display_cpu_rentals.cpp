@@ -4,9 +4,9 @@ void MainWindow::display_cpu_trainer_pkmn(quint8 cpu_trainer_id)
 {
     // CPU Team initialization
     ui->lineEdit_CPU_TrainerName->setText(cpu_trainers[cpu_trainer_id].name);
-    ui->spinBox_TrainerSpriteID->setValue(cpu_sprite_id[cpu_trainer_id]);
+    ui->spinBox_TrainerSpriteID->setValue(cpu_trainers[cpu_trainer_id].sprite_id);
     img_path = ":/trainer_sprites/";
-    img_path += QString::number(cpu_sprite_id[cpu_trainer_id]);
+    img_path += QString::number(cpu_trainers[cpu_trainer_id].sprite_id);
     ui->img_TrainerSprite->setPixmap(QPixmap(img_path));
     ui->spinBox_CPU_PartySize->setValue(cpu_party_size[cpu_trainer_id]);
     ui->spinBox_CPU_AI->setValue(cpu_ai_id[cpu_trainer_id]);
