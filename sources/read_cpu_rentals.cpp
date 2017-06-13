@@ -106,7 +106,7 @@ void MainWindow::read_cpu_rentals(QFile &romfile)
         // CPU Pokémon
         else{
             for(short i=current_cpu_trainers_number;i<(total_cpu_rentals+current_cpu_trainers_number);i++){
-                cpu_cup_id[i] = current_cpu_trainers_cup;
+                cpu_trainers[i].cup_id = current_cpu_trainers_cup;
 
                 rom_offset = 0x898004 + (i-current_cpu_trainers_number)*560 + *set_iter;
                 romfile.seek(rom_offset);

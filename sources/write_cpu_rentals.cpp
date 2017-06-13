@@ -184,7 +184,7 @@ void MainWindow::write_cpu_rentals(QFile &romfile)
         // CPU Pokémon
         else{
             for(short i=current_cpu_trainers_number;i<(total_cpu_rentals+current_cpu_trainers_number);i++){
-                cpu_cup_id[i] = current_cpu_trainers_cup;
+                cpu_trainers[i].cup_id = current_cpu_trainers_cup;
 
                 // CPU Trainer name
                 for(uint8_t l = 0; l < 2; l++) {

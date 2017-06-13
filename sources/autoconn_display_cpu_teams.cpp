@@ -13,7 +13,7 @@ void MainWindow::on_comboBox_CPU_Trainer_currentIndexChanged(int) {
     if(not_in_init){
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
         not_in_init=false;
-        ui->comboBox_CPU_Cup->setCurrentIndex(cpu_cup_id[buf8]);
+        ui->comboBox_CPU_Cup->setCurrentIndex(cpu_trainers[buf8].cup_id);
         not_in_init=true;
         display_cpu_trainer_pkmn(buf8);
     }

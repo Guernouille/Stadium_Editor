@@ -9,6 +9,7 @@
 #include "ui_mainwindow.h"
 #include "type_chart.h"
 #include "common.cpp"
+#include "trainer_class.h"
 
 namespace Ui {
 class MainWindow;
@@ -103,7 +104,7 @@ public:
     quint16 cpu_rentals_arraylen[64];
     quint32 cpu_rentals_pointer[64];
 
-    quint8  cpu_cup_id[256];
+    std::array<Trainer, 256> cpu_trainers;
     quint8  cpu_cup_offset[256];
     QString cpu_tname[256];
     quint8  cpu_sprite_id[256];

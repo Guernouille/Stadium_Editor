@@ -389,8 +389,8 @@ void MainWindow::randomize_cpu_iv_stat_exp(std::mt19937 &mt_rand)
 
     for(uint8_t cpu_trainer_id=0;cpu_trainer_id<current_cpu_trainers_number;cpu_trainer_id++){
         if(max_stats_finals
-                && (cpu_cup_id[cpu_trainer_id]==18 || cpu_cup_id[cpu_trainer_id]==19 || cpu_cup_id[cpu_trainer_id]==20
-                || cpu_cup_id[cpu_trainer_id]==40 || cpu_cup_id[cpu_trainer_id]==41 || cpu_cup_id[cpu_trainer_id]==42
+                && (cpu_trainers[cpu_trainer_id].cup_id==18 || cpu_trainers[cpu_trainer_id].cup_id==19 || cpu_trainers[cpu_trainer_id].cup_id==20
+                || cpu_trainers[cpu_trainer_id].cup_id==40 ||cpu_trainers[cpu_trainer_id].cup_id==41 || cpu_trainers[cpu_trainer_id].cup_id==42
                 || cpu_trainer_id==7 || cpu_trainer_id==15 || cpu_trainer_id==39 || cpu_trainer_id==47
                 || cpu_trainer_id==71 || cpu_trainer_id==79 || cpu_trainer_id==83 || cpu_trainer_id==87
                 || cpu_trainer_id==91 || cpu_trainer_id==95 || cpu_trainer_id==99 || cpu_trainer_id==103
@@ -415,7 +415,7 @@ void MainWindow::randomize_cpu_iv_stat_exp(std::mt19937 &mt_rand)
             for(uint8_t i=0;i<cpu_party_size[cpu_trainer_id];i++){
                 if(better_stats_nfe){
                     // Petit Cup
-                    if(cpu_cup_id[cpu_trainer_id]==0 || cpu_cup_id[cpu_trainer_id]==22){
+                    if(cpu_trainers[cpu_trainer_id].cup_id==0 || cpu_trainers[cpu_trainer_id].cup_id==22){
                         if(randomized_pkm_data == false) {
                             switch(iv_statexp_groups[cpu_pkm_id[cpu_trainer_id][i]]){
                             case 0:
@@ -760,7 +760,7 @@ void MainWindow::randomize_cpu_level(std::mt19937 &mt_rand)
         cpu_party_size[cpu_trainer_id]=6;
 
         // Petit Cup: Lv 25 to Lv 30
-        if(cpu_cup_id[cpu_trainer_id]==0 || cpu_cup_id[cpu_trainer_id]==22){
+        if(cpu_trainers[cpu_trainer_id].cup_id==0 || cpu_trainers[cpu_trainer_id].cup_id==22){
             std::uniform_int_distribution<> distrib1(25,30);
             std::uniform_int_distribution<> distrib2(25,29);
             std::uniform_int_distribution<> distrib3(25,28);
@@ -785,7 +785,7 @@ void MainWindow::randomize_cpu_level(std::mt19937 &mt_rand)
         }
 
         // Pika Cup: Lv 15 to Lv 20
-        else if(cpu_cup_id[cpu_trainer_id]==1 || cpu_cup_id[cpu_trainer_id]==23){
+        else if(cpu_trainers[cpu_trainer_id].cup_id==1 || cpu_trainers[cpu_trainer_id].cup_id==23){
             std::uniform_int_distribution<> distrib1(15,20);
             std::uniform_int_distribution<> distrib2(15,19);
             std::uniform_int_distribution<> distrib3(15,18);
@@ -810,14 +810,14 @@ void MainWindow::randomize_cpu_level(std::mt19937 &mt_rand)
         }
 
         // Prime Cup: Lv 100
-        else if((cpu_cup_id[cpu_trainer_id]>=2 && cpu_cup_id[cpu_trainer_id]<=5) || (cpu_cup_id[cpu_trainer_id]>=24 && cpu_cup_id[cpu_trainer_id]<=27)){
+        else if((cpu_trainers[cpu_trainer_id].cup_id>=2 && cpu_trainers[cpu_trainer_id].cup_id<=5) || (cpu_trainers[cpu_trainer_id].cup_id>=24 && cpu_trainers[cpu_trainer_id].cup_id<=27)){
             for(uint8_t i=0;i<cpu_party_size[cpu_trainer_id];i++){
                 cpu_pkm_level[cpu_trainer_id][i] = 100;
             }
         }
 
         // Poké Cup: Lv 50 to Lv 55
-        else if((cpu_cup_id[cpu_trainer_id]>=6 && cpu_cup_id[cpu_trainer_id]<=9) || (cpu_cup_id[cpu_trainer_id]>=28 && cpu_cup_id[cpu_trainer_id]<=31)){
+        else if((cpu_trainers[cpu_trainer_id].cup_id>=6 && cpu_trainers[cpu_trainer_id].cup_id<=9) || (cpu_trainers[cpu_trainer_id].cup_id>=28 && cpu_trainers[cpu_trainer_id].cup_id<=31)){
             std::uniform_int_distribution<> distrib1(50,55);
             std::uniform_int_distribution<> distrib2(50,54);
             std::uniform_int_distribution<> distrib3(50,53);
@@ -842,7 +842,7 @@ void MainWindow::randomize_cpu_level(std::mt19937 &mt_rand)
         }
 
         // Gym Leader Castle: User-specified Lv range
-        else if((cpu_cup_id[cpu_trainer_id]>=10 && cpu_cup_id[cpu_trainer_id]<=19) || (cpu_cup_id[cpu_trainer_id]>=32 && cpu_cup_id[cpu_trainer_id]<=41)){
+        else if((cpu_trainers[cpu_trainer_id].cup_id>=10 && cpu_trainers[cpu_trainer_id].cup_id<=19) || (cpu_trainers[cpu_trainer_id].cup_id>=32 && cpu_trainers[cpu_trainer_id].cup_id<=41)){
             if(glc_level_min != glc_level_max){
                 std::uniform_int_distribution<> distrib(glc_level_min,glc_level_max);
                 for(uint8_t i=0;i<cpu_party_size[cpu_trainer_id];i++){
@@ -954,13 +954,13 @@ void MainWindow::randomize_cpu_level(std::mt19937 &mt_rand)
                     cpu_pkm_level[cpu_trainer_id][2] = glc_level_max;
                 }
                 // Rival
-                if(cpu_cup_id[cpu_trainer_id]==19){
+                if(cpu_trainers[cpu_trainer_id].cup_id==19){
                     cpu_pkm_level[cpu_trainer_id][0] = glc_level_max;
                     cpu_pkm_level[cpu_trainer_id][1] = glc_level_max*1.02;
                     cpu_pkm_level[cpu_trainer_id][2] = glc_level_max;
                 }
                 // Red
-                if(cpu_cup_id[cpu_trainer_id]==41){
+                if(cpu_trainers[cpu_trainer_id].cup_id==41){
                     cpu_pkm_level[cpu_trainer_id][0] = glc_level_max*1.23;
                     cpu_pkm_level[cpu_trainer_id][1] = glc_level_max*1.05;
                     cpu_pkm_level[cpu_trainer_id][2] = glc_level_max;
@@ -969,7 +969,7 @@ void MainWindow::randomize_cpu_level(std::mt19937 &mt_rand)
         }
 
         // Vs Mewtwo: Lv 100
-        else if(cpu_cup_id[cpu_trainer_id] == 20 || cpu_cup_id[cpu_trainer_id] == 42){
+        else if(cpu_trainers[cpu_trainer_id].cup_id == 20 || cpu_trainers[cpu_trainer_id].cup_id == 42){
             if(ui->checkBox_Randomizer_CPU_MewtwoFullParty->isChecked() == false){
                 cpu_party_size[cpu_trainer_id] = 1;
             }
@@ -979,7 +979,7 @@ void MainWindow::randomize_cpu_level(std::mt19937 &mt_rand)
         }
 
         // Battle Now: Lv 50
-        else if(cpu_cup_id[cpu_trainer_id]==21 || cpu_cup_id[cpu_trainer_id]==43){
+        else if(cpu_trainers[cpu_trainer_id].cup_id==21 || cpu_trainers[cpu_trainer_id].cup_id==43){
             for(uint8_t i=0;i<cpu_party_size[cpu_trainer_id];i++){
                 cpu_pkm_level[cpu_trainer_id][i] = 50;
             }
@@ -1021,7 +1021,7 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
                     // Softboiled check
                     if(pkm_start_move_1[buf8]==0x87) learns_softboiled = true;
                     // Dragon Rage in Petit Cup and Pika Cup
-                    if(pkm_start_move_1[buf8]==0x52 && (cpu_cup_id[cpu_trainer_id]==0 || cpu_cup_id[cpu_trainer_id]==1 || cpu_cup_id[cpu_trainer_id]==22 || cpu_cup_id[cpu_trainer_id]==23)){
+                    if(pkm_start_move_1[buf8]==0x52 && (cpu_trainers[cpu_trainer_id].cup_id==0 || cpu_trainers[cpu_trainer_id].cup_id==1 || cpu_trainers[cpu_trainer_id].cup_id==22 || cpu_trainers[cpu_trainer_id].cup_id==23)){
                         if(no_dragon_rage==false){
                             moves_ids_vector.push_back(pkm_start_move_1[buf8]);
                             strong_moves_ids_vector.push_back(pkm_start_move_1[buf8]);
@@ -1089,7 +1089,7 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
                     // Softboiled check
                     if(pkm_start_move_2[buf8]==0x87) learns_softboiled = true;
                     // Dragon Rage in Petit Cup and Pika Cup
-                    if(pkm_start_move_2[buf8]==0x52 && (cpu_cup_id[cpu_trainer_id]==0 || cpu_cup_id[cpu_trainer_id]==1 || cpu_cup_id[cpu_trainer_id]==22 || cpu_cup_id[cpu_trainer_id]==23)){
+                    if(pkm_start_move_2[buf8]==0x52 && (cpu_trainers[cpu_trainer_id].cup_id==0 || cpu_trainers[cpu_trainer_id].cup_id==1 || cpu_trainers[cpu_trainer_id].cup_id==22 || cpu_trainers[cpu_trainer_id].cup_id==23)){
                         if(no_dragon_rage==false){
                             moves_ids_vector.push_back(pkm_start_move_2[buf8]);
                             strong_moves_ids_vector.push_back(pkm_start_move_2[buf8]);
@@ -1150,7 +1150,7 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
                     // Softboiled check
                     if(pkm_start_move_3[buf8]==0x87) learns_softboiled = true;
                     // Dragon Rage in Petit Cup and Pika Cup
-                    if(pkm_start_move_3[buf8]==0x52 && (cpu_cup_id[cpu_trainer_id]==0 || cpu_cup_id[cpu_trainer_id]==1 || cpu_cup_id[cpu_trainer_id]==22 || cpu_cup_id[cpu_trainer_id]==23)){
+                    if(pkm_start_move_3[buf8]==0x52 && (cpu_trainers[cpu_trainer_id].cup_id==0 || cpu_trainers[cpu_trainer_id].cup_id==1 || cpu_trainers[cpu_trainer_id].cup_id==22 || cpu_trainers[cpu_trainer_id].cup_id==23)){
                         if(no_dragon_rage==false){
                             moves_ids_vector.push_back(pkm_start_move_3[buf8]);
                             strong_moves_ids_vector.push_back(pkm_start_move_3[buf8]);
@@ -1211,7 +1211,7 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
                     // Softboiled check
                     if(pkm_start_move_4[buf8]==0x87) learns_softboiled = true;
                     // Dragon Rage in Petit Cup and Pika Cup
-                    if(pkm_start_move_4[buf8]==0x52 && (cpu_cup_id[cpu_trainer_id]==0 || cpu_cup_id[cpu_trainer_id]==1 || cpu_cup_id[cpu_trainer_id]==22 || cpu_cup_id[cpu_trainer_id]==23)){
+                    if(pkm_start_move_4[buf8]==0x52 && (cpu_trainers[cpu_trainer_id].cup_id==0 || cpu_trainers[cpu_trainer_id].cup_id==1 || cpu_trainers[cpu_trainer_id].cup_id==22 || cpu_trainers[cpu_trainer_id].cup_id==23)){
                         if(no_dragon_rage==false){
                             moves_ids_vector.push_back(pkm_start_move_4[buf8]);
                             strong_moves_ids_vector.push_back(pkm_start_move_4[buf8]);
@@ -1278,7 +1278,7 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
                             // Softboiled check
                             if(move_tmhm[j]==0x87) learns_softboiled = true;
                             // Dragon Rage in Petit Cup and Pika Cup
-                            if(move_tmhm[j]==0x52 && (cpu_cup_id[cpu_trainer_id]==0 || cpu_cup_id[cpu_trainer_id]==1 || cpu_cup_id[cpu_trainer_id]==22 || cpu_cup_id[cpu_trainer_id]==23)){
+                            if(move_tmhm[j]==0x52 && (cpu_trainers[cpu_trainer_id].cup_id==0 || cpu_trainers[cpu_trainer_id].cup_id==1 || cpu_trainers[cpu_trainer_id].cup_id==22 || cpu_trainers[cpu_trainer_id].cup_id==23)){
                                 if(no_dragon_rage==false){
                                     moves_ids_vector.push_back(move_tmhm[j]);
                                     strong_moves_ids_vector.push_back(move_tmhm[j]);
@@ -1344,7 +1344,7 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
                         // Softboiled check
                         if(pkm_rb_move[buf8][j]==0x87) learns_softboiled = true;
                         // Dragon Rage in Petit Cup and Pika Cup
-                        if(pkm_rb_move[buf8][j]==0x52 && (cpu_cup_id[cpu_trainer_id]==0 || cpu_cup_id[cpu_trainer_id]==1 || cpu_cup_id[cpu_trainer_id]==22 || cpu_cup_id[cpu_trainer_id]==23)){
+                        if(pkm_rb_move[buf8][j]==0x52 && (cpu_trainers[cpu_trainer_id].cup_id==0 || cpu_trainers[cpu_trainer_id].cup_id==1 || cpu_trainers[cpu_trainer_id].cup_id==22 || cpu_trainers[cpu_trainer_id].cup_id==23)){
                             if(no_dragon_rage==false){
                                 moves_ids_vector.push_back(pkm_rb_move[buf8][j]);
                                 strong_moves_ids_vector.push_back(pkm_rb_move[buf8][j]);
@@ -1405,7 +1405,7 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
                         // Softboiled check
                         if(pkm_y_move[buf8][j]==0x87) learns_softboiled = true;
                         // Dragon Rage in Petit Cup and Pika Cup
-                        if(pkm_y_move[buf8][j]==0x52 && (cpu_cup_id[cpu_trainer_id]==0 || cpu_cup_id[cpu_trainer_id]==1 || cpu_cup_id[cpu_trainer_id]==22 || cpu_cup_id[cpu_trainer_id]==23)){
+                        if(pkm_y_move[buf8][j]==0x52 && (cpu_trainers[cpu_trainer_id].cup_id==0 || cpu_trainers[cpu_trainer_id].cup_id==1 || cpu_trainers[cpu_trainer_id].cup_id==22 || cpu_trainers[cpu_trainer_id].cup_id==23)){
                             if(no_dragon_rage==false){
                                 moves_ids_vector.push_back(pkm_y_move[buf8][j]);
                                 strong_moves_ids_vector.push_back(pkm_y_move[buf8][j]);
@@ -1469,7 +1469,7 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
                     // Softboiled check
                     if(cur_illegalmove==0x87) learns_softboiled = true;
                     // Dragon Rage in Petit Cup and Pika Cup
-                    if(cur_illegalmove==0x52 && (cpu_cup_id[cpu_trainer_id]==0 || cpu_cup_id[cpu_trainer_id]==1 || cpu_cup_id[cpu_trainer_id]==22 || cpu_cup_id[cpu_trainer_id]==23)){
+                    if(cur_illegalmove==0x52 && (cpu_trainers[cpu_trainer_id].cup_id==0 || cpu_trainers[cpu_trainer_id].cup_id==1 || cpu_trainers[cpu_trainer_id].cup_id==22 || cpu_trainers[cpu_trainer_id].cup_id==23)){
                         if(no_dragon_rage==false){
                             moves_ids_vector.push_back(cur_illegalmove);
                             strong_moves_ids_vector.push_back(cur_illegalmove);
@@ -1695,8 +1695,8 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
 
             // Gym Leaders
             else if(gym_leaders_pokemon
-                    && (((cpu_cup_id[cpu_trainer_id]==18 || cpu_cup_id[cpu_trainer_id]==19
-                       || cpu_cup_id[cpu_trainer_id]==40 || cpu_cup_id[cpu_trainer_id]==41
+                    && (((cpu_trainers[cpu_trainer_id].cup_id==18 || cpu_trainers[cpu_trainer_id].cup_id==19
+                       || cpu_trainers[cpu_trainer_id].cup_id==40 || cpu_trainers[cpu_trainer_id].cup_id==41
                        || cpu_trainer_id==83 || cpu_trainer_id==87 || cpu_trainer_id==91 || cpu_trainer_id==95
                        || cpu_trainer_id==99 || cpu_trainer_id==103 || cpu_trainer_id==107 || cpu_trainer_id==111
                        || cpu_trainer_id==209 || cpu_trainer_id==213 || cpu_trainer_id==217 || cpu_trainer_id==221
@@ -2025,7 +2025,7 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
                         cpu_pkm_move_4[cpu_trainer_id][2] = 0x85;
                     }
                     // Rival
-                    if(cpu_cup_id[cpu_trainer_id]==19){
+                    if(cpu_trainers[cpu_trainer_id].cup_id==19){
                         cpu_pkm_move_1[cpu_trainer_id][0] = 0x5E;
                         cpu_pkm_move_2[cpu_trainer_id][0] = 0x56;
                         cpu_pkm_move_3[cpu_trainer_id][0] = 0x73;
@@ -2041,7 +2041,7 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
                         cpu_pkm_move_4[cpu_trainer_id][2] = 0x99;
                     }
                     // Red
-                    if(cpu_cup_id[cpu_trainer_id]==41){
+                    if(cpu_trainers[cpu_trainer_id].cup_id==41){
                         cpu_pkm_move_1[cpu_trainer_id][0] = 0x55;
                         cpu_pkm_move_2[cpu_trainer_id][0] = 0x39;
                         if(mt_rand()%8>0) cpu_pkm_move_3[cpu_trainer_id][0] = 0x26;
@@ -2067,8 +2067,8 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
                     || cpu_trainer_id==165 || cpu_trainer_id==173 || cpu_trainer_id==197 || cpu_trainer_id==205
                     || cpu_trainer_id==209 || cpu_trainer_id==213 || cpu_trainer_id==217 || cpu_trainer_id==221
                     || cpu_trainer_id==225 || cpu_trainer_id==229 || cpu_trainer_id==233 || cpu_trainer_id==237
-                    || cpu_cup_id[cpu_trainer_id]==18 || cpu_cup_id[cpu_trainer_id]==19 || cpu_cup_id[cpu_trainer_id]==20
-                    || cpu_cup_id[cpu_trainer_id]==40 || cpu_cup_id[cpu_trainer_id]==41 || cpu_cup_id[cpu_trainer_id]==42)
+                    || cpu_trainers[cpu_trainer_id].cup_id==18 || cpu_trainers[cpu_trainer_id].cup_id==19 || cpu_trainers[cpu_trainer_id].cup_id==20
+                    || cpu_trainers[cpu_trainer_id].cup_id==40 || cpu_trainers[cpu_trainer_id].cup_id==41 || cpu_trainers[cpu_trainer_id].cup_id==42)
             {
                 // Move 1
                 cpu_pkm_ppup_1[cpu_trainer_id][i] = 3;
@@ -2351,10 +2351,10 @@ void MainWindow::randomize_cpu_nicknames(std::mt19937 &mt_rand)
     bool gym_leaders_pokemon = ui->checkBox_Randomizer_CPU_GLPkmn->isChecked();
 
     for(uint8_t cpu_trainer_id=0 ; cpu_trainer_id<current_cpu_trainers_number ; cpu_trainer_id++){
-        if((cpu_cup_id[cpu_trainer_id]!=18
-                && cpu_cup_id[cpu_trainer_id]!=19
-                && cpu_cup_id[cpu_trainer_id]!=40
-                && cpu_cup_id[cpu_trainer_id]!=41
+        if((cpu_trainers[cpu_trainer_id].cup_id!=18
+                && cpu_trainers[cpu_trainer_id].cup_id!=19
+                && cpu_trainers[cpu_trainer_id].cup_id!=40
+                && cpu_trainers[cpu_trainer_id].cup_id!=41
                 && cpu_trainer_id!=83
                 && cpu_trainer_id!=87
                 && cpu_trainer_id!=91
@@ -2394,7 +2394,7 @@ void MainWindow::randomize_cpu_pkmn(std::mt19937 &mt_rand)
         cpu_party_size[cpu_trainer_id]=6;
 
         // Petit Cup
-        if(cpu_cup_id[cpu_trainer_id]==0 || cpu_cup_id[cpu_trainer_id]==22){
+        if(is_petit_trainer(cpu_trainers[cpu_trainer_id])){
             std::shuffle(pkm_ids_vector_petitcup.begin(), pkm_ids_vector_petitcup.end(), mt_rand);
             std::shuffle(pkm_ids_vector_petitcup_toptier.begin(), pkm_ids_vector_petitcup_toptier.end(), mt_rand);
 
@@ -2485,7 +2485,7 @@ void MainWindow::randomize_cpu_pkmn(std::mt19937 &mt_rand)
 
 
         // Pika Cup
-        else if(cpu_cup_id[cpu_trainer_id]==1 || cpu_cup_id[cpu_trainer_id]==23){
+        else if(is_pika_trainer(cpu_trainers[cpu_trainer_id])){
             std::shuffle(pkm_ids_vector_pikacup.begin(), pkm_ids_vector_pikacup.end(), mt_rand);
             std::shuffle(pkm_ids_vector_pikacup_toptier.begin(), pkm_ids_vector_pikacup_toptier.end(), mt_rand);
 
@@ -2577,7 +2577,7 @@ void MainWindow::randomize_cpu_pkmn(std::mt19937 &mt_rand)
 
 
         // Prime Cup
-        else if((cpu_cup_id[cpu_trainer_id]>=2 && cpu_cup_id[cpu_trainer_id]<=5) || (cpu_cup_id[cpu_trainer_id]>=24 && cpu_cup_id[cpu_trainer_id]<=27)){
+        else if(is_prime_trainer(cpu_trainers[cpu_trainer_id])){
             std::shuffle(pkm_ids_vector_primecup.begin(), pkm_ids_vector_primecup.end(), mt_rand);
             std::shuffle(pkm_ids_vector_primecup_toptier.begin(), pkm_ids_vector_primecup_toptier.end(), mt_rand);
 
@@ -2665,7 +2665,7 @@ void MainWindow::randomize_cpu_pkmn(std::mt19937 &mt_rand)
 
 
         // Poké Cup
-        else if((cpu_cup_id[cpu_trainer_id]>=6 && cpu_cup_id[cpu_trainer_id]<=9) || (cpu_cup_id[cpu_trainer_id]>=28 && cpu_cup_id[cpu_trainer_id]<=31)){
+        else if(is_poke_trainer(cpu_trainers[cpu_trainer_id])){
             std::shuffle(pkm_ids_vector_pokecup.begin(), pkm_ids_vector_pokecup.end(), mt_rand);
             std::shuffle(pkm_ids_vector_pokecup_toptier.begin(), pkm_ids_vector_pokecup_toptier.end(), mt_rand);
 
@@ -2757,7 +2757,7 @@ void MainWindow::randomize_cpu_pkmn(std::mt19937 &mt_rand)
 
 
         // Gym Leader Castle
-        else if((cpu_cup_id[cpu_trainer_id]>=10 && cpu_cup_id[cpu_trainer_id]<=19) || (cpu_cup_id[cpu_trainer_id]>=32 && cpu_cup_id[cpu_trainer_id]<=41)){
+        else if(is_glc_trainer(cpu_trainers[cpu_trainer_id])){
             std::shuffle(pkm_ids_vector_primecup.begin(), pkm_ids_vector_primecup.end(), mt_rand);
             std::shuffle(pkm_ids_vector_primecup_toptier.begin(), pkm_ids_vector_primecup_toptier.end(), mt_rand);
             std::shuffle(pkm_ids_vector_glc_lowminlv.begin(), pkm_ids_vector_glc_lowminlv.end(), mt_rand);
@@ -2768,10 +2768,10 @@ void MainWindow::randomize_cpu_pkmn(std::mt19937 &mt_rand)
                 quint8 glc_index = 0;
 
                 // Gym Leaders / Elite 4 / Rival
-                if((cpu_cup_id[cpu_trainer_id]==18
-                        || cpu_cup_id[cpu_trainer_id]==19
-                        || cpu_cup_id[cpu_trainer_id]==40
-                        || cpu_cup_id[cpu_trainer_id]==41
+                if((cpu_trainers[cpu_trainer_id].cup_id==18
+                        || cpu_trainers[cpu_trainer_id].cup_id==19
+                        || cpu_trainers[cpu_trainer_id].cup_id==40
+                        || cpu_trainers[cpu_trainer_id].cup_id==41
                         || cpu_trainer_id==83
                         || cpu_trainer_id==87
                         || cpu_trainer_id==91
@@ -2984,7 +2984,7 @@ void MainWindow::randomize_cpu_pkmn(std::mt19937 &mt_rand)
                             cpu_pkm_nickname[cpu_trainer_id][2] = "Hiya!";
                         }
                         // Rival
-                        if(cpu_cup_id[cpu_trainer_id]==19){
+                        if(cpu_trainers[cpu_trainer_id].cup_id==19){
                             cpu_sprite_id[cpu_trainer_id] = 14;
                             cpu_tname[cpu_trainer_id] = "BLUE";
                             ui->comboBox_CPU_Trainer->setItemText(cpu_trainer_id,cpu_tname[cpu_trainer_id]);
@@ -2996,7 +2996,7 @@ void MainWindow::randomize_cpu_pkmn(std::mt19937 &mt_rand)
                             cpu_pkm_nickname[cpu_trainer_id][2] = "Eggy";
                         }
                         // Red
-                        if(cpu_cup_id[cpu_trainer_id]==41){
+                        if(cpu_trainers[cpu_trainer_id].cup_id==41){
                             cpu_sprite_id[cpu_trainer_id] = 1;
                             cpu_tname[cpu_trainer_id] = "RED";
                             ui->comboBox_CPU_Trainer->setItemText(cpu_trainer_id,cpu_tname[cpu_trainer_id]);
@@ -3106,7 +3106,7 @@ void MainWindow::randomize_cpu_pkmn(std::mt19937 &mt_rand)
 
 
         // Vs Mewtwo
-        else if(cpu_cup_id[cpu_trainer_id] == 20 || cpu_cup_id[cpu_trainer_id] == 42){
+        else if(is_mewtwo_trainer(cpu_trainers[cpu_trainer_id])){
             std::shuffle(pkm_ids_vector_vs_mewtwo.begin(), pkm_ids_vector_vs_mewtwo.end(), mt_rand);
             std::shuffle(pkm_ids_vector_vs_mewtwo_toptier.begin(), pkm_ids_vector_vs_mewtwo_toptier.end(), mt_rand);
 
@@ -3155,7 +3155,7 @@ void MainWindow::randomize_cpu_pkmn(std::mt19937 &mt_rand)
 
 
         // Battle Now: Lv 2 to Lv 100
-        else if(cpu_cup_id[cpu_trainer_id]==21 || cpu_cup_id[cpu_trainer_id]==43){
+        else if(is_battle_now_trainer(cpu_trainers[cpu_trainer_id])){
             std::shuffle(pkm_ids_vector_primecup.begin(), pkm_ids_vector_primecup.end(), mt_rand);
             // Change Pokémon team
             for(uint8_t i=0;i<cpu_party_size[cpu_trainer_id];i++){
@@ -3188,12 +3188,12 @@ void MainWindow::randomize_cpu_sprites(std::mt19937 &mt_rand)
     std::uniform_int_distribution<> rand_sprite(15,51);
     for(uint8_t cpu_trainer_id=0;cpu_trainer_id<current_cpu_trainers_number;cpu_trainer_id++){
         // Not Gym Leaders / Elite 4 / Rival / Mewtwo
-        if((cpu_cup_id[cpu_trainer_id]!=18
-                && cpu_cup_id[cpu_trainer_id]!=19
-                && cpu_cup_id[cpu_trainer_id]!=20
-                && cpu_cup_id[cpu_trainer_id]!=40
-                && cpu_cup_id[cpu_trainer_id]!=41
-                && cpu_cup_id[cpu_trainer_id]!=42
+        if((cpu_trainers[cpu_trainer_id].cup_id!=18
+                && cpu_trainers[cpu_trainer_id].cup_id!=19
+                && cpu_trainers[cpu_trainer_id].cup_id!=20
+                && cpu_trainers[cpu_trainer_id].cup_id!=40
+                && cpu_trainers[cpu_trainer_id].cup_id!=41
+                && cpu_trainers[cpu_trainer_id].cup_id!=42
                 && cpu_trainer_id!=83
                 && cpu_trainer_id!=87
                 && cpu_trainer_id!=91
@@ -3227,7 +3227,7 @@ void MainWindow::randomize_cpu_trainer_names(std::mt19937 &mt_rand)
 
     for(uint8_t cpu_trainer_id=0 ; cpu_trainer_id<current_cpu_trainers_number ; cpu_trainer_id++){
         // Not Blue / Red
-        if((cpu_cup_id[cpu_trainer_id]!=19 && cpu_cup_id[cpu_trainer_id]!=41) || gym_leaders_pokemon==false){
+        if((cpu_trainers[cpu_trainer_id].cup_id!=19 && cpu_trainers[cpu_trainer_id].cup_id!=41) || gym_leaders_pokemon==false){
             tname_id = distrib_tnames(mt_rand);
             cpu_tname[cpu_trainer_id] = preset_trainers_names[cpu_sprite_id[cpu_trainer_id]][tname_id];
             ui->comboBox_CPU_Trainer->setItemText(cpu_trainer_id,cpu_tname[cpu_trainer_id]);
