@@ -3,7 +3,7 @@
 void MainWindow::display_cpu_trainer_pkmn(quint8 cpu_trainer_id)
 {
     // CPU Team initialization
-    ui->lineEdit_CPU_TrainerName->setText(cpu_tname[cpu_trainer_id]);
+    ui->lineEdit_CPU_TrainerName->setText(cpu_trainers[cpu_trainer_id].name);
     ui->spinBox_TrainerSpriteID->setValue(cpu_sprite_id[cpu_trainer_id]);
     img_path = ":/trainer_sprites/";
     img_path += QString::number(cpu_sprite_id[cpu_trainer_id]);

@@ -2986,8 +2986,8 @@ void MainWindow::randomize_cpu_pkmn(std::mt19937 &mt_rand)
                         // Rival
                         if(cpu_trainers[cpu_trainer_id].cup_id==19){
                             cpu_sprite_id[cpu_trainer_id] = 14;
-                            cpu_tname[cpu_trainer_id] = "BLUE";
-                            ui->comboBox_CPU_Trainer->setItemText(cpu_trainer_id,cpu_tname[cpu_trainer_id]);
+                            cpu_trainers[cpu_trainer_id].name = "BLUE";
+                            ui->comboBox_CPU_Trainer->setItemText(cpu_trainer_id,cpu_trainers[cpu_trainer_id].name);
                             cpu_pkm_id[cpu_trainer_id][0] = 65;
                             cpu_pkm_nickname[cpu_trainer_id][0] = "Kazam";
                             cpu_pkm_id[cpu_trainer_id][1] = 112;
@@ -2998,8 +2998,8 @@ void MainWindow::randomize_cpu_pkmn(std::mt19937 &mt_rand)
                         // Red
                         if(cpu_trainers[cpu_trainer_id].cup_id==41){
                             cpu_sprite_id[cpu_trainer_id] = 1;
-                            cpu_tname[cpu_trainer_id] = "RED";
-                            ui->comboBox_CPU_Trainer->setItemText(cpu_trainer_id,cpu_tname[cpu_trainer_id]);
+                            cpu_trainers[cpu_trainer_id].name = "RED";
+                            ui->comboBox_CPU_Trainer->setItemText(cpu_trainer_id,cpu_trainers[cpu_trainer_id].name);
                             cpu_pkm_id[cpu_trainer_id][0] = 25;
                             cpu_pkm_nickname[cpu_trainer_id][0] = "Pika";
                             cpu_pkm_id[cpu_trainer_id][1] = 62;
@@ -3212,8 +3212,8 @@ void MainWindow::randomize_cpu_sprites(std::mt19937 &mt_rand)
                 && cpu_trainer_id!=237)){
             cpu_sprite_id[cpu_trainer_id] = rand_sprite(mt_rand);
             if(ui->checkBox_Randomizer_CPU_Names->isChecked() == false){
-                cpu_tname[cpu_trainer_id] = preset_trainers_names[cpu_sprite_id[cpu_trainer_id]][0];
-                ui->comboBox_CPU_Trainer->setItemText(cpu_trainer_id,cpu_tname[cpu_trainer_id]);
+                cpu_trainers[cpu_trainer_id].name = preset_trainers_names[cpu_sprite_id[cpu_trainer_id]][0];
+                ui->comboBox_CPU_Trainer->setItemText(cpu_trainer_id,cpu_trainers[cpu_trainer_id].name);
             }
         }
     }
@@ -3229,8 +3229,8 @@ void MainWindow::randomize_cpu_trainer_names(std::mt19937 &mt_rand)
         // Not Blue / Red
         if((cpu_trainers[cpu_trainer_id].cup_id!=19 && cpu_trainers[cpu_trainer_id].cup_id!=41) || gym_leaders_pokemon==false){
             tname_id = distrib_tnames(mt_rand);
-            cpu_tname[cpu_trainer_id] = preset_trainers_names[cpu_sprite_id[cpu_trainer_id]][tname_id];
-            ui->comboBox_CPU_Trainer->setItemText(cpu_trainer_id,cpu_tname[cpu_trainer_id]);
+            cpu_trainers[cpu_trainer_id].name = preset_trainers_names[cpu_sprite_id[cpu_trainer_id]][tname_id];
+            ui->comboBox_CPU_Trainer->setItemText(cpu_trainer_id,cpu_trainers[cpu_trainer_id].name);
         }
     }
 }

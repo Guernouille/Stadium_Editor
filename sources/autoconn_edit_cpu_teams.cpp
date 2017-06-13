@@ -607,15 +607,15 @@ void MainWindow::on_lineEdit_CPU_TrainerName_textEdited(){
     if(not_in_init){
         buf_text = ui->lineEdit_CPU_TrainerName->text();
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_tname[buf8] = "";
+        cpu_trainers[buf8].name = "";
 
         for(short k=0;k<buf_text.length();k++){
-            if(control_char_table(buf_text.at(k)) < 253) cpu_tname[buf8] += buf_text.at(k);
-            else cpu_tname[buf8] += "?";
+            if(control_char_table(buf_text.at(k)) < 253) cpu_trainers[buf8].name += buf_text.at(k);
+            else cpu_trainers[buf8].name += "?";
         }
         not_in_init = false;
-        ui->lineEdit_CPU_TrainerName->setText(cpu_tname[buf8]);
-        ui->comboBox_CPU_Trainer->setItemText(buf8,cpu_tname[buf8]);
+        ui->lineEdit_CPU_TrainerName->setText(cpu_trainers[buf8].name);
+        ui->comboBox_CPU_Trainer->setItemText(buf8,cpu_trainers[buf8].name);
         not_in_init = true;
     }
 }

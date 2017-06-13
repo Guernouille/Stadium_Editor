@@ -13,7 +13,7 @@ void MainWindow::initialize_data()
         cpu_ai_id[i]=0;
         cpu_trainers[i].cup_id=0;
         cpu_cup_offset[i]=0;
-        cpu_tname[i]="";
+        cpu_trainers[i].name="";
         for(short j=0;j<6;j++){
             cpu_pkm_nickname[i][j]="";
         }

@@ -1,11 +1,13 @@
 #ifndef TRAINER_CLASS_H
 #define TRAINER_CLASS_H
 
+#include <QString>
 #include <QtGlobal>
 
 struct Trainer
 {
     quint8 cup_id;
+    QString name;
 };
 
 bool is_petit_trainer(const Trainer&);

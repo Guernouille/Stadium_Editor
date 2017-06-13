@@ -188,10 +188,10 @@ void MainWindow::write_cpu_rentals(QFile &romfile)
 
                 // CPU Trainer name
                 for(uint8_t l = 0; l < 2; l++) {
-                    if(cpu_tname[i].length() < 1 || cpu_tname[i].size() > 11) cpu_tname[i] = "Fail-Safe";
+                    if(cpu_trainers[i].name.length() < 1 || cpu_trainers[i].name.size() > 11) cpu_trainers[i].name = "Fail-Safe";
 
-                    for(uint8_t k = 0; k < cpu_tname[i].size(); k++){
-                        buf8 = control_char_table(cpu_tname[i].at(k));
+                    for(uint8_t k = 0; k < cpu_trainers[i].name.size(); k++){
+                        buf8 = control_char_table(cpu_trainers[i].name.at(k));
                         if(buf8 > 253) buf8 = 0x20;
 
                         rom_offset = 0x898004 + (i-current_cpu_trainers_number)*560 + k + *set_iter;
@@ -214,8 +214,8 @@ void MainWindow::write_cpu_rentals(QFile &romfile)
                     // Fill remaining characters with 00s
                     buf8=0;
 
-                    for(short k = 0; k < (11-cpu_tname[i].size()); k++){
-                        buf16 = cpu_tname[i].size() + k;
+                    for(short k = 0; k < (11-cpu_trainers[i].name.size()); k++){
+                        buf16 = cpu_trainers[i].name.size() + k;
                         rom_offset = 0x898004 + (i-current_cpu_trainers_number)*560 + buf16 + *set_iter;
                         romfile.seek(rom_offset);
                         write<<buf8;

@@ -775,7 +775,7 @@ void MainWindow::initialize_widgets()
 
         // CPU Team initialization
         for(short i=0;i<current_cpu_trainers_number;i++){
-            ui->comboBox_CPU_Trainer->addItem(cpu_tname[i]);
+            ui->comboBox_CPU_Trainer->addItem(cpu_trainers[i].name);
         }
         display_cpu_trainer_pkmn(0);
 

@@ -113,8 +113,8 @@ void MainWindow::read_cpu_rentals(QFile &romfile)
                 read>>buf8;
 
                 // CPU Trainer name
-                while(buf8 != 0 && buf8 != 0xFF && cpu_tname[i].size()<11){
-                    cpu_tname[i] += char_table[buf8];
+                while(buf8 != 0 && buf8 != 0xFF && cpu_trainers[i].name.size()<11){
+                    cpu_trainers[i].name += char_table[buf8];
                     rom_offset++;
                     romfile.seek(rom_offset);
                     read>>buf8;
