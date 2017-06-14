@@ -18,12 +18,12 @@ void MainWindow::display_cpu_trainer_pkmn(quint8 cpu_trainer_id)
     ui->comboBox_Pkmn_5->setCurrentIndex(cpu_trainers[cpu_trainer_id].pkm_ids[4]);
     ui->comboBox_Pkmn_6->setCurrentIndex(cpu_trainers[cpu_trainer_id].pkm_ids[5]);
 
-    ui->lineEdit_Nickname_1->setText(cpu_pkm_nickname[cpu_trainer_id][0]);
-    ui->lineEdit_Nickname_2->setText(cpu_pkm_nickname[cpu_trainer_id][1]);
-    ui->lineEdit_Nickname_3->setText(cpu_pkm_nickname[cpu_trainer_id][2]);
-    ui->lineEdit_Nickname_4->setText(cpu_pkm_nickname[cpu_trainer_id][3]);
-    ui->lineEdit_Nickname_5->setText(cpu_pkm_nickname[cpu_trainer_id][4]);
-    ui->lineEdit_Nickname_6->setText(cpu_pkm_nickname[cpu_trainer_id][5]);
+    ui->lineEdit_Nickname_1->setText(cpu_trainers[cpu_trainer_id].pkm_nicks[0]);
+    ui->lineEdit_Nickname_2->setText(cpu_trainers[cpu_trainer_id].pkm_nicks[1]);
+    ui->lineEdit_Nickname_3->setText(cpu_trainers[cpu_trainer_id].pkm_nicks[2]);
+    ui->lineEdit_Nickname_4->setText(cpu_trainers[cpu_trainer_id].pkm_nicks[3]);
+    ui->lineEdit_Nickname_5->setText(cpu_trainers[cpu_trainer_id].pkm_nicks[4]);
+    ui->lineEdit_Nickname_6->setText(cpu_trainers[cpu_trainer_id].pkm_nicks[5]);
 
     ui->spinBox_Lv_1->setValue(cpu_pkm_level[cpu_trainer_id][0]);
     ui->spinBox_Lv_2->setValue(cpu_pkm_level[cpu_trainer_id][1]);

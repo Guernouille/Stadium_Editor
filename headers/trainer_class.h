@@ -14,6 +14,7 @@ struct Trainer
     quint8 ai_id;
     quint8 party_size;
     std::array<quint8, 6> pkm_ids;
+    std::array<QString, 6> pkm_nicks;
 };
 
 bool is_petit_trainer(const Trainer&);

@@ -345,14 +345,14 @@ void MainWindow::write_cpu_rentals(QFile &romfile)
                     rom_offset = 0x89806C + (i-current_cpu_trainers_number)*560 + j*84 + *set_iter;
                     romfile.seek(rom_offset);
 
-                    if(cpu_pkm_nickname[i][j].length()<11){
-                        for(short k = 0; k < cpu_pkm_nickname[i][j].size(); k++){
-                            buf8 = control_char_table(cpu_pkm_nickname[i][j].at(k));
+                    if(cpu_trainers[i].pkm_nicks[j].length()<11){
+                        for(short k = 0; k < cpu_trainers[i].pkm_nicks[j].size(); k++){
+                            buf8 = control_char_table(cpu_trainers[i].pkm_nicks[j].at(k));
                             if(buf8 > 253) buf8=0x20;
                             write<<buf8;
                         }
                         buf8=0;
-                        for(short k = 0; k < (11-cpu_pkm_nickname[i][j].size()); k++){
+                        for(short k = 0; k < (11-cpu_trainers[i].pkm_nicks[j].size()); k++){
                             write<<buf8;
                         }
                     }
