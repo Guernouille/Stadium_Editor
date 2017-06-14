@@ -358,6 +358,9 @@ private:
     // pkm data parameters
     void refresh_bs_parameters();
 
+    // TODO: turn into slot with a signal mapper
+    void spinBox_Lv_valueChanged(int);
+
 private slots:
     // menu
     void on_actionOpen_triggered();
