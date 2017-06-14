@@ -1,6 +1,8 @@
 #ifndef TRAINER_CLASS_H
 #define TRAINER_CLASS_H
 
+#include <array>
+
 #include <QString>
 #include <QtGlobal>
 
@@ -11,6 +13,7 @@ struct Trainer
     quint8 sprite_id;
     quint8 ai_id;
     quint8 party_size;
+    std::array<quint8, 6> pkm_ids;
 };
 
 bool is_petit_trainer(const Trainer&);

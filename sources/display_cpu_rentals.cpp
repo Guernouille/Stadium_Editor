@@ -11,12 +11,12 @@ void MainWindow::display_cpu_trainer_pkmn(quint8 cpu_trainer_id)
     ui->spinBox_CPU_PartySize->setValue(cpu_trainers[cpu_trainer_id].party_size);
     ui->spinBox_CPU_AI->setValue(cpu_trainers[cpu_trainer_id].ai_id);
 
-    ui->comboBox_Pkmn_1->setCurrentIndex(cpu_pkm_id[cpu_trainer_id][0]);
-    ui->comboBox_Pkmn_2->setCurrentIndex(cpu_pkm_id[cpu_trainer_id][1]);
-    ui->comboBox_Pkmn_3->setCurrentIndex(cpu_pkm_id[cpu_trainer_id][2]);
-    ui->comboBox_Pkmn_4->setCurrentIndex(cpu_pkm_id[cpu_trainer_id][3]);
-    ui->comboBox_Pkmn_5->setCurrentIndex(cpu_pkm_id[cpu_trainer_id][4]);
-    ui->comboBox_Pkmn_6->setCurrentIndex(cpu_pkm_id[cpu_trainer_id][5]);
+    ui->comboBox_Pkmn_1->setCurrentIndex(cpu_trainers[cpu_trainer_id].pkm_ids[0]);
+    ui->comboBox_Pkmn_2->setCurrentIndex(cpu_trainers[cpu_trainer_id].pkm_ids[1]);
+    ui->comboBox_Pkmn_3->setCurrentIndex(cpu_trainers[cpu_trainer_id].pkm_ids[2]);
+    ui->comboBox_Pkmn_4->setCurrentIndex(cpu_trainers[cpu_trainer_id].pkm_ids[3]);
+    ui->comboBox_Pkmn_5->setCurrentIndex(cpu_trainers[cpu_trainer_id].pkm_ids[4]);
+    ui->comboBox_Pkmn_6->setCurrentIndex(cpu_trainers[cpu_trainer_id].pkm_ids[5]);
 
     ui->lineEdit_Nickname_1->setText(cpu_pkm_nickname[cpu_trainer_id][0]);
     ui->lineEdit_Nickname_2->setText(cpu_pkm_nickname[cpu_trainer_id][1]);
