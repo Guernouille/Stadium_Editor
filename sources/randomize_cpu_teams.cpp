@@ -398,7 +398,7 @@ void MainWindow::randomize_cpu_iv_stat_exp(std::mt19937 &mt_rand)
                 || cpu_trainer_id==165 || cpu_trainer_id==173 || cpu_trainer_id==197 || cpu_trainer_id==205
                 || cpu_trainer_id==209 || cpu_trainer_id==213 || cpu_trainer_id==217 || cpu_trainer_id==221
                 || cpu_trainer_id==225 || cpu_trainer_id==229 || cpu_trainer_id==233 || cpu_trainer_id==237)){
-            for(uint8_t i=0;i<cpu_party_size[cpu_trainer_id];i++){
+            for(uint8_t i=0;i<cpu_trainers[cpu_trainer_id].party_size;i++){
                 cpu_pkm_iv_hp[cpu_trainer_id][i] = 15;
                 cpu_pkm_iv_atk[cpu_trainer_id][i] = 15;
                 cpu_pkm_iv_def[cpu_trainer_id][i] = 15;
@@ -412,7 +412,7 @@ void MainWindow::randomize_cpu_iv_stat_exp(std::mt19937 &mt_rand)
             }
         }
         else{
-            for(uint8_t i=0;i<cpu_party_size[cpu_trainer_id];i++){
+            for(uint8_t i=0;i<cpu_trainers[cpu_trainer_id].party_size;i++){
                 if(better_stats_nfe){
                     // Petit Cup
                     if(cpu_trainers[cpu_trainer_id].cup_id==0 || cpu_trainers[cpu_trainer_id].cup_id==22){
@@ -757,7 +757,7 @@ void MainWindow::randomize_cpu_level(std::mt19937 &mt_rand)
 
     // CPU Levels generation
     for(uint8_t cpu_trainer_id=0;cpu_trainer_id<current_cpu_trainers_number;cpu_trainer_id++){
-        cpu_party_size[cpu_trainer_id]=6;
+        cpu_trainers[cpu_trainer_id].party_size=6;
 
         // Petit Cup: Lv 25 to Lv 30
         if(cpu_trainers[cpu_trainer_id].cup_id==0 || cpu_trainers[cpu_trainer_id].cup_id==22){
@@ -767,7 +767,7 @@ void MainWindow::randomize_cpu_level(std::mt19937 &mt_rand)
             std::uniform_int_distribution<> distrib4(25,27);
             std::uniform_int_distribution<> distrib5(25,26);
 
-            for(uint8_t i=0;i<cpu_party_size[cpu_trainer_id];i++){
+            for(uint8_t i=0;i<cpu_trainers[cpu_trainer_id].party_size;i++){
                 if(i==0 || i==3) cpu_pkm_level[cpu_trainer_id][i] = distrib1(mt_rand);
                 else if(i==1 || i==4){
                     if(cpu_pkm_level[cpu_trainer_id][i-1]==25) cpu_pkm_level[cpu_trainer_id][i] = distrib1(mt_rand);
@@ -792,7 +792,7 @@ void MainWindow::randomize_cpu_level(std::mt19937 &mt_rand)
             std::uniform_int_distribution<> distrib4(15,17);
             std::uniform_int_distribution<> distrib5(15,16);
 
-            for(uint8_t i=0;i<cpu_party_size[cpu_trainer_id];i++){
+            for(uint8_t i=0;i<cpu_trainers[cpu_trainer_id].party_size;i++){
                 if(i==0 || i==3) cpu_pkm_level[cpu_trainer_id][i] = distrib1(mt_rand);
                 else if(i==1 || i==4){
                     if(cpu_pkm_level[cpu_trainer_id][i-1]==15) cpu_pkm_level[cpu_trainer_id][i] = distrib1(mt_rand);
@@ -811,7 +811,7 @@ void MainWindow::randomize_cpu_level(std::mt19937 &mt_rand)
 
         // Prime Cup: Lv 100
         else if((cpu_trainers[cpu_trainer_id].cup_id>=2 && cpu_trainers[cpu_trainer_id].cup_id<=5) || (cpu_trainers[cpu_trainer_id].cup_id>=24 && cpu_trainers[cpu_trainer_id].cup_id<=27)){
-            for(uint8_t i=0;i<cpu_party_size[cpu_trainer_id];i++){
+            for(uint8_t i=0;i<cpu_trainers[cpu_trainer_id].party_size;i++){
                 cpu_pkm_level[cpu_trainer_id][i] = 100;
             }
         }
@@ -824,7 +824,7 @@ void MainWindow::randomize_cpu_level(std::mt19937 &mt_rand)
             std::uniform_int_distribution<> distrib4(50,52);
             std::uniform_int_distribution<> distrib5(50,51);
 
-            for(uint8_t i=0;i<cpu_party_size[cpu_trainer_id];i++){
+            for(uint8_t i=0;i<cpu_trainers[cpu_trainer_id].party_size;i++){
                 if(i==0 || i==3) cpu_pkm_level[cpu_trainer_id][i] = distrib1(mt_rand);
                 else if(i==1 || i==4){
                     if(cpu_pkm_level[cpu_trainer_id][i-1]==50) cpu_pkm_level[cpu_trainer_id][i] = distrib1(mt_rand);
@@ -845,12 +845,12 @@ void MainWindow::randomize_cpu_level(std::mt19937 &mt_rand)
         else if((cpu_trainers[cpu_trainer_id].cup_id>=10 && cpu_trainers[cpu_trainer_id].cup_id<=19) || (cpu_trainers[cpu_trainer_id].cup_id>=32 && cpu_trainers[cpu_trainer_id].cup_id<=41)){
             if(glc_level_min != glc_level_max){
                 std::uniform_int_distribution<> distrib(glc_level_min,glc_level_max);
-                for(uint8_t i=0;i<cpu_party_size[cpu_trainer_id];i++){
+                for(uint8_t i=0;i<cpu_trainers[cpu_trainer_id].party_size;i++){
                     cpu_pkm_level[cpu_trainer_id][i] = distrib(mt_rand);
                 }
             }
             else{
-                for(uint8_t i=0;i<cpu_party_size[cpu_trainer_id];i++){
+                for(uint8_t i=0;i<cpu_trainers[cpu_trainer_id].party_size;i++){
                     cpu_pkm_level[cpu_trainer_id][i] = glc_level_min;
                 }
             }
@@ -971,16 +971,16 @@ void MainWindow::randomize_cpu_level(std::mt19937 &mt_rand)
         // Vs Mewtwo: Lv 100
         else if(cpu_trainers[cpu_trainer_id].cup_id == 20 || cpu_trainers[cpu_trainer_id].cup_id == 42){
             if(ui->checkBox_Randomizer_CPU_MewtwoFullParty->isChecked() == false){
-                cpu_party_size[cpu_trainer_id] = 1;
+                cpu_trainers[cpu_trainer_id].party_size = 1;
             }
-            for(uint8_t i=0;i<cpu_party_size[cpu_trainer_id];i++){
+            for(uint8_t i=0;i<cpu_trainers[cpu_trainer_id].party_size;i++){
                 cpu_pkm_level[cpu_trainer_id][i] = 100;
             }
         }
 
         // Battle Now: Lv 50
         else if(cpu_trainers[cpu_trainer_id].cup_id==21 || cpu_trainers[cpu_trainer_id].cup_id==43){
-            for(uint8_t i=0;i<cpu_party_size[cpu_trainer_id];i++){
+            for(uint8_t i=0;i<cpu_trainers[cpu_trainer_id].party_size;i++){
                 cpu_pkm_level[cpu_trainer_id][i] = 50;
             }
         }
@@ -1000,7 +1000,7 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
     bool gym_leaders_pokemon = ui->checkBox_Randomizer_CPU_GLPkmn->isChecked();
 
     for(uint8_t cpu_trainer_id=0;cpu_trainer_id<current_cpu_trainers_number;cpu_trainer_id++){
-        for(uint8_t i=0;i<cpu_party_size[cpu_trainer_id];i++){
+        for(uint8_t i=0;i<cpu_trainers[cpu_trainer_id].party_size;i++){
             moves_ids_vector.clear();
             strong_moves_ids_vector.clear();
             gambler_moves_ids_vector.clear();
@@ -2373,7 +2373,7 @@ void MainWindow::randomize_cpu_nicknames(std::mt19937 &mt_rand)
                 && cpu_trainer_id!=237)
             || gym_leaders_pokemon==false)
         {
-            for(uint8_t i=0 ; i<cpu_party_size[cpu_trainer_id] ; i++){
+            for(uint8_t i=0 ; i<cpu_trainers[cpu_trainer_id].party_size; i++){
                 nick_id = distrib_nick(mt_rand);
                 cpu_pkm_nickname[cpu_trainer_id][i] = preset_nicknames[cpu_pkm_id[cpu_trainer_id][i]][nick_id];
             }
@@ -2391,7 +2391,7 @@ void MainWindow::randomize_cpu_pkmn(std::mt19937 &mt_rand)
 
     // CPU Teams generation
     for(uint8_t cpu_trainer_id=0;cpu_trainer_id<current_cpu_trainers_number;cpu_trainer_id++){
-        cpu_party_size[cpu_trainer_id]=6;
+        cpu_trainers[cpu_trainer_id].party_size=6;
 
         // Petit Cup
         if(is_petit_trainer(cpu_trainers[cpu_trainer_id])){
@@ -2403,7 +2403,7 @@ void MainWindow::randomize_cpu_pkmn(std::mt19937 &mt_rand)
             }
 
             // Change Pokémon team
-            for(uint8_t i=0;i<cpu_party_size[cpu_trainer_id];i++){
+            for(uint8_t i=0;i<cpu_trainers[cpu_trainer_id].party_size;i++){
                 quint8 offset_vector_pkm = 0;
 
                 // Petit Cup Final
@@ -2494,7 +2494,7 @@ void MainWindow::randomize_cpu_pkmn(std::mt19937 &mt_rand)
             }
 
             // Change Pokémon team
-            for(uint8_t i=0;i<cpu_party_size[cpu_trainer_id];i++){
+            for(uint8_t i=0;i<cpu_trainers[cpu_trainer_id].party_size;i++){
                 quint8 offset_vector_pkm = 0;
 
                 // Pika Cup Final
@@ -2586,7 +2586,7 @@ void MainWindow::randomize_cpu_pkmn(std::mt19937 &mt_rand)
             }
 
             // Change Pokémon team
-            for(uint8_t i=0;i<cpu_party_size[cpu_trainer_id];i++){
+            for(uint8_t i=0;i<cpu_trainers[cpu_trainer_id].party_size;i++){
                 quint8 offset_vector_pkm = 0;
 
                 // Prime Cup Final (Mew check)
@@ -2674,7 +2674,7 @@ void MainWindow::randomize_cpu_pkmn(std::mt19937 &mt_rand)
             }
 
             // Change Pokémon team
-            for(uint8_t i=0;i<cpu_party_size[cpu_trainer_id];i++){
+            for(uint8_t i=0;i<cpu_trainers[cpu_trainer_id].party_size;i++){
                 quint8 offset_vector_pkm = 0;
 
                 // Poké Cup Final
@@ -2763,7 +2763,7 @@ void MainWindow::randomize_cpu_pkmn(std::mt19937 &mt_rand)
             std::shuffle(pkm_ids_vector_glc_lowminlv.begin(), pkm_ids_vector_glc_lowminlv.end(), mt_rand);
 
             // Change Pokémon team
-            for(uint8_t i=0;i<cpu_party_size[cpu_trainer_id];i++){
+            for(uint8_t i=0;i<cpu_trainers[cpu_trainer_id].party_size;i++){
                 quint8 offset_vector_pkm = 0;
                 quint8 glc_index = 0;
 
@@ -3112,9 +3112,9 @@ void MainWindow::randomize_cpu_pkmn(std::mt19937 &mt_rand)
 
             // Change Pokémon team
             if(ui->checkBox_Randomizer_CPU_MewtwoFullParty->isChecked() == false){
-                cpu_party_size[cpu_trainer_id] = 1;
+                cpu_trainers[cpu_trainer_id].party_size = 1;
             }
-            for(uint8_t i=0;i<cpu_party_size[cpu_trainer_id];i++){
+            for(uint8_t i=0;i<cpu_trainers[cpu_trainer_id].party_size;i++){
                 if(i==0 && ui->checkBox_Randomizer_CPU_MewtwoMewtwo->isChecked()){
                     cpu_pkm_id[cpu_trainer_id][i] = 150;
                     cpu_pkm_nickname[cpu_trainer_id][i] = pkm_name[150];
@@ -3158,7 +3158,7 @@ void MainWindow::randomize_cpu_pkmn(std::mt19937 &mt_rand)
         else if(is_battle_now_trainer(cpu_trainers[cpu_trainer_id])){
             std::shuffle(pkm_ids_vector_primecup.begin(), pkm_ids_vector_primecup.end(), mt_rand);
             // Change Pokémon team
-            for(uint8_t i=0;i<cpu_party_size[cpu_trainer_id];i++){
+            for(uint8_t i=0;i<cpu_trainers[cpu_trainer_id].party_size;i++){
                 cpu_pkm_id[cpu_trainer_id][i] = pkm_ids_vector_primecup[i];
                 cpu_pkm_nickname[cpu_trainer_id][i] = pkm_name[pkm_ids_vector_primecup[i]];
 

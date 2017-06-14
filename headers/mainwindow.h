@@ -108,7 +108,6 @@ public:
     quint8  cpu_cup_offset[256];
     quint8  cpu_ivs_min = 2;
     quint8  cpu_ivs_max = 15;
-    quint8  cpu_party_size[256];
     quint8  cpu_pkm_id[256][6];
     QString cpu_pkm_nickname[256][6];
     quint8  cpu_pkm_level[256][6];

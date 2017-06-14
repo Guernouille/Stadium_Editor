@@ -634,7 +634,7 @@ void MainWindow::on_spinBox_CPU_AI_valueChanged(int){
 void MainWindow::on_spinBox_CPU_PartySize_valueChanged(int){
     if(not_in_init){
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_party_size[buf8] = ui->spinBox_CPU_PartySize->value();
+        cpu_trainers[buf8].party_size = ui->spinBox_CPU_PartySize->value();
     }
 }
 

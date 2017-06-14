@@ -237,7 +237,7 @@ void MainWindow::write_cpu_rentals(QFile &romfile)
                 // CPU Trainer party size
                 rom_offset = 0x89803B + (i-current_cpu_trainers_number)*560 + *set_iter;
                 romfile.seek(rom_offset);
-                write<<cpu_party_size[i];
+                write<<cpu_trainers[i].party_size;
 
                 // CPU Trainer Pokémon data
                 for(short j=0;j<6;j++){
