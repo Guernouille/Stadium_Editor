@@ -292,10 +292,12 @@ private:
     QSignalMapper *type1_combobox_mapper;
     QSignalMapper *type2_combobox_mapper;
     QSignalMapper *mult_spinbox_mapper;
+    QSignalMapper *lvl_spinbox_mapper;
 
     std::vector<QComboBox*> type1_comboboxes;
     std::vector<QComboBox*> type2_comboboxes;
     std::vector<QSpinBox*> mult_spinboxes;
+    std::vector<QSpinBox*> lvl_spinboxes;
 
     // type chart
     quint8 convert_type_id(quint8 type_id);
@@ -317,6 +319,7 @@ private:
     void init_type1_box_vec();
     void init_type2_box_vec();
     void init_mult_box_vec();
+    void init_lvl_box_vec();
 
     // N64 CRC fix
     void n64crc(QFile &romfile);
@@ -356,9 +359,6 @@ private:
 
     // pkm data parameters
     void refresh_bs_parameters();
-
-    // TODO: turn into slot with a signal mapper
-    void spinBox_Lv_valueChanged(int);
 
 private slots:
     // menu
@@ -558,12 +558,7 @@ private slots:
     void on_spinBox_IV_Speed_5_valueChanged(int);
     void on_spinBox_IV_Speed_6_valueChanged(int);
 
-    void on_spinBox_Lv_1_valueChanged(int);
-    void on_spinBox_Lv_2_valueChanged(int);
-    void on_spinBox_Lv_3_valueChanged(int);
-    void on_spinBox_Lv_4_valueChanged(int);
-    void on_spinBox_Lv_5_valueChanged(int);
-    void on_spinBox_Lv_6_valueChanged(int);
+    void lv_spinbox_changed(int);
 
     void on_spinBox_PPUp1_1_valueChanged(int);
     void on_spinBox_PPUp2_1_valueChanged(int);

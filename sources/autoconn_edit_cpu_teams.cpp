@@ -1024,13 +1024,7 @@ void MainWindow::on_spinBox_IV_Speed_6_valueChanged(int) {
 }
 
 // Pokémon Levels
-
-// TODO: turn this into a slot and use a QSignalMapper.
-void MainWindow::spinBox_Lv_valueChanged(int levelBox) {
-    std::array<QSpinBox*, 6> lvl_spinboxes {
-        ui->spinBox_Lv_1, ui->spinBox_Lv_2, ui->spinBox_Lv_3,
-        ui->spinBox_Lv_4, ui->spinBox_Lv_5, ui->spinBox_Lv_6
-    };
+void MainWindow::lv_spinbox_changed(int levelBox) {
     if (not_in_init) {
         quint8 trainer_id = ui->comboBox_CPU_Trainer->currentIndex();
         cpu_pkm_level[trainer_id][levelBox] = lvl_spinboxes[levelBox]->value();
@@ -1048,30 +1042,6 @@ void MainWindow::spinBox_Lv_valueChanged(int levelBox) {
         cpu_pkm_experience[trainer_id][levelBox] =
                 calc_experience(pkm_growth_rate[pkm_id], level);
     }
-}
-
-void MainWindow::on_spinBox_Lv_1_valueChanged(int) {
-    spinBox_Lv_valueChanged(0);
-}
-
-void MainWindow::on_spinBox_Lv_2_valueChanged(int) {
-    spinBox_Lv_valueChanged(1);
-}
-
-void MainWindow::on_spinBox_Lv_3_valueChanged(int) {
-    spinBox_Lv_valueChanged(2);
-}
-
-void MainWindow::on_spinBox_Lv_4_valueChanged(int) {
-    spinBox_Lv_valueChanged(3);
-}
-
-void MainWindow::on_spinBox_Lv_5_valueChanged(int) {
-    spinBox_Lv_valueChanged(4);
-}
-
-void MainWindow::on_spinBox_Lv_6_valueChanged(int) {
-    spinBox_Lv_valueChanged(5);
 }
 
 // PP Ups

@@ -13,10 +13,12 @@ MainWindow::MainWindow(QWidget *parent) :
     init_type1_box_vec();
     init_type2_box_vec();
     init_mult_box_vec();
+    init_lvl_box_vec();
 
     type1_combobox_mapper = new QSignalMapper(this);
     type2_combobox_mapper = new QSignalMapper(this);
     mult_spinbox_mapper = new QSignalMapper(this);
+    lvl_spinbox_mapper = new QSignalMapper(this);
 
     for (unsigned int i = 0; i < type1_comboboxes.size(); ++i) {
         connect(type1_comboboxes[i], SIGNAL(currentIndexChanged(int)),
@@ -33,6 +35,11 @@ MainWindow::MainWindow(QWidget *parent) :
                 mult_spinbox_mapper, SLOT(map()));
         mult_spinbox_mapper->setMapping(mult_spinboxes[i], i);
     }
+    for (unsigned int i = 0; i < lvl_spinboxes.size(); ++i) {
+        connect(lvl_spinboxes[i], SIGNAL(valueChanged(int)),
+                lvl_spinbox_mapper, SLOT(map()));
+        lvl_spinbox_mapper->setMapping(lvl_spinboxes[i], i);
+    }
 
     connect(type1_combobox_mapper, SIGNAL(mapped(int)),
             this, SLOT(type1_box_changed(int)));
@@ -40,6 +47,8 @@ MainWindow::MainWindow(QWidget *parent) :
             this, SLOT(type2_box_changed(int)));
     connect(mult_spinbox_mapper, SIGNAL(mapped(int)),
             this, SLOT(mult_spinbox_changed(int)));
+    connect(lvl_spinbox_mapper, SIGNAL(mapped(int)),
+            this, SLOT(lv_spinbox_changed(int)));
 }
 
 MainWindow::~MainWindow()
@@ -303,4 +312,14 @@ void MainWindow::init_mult_box_vec()
     mult_spinboxes.push_back(ui->spinBox_Multiplier_80);
     mult_spinboxes.push_back(ui->spinBox_Multiplier_81);
     mult_spinboxes.push_back(ui->spinBox_Multiplier_82);
+}
+
+void MainWindow::init_lvl_box_vec()
+{
+    lvl_spinboxes.push_back(ui->spinBox_Lv_1);
+    lvl_spinboxes.push_back(ui->spinBox_Lv_2);
+    lvl_spinboxes.push_back(ui->spinBox_Lv_3);
+    lvl_spinboxes.push_back(ui->spinBox_Lv_4);
+    lvl_spinboxes.push_back(ui->spinBox_Lv_5);
+    lvl_spinboxes.push_back(ui->spinBox_Lv_6);
 }
