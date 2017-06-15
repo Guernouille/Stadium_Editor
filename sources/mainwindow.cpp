@@ -14,11 +14,17 @@ MainWindow::MainWindow(QWidget *parent) :
     init_type2_box_vec();
     init_mult_box_vec();
     init_lvl_box_vec();
+    init_move_box_vecs();
 
     type1_combobox_mapper = new QSignalMapper(this);
     type2_combobox_mapper = new QSignalMapper(this);
     mult_spinbox_mapper = new QSignalMapper(this);
     lvl_spinbox_mapper = new QSignalMapper(this);
+
+    move1_combobox_mapper = new QSignalMapper(this);
+    move2_combobox_mapper = new QSignalMapper(this);
+    move3_combobox_mapper = new QSignalMapper(this);
+    move4_combobox_mapper = new QSignalMapper(this);
 
     for (unsigned int i = 0; i < type1_comboboxes.size(); ++i) {
         connect(type1_comboboxes[i], SIGNAL(currentIndexChanged(int)),
@@ -41,6 +47,27 @@ MainWindow::MainWindow(QWidget *parent) :
         lvl_spinbox_mapper->setMapping(lvl_spinboxes[i], i);
     }
 
+    for (unsigned int i = 0; i < move1_comboboxes.size(); ++i) {
+        connect(move1_comboboxes[i], SIGNAL(currentIndexChanged(int)),
+                move1_combobox_mapper, SLOT(map()));
+        move1_combobox_mapper->setMapping(move1_comboboxes[i], i);
+    }
+    for (unsigned int i = 0; i < move2_comboboxes.size(); ++i) {
+        connect(move2_comboboxes[i], SIGNAL(currentIndexChanged(int)),
+                move2_combobox_mapper, SLOT(map()));
+        move2_combobox_mapper->setMapping(move2_comboboxes[i], i);
+    }
+    for (unsigned int i = 0; i < move3_comboboxes.size(); ++i) {
+        connect(move3_comboboxes[i], SIGNAL(currentIndexChanged(int)),
+                move3_combobox_mapper, SLOT(map()));
+        move3_combobox_mapper->setMapping(move3_comboboxes[i], i);
+    }
+    for (unsigned int i = 0; i < move4_comboboxes.size(); ++i) {
+        connect(move4_comboboxes[i], SIGNAL(currentIndexChanged(int)),
+                move4_combobox_mapper, SLOT(map()));
+        move4_combobox_mapper->setMapping(move4_comboboxes[i], i);
+    }
+
     connect(type1_combobox_mapper, SIGNAL(mapped(int)),
             this, SLOT(type1_box_changed(int)));
     connect(type2_combobox_mapper, SIGNAL(mapped(int)),
@@ -49,6 +76,15 @@ MainWindow::MainWindow(QWidget *parent) :
             this, SLOT(mult_spinbox_changed(int)));
     connect(lvl_spinbox_mapper, SIGNAL(mapped(int)),
             this, SLOT(lv_spinbox_changed(int)));
+
+    connect(move1_combobox_mapper, SIGNAL(mapped(int)),
+            this, SLOT(move1_combobox_changed(int)));
+    connect(move2_combobox_mapper, SIGNAL(mapped(int)),
+            this, SLOT(move2_combobox_changed(int)));
+    connect(move3_combobox_mapper, SIGNAL(mapped(int)),
+            this, SLOT(move3_combobox_changed(int)));
+    connect(move4_combobox_mapper, SIGNAL(mapped(int)),
+            this, SLOT(move4_combobox_changed(int)));
 }
 
 MainWindow::~MainWindow()
@@ -322,4 +358,32 @@ void MainWindow::init_lvl_box_vec()
     lvl_spinboxes.push_back(ui->spinBox_Lv_4);
     lvl_spinboxes.push_back(ui->spinBox_Lv_5);
     lvl_spinboxes.push_back(ui->spinBox_Lv_6);
+}
+
+void MainWindow::init_move_box_vecs()
+{
+    move1_comboboxes.push_back(ui->comboBox_Move1_1);
+    move1_comboboxes.push_back(ui->comboBox_Move1_2);
+    move1_comboboxes.push_back(ui->comboBox_Move1_3);
+    move1_comboboxes.push_back(ui->comboBox_Move1_4);
+    move1_comboboxes.push_back(ui->comboBox_Move1_5);
+    move1_comboboxes.push_back(ui->comboBox_Move1_6);
+    move2_comboboxes.push_back(ui->comboBox_Move2_1);
+    move2_comboboxes.push_back(ui->comboBox_Move2_2);
+    move2_comboboxes.push_back(ui->comboBox_Move2_3);
+    move2_comboboxes.push_back(ui->comboBox_Move2_4);
+    move2_comboboxes.push_back(ui->comboBox_Move2_5);
+    move2_comboboxes.push_back(ui->comboBox_Move2_6);
+    move3_comboboxes.push_back(ui->comboBox_Move3_1);
+    move3_comboboxes.push_back(ui->comboBox_Move3_2);
+    move3_comboboxes.push_back(ui->comboBox_Move3_3);
+    move3_comboboxes.push_back(ui->comboBox_Move3_4);
+    move3_comboboxes.push_back(ui->comboBox_Move3_5);
+    move3_comboboxes.push_back(ui->comboBox_Move3_6);
+    move4_comboboxes.push_back(ui->comboBox_Move4_1);
+    move4_comboboxes.push_back(ui->comboBox_Move4_2);
+    move4_comboboxes.push_back(ui->comboBox_Move4_3);
+    move4_comboboxes.push_back(ui->comboBox_Move4_4);
+    move4_comboboxes.push_back(ui->comboBox_Move4_5);
+    move4_comboboxes.push_back(ui->comboBox_Move4_6);
 }

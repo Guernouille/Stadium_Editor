@@ -294,10 +294,20 @@ private:
     QSignalMapper *mult_spinbox_mapper;
     QSignalMapper *lvl_spinbox_mapper;
 
+    QSignalMapper *move1_combobox_mapper;
+    QSignalMapper *move2_combobox_mapper;
+    QSignalMapper *move3_combobox_mapper;
+    QSignalMapper *move4_combobox_mapper;
+
     std::vector<QComboBox*> type1_comboboxes;
     std::vector<QComboBox*> type2_comboboxes;
     std::vector<QSpinBox*> mult_spinboxes;
     std::vector<QSpinBox*> lvl_spinboxes;
+
+    std::vector<QComboBox*> move1_comboboxes;
+    std::vector<QComboBox*> move2_comboboxes;
+    std::vector<QComboBox*> move3_comboboxes;
+    std::vector<QComboBox*> move4_comboboxes;
 
     // type chart
     quint8 convert_type_id(quint8 type_id);
@@ -320,6 +330,7 @@ private:
     void init_type2_box_vec();
     void init_mult_box_vec();
     void init_lvl_box_vec();
+    void init_move_box_vecs();
 
     // N64 CRC fix
     void n64crc(QFile &romfile);
@@ -451,30 +462,10 @@ private slots:
     void on_comboBox_TMsHMsNames_currentIndexChanged(int);
 
     // edit cpu trainer
-    void on_comboBox_Move1_1_currentIndexChanged(int);
-    void on_comboBox_Move2_1_currentIndexChanged(int);
-    void on_comboBox_Move3_1_currentIndexChanged(int);
-    void on_comboBox_Move4_1_currentIndexChanged(int);
-    void on_comboBox_Move1_2_currentIndexChanged(int);
-    void on_comboBox_Move2_2_currentIndexChanged(int);
-    void on_comboBox_Move3_2_currentIndexChanged(int);
-    void on_comboBox_Move4_2_currentIndexChanged(int);
-    void on_comboBox_Move1_3_currentIndexChanged(int);
-    void on_comboBox_Move2_3_currentIndexChanged(int);
-    void on_comboBox_Move3_3_currentIndexChanged(int);
-    void on_comboBox_Move4_3_currentIndexChanged(int);
-    void on_comboBox_Move1_4_currentIndexChanged(int);
-    void on_comboBox_Move2_4_currentIndexChanged(int);
-    void on_comboBox_Move3_4_currentIndexChanged(int);
-    void on_comboBox_Move4_4_currentIndexChanged(int);
-    void on_comboBox_Move1_5_currentIndexChanged(int);
-    void on_comboBox_Move2_5_currentIndexChanged(int);
-    void on_comboBox_Move3_5_currentIndexChanged(int);
-    void on_comboBox_Move4_5_currentIndexChanged(int);
-    void on_comboBox_Move1_6_currentIndexChanged(int);
-    void on_comboBox_Move2_6_currentIndexChanged(int);
-    void on_comboBox_Move3_6_currentIndexChanged(int);
-    void on_comboBox_Move4_6_currentIndexChanged(int);
+    void move1_combobox_changed(int);
+    void move2_combobox_changed(int);
+    void move3_combobox_changed(int);
+    void move4_combobox_changed(int);
 
     void on_comboBox_Pkmn_1_currentIndexChanged(int);
     void on_comboBox_Pkmn_2_currentIndexChanged(int);

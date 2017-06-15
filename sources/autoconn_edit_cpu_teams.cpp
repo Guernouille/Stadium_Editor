@@ -1,444 +1,104 @@
 #include "mainwindow.h"
 
 // Move IDs
-void MainWindow::on_comboBox_Move1_1_currentIndexChanged(int) {
-    if(not_in_init){
-        buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_pkm_move_1[buf8][0] = ui->comboBox_Move1_1->currentIndex();
 
-        cpu_pkm_pp_1[buf8][0] = 0;
-        if(cpu_pkm_ppup_1[buf8][0]>0 && cpu_pkm_move_1[buf8][0]>0){
-            cpu_pkm_pp_1[buf8][0] = move_pp[cpu_pkm_move_1[buf8][0]] / 5;
-            cpu_pkm_pp_1[buf8][0] *= cpu_pkm_ppup_1[buf8][0];
-            cpu_pkm_pp_1[buf8][0] |= cpu_pkm_ppup_1[buf8][0]<<6;
-        }
-        else{
-            ui->spinBox_PPUp1_1->setValue(0);
-            cpu_pkm_ppup_1[buf8][0]=0;
-        }
-        cpu_pkm_pp_1[buf8][0] += move_pp[cpu_pkm_move_1[buf8][0]];
-    }
-}
-void MainWindow::on_comboBox_Move2_1_currentIndexChanged(int) {
-    if(not_in_init){
-        buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_pkm_move_2[buf8][0] = ui->comboBox_Move2_1->currentIndex();
+// TODO: Combine these four into one slot when enough refactoring has been done.
 
-        cpu_pkm_pp_2[buf8][0] = 0;
-        if(cpu_pkm_ppup_2[buf8][0]>0 && cpu_pkm_move_2[buf8][0]>0){
-            cpu_pkm_pp_2[buf8][0] = move_pp[cpu_pkm_move_2[buf8][0]] / 5;
-            cpu_pkm_pp_2[buf8][0] *= cpu_pkm_ppup_2[buf8][0];
-            cpu_pkm_pp_2[buf8][0] |= cpu_pkm_ppup_2[buf8][0]<<6;
-        }
-        else{
-            ui->spinBox_PPUp2_1->setValue(0);
-            cpu_pkm_ppup_2[buf8][0]=0;
-        }
-        cpu_pkm_pp_2[buf8][0] += move_pp[cpu_pkm_move_2[buf8][0]];
-    }
-}
-void MainWindow::on_comboBox_Move3_1_currentIndexChanged(int) {
-    if(not_in_init){
-        buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_pkm_move_3[buf8][0] = ui->comboBox_Move3_1->currentIndex();
+void MainWindow::move1_combobox_changed(int pkm_num) {
+    std::vector<QSpinBox*> ppup1_boxes {
+        ui->spinBox_PPUp1_1, ui->spinBox_PPUp1_2, ui->spinBox_PPUp1_3,
+        ui->spinBox_PPUp1_4, ui->spinBox_PPUp1_5, ui->spinBox_PPUp1_6
+    };
 
-        cpu_pkm_pp_3[buf8][0] = 0;
-        if(cpu_pkm_ppup_3[buf8][0]>0 && cpu_pkm_move_3[buf8][0]>0){
-            cpu_pkm_pp_3[buf8][0] = move_pp[cpu_pkm_move_3[buf8][0]] / 5;
-            cpu_pkm_pp_3[buf8][0] *= cpu_pkm_ppup_3[buf8][0];
-            cpu_pkm_pp_3[buf8][0] |= cpu_pkm_ppup_3[buf8][0]<<6;
-        }
-        else{
-            ui->spinBox_PPUp3_1->setValue(0);
-            cpu_pkm_ppup_3[buf8][0]=0;
-        }
-        cpu_pkm_pp_3[buf8][0] += move_pp[cpu_pkm_move_3[buf8][0]];
-    }
-}
-void MainWindow::on_comboBox_Move4_1_currentIndexChanged(int) {
-    if(not_in_init){
+    if (not_in_init) {
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_pkm_move_4[buf8][0] = ui->comboBox_Move4_1->currentIndex();
+        cpu_pkm_move_1[buf8][pkm_num] = move1_comboboxes[pkm_num]->currentIndex();
 
-        cpu_pkm_pp_4[buf8][0] = 0;
-        if(cpu_pkm_ppup_4[buf8][0]>0 && cpu_pkm_move_4[buf8][0]>0){
-            cpu_pkm_pp_4[buf8][0] = move_pp[cpu_pkm_move_4[buf8][0]] / 5;
-            cpu_pkm_pp_4[buf8][0] *= cpu_pkm_ppup_4[buf8][0];
-            cpu_pkm_pp_4[buf8][0] |= cpu_pkm_ppup_4[buf8][0]<<6;
+        cpu_pkm_pp_1[buf8][pkm_num] = 0;
+        if(cpu_pkm_ppup_1[buf8][pkm_num]>0 && cpu_pkm_move_1[buf8][pkm_num]>0){
+            cpu_pkm_pp_1[buf8][pkm_num] = move_pp[cpu_pkm_move_1[buf8][pkm_num]] / 5;
+            cpu_pkm_pp_1[buf8][pkm_num] *= cpu_pkm_ppup_1[buf8][pkm_num];
+            cpu_pkm_pp_1[buf8][pkm_num] |= cpu_pkm_ppup_1[buf8][pkm_num]<<6;
         }
-        else{
-            ui->spinBox_PPUp4_1->setValue(0);
-            cpu_pkm_ppup_4[buf8][0]=0;
+        else {
+            ppup1_boxes[pkm_num]->setValue(0);
+            cpu_pkm_ppup_1[buf8][pkm_num] = 0;
         }
-        cpu_pkm_pp_4[buf8][0] += move_pp[cpu_pkm_move_4[buf8][0]];
+        cpu_pkm_pp_1[buf8][pkm_num] += move_pp[cpu_pkm_move_1[buf8][pkm_num]];
     }
 }
 
-void MainWindow::on_comboBox_Move1_2_currentIndexChanged(int) {
-    if(not_in_init){
-        buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_pkm_move_1[buf8][1] = ui->comboBox_Move1_2->currentIndex();
+void MainWindow::move2_combobox_changed(int pkm_num) {
+    std::vector<QSpinBox*> ppup2_boxes {
+        ui->spinBox_PPUp2_1, ui->spinBox_PPUp2_2, ui->spinBox_PPUp2_3,
+        ui->spinBox_PPUp2_4, ui->spinBox_PPUp2_5, ui->spinBox_PPUp2_6
+    };
 
-        cpu_pkm_pp_1[buf8][1] = 0;
-        if(cpu_pkm_ppup_1[buf8][1]>0 && cpu_pkm_move_1[buf8][1]>0){
-            cpu_pkm_pp_1[buf8][1] = move_pp[cpu_pkm_move_1[buf8][1]] / 5;
-            cpu_pkm_pp_1[buf8][1] *= cpu_pkm_ppup_1[buf8][1];
-            cpu_pkm_pp_1[buf8][1] |= cpu_pkm_ppup_1[buf8][1]<<6;
-        }
-        else{
-            ui->spinBox_PPUp1_2->setValue(0);
-            cpu_pkm_ppup_1[buf8][1]=0;
-        }
-        cpu_pkm_pp_1[buf8][1] += move_pp[cpu_pkm_move_1[buf8][1]];
-    }
-}
-void MainWindow::on_comboBox_Move2_2_currentIndexChanged(int) {
-    if(not_in_init){
+    if (not_in_init) {
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_pkm_move_2[buf8][1] = ui->comboBox_Move2_2->currentIndex();
+        cpu_pkm_move_2[buf8][pkm_num] = move2_comboboxes[pkm_num]->currentIndex();
 
-        cpu_pkm_pp_2[buf8][1] = 0;
-        if(cpu_pkm_ppup_2[buf8][1]>0 && cpu_pkm_move_2[buf8][1]>0){
-            cpu_pkm_pp_2[buf8][1] = move_pp[cpu_pkm_move_2[buf8][1]] / 5;
-            cpu_pkm_pp_2[buf8][1] *= cpu_pkm_ppup_2[buf8][1];
-            cpu_pkm_pp_2[buf8][1] |= cpu_pkm_ppup_2[buf8][1]<<6;
+        cpu_pkm_pp_2[buf8][pkm_num] = 0;
+        if(cpu_pkm_ppup_2[buf8][pkm_num]>0 && cpu_pkm_move_2[buf8][pkm_num]>0){
+            cpu_pkm_pp_2[buf8][pkm_num] = move_pp[cpu_pkm_move_2[buf8][pkm_num]] / 5;
+            cpu_pkm_pp_2[buf8][pkm_num] *= cpu_pkm_ppup_2[buf8][pkm_num];
+            cpu_pkm_pp_2[buf8][pkm_num] |= cpu_pkm_ppup_2[buf8][pkm_num]<<6;
         }
-        else{
-            ui->spinBox_PPUp2_2->setValue(0);
-            cpu_pkm_ppup_2[buf8][1]=0;
+        else {
+            ppup2_boxes[pkm_num]->setValue(0);
+            cpu_pkm_ppup_2[buf8][pkm_num] = 0;
         }
-        cpu_pkm_pp_2[buf8][1] += move_pp[cpu_pkm_move_2[buf8][1]];
-    }
-}
-void MainWindow::on_comboBox_Move3_2_currentIndexChanged(int) {
-    if(not_in_init){
-        buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_pkm_move_3[buf8][1] = ui->comboBox_Move3_2->currentIndex();
-
-        cpu_pkm_pp_3[buf8][1] = 0;
-        if(cpu_pkm_ppup_3[buf8][1]>0 && cpu_pkm_move_3[buf8][1]>0){
-            cpu_pkm_pp_3[buf8][1] = move_pp[cpu_pkm_move_3[buf8][1]] / 5;
-            cpu_pkm_pp_3[buf8][1] *= cpu_pkm_ppup_3[buf8][1];
-            cpu_pkm_pp_3[buf8][1] |= cpu_pkm_ppup_3[buf8][1]<<6;
-        }
-        else{
-            ui->spinBox_PPUp3_2->setValue(0);
-            cpu_pkm_ppup_3[buf8][1]=0;
-        }
-        cpu_pkm_pp_3[buf8][1] += move_pp[cpu_pkm_move_3[buf8][1]];
-    }
-}
-void MainWindow::on_comboBox_Move4_2_currentIndexChanged(int) {
-    if(not_in_init){
-        buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_pkm_move_4[buf8][1] = ui->comboBox_Move4_2->currentIndex();
-
-        cpu_pkm_pp_4[buf8][1] = 0;
-        if(cpu_pkm_ppup_4[buf8][1]>0 && cpu_pkm_move_4[buf8][1]>0){
-            cpu_pkm_pp_4[buf8][1] = move_pp[cpu_pkm_move_4[buf8][1]] / 5;
-            cpu_pkm_pp_4[buf8][1] *= cpu_pkm_ppup_4[buf8][1];
-            cpu_pkm_pp_4[buf8][1] |= cpu_pkm_ppup_4[buf8][1]<<6;
-        }
-        else{
-            ui->spinBox_PPUp4_2->setValue(0);
-            cpu_pkm_ppup_4[buf8][1]=0;
-        }
-        cpu_pkm_pp_4[buf8][1] += move_pp[cpu_pkm_move_4[buf8][1]];
+        cpu_pkm_pp_2[buf8][pkm_num] += move_pp[cpu_pkm_move_2[buf8][pkm_num]];
     }
 }
 
-void MainWindow::on_comboBox_Move1_3_currentIndexChanged(int) {
-    if(not_in_init){
-        buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_pkm_move_1[buf8][2] = ui->comboBox_Move1_3->currentIndex();
+void MainWindow::move3_combobox_changed(int pkm_num) {
+    std::vector<QSpinBox*> ppup3_boxes {
+        ui->spinBox_PPUp3_1, ui->spinBox_PPUp3_2, ui->spinBox_PPUp3_3,
+        ui->spinBox_PPUp3_4, ui->spinBox_PPUp3_5, ui->spinBox_PPUp3_6
+    };
 
-        cpu_pkm_pp_1[buf8][2] = 0;
-        if(cpu_pkm_ppup_1[buf8][2]>0 && cpu_pkm_move_1[buf8][2]>0){
-            cpu_pkm_pp_1[buf8][2] = move_pp[cpu_pkm_move_1[buf8][2]] / 5;
-            cpu_pkm_pp_1[buf8][2] *= cpu_pkm_ppup_1[buf8][2];
-            cpu_pkm_pp_1[buf8][2] |= cpu_pkm_ppup_1[buf8][2]<<6;
-        }
-        else{
-            ui->spinBox_PPUp1_3->setValue(0);
-            cpu_pkm_ppup_1[buf8][2]=0;
-        }
-        cpu_pkm_pp_1[buf8][2] += move_pp[cpu_pkm_move_1[buf8][2]];
-    }
-}
-void MainWindow::on_comboBox_Move2_3_currentIndexChanged(int) {
-    if(not_in_init){
+    if (not_in_init) {
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_pkm_move_2[buf8][2] = ui->comboBox_Move2_3->currentIndex();
+        cpu_pkm_move_3[buf8][pkm_num] = move3_comboboxes[pkm_num]->currentIndex();
 
-        cpu_pkm_pp_2[buf8][2] = 0;
-        if(cpu_pkm_ppup_2[buf8][2]>0 && cpu_pkm_move_2[buf8][2]>0){
-            cpu_pkm_pp_2[buf8][2] = move_pp[cpu_pkm_move_2[buf8][2]] / 5;
-            cpu_pkm_pp_2[buf8][2] *= cpu_pkm_ppup_2[buf8][2];
-            cpu_pkm_pp_2[buf8][2] |= cpu_pkm_ppup_2[buf8][2]<<6;
+        cpu_pkm_pp_3[buf8][pkm_num] = 0;
+        if(cpu_pkm_ppup_3[buf8][pkm_num]>0 && cpu_pkm_move_3[buf8][pkm_num]>0){
+            cpu_pkm_pp_3[buf8][pkm_num] = move_pp[cpu_pkm_move_3[buf8][pkm_num]] / 5;
+            cpu_pkm_pp_3[buf8][pkm_num] *= cpu_pkm_ppup_3[buf8][pkm_num];
+            cpu_pkm_pp_3[buf8][pkm_num] |= cpu_pkm_ppup_3[buf8][pkm_num]<<6;
         }
-        else{
-            ui->spinBox_PPUp2_3->setValue(0);
-            cpu_pkm_ppup_2[buf8][2]=0;
+        else {
+            ppup3_boxes[pkm_num]->setValue(0);
+            cpu_pkm_ppup_3[buf8][pkm_num] = 0;
         }
-        cpu_pkm_pp_2[buf8][2] += move_pp[cpu_pkm_move_2[buf8][2]];
-    }
-}
-void MainWindow::on_comboBox_Move3_3_currentIndexChanged(int) {
-    if(not_in_init){
-        buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_pkm_move_3[buf8][2] = ui->comboBox_Move3_3->currentIndex();
-
-        cpu_pkm_pp_3[buf8][2] = 0;
-        if(cpu_pkm_ppup_3[buf8][2]>0 && cpu_pkm_move_3[buf8][2]>0){
-            cpu_pkm_pp_3[buf8][2] = move_pp[cpu_pkm_move_3[buf8][2]] / 5;
-            cpu_pkm_pp_3[buf8][2] *= cpu_pkm_ppup_3[buf8][2];
-            cpu_pkm_pp_3[buf8][2] |= cpu_pkm_ppup_3[buf8][2]<<6;
-        }
-        else{
-            ui->spinBox_PPUp3_3->setValue(0);
-            cpu_pkm_ppup_3[buf8][2]=0;
-        }
-        cpu_pkm_pp_3[buf8][2] += move_pp[cpu_pkm_move_3[buf8][2]];
-    }
-}
-void MainWindow::on_comboBox_Move4_3_currentIndexChanged(int) {
-    if(not_in_init){
-        buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_pkm_move_4[buf8][2] = ui->comboBox_Move4_3->currentIndex();
-
-        cpu_pkm_pp_4[buf8][2] = 0;
-        if(cpu_pkm_ppup_4[buf8][2]>0 && cpu_pkm_move_4[buf8][2]>0){
-            cpu_pkm_pp_4[buf8][2] = move_pp[cpu_pkm_move_4[buf8][2]] / 5;
-            cpu_pkm_pp_4[buf8][2] *= cpu_pkm_ppup_4[buf8][2];
-            cpu_pkm_pp_4[buf8][2] |= cpu_pkm_ppup_4[buf8][2]<<6;
-        }
-        else{
-            ui->spinBox_PPUp4_3->setValue(0);
-            cpu_pkm_ppup_1[buf8][2]=0;
-        }
-        cpu_pkm_pp_4[buf8][2] += move_pp[cpu_pkm_move_4[buf8][2]];
+        cpu_pkm_pp_3[buf8][pkm_num] += move_pp[cpu_pkm_move_3[buf8][pkm_num]];
     }
 }
 
-void MainWindow::on_comboBox_Move1_4_currentIndexChanged(int) {
-    if(not_in_init){
-        buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_pkm_move_1[buf8][3] = ui->comboBox_Move1_4->currentIndex();
+void MainWindow::move4_combobox_changed(int pkm_num) {
+    std::vector<QSpinBox*> ppup4_boxes {
+        ui->spinBox_PPUp4_1, ui->spinBox_PPUp4_2, ui->spinBox_PPUp4_3,
+        ui->spinBox_PPUp4_4, ui->spinBox_PPUp4_5, ui->spinBox_PPUp4_6
+    };
 
-        cpu_pkm_pp_1[buf8][3] = 0;
-        if(cpu_pkm_ppup_1[buf8][3]>0 && cpu_pkm_move_1[buf8][3]>0){
-            cpu_pkm_pp_1[buf8][3] = move_pp[cpu_pkm_move_1[buf8][3]] / 5;
-            cpu_pkm_pp_1[buf8][3] *= cpu_pkm_ppup_1[buf8][3];
-            cpu_pkm_pp_1[buf8][3] |= cpu_pkm_ppup_1[buf8][3]<<6;
+    if (not_in_init) {
+        buf8 = ui->comboBox_CPU_Trainer->currentIndex();
+        cpu_pkm_move_4[buf8][pkm_num] = move4_comboboxes[pkm_num]->currentIndex();
+
+        cpu_pkm_pp_4[buf8][pkm_num] = 0;
+        if(cpu_pkm_ppup_4[buf8][pkm_num]>0 && cpu_pkm_move_4[buf8][pkm_num]>0){
+            cpu_pkm_pp_4[buf8][pkm_num] = move_pp[cpu_pkm_move_4[buf8][pkm_num]] / 5;
+            cpu_pkm_pp_4[buf8][pkm_num] *= cpu_pkm_ppup_4[buf8][pkm_num];
+            cpu_pkm_pp_4[buf8][pkm_num] |= cpu_pkm_ppup_4[buf8][pkm_num]<<6;
         }
-        else{
-            ui->spinBox_PPUp1_4->setValue(0);
-            cpu_pkm_ppup_1[buf8][3]=0;
+        else {
+            ppup4_boxes[pkm_num]->setValue(0);
+            cpu_pkm_ppup_4[buf8][pkm_num] = 0;
         }
-        cpu_pkm_pp_1[buf8][3] += move_pp[cpu_pkm_move_1[buf8][3]];
+        cpu_pkm_pp_4[buf8][pkm_num] += move_pp[cpu_pkm_move_4[buf8][pkm_num]];
     }
 }
-void MainWindow::on_comboBox_Move2_4_currentIndexChanged(int) {
-    if(not_in_init){
-        buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_pkm_move_2[buf8][3] = ui->comboBox_Move2_4->currentIndex();
-
-        cpu_pkm_pp_2[buf8][3] = 0;
-        if(cpu_pkm_ppup_2[buf8][3]>0 && cpu_pkm_move_2[buf8][3]>0){
-            cpu_pkm_pp_2[buf8][3] = move_pp[cpu_pkm_move_2[buf8][3]] / 5;
-            cpu_pkm_pp_2[buf8][3] *= cpu_pkm_ppup_2[buf8][3];
-            cpu_pkm_pp_2[buf8][3] |= cpu_pkm_ppup_2[buf8][3]<<6;
-        }
-        else{
-            ui->spinBox_PPUp2_4->setValue(0);
-            cpu_pkm_ppup_2[buf8][3]=0;
-        }
-        cpu_pkm_pp_2[buf8][3] += move_pp[cpu_pkm_move_2[buf8][3]];
-    }
-}
-void MainWindow::on_comboBox_Move3_4_currentIndexChanged(int) {
-    if(not_in_init){
-        buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_pkm_move_3[buf8][3] = ui->comboBox_Move3_4->currentIndex();
-
-        cpu_pkm_pp_3[buf8][3] = 0;
-        if(cpu_pkm_ppup_3[buf8][3]>0 && cpu_pkm_move_3[buf8][3]>0){
-            cpu_pkm_pp_3[buf8][3] = move_pp[cpu_pkm_move_3[buf8][3]] / 5;
-            cpu_pkm_pp_3[buf8][3] *= cpu_pkm_ppup_3[buf8][3];
-            cpu_pkm_pp_3[buf8][3] |= cpu_pkm_ppup_3[buf8][3]<<6;
-        }
-        else{
-            ui->spinBox_PPUp3_4->setValue(0);
-            cpu_pkm_ppup_3[buf8][3]=0;
-        }
-        cpu_pkm_pp_3[buf8][3] += move_pp[cpu_pkm_move_3[buf8][3]];
-    }
-}
-void MainWindow::on_comboBox_Move4_4_currentIndexChanged(int) {
-    if(not_in_init){
-        buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_pkm_move_4[buf8][3] = ui->comboBox_Move4_4->currentIndex();
-
-        cpu_pkm_pp_4[buf8][3] = 0;
-        if(cpu_pkm_ppup_4[buf8][3]>0 && cpu_pkm_move_4[buf8][3]>0){
-            cpu_pkm_pp_4[buf8][3] = move_pp[cpu_pkm_move_4[buf8][3]] / 5;
-            cpu_pkm_pp_4[buf8][3] *= cpu_pkm_ppup_4[buf8][3];
-            cpu_pkm_pp_4[buf8][3] |= cpu_pkm_ppup_4[buf8][3]<<6;
-        }
-        else{
-            ui->spinBox_PPUp4_4->setValue(0);
-            cpu_pkm_ppup_4[buf8][3]=0;
-        }
-        cpu_pkm_pp_4[buf8][3] += move_pp[cpu_pkm_move_4[buf8][3]];
-    }
-}
-
-void MainWindow::on_comboBox_Move1_5_currentIndexChanged(int) {
-    if(not_in_init){
-        buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_pkm_move_1[buf8][4] = ui->comboBox_Move1_5->currentIndex();
-
-        cpu_pkm_pp_1[buf8][4] = 0;
-        if(cpu_pkm_ppup_1[buf8][4]>0 && cpu_pkm_move_1[buf8][4]>0){
-            cpu_pkm_pp_1[buf8][4] = move_pp[cpu_pkm_move_1[buf8][4]] / 5;
-            cpu_pkm_pp_1[buf8][4] *= cpu_pkm_ppup_1[buf8][4];
-            cpu_pkm_pp_1[buf8][4] |= cpu_pkm_ppup_1[buf8][4]<<6;
-        }
-        else{
-            ui->spinBox_PPUp1_5->setValue(0);
-            cpu_pkm_ppup_1[buf8][4]=0;
-        }
-        cpu_pkm_pp_1[buf8][4] += move_pp[cpu_pkm_move_1[buf8][4]];
-    }
-}
-void MainWindow::on_comboBox_Move2_5_currentIndexChanged(int) {
-    if(not_in_init){
-        buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_pkm_move_2[buf8][4] = ui->comboBox_Move2_5->currentIndex();
-
-        cpu_pkm_pp_2[buf8][4] = 0;
-        if(cpu_pkm_ppup_2[buf8][4]>0 && cpu_pkm_move_2[buf8][4]>0){
-            cpu_pkm_pp_2[buf8][4] = move_pp[cpu_pkm_move_2[buf8][4]] / 5;
-            cpu_pkm_pp_2[buf8][4] *= cpu_pkm_ppup_2[buf8][4];
-            cpu_pkm_pp_2[buf8][4] |= cpu_pkm_ppup_2[buf8][4]<<6;
-        }
-        else{
-            ui->spinBox_PPUp2_5->setValue(0);
-            cpu_pkm_ppup_2[buf8][4]=0;
-        }
-        cpu_pkm_pp_2[buf8][4] += move_pp[cpu_pkm_move_2[buf8][4]];
-    }
-}
-void MainWindow::on_comboBox_Move3_5_currentIndexChanged(int) {
-    if(not_in_init){
-        buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_pkm_move_3[buf8][4] = ui->comboBox_Move3_5->currentIndex();
-
-        cpu_pkm_pp_3[buf8][4] = 0;
-        if(cpu_pkm_ppup_3[buf8][4]>0 && cpu_pkm_move_3[buf8][4]>0){
-            cpu_pkm_pp_3[buf8][4] = move_pp[cpu_pkm_move_3[buf8][4]] / 5;
-            cpu_pkm_pp_3[buf8][4] *= cpu_pkm_ppup_3[buf8][4];
-            cpu_pkm_pp_3[buf8][4] |= cpu_pkm_ppup_3[buf8][4]<<6;
-        }
-        else{
-            ui->spinBox_PPUp3_5->setValue(0);
-            cpu_pkm_ppup_3[buf8][4]=0;
-        }
-        cpu_pkm_pp_3[buf8][4] += move_pp[cpu_pkm_move_3[buf8][4]];
-    }
-}
-void MainWindow::on_comboBox_Move4_5_currentIndexChanged(int) {
-    if(not_in_init){
-        buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_pkm_move_4[buf8][4] = ui->comboBox_Move4_5->currentIndex();
-
-        cpu_pkm_pp_4[buf8][4] = 0;
-        if(cpu_pkm_ppup_4[buf8][4]>0 && cpu_pkm_move_4[buf8][4]>0){
-            cpu_pkm_pp_4[buf8][4] = move_pp[cpu_pkm_move_4[buf8][4]] / 5;
-            cpu_pkm_pp_4[buf8][4] *= cpu_pkm_ppup_4[buf8][4];
-            cpu_pkm_pp_4[buf8][4] |= cpu_pkm_ppup_4[buf8][4]<<6;
-        }
-        else{
-            ui->spinBox_PPUp4_5->setValue(0);
-            cpu_pkm_ppup_4[buf8][4]=0;
-        }
-        cpu_pkm_pp_4[buf8][4] += move_pp[cpu_pkm_move_4[buf8][4]];
-    }
-}
-
-void MainWindow::on_comboBox_Move1_6_currentIndexChanged(int) {
-    if(not_in_init){
-        buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_pkm_move_1[buf8][5] = ui->comboBox_Move1_6->currentIndex();
-
-        cpu_pkm_pp_1[buf8][5] = 0;
-        if(cpu_pkm_ppup_1[buf8][5]>0 && cpu_pkm_move_1[buf8][5]>0){
-            cpu_pkm_pp_1[buf8][5] = move_pp[cpu_pkm_move_1[buf8][5]] / 5;
-            cpu_pkm_pp_1[buf8][5] *= cpu_pkm_ppup_1[buf8][5];
-            cpu_pkm_pp_1[buf8][5] |= cpu_pkm_ppup_1[buf8][5]<<6;
-        }
-        else{
-            ui->spinBox_PPUp1_6->setValue(0);
-            cpu_pkm_ppup_1[buf8][5]=0;
-        }
-        cpu_pkm_pp_1[buf8][5] += move_pp[cpu_pkm_move_1[buf8][5]];
-    }
-}
-void MainWindow::on_comboBox_Move2_6_currentIndexChanged(int) {
-    if(not_in_init){
-        buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_pkm_move_2[buf8][5] = ui->comboBox_Move2_6->currentIndex();
-
-        cpu_pkm_pp_2[buf8][5] = 0;
-        if(cpu_pkm_ppup_2[buf8][5]>0 && cpu_pkm_move_2[buf8][5]>0){
-            cpu_pkm_pp_2[buf8][5] = move_pp[cpu_pkm_move_2[buf8][5]] / 5;
-            cpu_pkm_pp_2[buf8][5] *= cpu_pkm_ppup_2[buf8][5];
-            cpu_pkm_pp_2[buf8][5] |= cpu_pkm_ppup_2[buf8][5]<<6;
-        }
-        else{
-            ui->spinBox_PPUp2_6->setValue(0);
-            cpu_pkm_ppup_2[buf8][5]=0;
-        }
-        cpu_pkm_pp_2[buf8][5] += move_pp[cpu_pkm_move_2[buf8][5]];
-    }
-}
-void MainWindow::on_comboBox_Move3_6_currentIndexChanged(int) {
-    if(not_in_init){
-        buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_pkm_move_3[buf8][5] = ui->comboBox_Move3_6->currentIndex();
-
-        cpu_pkm_pp_3[buf8][5] = 0;
-        if(cpu_pkm_ppup_3[buf8][5]>0 && cpu_pkm_move_3[buf8][5]>0){
-            cpu_pkm_pp_3[buf8][5] = move_pp[cpu_pkm_move_3[buf8][5]] / 5;
-            cpu_pkm_pp_3[buf8][5] *= cpu_pkm_ppup_3[buf8][5];
-            cpu_pkm_pp_3[buf8][5] |= cpu_pkm_ppup_3[buf8][5]<<6;
-        }
-        else{
-            ui->spinBox_PPUp3_6->setValue(0);
-            cpu_pkm_ppup_3[buf8][5]=0;
-        }
-        cpu_pkm_pp_3[buf8][5] += move_pp[cpu_pkm_move_3[buf8][5]];
-    }
-}
-void MainWindow::on_comboBox_Move4_6_currentIndexChanged(int) {
-    if(not_in_init){
-        buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_pkm_move_4[buf8][5] = ui->comboBox_Move4_6->currentIndex();
-
-        cpu_pkm_pp_4[buf8][5] = 0;
-        if(cpu_pkm_ppup_4[buf8][5]>0 && cpu_pkm_move_4[buf8][5]>0){
-            cpu_pkm_pp_4[buf8][5] = move_pp[cpu_pkm_move_4[buf8][5]] / 5;
-            cpu_pkm_pp_4[buf8][5] *= cpu_pkm_ppup_4[buf8][5];
-            cpu_pkm_pp_4[buf8][5] |= cpu_pkm_ppup_4[buf8][5]<<6;
-        }
-        else{
-            ui->spinBox_PPUp4_6->setValue(0);
-            cpu_pkm_ppup_4[buf8][5]=0;
-        }
-        cpu_pkm_pp_4[buf8][5] += move_pp[cpu_pkm_move_4[buf8][5]];
-    }
-}
-
 
 // Pokémon IDs
 void MainWindow::on_comboBox_Pkmn_1_currentIndexChanged(int) {
