@@ -247,19 +247,19 @@ void MainWindow::write_cpu_rentals(QFile &romfile)
                     // Stats    : (((Base + IV) * 2 + E) * Level) / 100 + 5
                     cpu_pkm_stat_hp[i][j] = floor(sqrt(std::max(0,cpu_pkm_ev_hp[i][j]-1))+1);
                     cpu_pkm_stat_hp[i][j] = floor(std::min(quint16(255),cpu_pkm_stat_hp[i][j])/4);
-                    cpu_pkm_stat_hp[i][j] = floor((((pkm_base_hp[cpu_trainers[i].pkm_ids[j]] + cpu_pkm_iv_hp[i][j])*2 + cpu_pkm_stat_hp[i][j]) * cpu_pkm_level[i][j] / 100) + cpu_pkm_level[i][j]+10);
+                    cpu_pkm_stat_hp[i][j] = floor((((pkm_base_hp[cpu_trainers[i].pkm_ids[j]] + cpu_pkm_iv_hp[i][j])*2 + cpu_pkm_stat_hp[i][j]) * cpu_trainers[i].pkm_lvls[j] / 100) + cpu_trainers[i].pkm_lvls[j]+10);
                     cpu_pkm_stat_atk[i][j] = floor(sqrt(std::max(0,cpu_pkm_ev_atk[i][j]-1))+1);
                     cpu_pkm_stat_atk[i][j] = floor(std::min(quint16(255),cpu_pkm_stat_atk[i][j])/4);
-                    cpu_pkm_stat_atk[i][j] = floor((((pkm_base_atk[cpu_trainers[i].pkm_ids[j]] + cpu_pkm_iv_atk[i][j])*2 + cpu_pkm_stat_atk[i][j]) * cpu_pkm_level[i][j] / 100) + 5);
+                    cpu_pkm_stat_atk[i][j] = floor((((pkm_base_atk[cpu_trainers[i].pkm_ids[j]] + cpu_pkm_iv_atk[i][j])*2 + cpu_pkm_stat_atk[i][j]) * cpu_trainers[i].pkm_lvls[j] / 100) + 5);
                     cpu_pkm_stat_def[i][j] = floor(sqrt(std::max(0,cpu_pkm_ev_def[i][j]-1))+1);
                     cpu_pkm_stat_def[i][j] = floor(std::min(quint16(255),cpu_pkm_stat_def[i][j])/4);
-                    cpu_pkm_stat_def[i][j] = floor((((pkm_base_def[cpu_trainers[i].pkm_ids[j]] + cpu_pkm_iv_def[i][j])*2 + cpu_pkm_stat_def[i][j]) * cpu_pkm_level[i][j] / 100) + 5);
+                    cpu_pkm_stat_def[i][j] = floor((((pkm_base_def[cpu_trainers[i].pkm_ids[j]] + cpu_pkm_iv_def[i][j])*2 + cpu_pkm_stat_def[i][j]) * cpu_trainers[i].pkm_lvls[j] / 100) + 5);
                     cpu_pkm_stat_speed[i][j] = floor(sqrt(std::max(0,cpu_pkm_ev_speed[i][j]-1))+1);
                     cpu_pkm_stat_speed[i][j] = floor(std::min(quint16(255),cpu_pkm_stat_speed[i][j])/4);
-                    cpu_pkm_stat_speed[i][j] = floor((((pkm_base_speed[cpu_trainers[i].pkm_ids[j]] + cpu_pkm_iv_speed[i][j])*2 + cpu_pkm_stat_speed[i][j]) * cpu_pkm_level[i][j] / 100) + 5);
+                    cpu_pkm_stat_speed[i][j] = floor((((pkm_base_speed[cpu_trainers[i].pkm_ids[j]] + cpu_pkm_iv_speed[i][j])*2 + cpu_pkm_stat_speed[i][j]) * cpu_trainers[i].pkm_lvls[j] / 100) + 5);
                     cpu_pkm_stat_spc[i][j] = floor(sqrt(std::max(0,cpu_pkm_ev_spc[i][j]-1))+1);
                     cpu_pkm_stat_spc[i][j] = floor(std::min(quint16(255),cpu_pkm_stat_spc[i][j])/4);
-                    cpu_pkm_stat_spc[i][j] = floor((((pkm_base_spc[cpu_trainers[i].pkm_ids[j]] + cpu_pkm_iv_spc[i][j])*2 + cpu_pkm_stat_spc[i][j]) * cpu_pkm_level[i][j] / 100) + 5);
+                    cpu_pkm_stat_spc[i][j] = floor((((pkm_base_spc[cpu_trainers[i].pkm_ids[j]] + cpu_pkm_iv_spc[i][j])*2 + cpu_pkm_stat_spc[i][j]) * cpu_trainers[i].pkm_lvls[j] / 100) + 5);
 
                     // Write to ROM
                     rom_offset = 0x89803C + (i-current_cpu_trainers_number)*560 + j*84 + *set_iter;
@@ -269,7 +269,7 @@ void MainWindow::write_cpu_rentals(QFile &romfile)
                     rom_offset = 0x89803E + (i-current_cpu_trainers_number)*560 + j*84 + *set_iter;
                     romfile.seek(rom_offset);
                     write<<cpu_pkm_stat_hp[i][j];
-                    write<<cpu_pkm_level[i][j];
+                    write<<cpu_trainers[i].pkm_lvls[j];
 
                     rom_offset = 0x898045 + (i-current_cpu_trainers_number)*560 + j*84 + *set_iter;
                     romfile.seek(rom_offset);
@@ -331,7 +331,7 @@ void MainWindow::write_cpu_rentals(QFile &romfile)
                     write<<cpu_pkm_pp_3[i][j];
                     write<<cpu_pkm_pp_4[i][j];
 
-                    write<<cpu_pkm_level[i][j];
+                    write<<cpu_trainers[i].pkm_lvls[j];
 
                     rom_offset = 0x898062 + (i-current_cpu_trainers_number)*560 + j*84 + *set_iter;
                     romfile.seek(rom_offset);
