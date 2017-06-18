@@ -751,238 +751,194 @@ void MainWindow::randomize_cpu_iv_stat_exp(std::mt19937 &mt_rand)
     }
 }
 
+// Assumes the max level is low_lvl + 5 and the max team level is 3 * low_lvl + 5
+void randomize_lvls_from_range(Trainer &trainer, std::mt19937 &mt_rand, quint8 low_lvl)
+{
+    quint8 sum_limit = 3 * low_lvl + 5;
+    std::vector<std::uniform_int_distribution<>> distribs;
+
+    for (int j = 0; j < 6; ++j) {
+        std::uniform_int_distribution<> new_distrib(low_lvl, low_lvl + j);
+        distribs.push_back(new_distrib);
+    }
+    for (unsigned int i = 0; i < trainer.party_size; ++i) {
+        if ((i % 3) == 0) {
+            trainer.pkm_lvls[i] = distribs[0](mt_rand);
+        }
+        else if ((i % 3) == 1) {
+            quint8 first_lvl = trainer.pkm_lvls[i - 1];
+            trainer.pkm_lvls[i] = distribs[first_lvl - low_lvl](mt_rand);
+        }
+        else {
+            trainer.pkm_lvls[i] = sum_limit;
+            trainer.pkm_lvls[i] -= trainer.pkm_lvls[i - 1];
+            trainer.pkm_lvls[i] -= trainer.pkm_lvls[i - 2];
+        }
+    }
+}
+
 void MainWindow::randomize_cpu_level(std::mt19937 &mt_rand)
 {
     bool gym_leaders_pokemon = ui->checkBox_Randomizer_CPU_GLPkmn->isChecked();
 
     // CPU Levels generation
-    for(uint8_t cpu_trainer_id=0;cpu_trainer_id<current_cpu_trainers_number;cpu_trainer_id++){
-        cpu_trainers[cpu_trainer_id].party_size=6;
+    for (uint8_t cpu_trainer_id=0; cpu_trainer_id<current_cpu_trainers_number; cpu_trainer_id++) {
+        Trainer& current_trainer = cpu_trainers[cpu_trainer_id];
+        current_trainer.party_size = 6;
 
         // Petit Cup: Lv 25 to Lv 30
-        if(cpu_trainers[cpu_trainer_id].cup_id==0 || cpu_trainers[cpu_trainer_id].cup_id==22){
-            std::uniform_int_distribution<> distrib1(25,30);
-            std::uniform_int_distribution<> distrib2(25,29);
-            std::uniform_int_distribution<> distrib3(25,28);
-            std::uniform_int_distribution<> distrib4(25,27);
-            std::uniform_int_distribution<> distrib5(25,26);
-
-            for(uint8_t i=0;i<cpu_trainers[cpu_trainer_id].party_size;i++){
-                if(i==0 || i==3) cpu_trainers[cpu_trainer_id].pkm_lvls[i] = distrib1(mt_rand);
-                else if(i==1 || i==4){
-                    if(cpu_trainers[cpu_trainer_id].pkm_lvls[i-1]==25) cpu_trainers[cpu_trainer_id].pkm_lvls[i] = distrib1(mt_rand);
-                    if(cpu_trainers[cpu_trainer_id].pkm_lvls[i-1]==26) cpu_trainers[cpu_trainer_id].pkm_lvls[i] = distrib2(mt_rand);
-                    if(cpu_trainers[cpu_trainer_id].pkm_lvls[i-1]==27) cpu_trainers[cpu_trainer_id].pkm_lvls[i] = distrib3(mt_rand);
-                    if(cpu_trainers[cpu_trainer_id].pkm_lvls[i-1]==28) cpu_trainers[cpu_trainer_id].pkm_lvls[i] = distrib4(mt_rand);
-                    if(cpu_trainers[cpu_trainer_id].pkm_lvls[i-1]==29) cpu_trainers[cpu_trainer_id].pkm_lvls[i] = distrib5(mt_rand);
-                    if(cpu_trainers[cpu_trainer_id].pkm_lvls[i-1]==30) cpu_trainers[cpu_trainer_id].pkm_lvls[i] = 25;
-                }
-                else if(i==2 || i==5){
-                    cpu_trainers[cpu_trainer_id].pkm_lvls[i] = 80-cpu_trainers[cpu_trainer_id].pkm_lvls[i-1];
-                    cpu_trainers[cpu_trainer_id].pkm_lvls[i] -= cpu_trainers[cpu_trainer_id].pkm_lvls[i-2];
-                }
-            }
+        if (is_petit_trainer(current_trainer)) {
+            randomize_lvls_from_range(current_trainer, mt_rand, 25);
         }
 
         // Pika Cup: Lv 15 to Lv 20
-        else if(cpu_trainers[cpu_trainer_id].cup_id==1 || cpu_trainers[cpu_trainer_id].cup_id==23){
-            std::uniform_int_distribution<> distrib1(15,20);
-            std::uniform_int_distribution<> distrib2(15,19);
-            std::uniform_int_distribution<> distrib3(15,18);
-            std::uniform_int_distribution<> distrib4(15,17);
-            std::uniform_int_distribution<> distrib5(15,16);
-
-            for(uint8_t i=0;i<cpu_trainers[cpu_trainer_id].party_size;i++){
-                if(i==0 || i==3) cpu_trainers[cpu_trainer_id].pkm_lvls[i] = distrib1(mt_rand);
-                else if(i==1 || i==4){
-                    if(cpu_trainers[cpu_trainer_id].pkm_lvls[i-1]==15) cpu_trainers[cpu_trainer_id].pkm_lvls[i] = distrib1(mt_rand);
-                    if(cpu_trainers[cpu_trainer_id].pkm_lvls[i-1]==16) cpu_trainers[cpu_trainer_id].pkm_lvls[i] = distrib2(mt_rand);
-                    if(cpu_trainers[cpu_trainer_id].pkm_lvls[i-1]==17) cpu_trainers[cpu_trainer_id].pkm_lvls[i] = distrib3(mt_rand);
-                    if(cpu_trainers[cpu_trainer_id].pkm_lvls[i-1]==18) cpu_trainers[cpu_trainer_id].pkm_lvls[i] = distrib4(mt_rand);
-                    if(cpu_trainers[cpu_trainer_id].pkm_lvls[i-1]==19) cpu_trainers[cpu_trainer_id].pkm_lvls[i] = distrib5(mt_rand);
-                    if(cpu_trainers[cpu_trainer_id].pkm_lvls[i-1]==20) cpu_trainers[cpu_trainer_id].pkm_lvls[i] = 15;
-                }
-                else if(i==2 || i==5){
-                    cpu_trainers[cpu_trainer_id].pkm_lvls[i] = 50-cpu_trainers[cpu_trainer_id].pkm_lvls[i-1];
-                    cpu_trainers[cpu_trainer_id].pkm_lvls[i] -= cpu_trainers[cpu_trainer_id].pkm_lvls[i-2];
-                }
-            }
+        else if (is_pika_trainer(current_trainer)) {
+            randomize_lvls_from_range(current_trainer, mt_rand, 15);
         }
 
         // Prime Cup: Lv 100
-        else if((cpu_trainers[cpu_trainer_id].cup_id>=2 && cpu_trainers[cpu_trainer_id].cup_id<=5) || (cpu_trainers[cpu_trainer_id].cup_id>=24 && cpu_trainers[cpu_trainer_id].cup_id<=27)){
-            for(uint8_t i=0;i<cpu_trainers[cpu_trainer_id].party_size;i++){
-                cpu_trainers[cpu_trainer_id].pkm_lvls[i] = 100;
-            }
+        else if (is_prime_trainer(current_trainer)) {
+            current_trainer.pkm_lvls.fill(100);
         }
 
         // Poké Cup: Lv 50 to Lv 55
-        else if((cpu_trainers[cpu_trainer_id].cup_id>=6 && cpu_trainers[cpu_trainer_id].cup_id<=9) || (cpu_trainers[cpu_trainer_id].cup_id>=28 && cpu_trainers[cpu_trainer_id].cup_id<=31)){
-            std::uniform_int_distribution<> distrib1(50,55);
-            std::uniform_int_distribution<> distrib2(50,54);
-            std::uniform_int_distribution<> distrib3(50,53);
-            std::uniform_int_distribution<> distrib4(50,52);
-            std::uniform_int_distribution<> distrib5(50,51);
-
-            for(uint8_t i=0;i<cpu_trainers[cpu_trainer_id].party_size;i++){
-                if(i==0 || i==3) cpu_trainers[cpu_trainer_id].pkm_lvls[i] = distrib1(mt_rand);
-                else if(i==1 || i==4){
-                    if(cpu_trainers[cpu_trainer_id].pkm_lvls[i-1]==50) cpu_trainers[cpu_trainer_id].pkm_lvls[i] = distrib1(mt_rand);
-                    if(cpu_trainers[cpu_trainer_id].pkm_lvls[i-1]==51) cpu_trainers[cpu_trainer_id].pkm_lvls[i] = distrib2(mt_rand);
-                    if(cpu_trainers[cpu_trainer_id].pkm_lvls[i-1]==52) cpu_trainers[cpu_trainer_id].pkm_lvls[i] = distrib3(mt_rand);
-                    if(cpu_trainers[cpu_trainer_id].pkm_lvls[i-1]==53) cpu_trainers[cpu_trainer_id].pkm_lvls[i] = distrib4(mt_rand);
-                    if(cpu_trainers[cpu_trainer_id].pkm_lvls[i-1]==54) cpu_trainers[cpu_trainer_id].pkm_lvls[i] = distrib5(mt_rand);
-                    if(cpu_trainers[cpu_trainer_id].pkm_lvls[i-1]==55) cpu_trainers[cpu_trainer_id].pkm_lvls[i] = 50;
-                }
-                else if(i==2 || i==5){
-                    cpu_trainers[cpu_trainer_id].pkm_lvls[i] = 155-cpu_trainers[cpu_trainer_id].pkm_lvls[i-1];
-                    cpu_trainers[cpu_trainer_id].pkm_lvls[i] -= cpu_trainers[cpu_trainer_id].pkm_lvls[i-2];
-                }
-            }
+        else if (is_poke_trainer(current_trainer)) {
+            randomize_lvls_from_range(current_trainer, mt_rand, 50);
         }
 
         // Gym Leader Castle: User-specified Lv range
-        else if((cpu_trainers[cpu_trainer_id].cup_id>=10 && cpu_trainers[cpu_trainer_id].cup_id<=19) || (cpu_trainers[cpu_trainer_id].cup_id>=32 && cpu_trainers[cpu_trainer_id].cup_id<=41)){
-            if(glc_level_min != glc_level_max){
-                std::uniform_int_distribution<> distrib(glc_level_min,glc_level_max);
-                for(uint8_t i=0;i<cpu_trainers[cpu_trainer_id].party_size;i++){
-                    cpu_trainers[cpu_trainer_id].pkm_lvls[i] = distrib(mt_rand);
-                }
+        // TODO: figure out how to clean up the gym leaders stuff.
+        else if (is_glc_trainer(current_trainer)) {
+            std::uniform_int_distribution<> distrib(glc_level_min, glc_level_max);
+            for (uint8_t i = 0; current_trainer.party_size; i++) {
+                current_trainer.pkm_lvls[i] = distrib(mt_rand);
             }
-            else{
-                for(uint8_t i=0;i<cpu_trainers[cpu_trainer_id].party_size;i++){
-                    cpu_trainers[cpu_trainer_id].pkm_lvls[i] = glc_level_min;
-                }
-            }
-            if(gym_leaders_pokemon && glc_level_max<=78){
+
+            if (gym_leaders_pokemon && (glc_level_max <= 78)) {
                 // Brock
                 if(cpu_trainer_id==83 || cpu_trainer_id==209){
-                    cpu_trainers[cpu_trainer_id].pkm_lvls[0] = glc_level_max*1.13;
-                    cpu_trainers[cpu_trainer_id].pkm_lvls[1] = glc_level_max*1.06;
-                    cpu_trainers[cpu_trainer_id].pkm_lvls[2] = glc_level_max*1.17;
+                    current_trainer.pkm_lvls[0] = glc_level_max*1.13;
+                    current_trainer.pkm_lvls[1] = glc_level_max*1.06;
+                    current_trainer.pkm_lvls[2] = glc_level_max*1.17;
                 }
                 // Misty
                 if(cpu_trainer_id==87 || cpu_trainer_id==213){
-                    cpu_trainers[cpu_trainer_id].pkm_lvls[0] = glc_level_max*1.26;
-                    cpu_trainers[cpu_trainer_id].pkm_lvls[1] = glc_level_max;
-                    cpu_trainers[cpu_trainer_id].pkm_lvls[2] = glc_level_max;
-                    cpu_trainers[cpu_trainer_id].pkm_lvls[3] = glc_level_max*1.12;
+                    current_trainer.pkm_lvls[0] = glc_level_max*1.26;
+                    current_trainer.pkm_lvls[1] = glc_level_max;
+                    current_trainer.pkm_lvls[2] = glc_level_max;
+                    current_trainer.pkm_lvls[3] = glc_level_max*1.12;
                 }
                 // Lt. Surge
                 if(cpu_trainer_id==91 || cpu_trainer_id==217){
-                    cpu_trainers[cpu_trainer_id].pkm_lvls[0] = glc_level_max*1.06;
-                    cpu_trainers[cpu_trainer_id].pkm_lvls[1] = glc_level_max;
-                    cpu_trainers[cpu_trainer_id].pkm_lvls[2] = glc_level_max*1.05;
+                    current_trainer.pkm_lvls[0] = glc_level_max*1.06;
+                    current_trainer.pkm_lvls[1] = glc_level_max;
+                    current_trainer.pkm_lvls[2] = glc_level_max*1.05;
                 }
                 // Erika
                 if(cpu_trainer_id==95 || cpu_trainer_id==221){
                     if((prng_seed[0]+(cpu_trainer_id/200))%2==0)
-                        cpu_trainers[cpu_trainer_id].pkm_lvls[0] = glc_level_max*1.06;
+                        current_trainer.pkm_lvls[0] = glc_level_max*1.06;
                     else
-                        cpu_trainers[cpu_trainer_id].pkm_lvls[0] = glc_level_max*1.05;
+                        current_trainer.pkm_lvls[0] = glc_level_max*1.05;
                     if((prng_seed[1]+(cpu_trainer_id/200))%2==0)
-                        cpu_trainers[cpu_trainer_id].pkm_lvls[1] = glc_level_max;
+                        current_trainer.pkm_lvls[1] = glc_level_max;
                     else
-                        cpu_trainers[cpu_trainer_id].pkm_lvls[1] = glc_level_max*1.04;
-                    cpu_trainers[cpu_trainer_id].pkm_lvls[2] = glc_level_max*1.03;
+                        current_trainer.pkm_lvls[1] = glc_level_max*1.04;
+                    current_trainer.pkm_lvls[2] = glc_level_max*1.03;
                 }
                 // Koga
                 if(cpu_trainer_id==99 || cpu_trainer_id==225){
                     if((prng_seed[2]+(cpu_trainer_id/200))%2==0)
-                        cpu_trainers[cpu_trainer_id].pkm_lvls[0] = glc_level_max*1.11;
+                        current_trainer.pkm_lvls[0] = glc_level_max*1.11;
                     else
-                        cpu_trainers[cpu_trainer_id].pkm_lvls[0] = glc_level_max*1.04;
-                    cpu_trainers[cpu_trainer_id].pkm_lvls[1] = glc_level_max*1.08;
-                    cpu_trainers[cpu_trainer_id].pkm_lvls[2] = glc_level_max*1.02;
+                        current_trainer.pkm_lvls[0] = glc_level_max*1.04;
+                    current_trainer.pkm_lvls[1] = glc_level_max*1.08;
+                    current_trainer.pkm_lvls[2] = glc_level_max*1.02;
                 }
                 // Sabrina
                 if(cpu_trainer_id==103 || cpu_trainer_id==229){
-                    cpu_trainers[cpu_trainer_id].pkm_lvls[0] = glc_level_max;
+                    current_trainer.pkm_lvls[0] = glc_level_max;
                     if((prng_seed[4]+(cpu_trainer_id/200))%2==0)
-                        cpu_trainers[cpu_trainer_id].pkm_lvls[1] = glc_level_max*1.05;
+                        current_trainer.pkm_lvls[1] = glc_level_max*1.05;
                     else
-                        cpu_trainers[cpu_trainer_id].pkm_lvls[1] = glc_level_max*1.11;
-                    cpu_trainers[cpu_trainer_id].pkm_lvls[2] = glc_level_max;
+                        current_trainer.pkm_lvls[1] = glc_level_max*1.11;
+                    current_trainer.pkm_lvls[2] = glc_level_max;
                 }
                 // Blaine
                 if(cpu_trainer_id==107 || cpu_trainer_id==233){
                     if((prng_seed[1]+(cpu_trainer_id/200))%3==0)
-                        cpu_trainers[cpu_trainer_id].pkm_lvls[0] = glc_level_max*1.05;
+                        current_trainer.pkm_lvls[0] = glc_level_max*1.05;
                     else if((prng_seed[1]+(cpu_trainer_id/200))%3==1)
-                        cpu_trainers[cpu_trainer_id].pkm_lvls[0] = glc_level_max*1.09;
+                        current_trainer.pkm_lvls[0] = glc_level_max*1.09;
                     else
-                        cpu_trainers[cpu_trainer_id].pkm_lvls[0] = glc_level_max*1.07;
-                    cpu_trainers[cpu_trainer_id].pkm_lvls[1] = glc_level_max*1.01;
-                    cpu_trainers[cpu_trainer_id].pkm_lvls[2] = glc_level_max;
+                        current_trainer.pkm_lvls[0] = glc_level_max*1.07;
+                    current_trainer.pkm_lvls[1] = glc_level_max*1.01;
+                    current_trainer.pkm_lvls[2] = glc_level_max;
                 }
                 // Giovanni
                 if(cpu_trainer_id==111 || cpu_trainer_id==237){
-                    cpu_trainers[cpu_trainer_id].pkm_lvls[0] = glc_level_max*1.02;
+                    current_trainer.pkm_lvls[0] = glc_level_max*1.02;
                     if((prng_seed[0]+(cpu_trainer_id/200))%3==0)
-                        cpu_trainers[cpu_trainer_id].pkm_lvls[1] = glc_level_max*1.02;
+                        current_trainer.pkm_lvls[1] = glc_level_max*1.02;
                     else if((prng_seed[0]+(cpu_trainer_id/200))%3==1)
-                        cpu_trainers[cpu_trainer_id].pkm_lvls[1] = glc_level_max*1.08;
+                        current_trainer.pkm_lvls[1] = glc_level_max*1.08;
                     else
-                        cpu_trainers[cpu_trainer_id].pkm_lvls[1] = glc_level_max*1.02;
-                    cpu_trainers[cpu_trainer_id].pkm_lvls[2] = glc_level_max*1.02;
+                        current_trainer.pkm_lvls[1] = glc_level_max*1.02;
+                    current_trainer.pkm_lvls[2] = glc_level_max*1.02;
                 }
                 // Lorelei
                 if(cpu_trainer_id==112 || cpu_trainer_id==238){
-                    cpu_trainers[cpu_trainer_id].pkm_lvls[0] = glc_level_max*1.02;
-                    cpu_trainers[cpu_trainer_id].pkm_lvls[1] = glc_level_max;
-                    cpu_trainers[cpu_trainer_id].pkm_lvls[2] = glc_level_max;
+                    current_trainer.pkm_lvls[0] = glc_level_max*1.02;
+                    current_trainer.pkm_lvls[1] = glc_level_max;
+                    current_trainer.pkm_lvls[2] = glc_level_max;
                 }
                 // Bruno
                 if(cpu_trainer_id==113 || cpu_trainer_id==239){
-                    cpu_trainers[cpu_trainer_id].pkm_ids[0] = glc_level_max*1.05;
-                    cpu_trainers[cpu_trainer_id].pkm_ids[1] = glc_level_max*1.13;
+                    current_trainer.pkm_ids[0] = glc_level_max*1.05;
+                    current_trainer.pkm_ids[1] = glc_level_max*1.13;
                     if((prng_seed[3]+(cpu_trainer_id/200))%3==0)
-                        cpu_trainers[cpu_trainer_id].pkm_ids[2] = glc_level_max*1.09;
+                        current_trainer.pkm_ids[2] = glc_level_max*1.09;
                     else
-                        cpu_trainers[cpu_trainer_id].pkm_ids[2] = glc_level_max*1.05;
+                        current_trainer.pkm_ids[2] = glc_level_max*1.05;
                 }
                 // Agatha
                 if(cpu_trainer_id==114 || cpu_trainer_id==240){
-                    cpu_trainers[cpu_trainer_id].pkm_lvls[0] = glc_level_max*1.02;
-                    cpu_trainers[cpu_trainer_id].pkm_lvls[1] = glc_level_max*1.03;
-                    cpu_trainers[cpu_trainer_id].pkm_lvls[2] = glc_level_max*1.17;
+                    current_trainer.pkm_lvls[0] = glc_level_max*1.02;
+                    current_trainer.pkm_lvls[1] = glc_level_max*1.03;
+                    current_trainer.pkm_lvls[2] = glc_level_max*1.17;
                 }
                 // Lance
                 if(cpu_trainer_id==115 || cpu_trainer_id==241){
-                    cpu_trainers[cpu_trainer_id].pkm_lvls[0] = glc_level_max*1.04;
-                    cpu_trainers[cpu_trainer_id].pkm_lvls[1] = glc_level_max*1.04;
-                    cpu_trainers[cpu_trainer_id].pkm_lvls[2] = glc_level_max;
+                    current_trainer.pkm_lvls[0] = glc_level_max*1.04;
+                    current_trainer.pkm_lvls[1] = glc_level_max*1.04;
+                    current_trainer.pkm_lvls[2] = glc_level_max;
                 }
                 // Rival
                 if(cpu_trainers[cpu_trainer_id].cup_id==19){
-                    cpu_trainers[cpu_trainer_id].pkm_lvls[0] = glc_level_max;
-                    cpu_trainers[cpu_trainer_id].pkm_lvls[1] = glc_level_max*1.02;
-                    cpu_trainers[cpu_trainer_id].pkm_lvls[2] = glc_level_max;
+                    current_trainer.pkm_lvls[0] = glc_level_max;
+                    current_trainer.pkm_lvls[1] = glc_level_max*1.02;
+                    current_trainer.pkm_lvls[2] = glc_level_max;
                 }
                 // Red
                 if(cpu_trainers[cpu_trainer_id].cup_id==41){
-                    cpu_trainers[cpu_trainer_id].pkm_lvls[0] = glc_level_max*1.23;
-                    cpu_trainers[cpu_trainer_id].pkm_lvls[1] = glc_level_max*1.05;
-                    cpu_trainers[cpu_trainer_id].pkm_lvls[2] = glc_level_max;
+                    current_trainer.pkm_lvls[0] = glc_level_max*1.23;
+                    current_trainer.pkm_lvls[1] = glc_level_max*1.05;
+                    current_trainer.pkm_lvls[2] = glc_level_max;
                 }
             }
         }
 
         // Vs Mewtwo: Lv 100
-        else if(cpu_trainers[cpu_trainer_id].cup_id == 20 || cpu_trainers[cpu_trainer_id].cup_id == 42){
-            if(ui->checkBox_Randomizer_CPU_MewtwoFullParty->isChecked() == false){
-                cpu_trainers[cpu_trainer_id].party_size = 1;
+        else if (is_mewtwo_trainer(current_trainer)) {
+            if(!(ui->checkBox_Randomizer_CPU_MewtwoFullParty->isChecked())) {
+                current_trainer.party_size = 1;
             }
-            for(uint8_t i=0;i<cpu_trainers[cpu_trainer_id].party_size;i++){
-                cpu_trainers[cpu_trainer_id].pkm_lvls[i] = 100;
-            }
+            current_trainer.pkm_lvls.fill(100);
         }
 
         // Battle Now: Lv 50
-        else if(cpu_trainers[cpu_trainer_id].cup_id==21 || cpu_trainers[cpu_trainer_id].cup_id==43){
-            for(uint8_t i=0;i<cpu_trainers[cpu_trainer_id].party_size;i++){
-                cpu_trainers[cpu_trainer_id].pkm_lvls[i] = 50;
-            }
+        else if (is_battle_now_trainer(current_trainer)) {
+            current_trainer.pkm_lvls.fill(50);
         }
     }
 }
