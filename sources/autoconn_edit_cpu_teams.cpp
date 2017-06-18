@@ -104,43 +104,43 @@ void MainWindow::move4_combobox_changed(int pkm_num) {
 void MainWindow::on_comboBox_Pkmn_1_currentIndexChanged(int) {
     if(not_in_init){
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_trainers[buf8].pkm_ids[0] = ui->comboBox_Pkmn_1->currentIndex();
-        cpu_pkm_experience[buf8][0] = calc_experience(pkm_growth_rate[cpu_trainers[buf8].pkm_ids[0]],cpu_trainers[buf8].pkm_lvls[0]);
+        cpu_trainers[buf8].pkm[0].id = ui->comboBox_Pkmn_1->currentIndex();
+        cpu_pkm_experience[buf8][0] = calc_experience(pkm_growth_rate[cpu_trainers[buf8].pkm[0].id],cpu_trainers[buf8].pkm_lvls[0]);
     }
 }
 void MainWindow::on_comboBox_Pkmn_2_currentIndexChanged(int) {
     if(not_in_init){
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_trainers[buf8].pkm_ids[1] = ui->comboBox_Pkmn_2->currentIndex();
-        cpu_pkm_experience[buf8][1] = calc_experience(pkm_growth_rate[cpu_trainers[buf8].pkm_ids[1]],cpu_trainers[buf8].pkm_lvls[1]);
+        cpu_trainers[buf8].pkm[1].id = ui->comboBox_Pkmn_2->currentIndex();
+        cpu_pkm_experience[buf8][1] = calc_experience(pkm_growth_rate[cpu_trainers[buf8].pkm[1].id],cpu_trainers[buf8].pkm_lvls[1]);
     }
 }
 void MainWindow::on_comboBox_Pkmn_3_currentIndexChanged(int) {
     if(not_in_init){
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_trainers[buf8].pkm_ids[2] = ui->comboBox_Pkmn_3->currentIndex();
-        cpu_pkm_experience[buf8][2] = calc_experience(pkm_growth_rate[cpu_trainers[buf8].pkm_ids[2]],cpu_trainers[buf8].pkm_lvls[2]);
+        cpu_trainers[buf8].pkm[2].id = ui->comboBox_Pkmn_3->currentIndex();
+        cpu_pkm_experience[buf8][2] = calc_experience(pkm_growth_rate[cpu_trainers[buf8].pkm[2].id],cpu_trainers[buf8].pkm_lvls[2]);
     }
 }
 void MainWindow::on_comboBox_Pkmn_4_currentIndexChanged(int) {
     if(not_in_init){
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_trainers[buf8].pkm_ids[3] = ui->comboBox_Pkmn_4->currentIndex();
-        cpu_pkm_experience[buf8][3] = calc_experience(pkm_growth_rate[cpu_trainers[buf8].pkm_ids[3]],cpu_trainers[buf8].pkm_lvls[3]);
+        cpu_trainers[buf8].pkm[3].id = ui->comboBox_Pkmn_4->currentIndex();
+        cpu_pkm_experience[buf8][3] = calc_experience(pkm_growth_rate[cpu_trainers[buf8].pkm[3].id],cpu_trainers[buf8].pkm_lvls[3]);
     }
 }
 void MainWindow::on_comboBox_Pkmn_5_currentIndexChanged(int) {
     if(not_in_init){
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_trainers[buf8].pkm_ids[4] = ui->comboBox_Pkmn_5->currentIndex();
-        cpu_pkm_experience[buf8][4] = calc_experience(pkm_growth_rate[cpu_trainers[buf8].pkm_ids[4]],cpu_trainers[buf8].pkm_lvls[4]);
+        cpu_trainers[buf8].pkm[4].id = ui->comboBox_Pkmn_5->currentIndex();
+        cpu_pkm_experience[buf8][4] = calc_experience(pkm_growth_rate[cpu_trainers[buf8].pkm[4].id],cpu_trainers[buf8].pkm_lvls[4]);
     }
 }
 void MainWindow::on_comboBox_Pkmn_6_currentIndexChanged(int) {
     if(not_in_init){
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_trainers[buf8].pkm_ids[5] = ui->comboBox_Pkmn_6->currentIndex();
-        cpu_pkm_experience[buf8][5] = calc_experience(pkm_growth_rate[cpu_trainers[buf8].pkm_ids[5]],cpu_trainers[buf8].pkm_lvls[5]);
+        cpu_trainers[buf8].pkm[5].id = ui->comboBox_Pkmn_6->currentIndex();
+        cpu_pkm_experience[buf8][5] = calc_experience(pkm_growth_rate[cpu_trainers[buf8].pkm[5].id],cpu_trainers[buf8].pkm_lvls[5]);
     }
 }
 
@@ -695,7 +695,7 @@ void MainWindow::lv_spinbox_changed(int levelBox) {
         cpu_trainers[trainer_id].pkm_lvls[levelBox] = level;
         lvl_spinboxes[levelBox]->setValue(level);
 
-        quint8 pkm_id = cpu_trainers[trainer_id].pkm_ids[levelBox];
+        quint8 pkm_id = cpu_trainers[trainer_id].pkm[levelBox].id;
         pkm_growth_rate[pkm_id] = std::max(pkm_growth_rate[pkm_id],
                                            static_cast<quint8>(5));
 

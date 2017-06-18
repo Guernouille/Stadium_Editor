@@ -6,6 +6,8 @@
 #include <QString>
 #include <QtGlobal>
 
+#include "pokemon.h"
+
 struct Trainer
 {
     quint8 cup_id;
@@ -13,7 +15,7 @@ struct Trainer
     quint8 sprite_id;
     quint8 ai_id;
     quint8 party_size;
-    std::array<quint8, 6> pkm_ids;
+    std::array<Pokemon, 6> pkm;
     std::array<QString, 6> pkm_nicks;
     std::array<quint8, 6> pkm_lvls;
 };
