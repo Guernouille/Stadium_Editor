@@ -245,19 +245,19 @@ void MainWindow::write_cpu_rentals(QFile &romfile)
                     // Stat Exp : E = floor(min(255, floor(√(max(0, Stat Experience - 1)) + 1)) / 4)
                     // HP       : (((Base + IV) * 2 + E) * Level) / 100 + Level + 10
                     // Stats    : (((Base + IV) * 2 + E) * Level) / 100 + 5
-                    cpu_pkm_stat_hp[i][j] = floor(sqrt(std::max(0,cpu_pkm_ev_hp[i][j]-1))+1);
+                    cpu_pkm_stat_hp[i][j] = floor(sqrt(std::max(0,cpu_trainers[i].pkm[j].hp_ev-1))+1);
                     cpu_pkm_stat_hp[i][j] = floor(std::min(quint16(255),cpu_pkm_stat_hp[i][j])/4);
                     cpu_pkm_stat_hp[i][j] = floor((((pkm_base_hp[cpu_trainers[i].pkm[j].id] + cpu_pkm_iv_hp[i][j])*2 + cpu_pkm_stat_hp[i][j]) * cpu_trainers[i].pkm[j].lvl / 100) + cpu_trainers[i].pkm[j].lvl+10);
-                    cpu_pkm_stat_atk[i][j] = floor(sqrt(std::max(0,cpu_pkm_ev_atk[i][j]-1))+1);
+                    cpu_pkm_stat_atk[i][j] = floor(sqrt(std::max(0,cpu_trainers[i].pkm[j].atk_ev-1))+1);
                     cpu_pkm_stat_atk[i][j] = floor(std::min(quint16(255),cpu_pkm_stat_atk[i][j])/4);
                     cpu_pkm_stat_atk[i][j] = floor((((pkm_base_atk[cpu_trainers[i].pkm[j].id] + cpu_pkm_iv_atk[i][j])*2 + cpu_pkm_stat_atk[i][j]) * cpu_trainers[i].pkm[j].lvl / 100) + 5);
-                    cpu_pkm_stat_def[i][j] = floor(sqrt(std::max(0,cpu_pkm_ev_def[i][j]-1))+1);
+                    cpu_pkm_stat_def[i][j] = floor(sqrt(std::max(0,cpu_trainers[i].pkm[j].def_ev-1))+1);
                     cpu_pkm_stat_def[i][j] = floor(std::min(quint16(255),cpu_pkm_stat_def[i][j])/4);
                     cpu_pkm_stat_def[i][j] = floor((((pkm_base_def[cpu_trainers[i].pkm[j].id] + cpu_pkm_iv_def[i][j])*2 + cpu_pkm_stat_def[i][j]) * cpu_trainers[i].pkm[j].lvl / 100) + 5);
-                    cpu_pkm_stat_speed[i][j] = floor(sqrt(std::max(0,cpu_pkm_ev_speed[i][j]-1))+1);
+                    cpu_pkm_stat_speed[i][j] = floor(sqrt(std::max(0,cpu_trainers[i].pkm[j].speed_ev-1))+1);
                     cpu_pkm_stat_speed[i][j] = floor(std::min(quint16(255),cpu_pkm_stat_speed[i][j])/4);
                     cpu_pkm_stat_speed[i][j] = floor((((pkm_base_speed[cpu_trainers[i].pkm[j].id] + cpu_pkm_iv_speed[i][j])*2 + cpu_pkm_stat_speed[i][j]) * cpu_trainers[i].pkm[j].lvl / 100) + 5);
-                    cpu_pkm_stat_spc[i][j] = floor(sqrt(std::max(0,cpu_pkm_ev_spc[i][j]-1))+1);
+                    cpu_pkm_stat_spc[i][j] = floor(sqrt(std::max(0,cpu_trainers[i].pkm[j].spc_ev-1))+1);
                     cpu_pkm_stat_spc[i][j] = floor(std::min(quint16(255),cpu_pkm_stat_spc[i][j])/4);
                     cpu_pkm_stat_spc[i][j] = floor((((pkm_base_spc[cpu_trainers[i].pkm[j].id] + cpu_pkm_iv_spc[i][j])*2 + cpu_pkm_stat_spc[i][j]) * cpu_trainers[i].pkm[j].lvl / 100) + 5);
 
@@ -281,11 +281,11 @@ void MainWindow::write_cpu_rentals(QFile &romfile)
                     rom_offset = 0x89804C + (i-current_cpu_trainers_number)*560 + j*84 + *set_iter;
                     romfile.seek(rom_offset);
                     write<<cpu_trainers[i].pkm[j].exp;
-                    write<<cpu_pkm_ev_hp[i][j];
-                    write<<cpu_pkm_ev_atk[i][j];
-                    write<<cpu_pkm_ev_def[i][j];
-                    write<<cpu_pkm_ev_speed[i][j];
-                    write<<cpu_pkm_ev_spc[i][j];
+                    write<<cpu_trainers[i].pkm[j].hp_ev;
+                    write<<cpu_trainers[i].pkm[j].atk_ev;
+                    write<<cpu_trainers[i].pkm[j].def_ev;
+                    write<<cpu_trainers[i].pkm[j].speed_ev;
+                    write<<cpu_trainers[i].pkm[j].spc_ev;
 
                     cpu_pkm_ivs[i][j] = cpu_pkm_iv_atk[i][j] << 12;
                     cpu_pkm_ivs[i][j] += cpu_pkm_iv_def[i][j] << 8;

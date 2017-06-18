@@ -1045,11 +1045,11 @@ void MainWindow::on_pushButton_Maximize_CPU_EVsIVs_pressed()
 {
     for(short i=0;i<256;i++){
         for(short j=0;j<6;j++){
-            cpu_pkm_ev_hp[i][j] = 0xFFFF;
-            cpu_pkm_ev_atk[i][j] = 0xFFFF;
-            cpu_pkm_ev_def[i][j] = 0xFFFF;
-            cpu_pkm_ev_spc[i][j] = 0xFFFF;
-            cpu_pkm_ev_speed[i][j] = 0xFFFF;
+            cpu_trainers[i].pkm[j].hp_ev = 0xFFFF;
+            cpu_trainers[i].pkm[j].atk_ev = 0xFFFF;
+            cpu_trainers[i].pkm[j].def_ev = 0xFFFF;
+            cpu_trainers[i].pkm[j].spc_ev = 0xFFFF;
+            cpu_trainers[i].pkm[j].speed_ev = 0xFFFF;
             cpu_pkm_ivs[i][j] = 0xFFFF;
             cpu_pkm_iv_hp[i][j] = 0xF;
             cpu_pkm_iv_atk[i][j] = 0xF;

@@ -303,185 +303,185 @@ void MainWindow::on_spinBox_CPU_PartySize_valueChanged(int){
 void MainWindow::on_spinBox_EV_HP_1_valueChanged(int) {
     if(not_in_init){
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_pkm_ev_hp[buf8][0] = ui->spinBox_EV_HP_1->value();
+        cpu_trainers[buf8].pkm[0].hp_ev = ui->spinBox_EV_HP_1->value();
     }
 }
 void MainWindow::on_spinBox_EV_HP_2_valueChanged(int) {
     if(not_in_init){
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_pkm_ev_hp[buf8][1] = ui->spinBox_EV_HP_2->value();
+        cpu_trainers[buf8].pkm[1].hp_ev = ui->spinBox_EV_HP_2->value();
     }
 }
 void MainWindow::on_spinBox_EV_HP_3_valueChanged(int) {
     if(not_in_init){
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_pkm_ev_hp[buf8][2] = ui->spinBox_EV_HP_3->value();
+        cpu_trainers[buf8].pkm[2].hp_ev = ui->spinBox_EV_HP_3->value();
     }
 }
 void MainWindow::on_spinBox_EV_HP_4_valueChanged(int) {
     if(not_in_init){
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_pkm_ev_hp[buf8][3] = ui->spinBox_EV_HP_4->value();
+        cpu_trainers[buf8].pkm[3].hp_ev = ui->spinBox_EV_HP_4->value();
     }
 }
 void MainWindow::on_spinBox_EV_HP_5_valueChanged(int) {
     if(not_in_init){
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_pkm_ev_hp[buf8][4] = ui->spinBox_EV_HP_5->value();
+        cpu_trainers[buf8].pkm[4].hp_ev = ui->spinBox_EV_HP_5->value();
     }
 }
 void MainWindow::on_spinBox_EV_HP_6_valueChanged(int) {
     if(not_in_init){
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_pkm_ev_hp[buf8][5] = ui->spinBox_EV_HP_6->value();
+        cpu_trainers[buf8].pkm[5].hp_ev = ui->spinBox_EV_HP_6->value();
     }
 }
 
 void MainWindow::on_spinBox_EV_Attack_1_valueChanged(int) {
     if(not_in_init){
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_pkm_ev_atk[buf8][0] = ui->spinBox_EV_Attack_1->value();
+        cpu_trainers[buf8].pkm[0].atk_ev = ui->spinBox_EV_Attack_1->value();
     }
 }
 void MainWindow::on_spinBox_EV_Attack_2_valueChanged(int) {
     if(not_in_init){
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_pkm_ev_atk[buf8][1] = ui->spinBox_EV_Attack_2->value();
+        cpu_trainers[buf8].pkm[1].atk_ev = ui->spinBox_EV_Attack_2->value();
     }
 }
 void MainWindow::on_spinBox_EV_Attack_3_valueChanged(int) {
     if(not_in_init){
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_pkm_ev_atk[buf8][2] = ui->spinBox_EV_Attack_3->value();
+        cpu_trainers[buf8].pkm[2].atk_ev = ui->spinBox_EV_Attack_3->value();
     }
 }
 void MainWindow::on_spinBox_EV_Attack_4_valueChanged(int) {
     if(not_in_init){
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_pkm_ev_atk[buf8][3] = ui->spinBox_EV_Attack_4->value();
+        cpu_trainers[buf8].pkm[3].atk_ev = ui->spinBox_EV_Attack_4->value();
     }
 }
 void MainWindow::on_spinBox_EV_Attack_5_valueChanged(int) {
     if(not_in_init){
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_pkm_ev_atk[buf8][4] = ui->spinBox_EV_Attack_5->value();
+        cpu_trainers[buf8].pkm[4].atk_ev = ui->spinBox_EV_Attack_5->value();
     }
 }
 void MainWindow::on_spinBox_EV_Attack_6_valueChanged(int) {
     if(not_in_init){
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_pkm_ev_atk[buf8][5] = ui->spinBox_EV_Attack_6->value();
+        cpu_trainers[buf8].pkm[5].atk_ev = ui->spinBox_EV_Attack_6->value();
     }
 }
 
 void MainWindow::on_spinBox_EV_Defense_1_valueChanged(int) {
     if(not_in_init){
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_pkm_ev_def[buf8][0] = ui->spinBox_EV_Defense_1->value();
+        cpu_trainers[buf8].pkm[0].def_ev = ui->spinBox_EV_Defense_1->value();
     }
 }
 void MainWindow::on_spinBox_EV_Defense_2_valueChanged(int) {
     if(not_in_init){
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_pkm_ev_def[buf8][1] = ui->spinBox_EV_Defense_2->value();
+        cpu_trainers[buf8].pkm[1].def_ev = ui->spinBox_EV_Defense_2->value();
     }
 }
 void MainWindow::on_spinBox_EV_Defense_3_valueChanged(int) {
     if(not_in_init){
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_pkm_ev_def[buf8][2] = ui->spinBox_EV_Defense_3->value();
+        cpu_trainers[buf8].pkm[2].def_ev = ui->spinBox_EV_Defense_3->value();
     }
 }
 void MainWindow::on_spinBox_EV_Defense_4_valueChanged(int) {
     if(not_in_init){
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_pkm_ev_def[buf8][3] = ui->spinBox_EV_Defense_4->value();
+        cpu_trainers[buf8].pkm[3].def_ev = ui->spinBox_EV_Defense_4->value();
     }
 }
 void MainWindow::on_spinBox_EV_Defense_5_valueChanged(int) {
     if(not_in_init){
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_pkm_ev_def[buf8][4] = ui->spinBox_EV_Defense_5->value();
+        cpu_trainers[buf8].pkm[4].def_ev = ui->spinBox_EV_Defense_5->value();
     }
 }
 void MainWindow::on_spinBox_EV_Defense_6_valueChanged(int) {
     if(not_in_init){
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_pkm_ev_def[buf8][5] = ui->spinBox_EV_Defense_6->value();
+        cpu_trainers[buf8].pkm[5].def_ev = ui->spinBox_EV_Defense_6->value();
     }
 }
 
 void MainWindow::on_spinBox_EV_Special_1_valueChanged(int) {
     if(not_in_init){
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_pkm_ev_spc[buf8][0] = ui->spinBox_EV_Special_1->value();
+        cpu_trainers[buf8].pkm[0].spc_ev = ui->spinBox_EV_Special_1->value();
     }
 }
 void MainWindow::on_spinBox_EV_Special_2_valueChanged(int) {
     if(not_in_init){
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_pkm_ev_spc[buf8][1] = ui->spinBox_EV_Special_2->value();
+        cpu_trainers[buf8].pkm[1].spc_ev = ui->spinBox_EV_Special_2->value();
     }
 }
 void MainWindow::on_spinBox_EV_Special_3_valueChanged(int) {
     if(not_in_init){
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_pkm_ev_spc[buf8][2] = ui->spinBox_EV_Special_3->value();
+        cpu_trainers[buf8].pkm[2].spc_ev = ui->spinBox_EV_Special_3->value();
     }
 }
 void MainWindow::on_spinBox_EV_Special_4_valueChanged(int) {
     if(not_in_init){
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_pkm_ev_spc[buf8][3] = ui->spinBox_EV_Special_4->value();
+        cpu_trainers[buf8].pkm[3].spc_ev = ui->spinBox_EV_Special_4->value();
     }
 }
 void MainWindow::on_spinBox_EV_Special_5_valueChanged(int) {
     if(not_in_init){
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_pkm_ev_spc[buf8][4] = ui->spinBox_EV_Special_5->value();
+        cpu_trainers[buf8].pkm[4].spc_ev = ui->spinBox_EV_Special_5->value();
     }
 }
 void MainWindow::on_spinBox_EV_Special_6_valueChanged(int) {
     if(not_in_init){
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_pkm_ev_spc[buf8][5] = ui->spinBox_EV_Special_6->value();
+        cpu_trainers[buf8].pkm[5].spc_ev = ui->spinBox_EV_Special_6->value();
     }
 }
 
 void MainWindow::on_spinBox_EV_Speed_1_valueChanged(int) {
     if(not_in_init){
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_pkm_ev_speed[buf8][0] = ui->spinBox_EV_Speed_1->value();
+        cpu_trainers[buf8].pkm[0].speed_ev = ui->spinBox_EV_Speed_1->value();
     }
 }
 void MainWindow::on_spinBox_EV_Speed_2_valueChanged(int) {
     if(not_in_init){
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_pkm_ev_speed[buf8][1] = ui->spinBox_EV_Speed_2->value();
+        cpu_trainers[buf8].pkm[1].speed_ev = ui->spinBox_EV_Speed_2->value();
     }
 }
 void MainWindow::on_spinBox_EV_Speed_3_valueChanged(int) {
     if(not_in_init){
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_pkm_ev_speed[buf8][2] = ui->spinBox_EV_Speed_3->value();
+        cpu_trainers[buf8].pkm[2].speed_ev = ui->spinBox_EV_Speed_3->value();
     }
 }
 void MainWindow::on_spinBox_EV_Speed_4_valueChanged(int) {
     if(not_in_init){
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_pkm_ev_speed[buf8][3] = ui->spinBox_EV_Speed_4->value();
+        cpu_trainers[buf8].pkm[3].speed_ev = ui->spinBox_EV_Speed_4->value();
     }
 }
 void MainWindow::on_spinBox_EV_Speed_5_valueChanged(int) {
     if(not_in_init){
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_pkm_ev_speed[buf8][4] = ui->spinBox_EV_Speed_5->value();
+        cpu_trainers[buf8].pkm[4].speed_ev = ui->spinBox_EV_Speed_5->value();
     }
 }
 void MainWindow::on_spinBox_EV_Speed_6_valueChanged(int) {
     if(not_in_init){
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_pkm_ev_speed[buf8][5] = ui->spinBox_EV_Speed_6->value();
+        cpu_trainers[buf8].pkm[5].speed_ev = ui->spinBox_EV_Speed_6->value();
     }
 }
 
