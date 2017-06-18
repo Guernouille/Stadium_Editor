@@ -763,16 +763,16 @@ void randomize_lvls_from_range(Trainer &trainer, std::mt19937 &mt_rand, quint8 l
     }
     for (unsigned int i = 0; i < trainer.party_size; ++i) {
         if ((i % 3) == 0) {
-            trainer.pkm_lvls[i] = distribs[0](mt_rand);
+            trainer.pkm[i].lvl = distribs[0](mt_rand);
         }
         else if ((i % 3) == 1) {
-            quint8 first_lvl = trainer.pkm_lvls[i - 1];
-            trainer.pkm_lvls[i] = distribs[first_lvl - low_lvl](mt_rand);
+            quint8 first_lvl = trainer.pkm[i - 1].lvl;
+            trainer.pkm[i].lvl = distribs[first_lvl - low_lvl](mt_rand);
         }
         else {
-            trainer.pkm_lvls[i] = sum_limit;
-            trainer.pkm_lvls[i] -= trainer.pkm_lvls[i - 1];
-            trainer.pkm_lvls[i] -= trainer.pkm_lvls[i - 2];
+            trainer.pkm[i].lvl = sum_limit;
+            trainer.pkm[i].lvl -= trainer.pkm[i - 1].lvl;
+            trainer.pkm[i].lvl -= trainer.pkm[i - 2].lvl;
         }
     }
 }
@@ -798,7 +798,9 @@ void MainWindow::randomize_cpu_level(std::mt19937 &mt_rand)
 
         // Prime Cup: Lv 100
         else if (is_prime_trainer(current_trainer)) {
-            current_trainer.pkm_lvls.fill(100);
+            for (Pokemon& p : current_trainer.pkm) {
+                p.lvl = 100;
+            }
         }
 
         // Poké Cup: Lv 50 to Lv 55
@@ -810,120 +812,120 @@ void MainWindow::randomize_cpu_level(std::mt19937 &mt_rand)
         // TODO: figure out how to clean up the gym leaders stuff.
         else if (is_glc_trainer(current_trainer)) {
             std::uniform_int_distribution<> distrib(glc_level_min, glc_level_max);
-            for (uint8_t i = 0; current_trainer.party_size; i++) {
-                current_trainer.pkm_lvls[i] = distrib(mt_rand);
+            for (uint8_t i = 0; i < current_trainer.party_size; i++) {
+                current_trainer.pkm[i].lvl = distrib(mt_rand);
             }
 
             if (gym_leaders_pokemon && (glc_level_max <= 78)) {
                 // Brock
                 if(cpu_trainer_id==83 || cpu_trainer_id==209){
-                    current_trainer.pkm_lvls[0] = glc_level_max*1.13;
-                    current_trainer.pkm_lvls[1] = glc_level_max*1.06;
-                    current_trainer.pkm_lvls[2] = glc_level_max*1.17;
+                    current_trainer.pkm[0].lvl = glc_level_max*1.13;
+                    current_trainer.pkm[1].lvl = glc_level_max*1.06;
+                    current_trainer.pkm[2].lvl = glc_level_max*1.17;
                 }
                 // Misty
                 if(cpu_trainer_id==87 || cpu_trainer_id==213){
-                    current_trainer.pkm_lvls[0] = glc_level_max*1.26;
-                    current_trainer.pkm_lvls[1] = glc_level_max;
-                    current_trainer.pkm_lvls[2] = glc_level_max;
-                    current_trainer.pkm_lvls[3] = glc_level_max*1.12;
+                    current_trainer.pkm[0].lvl = glc_level_max*1.26;
+                    current_trainer.pkm[1].lvl = glc_level_max;
+                    current_trainer.pkm[2].lvl = glc_level_max;
+                    current_trainer.pkm[3].lvl = glc_level_max*1.12;
                 }
                 // Lt. Surge
                 if(cpu_trainer_id==91 || cpu_trainer_id==217){
-                    current_trainer.pkm_lvls[0] = glc_level_max*1.06;
-                    current_trainer.pkm_lvls[1] = glc_level_max;
-                    current_trainer.pkm_lvls[2] = glc_level_max*1.05;
+                    current_trainer.pkm[0].lvl = glc_level_max*1.06;
+                    current_trainer.pkm[1].lvl = glc_level_max;
+                    current_trainer.pkm[2].lvl = glc_level_max*1.05;
                 }
                 // Erika
                 if(cpu_trainer_id==95 || cpu_trainer_id==221){
                     if((prng_seed[0]+(cpu_trainer_id/200))%2==0)
-                        current_trainer.pkm_lvls[0] = glc_level_max*1.06;
+                        current_trainer.pkm[0].lvl = glc_level_max*1.06;
                     else
-                        current_trainer.pkm_lvls[0] = glc_level_max*1.05;
+                        current_trainer.pkm[0].lvl = glc_level_max*1.05;
                     if((prng_seed[1]+(cpu_trainer_id/200))%2==0)
-                        current_trainer.pkm_lvls[1] = glc_level_max;
+                        current_trainer.pkm[1].lvl = glc_level_max;
                     else
-                        current_trainer.pkm_lvls[1] = glc_level_max*1.04;
-                    current_trainer.pkm_lvls[2] = glc_level_max*1.03;
+                        current_trainer.pkm[1].lvl = glc_level_max*1.04;
+                    current_trainer.pkm[2].lvl = glc_level_max*1.03;
                 }
                 // Koga
                 if(cpu_trainer_id==99 || cpu_trainer_id==225){
                     if((prng_seed[2]+(cpu_trainer_id/200))%2==0)
-                        current_trainer.pkm_lvls[0] = glc_level_max*1.11;
+                        current_trainer.pkm[0].lvl = glc_level_max*1.11;
                     else
-                        current_trainer.pkm_lvls[0] = glc_level_max*1.04;
-                    current_trainer.pkm_lvls[1] = glc_level_max*1.08;
-                    current_trainer.pkm_lvls[2] = glc_level_max*1.02;
+                        current_trainer.pkm[0].lvl = glc_level_max*1.04;
+                    current_trainer.pkm[1].lvl = glc_level_max*1.08;
+                    current_trainer.pkm[2].lvl = glc_level_max*1.02;
                 }
                 // Sabrina
                 if(cpu_trainer_id==103 || cpu_trainer_id==229){
-                    current_trainer.pkm_lvls[0] = glc_level_max;
+                    current_trainer.pkm[0].lvl = glc_level_max;
                     if((prng_seed[4]+(cpu_trainer_id/200))%2==0)
-                        current_trainer.pkm_lvls[1] = glc_level_max*1.05;
+                        current_trainer.pkm[1].lvl = glc_level_max*1.05;
                     else
-                        current_trainer.pkm_lvls[1] = glc_level_max*1.11;
-                    current_trainer.pkm_lvls[2] = glc_level_max;
+                        current_trainer.pkm[1].lvl = glc_level_max*1.11;
+                    current_trainer.pkm[2].lvl = glc_level_max;
                 }
                 // Blaine
                 if(cpu_trainer_id==107 || cpu_trainer_id==233){
                     if((prng_seed[1]+(cpu_trainer_id/200))%3==0)
-                        current_trainer.pkm_lvls[0] = glc_level_max*1.05;
+                        current_trainer.pkm[0].lvl = glc_level_max*1.05;
                     else if((prng_seed[1]+(cpu_trainer_id/200))%3==1)
-                        current_trainer.pkm_lvls[0] = glc_level_max*1.09;
+                        current_trainer.pkm[0].lvl = glc_level_max*1.09;
                     else
-                        current_trainer.pkm_lvls[0] = glc_level_max*1.07;
-                    current_trainer.pkm_lvls[1] = glc_level_max*1.01;
-                    current_trainer.pkm_lvls[2] = glc_level_max;
+                        current_trainer.pkm[0].lvl = glc_level_max*1.07;
+                    current_trainer.pkm[1].lvl = glc_level_max*1.01;
+                    current_trainer.pkm[2].lvl = glc_level_max;
                 }
                 // Giovanni
                 if(cpu_trainer_id==111 || cpu_trainer_id==237){
-                    current_trainer.pkm_lvls[0] = glc_level_max*1.02;
+                    current_trainer.pkm[0].lvl = glc_level_max*1.02;
                     if((prng_seed[0]+(cpu_trainer_id/200))%3==0)
-                        current_trainer.pkm_lvls[1] = glc_level_max*1.02;
+                        current_trainer.pkm[1].lvl = glc_level_max*1.02;
                     else if((prng_seed[0]+(cpu_trainer_id/200))%3==1)
-                        current_trainer.pkm_lvls[1] = glc_level_max*1.08;
+                        current_trainer.pkm[1].lvl = glc_level_max*1.08;
                     else
-                        current_trainer.pkm_lvls[1] = glc_level_max*1.02;
-                    current_trainer.pkm_lvls[2] = glc_level_max*1.02;
+                        current_trainer.pkm[1].lvl = glc_level_max*1.02;
+                    current_trainer.pkm[2].lvl = glc_level_max*1.02;
                 }
                 // Lorelei
                 if(cpu_trainer_id==112 || cpu_trainer_id==238){
-                    current_trainer.pkm_lvls[0] = glc_level_max*1.02;
-                    current_trainer.pkm_lvls[1] = glc_level_max;
-                    current_trainer.pkm_lvls[2] = glc_level_max;
+                    current_trainer.pkm[0].lvl = glc_level_max*1.02;
+                    current_trainer.pkm[1].lvl = glc_level_max;
+                    current_trainer.pkm[2].lvl = glc_level_max;
                 }
                 // Bruno
                 if(cpu_trainer_id==113 || cpu_trainer_id==239){
-                    current_trainer.pkm_lvls[0] = glc_level_max*1.05;
-                    current_trainer.pkm_lvls[1] = glc_level_max*1.13;
+                    current_trainer.pkm[0].lvl = glc_level_max*1.05;
+                    current_trainer.pkm[1].lvl = glc_level_max*1.13;
                     if((prng_seed[3]+(cpu_trainer_id/200))%3==0)
-                        current_trainer.pkm_lvls[2] = glc_level_max*1.09;
+                        current_trainer.pkm[2].lvl = glc_level_max*1.09;
                     else
-                        current_trainer.pkm_lvls[2] = glc_level_max*1.05;
+                        current_trainer.pkm[2].lvl = glc_level_max*1.05;
                 }
                 // Agatha
                 if(cpu_trainer_id==114 || cpu_trainer_id==240){
-                    current_trainer.pkm_lvls[0] = glc_level_max*1.02;
-                    current_trainer.pkm_lvls[1] = glc_level_max*1.03;
-                    current_trainer.pkm_lvls[2] = glc_level_max*1.17;
+                    current_trainer.pkm[0].lvl = glc_level_max*1.02;
+                    current_trainer.pkm[1].lvl = glc_level_max*1.03;
+                    current_trainer.pkm[2].lvl = glc_level_max*1.17;
                 }
                 // Lance
                 if(cpu_trainer_id==115 || cpu_trainer_id==241){
-                    current_trainer.pkm_lvls[0] = glc_level_max*1.04;
-                    current_trainer.pkm_lvls[1] = glc_level_max*1.04;
-                    current_trainer.pkm_lvls[2] = glc_level_max;
+                    current_trainer.pkm[0].lvl = glc_level_max*1.04;
+                    current_trainer.pkm[1].lvl = glc_level_max*1.04;
+                    current_trainer.pkm[2].lvl = glc_level_max;
                 }
                 // Rival
                 if(cpu_trainers[cpu_trainer_id].cup_id==19){
-                    current_trainer.pkm_lvls[0] = glc_level_max;
-                    current_trainer.pkm_lvls[1] = glc_level_max*1.02;
-                    current_trainer.pkm_lvls[2] = glc_level_max;
+                    current_trainer.pkm[0].lvl = glc_level_max;
+                    current_trainer.pkm[1].lvl = glc_level_max*1.02;
+                    current_trainer.pkm[2].lvl = glc_level_max;
                 }
                 // Red
                 if(cpu_trainers[cpu_trainer_id].cup_id==41){
-                    current_trainer.pkm_lvls[0] = glc_level_max*1.23;
-                    current_trainer.pkm_lvls[1] = glc_level_max*1.05;
-                    current_trainer.pkm_lvls[2] = glc_level_max;
+                    current_trainer.pkm[0].lvl = glc_level_max*1.23;
+                    current_trainer.pkm[1].lvl = glc_level_max*1.05;
+                    current_trainer.pkm[2].lvl = glc_level_max;
                 }
             }
         }
@@ -933,12 +935,16 @@ void MainWindow::randomize_cpu_level(std::mt19937 &mt_rand)
             if(!(ui->checkBox_Randomizer_CPU_MewtwoFullParty->isChecked())) {
                 current_trainer.party_size = 1;
             }
-            current_trainer.pkm_lvls.fill(100);
+            for (Pokemon& p : current_trainer.pkm) {
+                p.lvl = 100;
+            }
         }
 
         // Battle Now: Lv 50
         else if (is_battle_now_trainer(current_trainer)) {
-            current_trainer.pkm_lvls.fill(50);
+            for (Pokemon& p : current_trainer.pkm) {
+                p.lvl = 50;
+            }
         }
     }
 }
@@ -1292,7 +1298,7 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
 
                 // Level-up Moves
                 for(uint8_t j=0;j<10;j++){
-                    if(pkm_rb_move[buf8][j]>0 && pkm_rb_move[buf8][j]<total_move_name && pkm_rb_lvl[buf8][j]<=cpu_trainers[cpu_trainer_id].pkm_lvls[i]){
+                    if(pkm_rb_move[buf8][j]>0 && pkm_rb_move[buf8][j]<total_move_name && pkm_rb_lvl[buf8][j]<=cpu_trainers[cpu_trainer_id].pkm[i].lvl){
                         // Explosion check
                         if(pkm_rb_move[buf8][j]==0x99) learns_explosion = true;
                         // Recover check
@@ -1353,7 +1359,7 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
                             }
                         }
                     }
-                    if(pkm_y_move[buf8][j]>0 && pkm_y_move[buf8][j]<total_move_name && pkm_y_lvl[buf8][j]<=cpu_trainers[cpu_trainer_id].pkm_lvls[i]){
+                    if(pkm_y_move[buf8][j]>0 && pkm_y_move[buf8][j]<total_move_name && pkm_y_lvl[buf8][j]<=cpu_trainers[cpu_trainer_id].pkm[i].lvl){
                         // Explosion check
                         if(pkm_y_move[buf8][j]==0x99) learns_explosion = true;
                         // Recover check
@@ -2331,7 +2337,7 @@ void MainWindow::randomize_cpu_nicknames(std::mt19937 &mt_rand)
         {
             for(uint8_t i=0 ; i<cpu_trainers[cpu_trainer_id].party_size; i++){
                 nick_id = distrib_nick(mt_rand);
-                cpu_trainers[cpu_trainer_id].pkm_nicks[i] = preset_nicknames[cpu_trainers[cpu_trainer_id].pkm[i].id][nick_id];
+                cpu_trainers[cpu_trainer_id].pkm[i].nick = preset_nicknames[cpu_trainers[cpu_trainer_id].pkm[i].id][nick_id];
             }
         }
     }
@@ -2365,7 +2371,7 @@ void MainWindow::randomize_cpu_pkmn(std::mt19937 &mt_rand)
                 // Petit Cup Final
                 if((cpu_trainer_id==7 || cpu_trainer_id==133) && strong_pkm_finals){
                     if(no_illegal_pkmn){
-                        while(cpu_trainers[cpu_trainer_id].pkm_lvls[i]<pkm_min_level[pkm_ids_vector_petitcup_toptier[i+offset_vector_pkm]]){
+                        while(cpu_trainers[cpu_trainer_id].pkm[i].lvl<pkm_min_level[pkm_ids_vector_petitcup_toptier[i+offset_vector_pkm]]){
                             offset_vector_pkm++;
                             if(offset_vector_pkm >= pkm_ids_vector_petitcup_toptier.size()){
                                 offset_vector_pkm--;
@@ -2378,12 +2384,12 @@ void MainWindow::randomize_cpu_pkmn(std::mt19937 &mt_rand)
                     }
 
                     cpu_trainers[cpu_trainer_id].pkm[i].id = pkm_ids_vector_petitcup_toptier[i];
-                    cpu_trainers[cpu_trainer_id].pkm_nicks[i] = pkm_name[pkm_ids_vector_petitcup_toptier[i]];
+                    cpu_trainers[cpu_trainer_id].pkm[i].nick = pkm_name[pkm_ids_vector_petitcup_toptier[i]];
                 }
                 // Gambler
                 else if(gambler_luck_moves && cpu_trainers[cpu_trainer_id].sprite_id==0x22 && pkm_ids_vector_petitcup_gambler.size()>0){
                     if(no_illegal_pkmn){
-                        while(cpu_trainers[cpu_trainer_id].pkm_lvls[i]<pkm_min_level[pkm_ids_vector_petitcup_gambler[i+offset_vector_pkm]]){
+                        while(cpu_trainers[cpu_trainer_id].pkm[i].lvl<pkm_min_level[pkm_ids_vector_petitcup_gambler[i+offset_vector_pkm]]){
                             offset_vector_pkm++;
                             if(offset_vector_pkm >= pkm_ids_vector_petitcup_gambler.size()){
                                 offset_vector_pkm--;
@@ -2397,12 +2403,12 @@ void MainWindow::randomize_cpu_pkmn(std::mt19937 &mt_rand)
                         }
                     }
                     cpu_trainers[cpu_trainer_id].pkm[i].id = pkm_ids_vector_petitcup_gambler[i];
-                    cpu_trainers[cpu_trainer_id].pkm_nicks[i] = pkm_name[pkm_ids_vector_petitcup_gambler[i]];
+                    cpu_trainers[cpu_trainer_id].pkm[i].nick = pkm_name[pkm_ids_vector_petitcup_gambler[i]];
                 }
                 // Other trainers
                 else{
                     if(no_illegal_pkmn){
-                        while(cpu_trainers[cpu_trainer_id].pkm_lvls[i]<pkm_min_level[pkm_ids_vector_petitcup[i+offset_vector_pkm]]){
+                        while(cpu_trainers[cpu_trainer_id].pkm[i].lvl<pkm_min_level[pkm_ids_vector_petitcup[i+offset_vector_pkm]]){
                             offset_vector_pkm++;
                             if(offset_vector_pkm >= pkm_ids_vector_petitcup.size()){
                                 offset_vector_pkm--;
@@ -2415,7 +2421,7 @@ void MainWindow::randomize_cpu_pkmn(std::mt19937 &mt_rand)
                     }
 
                     cpu_trainers[cpu_trainer_id].pkm[i].id = pkm_ids_vector_petitcup[i];
-                    cpu_trainers[cpu_trainer_id].pkm_nicks[i] = pkm_name[pkm_ids_vector_petitcup[i]];
+                    cpu_trainers[cpu_trainer_id].pkm[i].nick = pkm_name[pkm_ids_vector_petitcup[i]];
                 }
 
                 // FAIL-SAFE: Set a basic move if none is set
@@ -2456,7 +2462,7 @@ void MainWindow::randomize_cpu_pkmn(std::mt19937 &mt_rand)
                 // Pika Cup Final
                 if((cpu_trainer_id==15 || cpu_trainer_id==141) && strong_pkm_finals){
                     if(no_illegal_pkmn){
-                        while(cpu_trainers[cpu_trainer_id].pkm_lvls[i]<pkm_min_level[pkm_ids_vector_pikacup_toptier[i+offset_vector_pkm]]){
+                        while(cpu_trainers[cpu_trainer_id].pkm[i].lvl<pkm_min_level[pkm_ids_vector_pikacup_toptier[i+offset_vector_pkm]]){
                             offset_vector_pkm++;
                             if(offset_vector_pkm >= pkm_ids_vector_pikacup_toptier.size()){
                                 offset_vector_pkm--;
@@ -2469,12 +2475,12 @@ void MainWindow::randomize_cpu_pkmn(std::mt19937 &mt_rand)
                     }
 
                     cpu_trainers[cpu_trainer_id].pkm[i].id = pkm_ids_vector_pikacup_toptier[i];
-                    cpu_trainers[cpu_trainer_id].pkm_nicks[i] = pkm_name[pkm_ids_vector_pikacup_toptier[i]];
+                    cpu_trainers[cpu_trainer_id].pkm[i].nick = pkm_name[pkm_ids_vector_pikacup_toptier[i]];
                 }
                 // Gambler
                 else if(gambler_luck_moves && cpu_trainers[cpu_trainer_id].sprite_id==0x22 && pkm_ids_vector_pikacup_gambler.size()>0){
                     if(no_illegal_pkmn){
-                        while(cpu_trainers[cpu_trainer_id].pkm_lvls[i]<pkm_min_level[pkm_ids_vector_pikacup_gambler[i+offset_vector_pkm]]){
+                        while(cpu_trainers[cpu_trainer_id].pkm[i].lvl<pkm_min_level[pkm_ids_vector_pikacup_gambler[i+offset_vector_pkm]]){
                             offset_vector_pkm++;
                             if(offset_vector_pkm >= pkm_ids_vector_pikacup_gambler.size()){
                                 offset_vector_pkm--;
@@ -2489,12 +2495,12 @@ void MainWindow::randomize_cpu_pkmn(std::mt19937 &mt_rand)
                     }
 
                     cpu_trainers[cpu_trainer_id].pkm[i].id = pkm_ids_vector_pikacup_gambler[i];
-                    cpu_trainers[cpu_trainer_id].pkm_nicks[i] = pkm_name[pkm_ids_vector_pikacup_gambler[i]];
+                    cpu_trainers[cpu_trainer_id].pkm[i].nick = pkm_name[pkm_ids_vector_pikacup_gambler[i]];
                 }
                 // Other trainers
                 else{
                     if(no_illegal_pkmn){
-                        while(cpu_trainers[cpu_trainer_id].pkm_lvls[i]<pkm_min_level[pkm_ids_vector_pikacup[i+offset_vector_pkm]]){
+                        while(cpu_trainers[cpu_trainer_id].pkm[i].lvl<pkm_min_level[pkm_ids_vector_pikacup[i+offset_vector_pkm]]){
                             offset_vector_pkm++;
                             if(offset_vector_pkm >= pkm_ids_vector_pikacup.size()){
                                 offset_vector_pkm--;
@@ -2507,7 +2513,7 @@ void MainWindow::randomize_cpu_pkmn(std::mt19937 &mt_rand)
                     }
 
                     cpu_trainers[cpu_trainer_id].pkm[i].id = pkm_ids_vector_pikacup[i];
-                    cpu_trainers[cpu_trainer_id].pkm_nicks[i] = pkm_name[pkm_ids_vector_pikacup[i]];
+                    cpu_trainers[cpu_trainer_id].pkm[i].nick = pkm_name[pkm_ids_vector_pikacup[i]];
                 }
 
                 // FAIL-SAFE: Set a basic move if none is set
@@ -2549,33 +2555,33 @@ void MainWindow::randomize_cpu_pkmn(std::mt19937 &mt_rand)
                 if(cpu_trainer_id==39 || cpu_trainer_id==47 || cpu_trainer_id==165 || cpu_trainer_id==173){
                     if((cpu_trainer_id==47 || cpu_trainer_id==173) && i==0 && ui->checkBox_Randomizer_CPU_MewPrimeCup->isChecked()){
                         cpu_trainers[cpu_trainer_id].pkm[i].id = 151;
-                        cpu_trainers[cpu_trainer_id].pkm_nicks[i] = pkm_name[151];
+                        cpu_trainers[cpu_trainer_id].pkm[i].nick = pkm_name[151];
                     }
                     else if(strong_pkm_finals){
                         if(pkm_ids_vector_primecup_toptier[i] != 151){
                             cpu_trainers[cpu_trainer_id].pkm[i].id = pkm_ids_vector_primecup_toptier[i];
-                            cpu_trainers[cpu_trainer_id].pkm_nicks[i] = pkm_name[pkm_ids_vector_primecup_toptier[i]];
+                            cpu_trainers[cpu_trainer_id].pkm[i].nick = pkm_name[pkm_ids_vector_primecup_toptier[i]];
                         }
                         else{
                             cpu_trainers[cpu_trainer_id].pkm[i].id = pkm_ids_vector_primecup_toptier.back();
-                            cpu_trainers[cpu_trainer_id].pkm_nicks[i] = pkm_name[pkm_ids_vector_primecup_toptier.back()];
+                            cpu_trainers[cpu_trainer_id].pkm[i].nick = pkm_name[pkm_ids_vector_primecup_toptier.back()];
                         }
                     }
                     else{
                         if(pkm_ids_vector_primecup[i] != 151){
                             cpu_trainers[cpu_trainer_id].pkm[i].id = pkm_ids_vector_primecup[i];
-                            cpu_trainers[cpu_trainer_id].pkm_nicks[i] = pkm_name[pkm_ids_vector_primecup[i]];
+                            cpu_trainers[cpu_trainer_id].pkm[i].nick = pkm_name[pkm_ids_vector_primecup[i]];
                         }
                         else{
                             cpu_trainers[cpu_trainer_id].pkm[i].id = pkm_ids_vector_primecup.back();
-                            cpu_trainers[cpu_trainer_id].pkm_nicks[i] = pkm_name[pkm_ids_vector_primecup.back()];
+                            cpu_trainers[cpu_trainer_id].pkm[i].nick = pkm_name[pkm_ids_vector_primecup.back()];
                         }
                     }
                 }
                 // Gambler
                 else if(gambler_luck_moves && cpu_trainers[cpu_trainer_id].sprite_id==0x22 && pkm_ids_vector_primecup_gambler.size()>0){
                     if(no_illegal_pkmn){
-                        while(cpu_trainers[cpu_trainer_id].pkm_lvls[i]<pkm_min_level[pkm_ids_vector_primecup_gambler[i+offset_vector_pkm]]){
+                        while(cpu_trainers[cpu_trainer_id].pkm[i].lvl<pkm_min_level[pkm_ids_vector_primecup_gambler[i+offset_vector_pkm]]){
                             offset_vector_pkm++;
                             if(offset_vector_pkm >= pkm_ids_vector_primecup_gambler.size()){
                                 offset_vector_pkm--;
@@ -2590,12 +2596,12 @@ void MainWindow::randomize_cpu_pkmn(std::mt19937 &mt_rand)
                     }
 
                     cpu_trainers[cpu_trainer_id].pkm[i].id = pkm_ids_vector_primecup_gambler[i];
-                    cpu_trainers[cpu_trainer_id].pkm_nicks[i] = pkm_name[pkm_ids_vector_primecup_gambler[i]];
+                    cpu_trainers[cpu_trainer_id].pkm[i].nick = pkm_name[pkm_ids_vector_primecup_gambler[i]];
                 }
                 // Other trainers
                 else{
                     cpu_trainers[cpu_trainer_id].pkm[i].id = pkm_ids_vector_primecup[i];
-                    cpu_trainers[cpu_trainer_id].pkm_nicks[i] = pkm_name[pkm_ids_vector_primecup[i]];
+                    cpu_trainers[cpu_trainer_id].pkm[i].nick = pkm_name[pkm_ids_vector_primecup[i]];
                 }
 
                 // FAIL-SAFE: Set a basic move if none is set
@@ -2636,7 +2642,7 @@ void MainWindow::randomize_cpu_pkmn(std::mt19937 &mt_rand)
                 // Poké Cup Final
                 if((cpu_trainer_id==71 || cpu_trainer_id==79 || cpu_trainer_id==197 || cpu_trainer_id==205) && strong_pkm_finals){
                     if(no_illegal_pkmn){
-                        while(cpu_trainers[cpu_trainer_id].pkm_lvls[i]<pkm_min_level[pkm_ids_vector_pokecup_toptier[i+offset_vector_pkm]]){
+                        while(cpu_trainers[cpu_trainer_id].pkm[i].lvl<pkm_min_level[pkm_ids_vector_pokecup_toptier[i+offset_vector_pkm]]){
                             offset_vector_pkm++;
                             if(offset_vector_pkm >= pkm_ids_vector_pokecup_toptier.size()){
                                 offset_vector_pkm--;
@@ -2649,12 +2655,12 @@ void MainWindow::randomize_cpu_pkmn(std::mt19937 &mt_rand)
                     }
 
                     cpu_trainers[cpu_trainer_id].pkm[i].id = pkm_ids_vector_pokecup_toptier[i];
-                    cpu_trainers[cpu_trainer_id].pkm_nicks[i] = pkm_name[pkm_ids_vector_pokecup_toptier[i]];
+                    cpu_trainers[cpu_trainer_id].pkm[i].nick = pkm_name[pkm_ids_vector_pokecup_toptier[i]];
                 }
                 // Gambler
                 else if(gambler_luck_moves && cpu_trainers[cpu_trainer_id].sprite_id==0x22 && pkm_ids_vector_pokecup_gambler.size()>0){
                     if(no_illegal_pkmn){
-                        while(cpu_trainers[cpu_trainer_id].pkm_lvls[i]<pkm_min_level[pkm_ids_vector_pokecup_gambler[i+offset_vector_pkm]]){
+                        while(cpu_trainers[cpu_trainer_id].pkm[i].lvl<pkm_min_level[pkm_ids_vector_pokecup_gambler[i+offset_vector_pkm]]){
                             offset_vector_pkm++;
                             if(offset_vector_pkm >= pkm_ids_vector_pokecup_gambler.size()){
                                 offset_vector_pkm--;
@@ -2669,12 +2675,12 @@ void MainWindow::randomize_cpu_pkmn(std::mt19937 &mt_rand)
                     }
 
                     cpu_trainers[cpu_trainer_id].pkm[i].id = pkm_ids_vector_pokecup_gambler[i];
-                    cpu_trainers[cpu_trainer_id].pkm_nicks[i] = pkm_name[pkm_ids_vector_pokecup_gambler[i]];
+                    cpu_trainers[cpu_trainer_id].pkm[i].nick = pkm_name[pkm_ids_vector_pokecup_gambler[i]];
                 }
                 // Other trainers
                 else{
                     if(no_illegal_pkmn){
-                        while(cpu_trainers[cpu_trainer_id].pkm_lvls[i]<pkm_min_level[pkm_ids_vector_pokecup[i+offset_vector_pkm]]){
+                        while(cpu_trainers[cpu_trainer_id].pkm[i].lvl<pkm_min_level[pkm_ids_vector_pokecup[i+offset_vector_pkm]]){
                             offset_vector_pkm++;
                             if(offset_vector_pkm >= pkm_ids_vector_pokecup.size()){
                                 offset_vector_pkm--;
@@ -2687,7 +2693,7 @@ void MainWindow::randomize_cpu_pkmn(std::mt19937 &mt_rand)
                     }
 
                     cpu_trainers[cpu_trainer_id].pkm[i].id = pkm_ids_vector_pokecup[i];
-                    cpu_trainers[cpu_trainer_id].pkm_nicks[i] = pkm_name[pkm_ids_vector_pokecup[i]];
+                    cpu_trainers[cpu_trainer_id].pkm[i].nick = pkm_name[pkm_ids_vector_pokecup[i]];
                 }
 
                 // FAIL-SAFE: Set a basic move if none is set
@@ -2750,194 +2756,194 @@ void MainWindow::randomize_cpu_pkmn(std::mt19937 &mt_rand)
                         // Brock
                         if(cpu_trainer_id==83 || cpu_trainer_id==209){
                             cpu_trainers[cpu_trainer_id].pkm[0].id = 95;
-                            cpu_trainers[cpu_trainer_id].pkm_nicks[0] = "ONIX";
+                            cpu_trainers[cpu_trainer_id].pkm[0].nick = "ONIX";
                             cpu_trainers[cpu_trainer_id].pkm[1].id = 38;
-                            cpu_trainers[cpu_trainer_id].pkm_nicks[1] = "Shapeshift";
+                            cpu_trainers[cpu_trainer_id].pkm[1].nick = "Shapeshift";
                             cpu_trainers[cpu_trainer_id].pkm[2].id = 42;
-                            cpu_trainers[cpu_trainer_id].pkm_nicks[2] = "GOLBAT";
+                            cpu_trainers[cpu_trainer_id].pkm[2].nick = "GOLBAT";
                         }
                         // Misty
                         if(cpu_trainer_id==87 || cpu_trainer_id==213){
                             cpu_trainers[cpu_trainer_id].pkm[0].id = 54;
-                            cpu_trainers[cpu_trainer_id].pkm_nicks[0] = "PSYDUCK";
+                            cpu_trainers[cpu_trainer_id].pkm[0].nick = "PSYDUCK";
                             cpu_trainers[cpu_trainer_id].pkm[1].id = 121;
-                            cpu_trainers[cpu_trainer_id].pkm_nicks[1] = "STARMIE";
+                            cpu_trainers[cpu_trainer_id].pkm[1].nick = "STARMIE";
                             cpu_trainers[cpu_trainer_id].pkm[2].id = 131;
-                            cpu_trainers[cpu_trainer_id].pkm_nicks[2] = "LAPRAS";
+                            cpu_trainers[cpu_trainer_id].pkm[2].nick = "LAPRAS";
                             cpu_trainers[cpu_trainer_id].pkm[3].id = 148;
-                            cpu_trainers[cpu_trainer_id].pkm_nicks[3] = "DRAGONAIR";
+                            cpu_trainers[cpu_trainer_id].pkm[3].nick = "DRAGONAIR";
                         }
                         // Lt. Surge
                         if(cpu_trainer_id==91 || cpu_trainer_id==217){
                             cpu_trainers[cpu_trainer_id].pkm[0].id = 26;
-                            cpu_trainers[cpu_trainer_id].pkm_nicks[0] = "RAICHU";
+                            cpu_trainers[cpu_trainer_id].pkm[0].nick = "RAICHU";
                             cpu_trainers[cpu_trainer_id].pkm[1].id = 145;
-                            cpu_trainers[cpu_trainer_id].pkm_nicks[1] = "ZAPDOS";
+                            cpu_trainers[cpu_trainer_id].pkm[1].nick = "ZAPDOS";
                             cpu_trainers[cpu_trainer_id].pkm[2].id = 125;
-                            cpu_trainers[cpu_trainer_id].pkm_nicks[2] = "ELECTABUZZ";
+                            cpu_trainers[cpu_trainer_id].pkm[2].nick = "ELECTABUZZ";
                         }
                         // Erika
                         if(cpu_trainer_id==95 || cpu_trainer_id==221){
                             if((prng_seed[0]+(cpu_trainer_id/200))%2==0){
                                 cpu_trainers[cpu_trainer_id].pkm[0].id = 45;
-                                cpu_trainers[cpu_trainer_id].pkm_nicks[0] = "VILEPLUME";
+                                cpu_trainers[cpu_trainer_id].pkm[0].nick = "VILEPLUME";
                             }
                             else{
                                 cpu_trainers[cpu_trainer_id].pkm[0].id = 71;
-                                cpu_trainers[cpu_trainer_id].pkm_nicks[0] = "VICTREEBEL";
+                                cpu_trainers[cpu_trainer_id].pkm[0].nick = "VICTREEBEL";
                             }
                             if((prng_seed[1]+(cpu_trainer_id/200))%2==0){
                                 cpu_trainers[cpu_trainer_id].pkm[1].id = 103;
-                                cpu_trainers[cpu_trainer_id].pkm_nicks[1] = "EXEGGUTOR";
+                                cpu_trainers[cpu_trainer_id].pkm[1].nick = "EXEGGUTOR";
                             }
                             else{
                                 cpu_trainers[cpu_trainer_id].pkm[1].id = 114;
-                                cpu_trainers[cpu_trainer_id].pkm_nicks[1] = "Angela";
+                                cpu_trainers[cpu_trainer_id].pkm[1].nick = "Angela";
                             }
                             if((prng_seed[5]+(cpu_trainer_id/200))%3<=1){
                                 cpu_trainers[cpu_trainer_id].pkm[2].id = 36;
-                                cpu_trainers[cpu_trainer_id].pkm_nicks[2] = "CLEFABLE";
+                                cpu_trainers[cpu_trainer_id].pkm[2].nick = "CLEFABLE";
                             }
                             else{
                                 cpu_trainers[cpu_trainer_id].pkm[2].id = 134;
-                                cpu_trainers[cpu_trainer_id].pkm_nicks[2] = "VAPOREON";
+                                cpu_trainers[cpu_trainer_id].pkm[2].nick = "VAPOREON";
                             }
                         }
                         // Koga
                         if(cpu_trainer_id==99 || cpu_trainer_id==225){
                             if((prng_seed[2]+(cpu_trainer_id/200))%2==0){
                                 cpu_trainers[cpu_trainer_id].pkm[0].id = 49;
-                                cpu_trainers[cpu_trainer_id].pkm_nicks[0] = "VENOMOTH";
+                                cpu_trainers[cpu_trainer_id].pkm[0].nick = "VENOMOTH";
                             }
                             else{
                                 cpu_trainers[cpu_trainer_id].pkm[0].id = 73;
-                                cpu_trainers[cpu_trainer_id].pkm_nicks[0] = "TENTACRUEL";
+                                cpu_trainers[cpu_trainer_id].pkm[0].nick = "TENTACRUEL";
                             }
                             if((prng_seed[3]+(cpu_trainer_id/200))%2==0){
                                 cpu_trainers[cpu_trainer_id].pkm[1].id = 110;
-                                cpu_trainers[cpu_trainer_id].pkm_nicks[1] = "WEEZING";
+                                cpu_trainers[cpu_trainer_id].pkm[1].nick = "WEEZING";
                             }
                             else{
                                 cpu_trainers[cpu_trainer_id].pkm[1].id = 89;
-                                cpu_trainers[cpu_trainer_id].pkm_nicks[1] = "MUK";
+                                cpu_trainers[cpu_trainer_id].pkm[1].nick = "MUK";
                             }
                             cpu_trainers[cpu_trainer_id].pkm[2].id = 97;
-                            cpu_trainers[cpu_trainer_id].pkm_nicks[2] = "HYPNO";
+                            cpu_trainers[cpu_trainer_id].pkm[2].nick = "HYPNO";
                         }
                         // Sabrina
                         if(cpu_trainer_id==103 || cpu_trainer_id==229){
                             cpu_trainers[cpu_trainer_id].pkm[0].id = 65;
-                            cpu_trainers[cpu_trainer_id].pkm_nicks[0] = "ALAKAZAM";
+                            cpu_trainers[cpu_trainer_id].pkm[0].nick = "ALAKAZAM";
                             if((prng_seed[4]+(cpu_trainer_id/200))%2==0){
                                 cpu_trainers[cpu_trainer_id].pkm[1].id = 122;
-                                cpu_trainers[cpu_trainer_id].pkm_nicks[1] = "MR. MIME";
+                                cpu_trainers[cpu_trainer_id].pkm[1].nick = "MR. MIME";
                             }
                             else{
                                 cpu_trainers[cpu_trainer_id].pkm[1].id = 93;
-                                cpu_trainers[cpu_trainer_id].pkm_nicks[1] = "HAUNTER";
+                                cpu_trainers[cpu_trainer_id].pkm[1].nick = "HAUNTER";
                             }
                             if((prng_seed[5]+(cpu_trainer_id/200))%2==0){
                                 cpu_trainers[cpu_trainer_id].pkm[2].id = 121;
-                                cpu_trainers[cpu_trainer_id].pkm_nicks[2] = "STARMIE";
+                                cpu_trainers[cpu_trainer_id].pkm[2].nick = "STARMIE";
                             }
                             else{
                                 cpu_trainers[cpu_trainer_id].pkm[2].id = 103;
-                                cpu_trainers[cpu_trainer_id].pkm_nicks[2] = "EXEGGUTOR";
+                                cpu_trainers[cpu_trainer_id].pkm[2].nick = "EXEGGUTOR";
                             }
                         }
                         // Blaine
                         if(cpu_trainer_id==107 || cpu_trainer_id==233){
                             if((prng_seed[1]+(cpu_trainer_id/200))%3==0){
                                 cpu_trainers[cpu_trainer_id].pkm[0].id = 59;
-                                cpu_trainers[cpu_trainer_id].pkm_nicks[0] = "RK9";
+                                cpu_trainers[cpu_trainer_id].pkm[0].nick = "RK9";
                             }
                             else if((prng_seed[1]+(cpu_trainer_id/200))%3==1){
                                 cpu_trainers[cpu_trainer_id].pkm[0].id = 126;
-                                cpu_trainers[cpu_trainer_id].pkm_nicks[0] = "MAGMAR";
+                                cpu_trainers[cpu_trainer_id].pkm[0].nick = "MAGMAR";
                             }
                             else{
                                 cpu_trainers[cpu_trainer_id].pkm[0].id = 38;
-                                cpu_trainers[cpu_trainer_id].pkm_nicks[0] = "NINETALES";
+                                cpu_trainers[cpu_trainer_id].pkm[0].nick = "NINETALES";
                             }
                             cpu_trainers[cpu_trainer_id].pkm[1].id = 146;
-                            cpu_trainers[cpu_trainer_id].pkm_nicks[1] = "MOLTRES";
+                            cpu_trainers[cpu_trainer_id].pkm[1].nick = "MOLTRES";
                             cpu_trainers[cpu_trainer_id].pkm[2].id = 128;
-                            cpu_trainers[cpu_trainer_id].pkm_nicks[2] = "TAUROS";
+                            cpu_trainers[cpu_trainer_id].pkm[2].nick = "TAUROS";
                         }
                         // Giovanni
                         if(cpu_trainer_id==111 || cpu_trainer_id==237){
                             cpu_trainers[cpu_trainer_id].pkm[0].id = 53;
-                            cpu_trainers[cpu_trainer_id].pkm_nicks[0] = "PERSIAN";
+                            cpu_trainers[cpu_trainer_id].pkm[0].nick = "PERSIAN";
                             if((prng_seed[0]+(cpu_trainer_id/200))%3==0){
                                 cpu_trainers[cpu_trainer_id].pkm[1].id = 112;
-                                cpu_trainers[cpu_trainer_id].pkm_nicks[1] = "RHYDON";
+                                cpu_trainers[cpu_trainer_id].pkm[1].nick = "RHYDON";
                             }
                             else if((prng_seed[0]+(cpu_trainer_id/200))%3==1){
                                 cpu_trainers[cpu_trainer_id].pkm[1].id = 34;
-                                cpu_trainers[cpu_trainer_id].pkm_nicks[1] = "NIDOKING";
+                                cpu_trainers[cpu_trainer_id].pkm[1].nick = "NIDOKING";
                             }
                             else{
                                 cpu_trainers[cpu_trainer_id].pkm[1].id = 76;
-                                cpu_trainers[cpu_trainer_id].pkm_nicks[1] = "GOLEM";
+                                cpu_trainers[cpu_trainer_id].pkm[1].nick = "GOLEM";
                             }
                             cpu_trainers[cpu_trainer_id].pkm[2].id = 91;
-                            cpu_trainers[cpu_trainer_id].pkm_nicks[2] = "CLOYSTER";
+                            cpu_trainers[cpu_trainer_id].pkm[2].nick = "CLOYSTER";
                         }
                         // Lorelei
                         if(cpu_trainer_id==112 || cpu_trainer_id==238){
                             cpu_trainers[cpu_trainer_id].pkm[0].id = 124;
-                            cpu_trainers[cpu_trainer_id].pkm_nicks[0] = "JYNX";
+                            cpu_trainers[cpu_trainer_id].pkm[0].nick = "JYNX";
                             cpu_trainers[cpu_trainer_id].pkm[1].id = 131;
-                            cpu_trainers[cpu_trainer_id].pkm_nicks[1] = "LAPRAS";
+                            cpu_trainers[cpu_trainer_id].pkm[1].nick = "LAPRAS";
                             cpu_trainers[cpu_trainer_id].pkm[2].id = 80;
-                            cpu_trainers[cpu_trainer_id].pkm_nicks[2] = "SLOWBRO";
+                            cpu_trainers[cpu_trainer_id].pkm[2].nick = "SLOWBRO";
                         }
                         // Bruno
                         if(cpu_trainer_id==113 || cpu_trainer_id==239){
                             cpu_trainers[cpu_trainer_id].pkm[0].id = 68;
-                            cpu_trainers[cpu_trainer_id].pkm_nicks[0] = "MACHAMP";
+                            cpu_trainers[cpu_trainer_id].pkm[0].nick = "MACHAMP";
                             cpu_trainers[cpu_trainer_id].pkm[1].id = 95;
-                            cpu_trainers[cpu_trainer_id].pkm_nicks[1] = "ONIX";
+                            cpu_trainers[cpu_trainer_id].pkm[1].nick = "ONIX";
                             if((prng_seed[3]+(cpu_trainer_id/200))%3==0){
                                 cpu_trainers[cpu_trainer_id].pkm[2].id = 106;
-                                cpu_trainers[cpu_trainer_id].pkm_nicks[2] = "HITMONLEE";
+                                cpu_trainers[cpu_trainer_id].pkm[2].nick = "HITMONLEE";
                             }
                             else if((prng_seed[3]+(cpu_trainer_id/200))%3==1){
                                 cpu_trainers[cpu_trainer_id].pkm[2].id = 62;
-                                cpu_trainers[cpu_trainer_id].pkm_nicks[2] = "POLIWRATH";
+                                cpu_trainers[cpu_trainer_id].pkm[2].nick = "POLIWRATH";
                             }
                             else{
                                 cpu_trainers[cpu_trainer_id].pkm[2].id = 127;
-                                cpu_trainers[cpu_trainer_id].pkm_nicks[2] = "PINSIR";
+                                cpu_trainers[cpu_trainer_id].pkm[2].nick = "PINSIR";
                             }
                         }
                         // Agatha
                         if(cpu_trainer_id==114 || cpu_trainer_id==240){
                             cpu_trainers[cpu_trainer_id].pkm[0].id = 94;
-                            cpu_trainers[cpu_trainer_id].pkm_nicks[0] = "Gengar";
+                            cpu_trainers[cpu_trainer_id].pkm[0].nick = "Gengar";
                             cpu_trainers[cpu_trainer_id].pkm[1].id = 36;
-                            cpu_trainers[cpu_trainer_id].pkm_nicks[1] = "NotGengar";
+                            cpu_trainers[cpu_trainer_id].pkm[1].nick = "NotGengar";
                             cpu_trainers[cpu_trainer_id].pkm[2].id = 42;
-                            cpu_trainers[cpu_trainer_id].pkm_nicks[2] = "Dracula";
+                            cpu_trainers[cpu_trainer_id].pkm[2].nick = "Dracula";
                         }
                         // Lance
                         if(cpu_trainer_id==115 || cpu_trainer_id==241){
                             cpu_trainers[cpu_trainer_id].pkm[0].id = 149;
-                            cpu_trainers[cpu_trainer_id].pkm_nicks[0] = "Dragon";
+                            cpu_trainers[cpu_trainer_id].pkm[0].nick = "Dragon";
                             if((prng_seed[2]+(cpu_trainer_id/200))%3==0){
                                 cpu_trainers[cpu_trainer_id].pkm[1].id = 130;
-                                cpu_trainers[cpu_trainer_id].pkm_nicks[1] = "NotDragon";
+                                cpu_trainers[cpu_trainer_id].pkm[1].nick = "NotDragon";
                             }
                             else if((prng_seed[2]+(cpu_trainer_id/200))%3==1){
                                 cpu_trainers[cpu_trainer_id].pkm[1].id = 6;
-                                cpu_trainers[cpu_trainer_id].pkm_nicks[1] = "NextDragon";
+                                cpu_trainers[cpu_trainer_id].pkm[1].nick = "NextDragon";
                             }
                             else{
                                 cpu_trainers[cpu_trainer_id].pkm[1].id = 142;
-                                cpu_trainers[cpu_trainer_id].pkm_nicks[1] = "NotDragon";
+                                cpu_trainers[cpu_trainer_id].pkm[1].nick = "NotDragon";
                             }
                             cpu_trainers[cpu_trainer_id].pkm[2].id = 143;
-                            cpu_trainers[cpu_trainer_id].pkm_nicks[2] = "Hiya!";
+                            cpu_trainers[cpu_trainer_id].pkm[2].nick = "Hiya!";
                         }
                         // Rival
                         if(cpu_trainers[cpu_trainer_id].cup_id==19){
@@ -2945,11 +2951,11 @@ void MainWindow::randomize_cpu_pkmn(std::mt19937 &mt_rand)
                             cpu_trainers[cpu_trainer_id].name = "BLUE";
                             ui->comboBox_CPU_Trainer->setItemText(cpu_trainer_id,cpu_trainers[cpu_trainer_id].name);
                             cpu_trainers[cpu_trainer_id].pkm[0].id = 65;
-                            cpu_trainers[cpu_trainer_id].pkm_nicks[0] = "Kazam";
+                            cpu_trainers[cpu_trainer_id].pkm[0].nick = "Kazam";
                             cpu_trainers[cpu_trainer_id].pkm[1].id = 112;
-                            cpu_trainers[cpu_trainer_id].pkm_nicks[1] = "Don";
+                            cpu_trainers[cpu_trainer_id].pkm[1].nick = "Don";
                             cpu_trainers[cpu_trainer_id].pkm[2].id = 103;
-                            cpu_trainers[cpu_trainer_id].pkm_nicks[2] = "Eggy";
+                            cpu_trainers[cpu_trainer_id].pkm[2].nick = "Eggy";
                         }
                         // Red
                         if(cpu_trainers[cpu_trainer_id].cup_id==41){
@@ -2957,11 +2963,11 @@ void MainWindow::randomize_cpu_pkmn(std::mt19937 &mt_rand)
                             cpu_trainers[cpu_trainer_id].name = "RED";
                             ui->comboBox_CPU_Trainer->setItemText(cpu_trainer_id,cpu_trainers[cpu_trainer_id].name);
                             cpu_trainers[cpu_trainer_id].pkm[0].id = 25;
-                            cpu_trainers[cpu_trainer_id].pkm_nicks[0] = "Pika";
+                            cpu_trainers[cpu_trainer_id].pkm[0].nick = "Pika";
                             cpu_trainers[cpu_trainer_id].pkm[1].id = 62;
-                            cpu_trainers[cpu_trainer_id].pkm_nicks[1] = "Poli";
+                            cpu_trainers[cpu_trainer_id].pkm[1].nick = "Poli";
                             cpu_trainers[cpu_trainer_id].pkm[2].id = 143;
-                            cpu_trainers[cpu_trainer_id].pkm_nicks[2] = "Snor";
+                            cpu_trainers[cpu_trainer_id].pkm[2].nick = "Snor";
                         }
                     }
                     // Other Pokémon
@@ -2969,7 +2975,7 @@ void MainWindow::randomize_cpu_pkmn(std::mt19937 &mt_rand)
                         if(strong_pkm_finals){
                             if(glc_level_min > 10){
                                 if(no_species_clause==false){
-                                    while((cpu_trainers[cpu_trainer_id].pkm_lvls[i]<pkm_min_level[pkm_ids_vector_primecup_toptier[i+offset_vector_pkm]]
+                                    while((cpu_trainers[cpu_trainer_id].pkm[i].lvl<pkm_min_level[pkm_ids_vector_primecup_toptier[i+offset_vector_pkm]]
                                            || (gym_leaders_pokemon && pkm_ids_vector_primecup_toptier[i+offset_vector_pkm] == cpu_trainers[cpu_trainer_id].pkm[0].id)
                                            || (gym_leaders_pokemon && pkm_ids_vector_primecup_toptier[i+offset_vector_pkm] == cpu_trainers[cpu_trainer_id].pkm[1].id)
                                            || (gym_leaders_pokemon && pkm_ids_vector_primecup_toptier[i+offset_vector_pkm] == cpu_trainers[cpu_trainer_id].pkm[2].id))){
@@ -2985,13 +2991,13 @@ void MainWindow::randomize_cpu_pkmn(std::mt19937 &mt_rand)
                                 }
 
                                 cpu_trainers[cpu_trainer_id].pkm[i].id = pkm_ids_vector_primecup_toptier[i];
-                                cpu_trainers[cpu_trainer_id].pkm_nicks[i] = pkm_name[pkm_ids_vector_primecup_toptier[i]];
+                                cpu_trainers[cpu_trainer_id].pkm[i].nick = pkm_name[pkm_ids_vector_primecup_toptier[i]];
                             }
                             else{
                                 if(cpu_trainer_id != 87 && cpu_trainer_id!=213) glc_index = i-3;
                                 else glc_index = i-4;
                                 if(no_species_clause==false){
-                                    while((cpu_trainers[cpu_trainer_id].pkm_lvls[i]<pkm_min_level[pkm_ids_vector_glc_lowminlv[glc_index+offset_vector_pkm]]
+                                    while((cpu_trainers[cpu_trainer_id].pkm[i].lvl<pkm_min_level[pkm_ids_vector_glc_lowminlv[glc_index+offset_vector_pkm]]
                                            || (gym_leaders_pokemon && pkm_ids_vector_glc_lowminlv[glc_index+offset_vector_pkm] == cpu_trainers[cpu_trainer_id].pkm[0].id)
                                            || (gym_leaders_pokemon && pkm_ids_vector_glc_lowminlv[glc_index+offset_vector_pkm] == cpu_trainers[cpu_trainer_id].pkm[1].id)
                                            || (gym_leaders_pokemon && pkm_ids_vector_glc_lowminlv[glc_index+offset_vector_pkm] == cpu_trainers[cpu_trainer_id].pkm[2].id))){
@@ -3007,12 +3013,12 @@ void MainWindow::randomize_cpu_pkmn(std::mt19937 &mt_rand)
                                 }
 
                                 cpu_trainers[cpu_trainer_id].pkm[i].id = pkm_ids_vector_glc_lowminlv[glc_index];
-                                cpu_trainers[cpu_trainer_id].pkm_nicks[i] = pkm_name[pkm_ids_vector_glc_lowminlv[glc_index]];
+                                cpu_trainers[cpu_trainer_id].pkm[i].nick = pkm_name[pkm_ids_vector_glc_lowminlv[glc_index]];
                             }
                         }
                         else{
                             if(no_illegal_pkmn){
-                                while(cpu_trainers[cpu_trainer_id].pkm_lvls[i]<pkm_min_level[pkm_ids_vector_primecup[i+offset_vector_pkm]]){
+                                while(cpu_trainers[cpu_trainer_id].pkm[i].lvl<pkm_min_level[pkm_ids_vector_primecup[i+offset_vector_pkm]]){
                                     offset_vector_pkm++;
                                     if(offset_vector_pkm >= pkm_ids_vector_primecup.size()){
                                         offset_vector_pkm--;
@@ -3025,14 +3031,14 @@ void MainWindow::randomize_cpu_pkmn(std::mt19937 &mt_rand)
                             }
 
                             cpu_trainers[cpu_trainer_id].pkm[i].id = pkm_ids_vector_primecup[i];
-                            cpu_trainers[cpu_trainer_id].pkm_nicks[i] = pkm_name[pkm_ids_vector_primecup[i]];
+                            cpu_trainers[cpu_trainer_id].pkm[i].nick = pkm_name[pkm_ids_vector_primecup[i]];
                         }
                     }
                 }
                 // Other trainers
                 else{
                     if(no_illegal_pkmn){
-                        while(cpu_trainers[cpu_trainer_id].pkm_lvls[i]<pkm_min_level[pkm_ids_vector_primecup[i+offset_vector_pkm]] && (i+offset_vector_pkm < pkm_ids_vector_primecup.size())){
+                        while(cpu_trainers[cpu_trainer_id].pkm[i].lvl<pkm_min_level[pkm_ids_vector_primecup[i+offset_vector_pkm]] && (i+offset_vector_pkm < pkm_ids_vector_primecup.size())){
                             offset_vector_pkm++;
                             if(offset_vector_pkm >= pkm_ids_vector_primecup.size()){
                                 offset_vector_pkm--;
@@ -3045,7 +3051,7 @@ void MainWindow::randomize_cpu_pkmn(std::mt19937 &mt_rand)
                     }
 
                     cpu_trainers[cpu_trainer_id].pkm[i].id = pkm_ids_vector_primecup[i];
-                    cpu_trainers[cpu_trainer_id].pkm_nicks[i] = pkm_name[pkm_ids_vector_primecup[i]];
+                    cpu_trainers[cpu_trainer_id].pkm[i].nick = pkm_name[pkm_ids_vector_primecup[i]];
                 }
 
                 // FAIL-SAFE: Set a basic move if none is set
@@ -3073,26 +3079,26 @@ void MainWindow::randomize_cpu_pkmn(std::mt19937 &mt_rand)
             for(uint8_t i=0;i<cpu_trainers[cpu_trainer_id].party_size;i++){
                 if(i==0 && ui->checkBox_Randomizer_CPU_MewtwoMewtwo->isChecked()){
                     cpu_trainers[cpu_trainer_id].pkm[i].id = 150;
-                    cpu_trainers[cpu_trainer_id].pkm_nicks[i] = pkm_name[150];
+                    cpu_trainers[cpu_trainer_id].pkm[i].nick = pkm_name[150];
                 }
                 else if(strong_pkm_finals){
                     if(pkm_ids_vector_vs_mewtwo_toptier[i] != 150){
                         cpu_trainers[cpu_trainer_id].pkm[i].id = pkm_ids_vector_vs_mewtwo_toptier[i];
-                        cpu_trainers[cpu_trainer_id].pkm_nicks[i] = pkm_name[pkm_ids_vector_vs_mewtwo_toptier[i]];
+                        cpu_trainers[cpu_trainer_id].pkm[i].nick = pkm_name[pkm_ids_vector_vs_mewtwo_toptier[i]];
                     }
                     else{
                         cpu_trainers[cpu_trainer_id].pkm[i].id = pkm_ids_vector_vs_mewtwo_toptier.back();
-                        cpu_trainers[cpu_trainer_id].pkm_nicks[i] = pkm_name[pkm_ids_vector_vs_mewtwo_toptier.back()];
+                        cpu_trainers[cpu_trainer_id].pkm[i].nick = pkm_name[pkm_ids_vector_vs_mewtwo_toptier.back()];
                     }
                 }
                 else{
                     if(pkm_ids_vector_vs_mewtwo[i] != 150){
                         cpu_trainers[cpu_trainer_id].pkm[i].id = pkm_ids_vector_vs_mewtwo[i];
-                        cpu_trainers[cpu_trainer_id].pkm_nicks[i] = pkm_name[pkm_ids_vector_vs_mewtwo[i]];
+                        cpu_trainers[cpu_trainer_id].pkm[i].nick = pkm_name[pkm_ids_vector_vs_mewtwo[i]];
                     }
                     else{
                         cpu_trainers[cpu_trainer_id].pkm[i].id = pkm_ids_vector_vs_mewtwo.back();
-                        cpu_trainers[cpu_trainer_id].pkm_nicks[i] = pkm_name[pkm_ids_vector_vs_mewtwo.back()];
+                        cpu_trainers[cpu_trainer_id].pkm[i].nick = pkm_name[pkm_ids_vector_vs_mewtwo.back()];
                     }
                 }
 
@@ -3116,7 +3122,7 @@ void MainWindow::randomize_cpu_pkmn(std::mt19937 &mt_rand)
             // Change Pokémon team
             for(uint8_t i=0;i<cpu_trainers[cpu_trainer_id].party_size;i++){
                 cpu_trainers[cpu_trainer_id].pkm[i].id = pkm_ids_vector_primecup[i];
-                cpu_trainers[cpu_trainer_id].pkm_nicks[i] = pkm_name[pkm_ids_vector_primecup[i]];
+                cpu_trainers[cpu_trainer_id].pkm[i].nick = pkm_name[pkm_ids_vector_primecup[i]];
 
                 // FAIL-SAFE: Set a basic move if none is set
                 if(cpu_pkm_move_1[cpu_trainer_id][i] == 0 || cpu_pkm_move_1[cpu_trainer_id][i] > total_move_name){
@@ -3130,12 +3136,12 @@ void MainWindow::randomize_cpu_pkmn(std::mt19937 &mt_rand)
             }
         }
 
-        cpu_pkm_experience[cpu_trainer_id][0] = calc_experience(pkm_growth_rate[cpu_trainers[cpu_trainer_id].pkm[0].id],cpu_trainers[cpu_trainer_id].pkm_lvls[0]);
-        cpu_pkm_experience[cpu_trainer_id][1] = calc_experience(pkm_growth_rate[cpu_trainers[cpu_trainer_id].pkm[1].id],cpu_trainers[cpu_trainer_id].pkm_lvls[1]);
-        cpu_pkm_experience[cpu_trainer_id][2] = calc_experience(pkm_growth_rate[cpu_trainers[cpu_trainer_id].pkm[2].id],cpu_trainers[cpu_trainer_id].pkm_lvls[2]);
-        cpu_pkm_experience[cpu_trainer_id][3] = calc_experience(pkm_growth_rate[cpu_trainers[cpu_trainer_id].pkm[3].id],cpu_trainers[cpu_trainer_id].pkm_lvls[3]);
-        cpu_pkm_experience[cpu_trainer_id][4] = calc_experience(pkm_growth_rate[cpu_trainers[cpu_trainer_id].pkm[4].id],cpu_trainers[cpu_trainer_id].pkm_lvls[4]);
-        cpu_pkm_experience[cpu_trainer_id][5] = calc_experience(pkm_growth_rate[cpu_trainers[cpu_trainer_id].pkm[5].id],cpu_trainers[cpu_trainer_id].pkm_lvls[5]);
+        cpu_pkm_experience[cpu_trainer_id][0] = calc_experience(pkm_growth_rate[cpu_trainers[cpu_trainer_id].pkm[0].id],cpu_trainers[cpu_trainer_id].pkm[0].lvl);
+        cpu_pkm_experience[cpu_trainer_id][1] = calc_experience(pkm_growth_rate[cpu_trainers[cpu_trainer_id].pkm[1].id],cpu_trainers[cpu_trainer_id].pkm[1].lvl);
+        cpu_pkm_experience[cpu_trainer_id][2] = calc_experience(pkm_growth_rate[cpu_trainers[cpu_trainer_id].pkm[2].id],cpu_trainers[cpu_trainer_id].pkm[2].lvl);
+        cpu_pkm_experience[cpu_trainer_id][3] = calc_experience(pkm_growth_rate[cpu_trainers[cpu_trainer_id].pkm[3].id],cpu_trainers[cpu_trainer_id].pkm[3].lvl);
+        cpu_pkm_experience[cpu_trainer_id][4] = calc_experience(pkm_growth_rate[cpu_trainers[cpu_trainer_id].pkm[4].id],cpu_trainers[cpu_trainer_id].pkm[4].lvl);
+        cpu_pkm_experience[cpu_trainer_id][5] = calc_experience(pkm_growth_rate[cpu_trainers[cpu_trainer_id].pkm[5].id],cpu_trainers[cpu_trainer_id].pkm[5].lvl);
     }
 }
 

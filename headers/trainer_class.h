@@ -3,9 +3,6 @@
 
 #include <array>
 
-#include <QString>
-#include <QtGlobal>
-
 #include "pokemon.h"
 
 struct Trainer
@@ -16,8 +13,6 @@ struct Trainer
     quint8 ai_id;
     quint8 party_size;
     std::array<Pokemon, 6> pkm;
-    std::array<QString, 6> pkm_nicks;
-    std::array<quint8, 6> pkm_lvls;
 };
 
 bool is_petit_trainer(const Trainer&);

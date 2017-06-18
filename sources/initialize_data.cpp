@@ -15,7 +15,7 @@ void MainWindow::initialize_data()
         cpu_cup_offset[i]=0;
         cpu_trainers[i].name="";
         for(short j=0;j<6;j++){
-            cpu_trainers[i].pkm_nicks[j]="";
+            cpu_trainers[i].pkm[j].nick="";
         }
 
         move_accuracy[i]=0;

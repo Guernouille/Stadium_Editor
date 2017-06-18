@@ -105,42 +105,42 @@ void MainWindow::on_comboBox_Pkmn_1_currentIndexChanged(int) {
     if(not_in_init){
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
         cpu_trainers[buf8].pkm[0].id = ui->comboBox_Pkmn_1->currentIndex();
-        cpu_pkm_experience[buf8][0] = calc_experience(pkm_growth_rate[cpu_trainers[buf8].pkm[0].id],cpu_trainers[buf8].pkm_lvls[0]);
+        cpu_pkm_experience[buf8][0] = calc_experience(pkm_growth_rate[cpu_trainers[buf8].pkm[0].id],cpu_trainers[buf8].pkm[0].lvl);
     }
 }
 void MainWindow::on_comboBox_Pkmn_2_currentIndexChanged(int) {
     if(not_in_init){
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
         cpu_trainers[buf8].pkm[1].id = ui->comboBox_Pkmn_2->currentIndex();
-        cpu_pkm_experience[buf8][1] = calc_experience(pkm_growth_rate[cpu_trainers[buf8].pkm[1].id],cpu_trainers[buf8].pkm_lvls[1]);
+        cpu_pkm_experience[buf8][1] = calc_experience(pkm_growth_rate[cpu_trainers[buf8].pkm[1].id],cpu_trainers[buf8].pkm[1].lvl);
     }
 }
 void MainWindow::on_comboBox_Pkmn_3_currentIndexChanged(int) {
     if(not_in_init){
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
         cpu_trainers[buf8].pkm[2].id = ui->comboBox_Pkmn_3->currentIndex();
-        cpu_pkm_experience[buf8][2] = calc_experience(pkm_growth_rate[cpu_trainers[buf8].pkm[2].id],cpu_trainers[buf8].pkm_lvls[2]);
+        cpu_pkm_experience[buf8][2] = calc_experience(pkm_growth_rate[cpu_trainers[buf8].pkm[2].id],cpu_trainers[buf8].pkm[2].lvl);
     }
 }
 void MainWindow::on_comboBox_Pkmn_4_currentIndexChanged(int) {
     if(not_in_init){
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
         cpu_trainers[buf8].pkm[3].id = ui->comboBox_Pkmn_4->currentIndex();
-        cpu_pkm_experience[buf8][3] = calc_experience(pkm_growth_rate[cpu_trainers[buf8].pkm[3].id],cpu_trainers[buf8].pkm_lvls[3]);
+        cpu_pkm_experience[buf8][3] = calc_experience(pkm_growth_rate[cpu_trainers[buf8].pkm[3].id],cpu_trainers[buf8].pkm[3].lvl);
     }
 }
 void MainWindow::on_comboBox_Pkmn_5_currentIndexChanged(int) {
     if(not_in_init){
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
         cpu_trainers[buf8].pkm[4].id = ui->comboBox_Pkmn_5->currentIndex();
-        cpu_pkm_experience[buf8][4] = calc_experience(pkm_growth_rate[cpu_trainers[buf8].pkm[4].id],cpu_trainers[buf8].pkm_lvls[4]);
+        cpu_pkm_experience[buf8][4] = calc_experience(pkm_growth_rate[cpu_trainers[buf8].pkm[4].id],cpu_trainers[buf8].pkm[4].lvl);
     }
 }
 void MainWindow::on_comboBox_Pkmn_6_currentIndexChanged(int) {
     if(not_in_init){
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
         cpu_trainers[buf8].pkm[5].id = ui->comboBox_Pkmn_6->currentIndex();
-        cpu_pkm_experience[buf8][5] = calc_experience(pkm_growth_rate[cpu_trainers[buf8].pkm[5].id],cpu_trainers[buf8].pkm_lvls[5]);
+        cpu_pkm_experience[buf8][5] = calc_experience(pkm_growth_rate[cpu_trainers[buf8].pkm[5].id],cpu_trainers[buf8].pkm[5].lvl);
     }
 }
 
@@ -150,18 +150,18 @@ void MainWindow::on_lineEdit_Nickname_1_textEdited(){
     if(not_in_init){
         buf_text = ui->lineEdit_Nickname_1->text();
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_trainers[buf8].pkm_nicks[0] = "";
+        cpu_trainers[buf8].pkm[0].nick = "";
 
         for(short k=0;k<buf_text.length();k++){
             if(control_char_table(buf_text.at(k)) < 253) {
-                cpu_trainers[buf8].pkm_nicks[0] += buf_text.at(k);
+                cpu_trainers[buf8].pkm[0].nick += buf_text.at(k);
             }
             else {
-                cpu_trainers[buf8].pkm_nicks[0] += "?";
+                cpu_trainers[buf8].pkm[0].nick += "?";
             }
         }
         not_in_init = false;
-        ui->lineEdit_Nickname_1->setText(cpu_trainers[buf8].pkm_nicks[0]);
+        ui->lineEdit_Nickname_1->setText(cpu_trainers[buf8].pkm[0].nick);
         not_in_init = true;
     }
 }
@@ -169,18 +169,18 @@ void MainWindow::on_lineEdit_Nickname_2_textEdited(){
     if(not_in_init){
         buf_text = ui->lineEdit_Nickname_2->text();
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_trainers[buf8].pkm_nicks[1] = "";
+        cpu_trainers[buf8].pkm[1].nick = "";
 
         for(short k=0;k<buf_text.length();k++){
             if(control_char_table(buf_text.at(k)) < 253) {
-                cpu_trainers[buf8].pkm_nicks[1] += buf_text.at(k);
+                cpu_trainers[buf8].pkm[1].nick += buf_text.at(k);
             }
             else {
-                cpu_trainers[buf8].pkm_nicks[1] += "?";
+                cpu_trainers[buf8].pkm[1].nick += "?";
             }
         }
         not_in_init = false;
-        ui->lineEdit_Nickname_2->setText(cpu_trainers[buf8].pkm_nicks[1]);
+        ui->lineEdit_Nickname_2->setText(cpu_trainers[buf8].pkm[1].nick);
         not_in_init = true;
     }
 }
@@ -188,18 +188,18 @@ void MainWindow::on_lineEdit_Nickname_3_textEdited(){
     if(not_in_init){
         buf_text = ui->lineEdit_Nickname_3->text();
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_trainers[buf8].pkm_nicks[2] = "";
+        cpu_trainers[buf8].pkm[2].nick = "";
 
         for(short k=0;k<buf_text.length();k++){
             if(control_char_table(buf_text.at(k)) < 253) {
-                cpu_trainers[buf8].pkm_nicks[2] += buf_text.at(k);
+                cpu_trainers[buf8].pkm[2].nick += buf_text.at(k);
             }
             else {
-                cpu_trainers[buf8].pkm_nicks[2] += "?";
+                cpu_trainers[buf8].pkm[2].nick += "?";
             }
         }
         not_in_init = false;
-        ui->lineEdit_Nickname_3->setText(cpu_trainers[buf8].pkm_nicks[2]);
+        ui->lineEdit_Nickname_3->setText(cpu_trainers[buf8].pkm[2].nick);
         not_in_init = true;
     }
 }
@@ -207,18 +207,18 @@ void MainWindow::on_lineEdit_Nickname_4_textEdited(){
     if(not_in_init){
         buf_text = ui->lineEdit_Nickname_4->text();
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_trainers[buf8].pkm_nicks[3] = "";
+        cpu_trainers[buf8].pkm[3].nick = "";
 
         for(short k=0;k<buf_text.length();k++){
             if(control_char_table(buf_text.at(k)) < 253) {
-                cpu_trainers[buf8].pkm_nicks[3] += buf_text.at(k);
+                cpu_trainers[buf8].pkm[3].nick += buf_text.at(k);
             }
             else {
-                cpu_trainers[buf8].pkm_nicks[3] += "?";
+                cpu_trainers[buf8].pkm[3].nick += "?";
             }
         }
         not_in_init = false;
-        ui->lineEdit_Nickname_4->setText(cpu_trainers[buf8].pkm_nicks[3]);
+        ui->lineEdit_Nickname_4->setText(cpu_trainers[buf8].pkm[3].nick);
         not_in_init = true;
     }
 }
@@ -226,18 +226,18 @@ void MainWindow::on_lineEdit_Nickname_5_textEdited(){
     if(not_in_init){
         buf_text = ui->lineEdit_Nickname_5->text();
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_trainers[buf8].pkm_nicks[4] = "";
+        cpu_trainers[buf8].pkm[4].nick = "";
 
         for(short k=0;k<buf_text.length();k++){
             if(control_char_table(buf_text.at(k)) < 253) {
-                cpu_trainers[buf8].pkm_nicks[4] += buf_text.at(k);
+                cpu_trainers[buf8].pkm[4].nick += buf_text.at(k);
             }
             else {
-                cpu_trainers[buf8].pkm_nicks[4] += "?";
+                cpu_trainers[buf8].pkm[4].nick += "?";
             }
         }
         not_in_init = false;
-        ui->lineEdit_Nickname_5->setText(cpu_trainers[buf8].pkm_nicks[4]);
+        ui->lineEdit_Nickname_5->setText(cpu_trainers[buf8].pkm[4].nick);
         not_in_init = true;
     }
 }
@@ -245,18 +245,18 @@ void MainWindow::on_lineEdit_Nickname_6_textEdited(){
     if(not_in_init){
         buf_text = ui->lineEdit_Nickname_6->text();
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_trainers[buf8].pkm_nicks[5] = "";
+        cpu_trainers[buf8].pkm[5].nick = "";
 
         for(short k=0;k<buf_text.length();k++){
             if(control_char_table(buf_text.at(k)) < 253) {
-                cpu_trainers[buf8].pkm_nicks[5] += buf_text.at(k);
+                cpu_trainers[buf8].pkm[5].nick += buf_text.at(k);
             }
             else {
-                cpu_trainers[buf8].pkm_nicks[5] += "?";
+                cpu_trainers[buf8].pkm[5].nick += "?";
             }
         }
         not_in_init = false;
-        ui->lineEdit_Nickname_6->setText(cpu_trainers[buf8].pkm_nicks[5]);
+        ui->lineEdit_Nickname_6->setText(cpu_trainers[buf8].pkm[5].nick);
         not_in_init = true;
     }
 }
@@ -687,12 +687,12 @@ void MainWindow::on_spinBox_IV_Speed_6_valueChanged(int) {
 void MainWindow::lv_spinbox_changed(int levelBox) {
     if (not_in_init) {
         quint8 trainer_id = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_trainers[trainer_id].pkm_lvls[levelBox] = lvl_spinboxes[levelBox]->value();
+        cpu_trainers[trainer_id].pkm[levelBox].lvl = lvl_spinboxes[levelBox]->value();
 
-        quint8 level = cpu_trainers[trainer_id].pkm_lvls[levelBox];
+        quint8 level = cpu_trainers[trainer_id].pkm[levelBox].lvl;
         level = std::min(level, static_cast<quint8>(100));
         level = std::max(level, static_cast<quint8>(2));
-        cpu_trainers[trainer_id].pkm_lvls[levelBox] = level;
+        cpu_trainers[trainer_id].pkm[levelBox].lvl = level;
         lvl_spinboxes[levelBox]->setValue(level);
 
         quint8 pkm_id = cpu_trainers[trainer_id].pkm[levelBox].id;

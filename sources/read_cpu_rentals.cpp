@@ -141,7 +141,7 @@ void MainWindow::read_cpu_rentals(QFile &romfile)
 
                     rom_offset = 0x898040 + (i-current_cpu_trainers_number)*560 + j*84 + *set_iter;
                     romfile.seek(rom_offset);
-                    read>>cpu_trainers[i].pkm_lvls[j];
+                    read>>cpu_trainers[i].pkm[j].lvl;
 
                     rom_offset = 0x898045 + (i-current_cpu_trainers_number)*560 + j*84 + *set_iter;
                     romfile.seek(rom_offset);
@@ -176,8 +176,8 @@ void MainWindow::read_cpu_rentals(QFile &romfile)
                     rom_offset = 0x89806C + (i-current_cpu_trainers_number)*560 + j*84 + *set_iter;
                     romfile.seek(rom_offset);
                     read>>buf8;
-                    while(buf8 != 0 && buf8 != 0xFF && cpu_trainers[i].pkm_nicks[j].size()<11){
-                        cpu_trainers[i].pkm_nicks[j] += char_table[buf8];
+                    while(buf8 != 0 && buf8 != 0xFF && cpu_trainers[i].pkm[j].nick.size()<11){
+                        cpu_trainers[i].pkm[j].nick += char_table[buf8];
                         rom_offset++;
                         romfile.seek(rom_offset);
                         read>>buf8;
