@@ -108,7 +108,6 @@ public:
     quint8  cpu_cup_offset[256];
     quint8  cpu_ivs_min = 2;
     quint8  cpu_ivs_max = 15;
-    quint32 cpu_pkm_experience[256][6];
     quint16 cpu_pkm_ev_hp[256][6];
     quint16 cpu_pkm_ev_atk[256][6];
     quint16 cpu_pkm_ev_def[256][6];

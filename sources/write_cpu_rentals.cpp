@@ -280,7 +280,7 @@ void MainWindow::write_cpu_rentals(QFile &romfile)
 
                     rom_offset = 0x89804C + (i-current_cpu_trainers_number)*560 + j*84 + *set_iter;
                     romfile.seek(rom_offset);
-                    write<<cpu_pkm_experience[i][j];
+                    write<<cpu_trainers[i].pkm[j].exp;
                     write<<cpu_pkm_ev_hp[i][j];
                     write<<cpu_pkm_ev_atk[i][j];
                     write<<cpu_pkm_ev_def[i][j];

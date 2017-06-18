@@ -3136,12 +3136,12 @@ void MainWindow::randomize_cpu_pkmn(std::mt19937 &mt_rand)
             }
         }
 
-        cpu_pkm_experience[cpu_trainer_id][0] = calc_experience(pkm_growth_rate[cpu_trainers[cpu_trainer_id].pkm[0].id],cpu_trainers[cpu_trainer_id].pkm[0].lvl);
-        cpu_pkm_experience[cpu_trainer_id][1] = calc_experience(pkm_growth_rate[cpu_trainers[cpu_trainer_id].pkm[1].id],cpu_trainers[cpu_trainer_id].pkm[1].lvl);
-        cpu_pkm_experience[cpu_trainer_id][2] = calc_experience(pkm_growth_rate[cpu_trainers[cpu_trainer_id].pkm[2].id],cpu_trainers[cpu_trainer_id].pkm[2].lvl);
-        cpu_pkm_experience[cpu_trainer_id][3] = calc_experience(pkm_growth_rate[cpu_trainers[cpu_trainer_id].pkm[3].id],cpu_trainers[cpu_trainer_id].pkm[3].lvl);
-        cpu_pkm_experience[cpu_trainer_id][4] = calc_experience(pkm_growth_rate[cpu_trainers[cpu_trainer_id].pkm[4].id],cpu_trainers[cpu_trainer_id].pkm[4].lvl);
-        cpu_pkm_experience[cpu_trainer_id][5] = calc_experience(pkm_growth_rate[cpu_trainers[cpu_trainer_id].pkm[5].id],cpu_trainers[cpu_trainer_id].pkm[5].lvl);
+        cpu_trainers[cpu_trainer_id].pkm[0].exp = calc_experience(pkm_growth_rate[cpu_trainers[cpu_trainer_id].pkm[0].id],cpu_trainers[cpu_trainer_id].pkm[0].lvl);
+        cpu_trainers[cpu_trainer_id].pkm[1].exp = calc_experience(pkm_growth_rate[cpu_trainers[cpu_trainer_id].pkm[1].id],cpu_trainers[cpu_trainer_id].pkm[1].lvl);
+        cpu_trainers[cpu_trainer_id].pkm[2].exp = calc_experience(pkm_growth_rate[cpu_trainers[cpu_trainer_id].pkm[2].id],cpu_trainers[cpu_trainer_id].pkm[2].lvl);
+        cpu_trainers[cpu_trainer_id].pkm[3].exp = calc_experience(pkm_growth_rate[cpu_trainers[cpu_trainer_id].pkm[3].id],cpu_trainers[cpu_trainer_id].pkm[3].lvl);
+        cpu_trainers[cpu_trainer_id].pkm[4].exp = calc_experience(pkm_growth_rate[cpu_trainers[cpu_trainer_id].pkm[4].id],cpu_trainers[cpu_trainer_id].pkm[4].lvl);
+        cpu_trainers[cpu_trainer_id].pkm[5].exp = calc_experience(pkm_growth_rate[cpu_trainers[cpu_trainer_id].pkm[5].id],cpu_trainers[cpu_trainer_id].pkm[5].lvl);
     }
 }
 

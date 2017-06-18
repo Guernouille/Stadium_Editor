@@ -152,7 +152,7 @@ void MainWindow::read_cpu_rentals(QFile &romfile)
 
                     rom_offset = 0x89804C + (i-current_cpu_trainers_number)*560 + j*84 + *set_iter;
                     romfile.seek(rom_offset);
-                    read>>cpu_pkm_experience[i][j];
+                    read>>cpu_trainers[i].pkm[j].exp;
                     read>>cpu_pkm_ev_hp[i][j];
                     read>>cpu_pkm_ev_atk[i][j];
                     read>>cpu_pkm_ev_def[i][j];
