@@ -399,11 +399,11 @@ void MainWindow::randomize_cpu_iv_stat_exp(std::mt19937 &mt_rand)
                 || cpu_trainer_id==209 || cpu_trainer_id==213 || cpu_trainer_id==217 || cpu_trainer_id==221
                 || cpu_trainer_id==225 || cpu_trainer_id==229 || cpu_trainer_id==233 || cpu_trainer_id==237)){
             for(uint8_t i=0;i<cpu_trainers[cpu_trainer_id].party_size;i++){
-                cpu_pkm_iv_hp[cpu_trainer_id][i] = 15;
-                cpu_pkm_iv_atk[cpu_trainer_id][i] = 15;
-                cpu_pkm_iv_def[cpu_trainer_id][i] = 15;
-                cpu_pkm_iv_spc[cpu_trainer_id][i] = 15;
-                cpu_pkm_iv_speed[cpu_trainer_id][i] = 15;
+                cpu_trainers[cpu_trainer_id].pkm[i].hp_iv = 15;
+                cpu_trainers[cpu_trainer_id].pkm[i].atk_iv = 15;
+                cpu_trainers[cpu_trainer_id].pkm[i].def_iv = 15;
+                cpu_trainers[cpu_trainer_id].pkm[i].spc_iv = 15;
+                cpu_trainers[cpu_trainer_id].pkm[i].speed_iv = 15;
                 cpu_trainers[cpu_trainer_id].pkm[i].hp_ev = 65535;
                 cpu_trainers[cpu_trainer_id].pkm[i].atk_ev = 65535;
                 cpu_trainers[cpu_trainer_id].pkm[i].def_ev = 65535;
@@ -419,10 +419,10 @@ void MainWindow::randomize_cpu_iv_stat_exp(std::mt19937 &mt_rand)
                         if(randomized_pkm_data == false) {
                             switch(iv_statexp_groups[cpu_trainers[cpu_trainer_id].pkm[i].id]){
                             case 0:
-                                cpu_pkm_iv_atk[cpu_trainer_id][i] = cpu_ivs_max;
-                                cpu_pkm_iv_def[cpu_trainer_id][i] = cpu_ivs_max;
-                                cpu_pkm_iv_spc[cpu_trainer_id][i] = cpu_ivs_max;
-                                cpu_pkm_iv_speed[cpu_trainer_id][i] = cpu_ivs_max;
+                                cpu_trainers[cpu_trainer_id].pkm[i].atk_iv = cpu_ivs_max;
+                                cpu_trainers[cpu_trainer_id].pkm[i].def_iv = cpu_ivs_max;
+                                cpu_trainers[cpu_trainer_id].pkm[i].spc_iv = cpu_ivs_max;
+                                cpu_trainers[cpu_trainer_id].pkm[i].speed_iv = cpu_ivs_max;
 
                                 cpu_trainers[cpu_trainer_id].pkm[i].hp_ev = cpu_stat_exp_max;
                                 cpu_trainers[cpu_trainer_id].pkm[i].atk_ev = cpu_stat_exp_max;
@@ -432,10 +432,10 @@ void MainWindow::randomize_cpu_iv_stat_exp(std::mt19937 &mt_rand)
                                 break;
 
                             default:
-                                cpu_pkm_iv_atk[cpu_trainer_id][i] = rand_iv_1(mt_rand);
-                                cpu_pkm_iv_def[cpu_trainer_id][i] = rand_iv_1(mt_rand);
-                                cpu_pkm_iv_spc[cpu_trainer_id][i] = rand_iv_1(mt_rand);
-                                cpu_pkm_iv_speed[cpu_trainer_id][i] = rand_iv_1(mt_rand);
+                                cpu_trainers[cpu_trainer_id].pkm[i].atk_iv = rand_iv_1(mt_rand);
+                                cpu_trainers[cpu_trainer_id].pkm[i].def_iv = rand_iv_1(mt_rand);
+                                cpu_trainers[cpu_trainer_id].pkm[i].spc_iv = rand_iv_1(mt_rand);
+                                cpu_trainers[cpu_trainer_id].pkm[i].speed_iv = rand_iv_1(mt_rand);
 
                                 buf32 = rand_stat_exp_3(mt_rand);
                                 if(buf32 > cpu_stat_exp_max) buf32 = cpu_stat_exp_max;
@@ -460,10 +460,10 @@ void MainWindow::randomize_cpu_iv_stat_exp(std::mt19937 &mt_rand)
                             }
                         }
                         else {
-                            cpu_pkm_iv_atk[cpu_trainer_id][i] = rand_iv_1(mt_rand);
-                            cpu_pkm_iv_def[cpu_trainer_id][i] = rand_iv_1(mt_rand);
-                            cpu_pkm_iv_spc[cpu_trainer_id][i] = rand_iv_1(mt_rand);
-                            cpu_pkm_iv_speed[cpu_trainer_id][i] = rand_iv_1(mt_rand);
+                            cpu_trainers[cpu_trainer_id].pkm[i].atk_iv = rand_iv_1(mt_rand);
+                            cpu_trainers[cpu_trainer_id].pkm[i].def_iv = rand_iv_1(mt_rand);
+                            cpu_trainers[cpu_trainer_id].pkm[i].spc_iv = rand_iv_1(mt_rand);
+                            cpu_trainers[cpu_trainer_id].pkm[i].speed_iv = rand_iv_1(mt_rand);
 
                             buf32 = rand_stat_exp_3(mt_rand);
                             if(buf32 > cpu_stat_exp_max) buf32 = cpu_stat_exp_max;
@@ -489,10 +489,10 @@ void MainWindow::randomize_cpu_iv_stat_exp(std::mt19937 &mt_rand)
                     else if(randomized_pkm_data == false) {
                         switch(iv_statexp_groups[cpu_trainers[cpu_trainer_id].pkm[i].id]) {
                         case 0:
-                            cpu_pkm_iv_atk[cpu_trainer_id][i] = cpu_ivs_max;
-                            cpu_pkm_iv_def[cpu_trainer_id][i] = cpu_ivs_max;
-                            cpu_pkm_iv_spc[cpu_trainer_id][i] = cpu_ivs_max;
-                            cpu_pkm_iv_speed[cpu_trainer_id][i] = cpu_ivs_max;
+                            cpu_trainers[cpu_trainer_id].pkm[i].atk_iv = cpu_ivs_max;
+                            cpu_trainers[cpu_trainer_id].pkm[i].def_iv = cpu_ivs_max;
+                            cpu_trainers[cpu_trainer_id].pkm[i].spc_iv = cpu_ivs_max;
+                            cpu_trainers[cpu_trainer_id].pkm[i].speed_iv = cpu_ivs_max;
                             cpu_trainers[cpu_trainer_id].pkm[i].hp_ev = cpu_stat_exp_max;
                             cpu_trainers[cpu_trainer_id].pkm[i].atk_ev = cpu_stat_exp_max;
                             cpu_trainers[cpu_trainer_id].pkm[i].def_ev = cpu_stat_exp_max;
@@ -501,10 +501,10 @@ void MainWindow::randomize_cpu_iv_stat_exp(std::mt19937 &mt_rand)
                             break;
 
                         case 1:
-                            cpu_pkm_iv_atk[cpu_trainer_id][i] = std::min(quint8(rand_iv_1(mt_rand)),cpu_ivs_max);
-                            cpu_pkm_iv_def[cpu_trainer_id][i] = std::min(quint8(rand_iv_1(mt_rand)),cpu_ivs_max);
-                            cpu_pkm_iv_spc[cpu_trainer_id][i] = std::min(quint8(rand_iv_1(mt_rand)),cpu_ivs_max);
-                            cpu_pkm_iv_speed[cpu_trainer_id][i] = std::min(quint8(rand_iv_1(mt_rand)),cpu_ivs_max);
+                            cpu_trainers[cpu_trainer_id].pkm[i].atk_iv = std::min(quint8(rand_iv_1(mt_rand)),cpu_ivs_max);
+                            cpu_trainers[cpu_trainer_id].pkm[i].def_iv = std::min(quint8(rand_iv_1(mt_rand)),cpu_ivs_max);
+                            cpu_trainers[cpu_trainer_id].pkm[i].spc_iv = std::min(quint8(rand_iv_1(mt_rand)),cpu_ivs_max);
+                            cpu_trainers[cpu_trainer_id].pkm[i].speed_iv = std::min(quint8(rand_iv_1(mt_rand)),cpu_ivs_max);
 
                             buf32 = rand_stat_exp_1(mt_rand);
                             if(buf32 > cpu_stat_exp_max) buf32 = cpu_stat_exp_max;
@@ -528,10 +528,10 @@ void MainWindow::randomize_cpu_iv_stat_exp(std::mt19937 &mt_rand)
                             break;
 
                         case 2:
-                            cpu_pkm_iv_atk[cpu_trainer_id][i] = std::min(quint8(rand_iv_2(mt_rand)),cpu_ivs_max);
-                            cpu_pkm_iv_def[cpu_trainer_id][i] = std::min(quint8(rand_iv_2(mt_rand)),cpu_ivs_max);
-                            cpu_pkm_iv_spc[cpu_trainer_id][i] = std::min(quint8(rand_iv_2(mt_rand)),cpu_ivs_max);
-                            cpu_pkm_iv_speed[cpu_trainer_id][i] = std::min(quint8(rand_iv_2(mt_rand)),cpu_ivs_max);
+                            cpu_trainers[cpu_trainer_id].pkm[i].atk_iv = std::min(quint8(rand_iv_2(mt_rand)),cpu_ivs_max);
+                            cpu_trainers[cpu_trainer_id].pkm[i].def_iv = std::min(quint8(rand_iv_2(mt_rand)),cpu_ivs_max);
+                            cpu_trainers[cpu_trainer_id].pkm[i].spc_iv = std::min(quint8(rand_iv_2(mt_rand)),cpu_ivs_max);
+                            cpu_trainers[cpu_trainer_id].pkm[i].speed_iv = std::min(quint8(rand_iv_2(mt_rand)),cpu_ivs_max);
 
                             buf32 = rand_stat_exp_2(mt_rand);
                             if(buf32 > cpu_stat_exp_max) buf32 = cpu_stat_exp_max;
@@ -555,10 +555,10 @@ void MainWindow::randomize_cpu_iv_stat_exp(std::mt19937 &mt_rand)
                             break;
 
                         case 3:
-                            cpu_pkm_iv_atk[cpu_trainer_id][i] = std::min(quint8(rand_iv_3(mt_rand)),cpu_ivs_max);
-                            cpu_pkm_iv_def[cpu_trainer_id][i] = std::min(quint8(rand_iv_3(mt_rand)),cpu_ivs_max);
-                            cpu_pkm_iv_spc[cpu_trainer_id][i] = std::min(quint8(rand_iv_3(mt_rand)),cpu_ivs_max);
-                            cpu_pkm_iv_speed[cpu_trainer_id][i] = std::min(quint8(rand_iv_3(mt_rand)),cpu_ivs_max);
+                            cpu_trainers[cpu_trainer_id].pkm[i].atk_iv = std::min(quint8(rand_iv_3(mt_rand)),cpu_ivs_max);
+                            cpu_trainers[cpu_trainer_id].pkm[i].def_iv = std::min(quint8(rand_iv_3(mt_rand)),cpu_ivs_max);
+                            cpu_trainers[cpu_trainer_id].pkm[i].spc_iv = std::min(quint8(rand_iv_3(mt_rand)),cpu_ivs_max);
+                            cpu_trainers[cpu_trainer_id].pkm[i].speed_iv = std::min(quint8(rand_iv_3(mt_rand)),cpu_ivs_max);
 
                             buf32 = rand_stat_exp_3(mt_rand);
                             if(buf32 > cpu_stat_exp_max) buf32 = cpu_stat_exp_max;
@@ -582,10 +582,10 @@ void MainWindow::randomize_cpu_iv_stat_exp(std::mt19937 &mt_rand)
                             break;
 
                         case 4:
-                            cpu_pkm_iv_atk[cpu_trainer_id][i] = std::min(quint8(rand_iv_4(mt_rand)),cpu_ivs_max);
-                            cpu_pkm_iv_def[cpu_trainer_id][i] = std::min(quint8(rand_iv_4(mt_rand)),cpu_ivs_max);
-                            cpu_pkm_iv_spc[cpu_trainer_id][i] = std::min(quint8(rand_iv_4(mt_rand)),cpu_ivs_max);
-                            cpu_pkm_iv_speed[cpu_trainer_id][i] = std::min(quint8(rand_iv_4(mt_rand)),cpu_ivs_max);
+                            cpu_trainers[cpu_trainer_id].pkm[i].atk_iv = std::min(quint8(rand_iv_4(mt_rand)),cpu_ivs_max);
+                            cpu_trainers[cpu_trainer_id].pkm[i].def_iv = std::min(quint8(rand_iv_4(mt_rand)),cpu_ivs_max);
+                            cpu_trainers[cpu_trainer_id].pkm[i].spc_iv = std::min(quint8(rand_iv_4(mt_rand)),cpu_ivs_max);
+                            cpu_trainers[cpu_trainer_id].pkm[i].speed_iv = std::min(quint8(rand_iv_4(mt_rand)),cpu_ivs_max);
 
                             cpu_trainers[cpu_trainer_id].pkm[i].hp_ev = rand_stat_exp_4(mt_rand);
                             cpu_trainers[cpu_trainer_id].pkm[i].atk_ev = rand_stat_exp_4(mt_rand);
@@ -595,10 +595,10 @@ void MainWindow::randomize_cpu_iv_stat_exp(std::mt19937 &mt_rand)
                             break;
 
                         case 5:
-                            cpu_pkm_iv_atk[cpu_trainer_id][i] = rand_iv_5(mt_rand);
-                            cpu_pkm_iv_def[cpu_trainer_id][i] = rand_iv_5(mt_rand);
-                            cpu_pkm_iv_spc[cpu_trainer_id][i] = rand_iv_5(mt_rand);
-                            cpu_pkm_iv_speed[cpu_trainer_id][i] = rand_iv_5(mt_rand);
+                            cpu_trainers[cpu_trainer_id].pkm[i].atk_iv = rand_iv_5(mt_rand);
+                            cpu_trainers[cpu_trainer_id].pkm[i].def_iv = rand_iv_5(mt_rand);
+                            cpu_trainers[cpu_trainer_id].pkm[i].spc_iv = rand_iv_5(mt_rand);
+                            cpu_trainers[cpu_trainer_id].pkm[i].speed_iv = rand_iv_5(mt_rand);
 
                             cpu_trainers[cpu_trainer_id].pkm[i].hp_ev = rand_stat_exp_5(mt_rand);
                             cpu_trainers[cpu_trainer_id].pkm[i].atk_ev = rand_stat_exp_5(mt_rand);
@@ -608,10 +608,10 @@ void MainWindow::randomize_cpu_iv_stat_exp(std::mt19937 &mt_rand)
                             break;
 
                         default:
-                            cpu_pkm_iv_atk[cpu_trainer_id][i] = rand_iv_6(mt_rand);
-                            cpu_pkm_iv_def[cpu_trainer_id][i] = rand_iv_6(mt_rand);
-                            cpu_pkm_iv_spc[cpu_trainer_id][i] = rand_iv_6(mt_rand);
-                            cpu_pkm_iv_speed[cpu_trainer_id][i] = rand_iv_6(mt_rand);
+                            cpu_trainers[cpu_trainer_id].pkm[i].atk_iv = rand_iv_6(mt_rand);
+                            cpu_trainers[cpu_trainer_id].pkm[i].def_iv = rand_iv_6(mt_rand);
+                            cpu_trainers[cpu_trainer_id].pkm[i].spc_iv = rand_iv_6(mt_rand);
+                            cpu_trainers[cpu_trainer_id].pkm[i].speed_iv = rand_iv_6(mt_rand);
 
                             cpu_trainers[cpu_trainer_id].pkm[i].hp_ev = rand_stat_exp_6(mt_rand);
                             cpu_trainers[cpu_trainer_id].pkm[i].atk_ev = rand_stat_exp_6(mt_rand);
@@ -624,10 +624,10 @@ void MainWindow::randomize_cpu_iv_stat_exp(std::mt19937 &mt_rand)
                     else {
                         switch(pkm_evo_stage[cpu_trainers[cpu_trainer_id].pkm[i].id]) {
                         case 0:
-                            cpu_pkm_iv_atk[cpu_trainer_id][i] = cpu_ivs_max;
-                            cpu_pkm_iv_def[cpu_trainer_id][i] = cpu_ivs_max;
-                            cpu_pkm_iv_spc[cpu_trainer_id][i] = cpu_ivs_max;
-                            cpu_pkm_iv_speed[cpu_trainer_id][i] = cpu_ivs_max;
+                            cpu_trainers[cpu_trainer_id].pkm[i].atk_iv = cpu_ivs_max;
+                            cpu_trainers[cpu_trainer_id].pkm[i].def_iv = cpu_ivs_max;
+                            cpu_trainers[cpu_trainer_id].pkm[i].spc_iv = cpu_ivs_max;
+                            cpu_trainers[cpu_trainer_id].pkm[i].speed_iv = cpu_ivs_max;
 
                             buf32 = rand_stat_exp_1(mt_rand);
                             if(buf32 > cpu_stat_exp_max) buf32 = cpu_stat_exp_max;
@@ -651,10 +651,10 @@ void MainWindow::randomize_cpu_iv_stat_exp(std::mt19937 &mt_rand)
 
                             break;
                         case 1:
-                            cpu_pkm_iv_atk[cpu_trainer_id][i] = std::min(quint8(rand_iv_1(mt_rand)),cpu_ivs_max);
-                            cpu_pkm_iv_def[cpu_trainer_id][i] = std::min(quint8(rand_iv_1(mt_rand)),cpu_ivs_max);
-                            cpu_pkm_iv_spc[cpu_trainer_id][i] = std::min(quint8(rand_iv_1(mt_rand)),cpu_ivs_max);
-                            cpu_pkm_iv_speed[cpu_trainer_id][i] = std::min(quint8(rand_iv_1(mt_rand)),cpu_ivs_max);
+                            cpu_trainers[cpu_trainer_id].pkm[i].atk_iv = std::min(quint8(rand_iv_1(mt_rand)),cpu_ivs_max);
+                            cpu_trainers[cpu_trainer_id].pkm[i].def_iv = std::min(quint8(rand_iv_1(mt_rand)),cpu_ivs_max);
+                            cpu_trainers[cpu_trainer_id].pkm[i].spc_iv = std::min(quint8(rand_iv_1(mt_rand)),cpu_ivs_max);
+                            cpu_trainers[cpu_trainer_id].pkm[i].speed_iv = std::min(quint8(rand_iv_1(mt_rand)),cpu_ivs_max);
 
                             buf32 = rand_stat_exp_2(mt_rand);
                             if(buf32 > cpu_stat_exp_max) buf32 = cpu_stat_exp_max;
@@ -678,10 +678,10 @@ void MainWindow::randomize_cpu_iv_stat_exp(std::mt19937 &mt_rand)
 
                             break;
                         case 2:
-                            cpu_pkm_iv_atk[cpu_trainer_id][i] = std::min(quint8(rand_iv_4(mt_rand)),cpu_ivs_max);
-                            cpu_pkm_iv_def[cpu_trainer_id][i] = std::min(quint8(rand_iv_4(mt_rand)),cpu_ivs_max);
-                            cpu_pkm_iv_spc[cpu_trainer_id][i] = std::min(quint8(rand_iv_4(mt_rand)),cpu_ivs_max);
-                            cpu_pkm_iv_speed[cpu_trainer_id][i] = std::min(quint8(rand_iv_4(mt_rand)),cpu_ivs_max);
+                            cpu_trainers[cpu_trainer_id].pkm[i].atk_iv = std::min(quint8(rand_iv_4(mt_rand)),cpu_ivs_max);
+                            cpu_trainers[cpu_trainer_id].pkm[i].def_iv = std::min(quint8(rand_iv_4(mt_rand)),cpu_ivs_max);
+                            cpu_trainers[cpu_trainer_id].pkm[i].spc_iv = std::min(quint8(rand_iv_4(mt_rand)),cpu_ivs_max);
+                            cpu_trainers[cpu_trainer_id].pkm[i].speed_iv = std::min(quint8(rand_iv_4(mt_rand)),cpu_ivs_max);
 
                             buf32 = rand_stat_exp_3(mt_rand);
                             if(buf32 > cpu_stat_exp_max) buf32 = cpu_stat_exp_max;
@@ -706,10 +706,10 @@ void MainWindow::randomize_cpu_iv_stat_exp(std::mt19937 &mt_rand)
                             break;
                         default:
                             if(cpu_trainers[cpu_trainer_id].pkm[i].id<150){
-                                cpu_pkm_iv_atk[cpu_trainer_id][i] = rand_iv_5(mt_rand);
-                                cpu_pkm_iv_def[cpu_trainer_id][i] = rand_iv_5(mt_rand);
-                                cpu_pkm_iv_spc[cpu_trainer_id][i] = rand_iv_5(mt_rand);
-                                cpu_pkm_iv_speed[cpu_trainer_id][i] = rand_iv_5(mt_rand);
+                                cpu_trainers[cpu_trainer_id].pkm[i].atk_iv = rand_iv_5(mt_rand);
+                                cpu_trainers[cpu_trainer_id].pkm[i].def_iv = rand_iv_5(mt_rand);
+                                cpu_trainers[cpu_trainer_id].pkm[i].spc_iv = rand_iv_5(mt_rand);
+                                cpu_trainers[cpu_trainer_id].pkm[i].speed_iv = rand_iv_5(mt_rand);
 
                                 cpu_trainers[cpu_trainer_id].pkm[i].hp_ev = rand_stat_exp_4(mt_rand);
                                 cpu_trainers[cpu_trainer_id].pkm[i].atk_ev = rand_stat_exp_4(mt_rand);
@@ -718,10 +718,10 @@ void MainWindow::randomize_cpu_iv_stat_exp(std::mt19937 &mt_rand)
                                 cpu_trainers[cpu_trainer_id].pkm[i].speed_ev = rand_stat_exp_4(mt_rand);
                             }
                             else{
-                                cpu_pkm_iv_atk[cpu_trainer_id][i] = rand_iv_6(mt_rand);
-                                cpu_pkm_iv_def[cpu_trainer_id][i] = rand_iv_6(mt_rand);
-                                cpu_pkm_iv_spc[cpu_trainer_id][i] = rand_iv_6(mt_rand);
-                                cpu_pkm_iv_speed[cpu_trainer_id][i] = rand_iv_6(mt_rand);
+                                cpu_trainers[cpu_trainer_id].pkm[i].atk_iv = rand_iv_6(mt_rand);
+                                cpu_trainers[cpu_trainer_id].pkm[i].def_iv = rand_iv_6(mt_rand);
+                                cpu_trainers[cpu_trainer_id].pkm[i].spc_iv = rand_iv_6(mt_rand);
+                                cpu_trainers[cpu_trainer_id].pkm[i].speed_iv = rand_iv_6(mt_rand);
 
                                 cpu_trainers[cpu_trainer_id].pkm[i].hp_ev = rand_stat_exp_6(mt_rand);
                                 cpu_trainers[cpu_trainer_id].pkm[i].atk_ev = rand_stat_exp_6(mt_rand);
@@ -734,10 +734,10 @@ void MainWindow::randomize_cpu_iv_stat_exp(std::mt19937 &mt_rand)
                     }
                 }
                 else{
-                    cpu_pkm_iv_atk[cpu_trainer_id][i] = rand_iv_6(mt_rand);
-                    cpu_pkm_iv_def[cpu_trainer_id][i] = rand_iv_6(mt_rand);
-                    cpu_pkm_iv_spc[cpu_trainer_id][i] = rand_iv_6(mt_rand);
-                    cpu_pkm_iv_speed[cpu_trainer_id][i] = rand_iv_6(mt_rand);
+                    cpu_trainers[cpu_trainer_id].pkm[i].atk_iv = rand_iv_6(mt_rand);
+                    cpu_trainers[cpu_trainer_id].pkm[i].def_iv = rand_iv_6(mt_rand);
+                    cpu_trainers[cpu_trainer_id].pkm[i].spc_iv = rand_iv_6(mt_rand);
+                    cpu_trainers[cpu_trainer_id].pkm[i].speed_iv = rand_iv_6(mt_rand);
 
                     cpu_trainers[cpu_trainer_id].pkm[i].hp_ev = rand_stat_exp_def(mt_rand);
                     cpu_trainers[cpu_trainer_id].pkm[i].atk_ev = rand_stat_exp_def(mt_rand);
@@ -745,7 +745,7 @@ void MainWindow::randomize_cpu_iv_stat_exp(std::mt19937 &mt_rand)
                     cpu_trainers[cpu_trainer_id].pkm[i].spc_ev = rand_stat_exp_def(mt_rand);
                     cpu_trainers[cpu_trainer_id].pkm[i].speed_ev = rand_stat_exp_def(mt_rand);
                 }
-                cpu_pkm_iv_hp[cpu_trainer_id][i] = (cpu_pkm_iv_atk[cpu_trainer_id][i] & 1)*8 + (cpu_pkm_iv_def[cpu_trainer_id][i] & 1)*4 + (cpu_pkm_iv_speed[cpu_trainer_id][i] & 1)*2 + (cpu_pkm_iv_spc[cpu_trainer_id][i] & 1);
+                cpu_trainers[cpu_trainer_id].pkm[i].hp_iv = (cpu_trainers[cpu_trainer_id].pkm[i].atk_iv & 1)*8 + (cpu_trainers[cpu_trainer_id].pkm[i].def_iv & 1)*4 + (cpu_trainers[cpu_trainer_id].pkm[i].speed_iv & 1)*2 + (cpu_trainers[cpu_trainer_id].pkm[i].spc_iv & 1);
             }
         }
     }

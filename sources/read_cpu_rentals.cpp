@@ -184,11 +184,11 @@ void MainWindow::read_cpu_rentals(QFile &romfile)
                     }
 
                     // CPU Pokémon IVs
-                    cpu_pkm_iv_atk[i][j] = cpu_trainers[i].pkm[j].ivs >> 12;
-                    cpu_pkm_iv_def[i][j] = (cpu_trainers[i].pkm[j].ivs >> 8) & 0xF;
-                    cpu_pkm_iv_speed[i][j] = (cpu_trainers[i].pkm[j].ivs >> 4) & 0xF;
-                    cpu_pkm_iv_spc[i][j] = cpu_trainers[i].pkm[j].ivs & 0xF;
-                    cpu_pkm_iv_hp[i][j] = (cpu_pkm_iv_atk[i][j] & 1)*8 + (cpu_pkm_iv_def[i][j] & 1)*4 + (cpu_pkm_iv_speed[i][j] & 1)*2 + (cpu_pkm_iv_spc[i][j] & 1);
+                    cpu_trainers[i].pkm[j].atk_iv = cpu_trainers[i].pkm[j].ivs >> 12;
+                    cpu_trainers[i].pkm[j].def_iv = (cpu_trainers[i].pkm[j].ivs >> 8) & 0xF;
+                    cpu_trainers[i].pkm[j].speed_iv = (cpu_trainers[i].pkm[j].ivs >> 4) & 0xF;
+                    cpu_trainers[i].pkm[j].spc_iv = cpu_trainers[i].pkm[j].ivs & 0xF;
+                    cpu_trainers[i].pkm[j].hp_iv = (cpu_trainers[i].pkm[j].atk_iv & 1)*8 + (cpu_trainers[i].pkm[j].def_iv & 1)*4 + (cpu_trainers[i].pkm[j].speed_iv & 1)*2 + (cpu_trainers[i].pkm[j].spc_iv & 1);
 
                     // CPU Pokémon PP Ups
                     cpu_pkm_ppup_1[i][j] = cpu_pkm_pp_1[i][j] >> 6;

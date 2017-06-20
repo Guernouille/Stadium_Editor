@@ -490,196 +490,196 @@ void MainWindow::on_spinBox_EV_Speed_6_valueChanged(int) {
 void MainWindow::on_spinBox_IV_Attack_1_valueChanged(int) {
     if(not_in_init){
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_pkm_iv_atk[buf8][0] = ui->spinBox_IV_Attack_1->value();
-        cpu_pkm_iv_hp[buf8][0] = (cpu_pkm_iv_atk[buf8][0] & 1)*8 + (cpu_pkm_iv_def[buf8][0] & 1)*4 + (cpu_pkm_iv_speed[buf8][0] & 1)*2 + (cpu_pkm_iv_spc[buf8][0] & 1);
-        ui->spinBox_IV_HP_1->setValue(cpu_pkm_iv_hp[buf8][0]);
+        cpu_trainers[buf8].pkm[0].atk_iv = ui->spinBox_IV_Attack_1->value();
+        cpu_trainers[buf8].pkm[0].hp_iv = (cpu_trainers[buf8].pkm[0].atk_iv & 1)*8 + (cpu_trainers[buf8].pkm[0].def_iv & 1)*4 + (cpu_trainers[buf8].pkm[0].speed_iv & 1)*2 + (cpu_trainers[buf8].pkm[0].spc_iv & 1);
+        ui->spinBox_IV_HP_1->setValue(cpu_trainers[buf8].pkm[0].hp_iv);
     }
 }
 void MainWindow::on_spinBox_IV_Attack_2_valueChanged(int) {
     if(not_in_init){
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_pkm_iv_atk[buf8][1] = ui->spinBox_IV_Attack_2->value();
-        cpu_pkm_iv_hp[buf8][1] = (cpu_pkm_iv_atk[buf8][1] & 1)*8 + (cpu_pkm_iv_def[buf8][1] & 1)*4 + (cpu_pkm_iv_speed[buf8][1] & 1)*2 + (cpu_pkm_iv_spc[buf8][1] & 1);
-        ui->spinBox_IV_HP_2->setValue(cpu_pkm_iv_hp[buf8][1]);
+        cpu_trainers[buf8].pkm[1].atk_iv = ui->spinBox_IV_Attack_2->value();
+        cpu_trainers[buf8].pkm[1].hp_iv = (cpu_trainers[buf8].pkm[1].atk_iv & 1)*8 + (cpu_trainers[buf8].pkm[1].def_iv & 1)*4 + (cpu_trainers[buf8].pkm[1].speed_iv & 1)*2 + (cpu_trainers[buf8].pkm[1].spc_iv & 1);
+        ui->spinBox_IV_HP_2->setValue(cpu_trainers[buf8].pkm[1].hp_iv);
     }
 }
 void MainWindow::on_spinBox_IV_Attack_3_valueChanged(int) {
     if(not_in_init){
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_pkm_iv_atk[buf8][2] = ui->spinBox_IV_Attack_3->value();
-        cpu_pkm_iv_hp[buf8][2] = (cpu_pkm_iv_atk[buf8][2] & 1)*8 + (cpu_pkm_iv_def[buf8][2] & 1)*4 + (cpu_pkm_iv_speed[buf8][2] & 1)*2 + (cpu_pkm_iv_spc[buf8][2] & 1);
-        ui->spinBox_IV_HP_3->setValue(cpu_pkm_iv_hp[buf8][2]);
+        cpu_trainers[buf8].pkm[2].atk_iv = ui->spinBox_IV_Attack_3->value();
+        cpu_trainers[buf8].pkm[2].hp_iv = (cpu_trainers[buf8].pkm[2].atk_iv & 1)*8 + (cpu_trainers[buf8].pkm[2].def_iv & 1)*4 + (cpu_trainers[buf8].pkm[2].speed_iv & 1)*2 + (cpu_trainers[buf8].pkm[2].spc_iv & 1);
+        ui->spinBox_IV_HP_3->setValue(cpu_trainers[buf8].pkm[2].hp_iv);
     }
 }
 void MainWindow::on_spinBox_IV_Attack_4_valueChanged(int) {
     if(not_in_init){
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_pkm_iv_atk[buf8][3] = ui->spinBox_IV_Attack_4->value();
-        cpu_pkm_iv_hp[buf8][3] = (cpu_pkm_iv_atk[buf8][3] & 1)*8 + (cpu_pkm_iv_def[buf8][3] & 1)*4 + (cpu_pkm_iv_speed[buf8][3] & 1)*2 + (cpu_pkm_iv_spc[buf8][3] & 1);
-        ui->spinBox_IV_HP_4->setValue(cpu_pkm_iv_hp[buf8][3]);
+        cpu_trainers[buf8].pkm[3].atk_iv = ui->spinBox_IV_Attack_4->value();
+        cpu_trainers[buf8].pkm[3].hp_iv = (cpu_trainers[buf8].pkm[3].atk_iv & 1)*8 + (cpu_trainers[buf8].pkm[3].def_iv & 1)*4 + (cpu_trainers[buf8].pkm[3].speed_iv & 1)*2 + (cpu_trainers[buf8].pkm[3].spc_iv & 1);
+        ui->spinBox_IV_HP_4->setValue(cpu_trainers[buf8].pkm[3].hp_iv);
     }
 }
 void MainWindow::on_spinBox_IV_Attack_5_valueChanged(int) {
     if(not_in_init){
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_pkm_iv_atk[buf8][4] = ui->spinBox_IV_Attack_5->value();
-        cpu_pkm_iv_hp[buf8][4] = (cpu_pkm_iv_atk[buf8][4] & 1)*8 + (cpu_pkm_iv_def[buf8][4] & 1)*4 + (cpu_pkm_iv_speed[buf8][4] & 1)*2 + (cpu_pkm_iv_spc[buf8][4] & 1);
-        ui->spinBox_IV_HP_5->setValue(cpu_pkm_iv_hp[buf8][4]);
+        cpu_trainers[buf8].pkm[4].atk_iv = ui->spinBox_IV_Attack_5->value();
+        cpu_trainers[buf8].pkm[4].hp_iv = (cpu_trainers[buf8].pkm[4].atk_iv & 1)*8 + (cpu_trainers[buf8].pkm[4].def_iv & 1)*4 + (cpu_trainers[buf8].pkm[4].speed_iv & 1)*2 + (cpu_trainers[buf8].pkm[4].spc_iv & 1);
+        ui->spinBox_IV_HP_5->setValue(cpu_trainers[buf8].pkm[4].hp_iv);
     }
 }
 void MainWindow::on_spinBox_IV_Attack_6_valueChanged(int) {
     if(not_in_init){
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_pkm_iv_atk[buf8][5] = ui->spinBox_IV_Attack_6->value();
-        cpu_pkm_iv_hp[buf8][5] = (cpu_pkm_iv_atk[buf8][5] & 1)*8 + (cpu_pkm_iv_def[buf8][5] & 1)*4 + (cpu_pkm_iv_speed[buf8][5] & 1)*2 + (cpu_pkm_iv_spc[buf8][5] & 1);
-        ui->spinBox_IV_HP_6->setValue(cpu_pkm_iv_hp[buf8][5]);
+        cpu_trainers[buf8].pkm[5].atk_iv = ui->spinBox_IV_Attack_6->value();
+        cpu_trainers[buf8].pkm[5].hp_iv = (cpu_trainers[buf8].pkm[5].atk_iv & 1)*8 + (cpu_trainers[buf8].pkm[5].def_iv & 1)*4 + (cpu_trainers[buf8].pkm[5].speed_iv & 1)*2 + (cpu_trainers[buf8].pkm[5].spc_iv & 1);
+        ui->spinBox_IV_HP_6->setValue(cpu_trainers[buf8].pkm[5].hp_iv);
     }
 }
 
 void MainWindow::on_spinBox_IV_Defense_1_valueChanged(int) {
     if(not_in_init){
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_pkm_iv_def[buf8][0] = ui->spinBox_IV_Defense_1->value();
-        cpu_pkm_iv_hp[buf8][0] = (cpu_pkm_iv_atk[buf8][0] & 1)*8 + (cpu_pkm_iv_def[buf8][0] & 1)*4 + (cpu_pkm_iv_speed[buf8][0] & 1)*2 + (cpu_pkm_iv_spc[buf8][0] & 1);
-        ui->spinBox_IV_HP_1->setValue(cpu_pkm_iv_hp[buf8][0]);
+        cpu_trainers[buf8].pkm[0].def_iv = ui->spinBox_IV_Defense_1->value();
+        cpu_trainers[buf8].pkm[0].hp_iv = (cpu_trainers[buf8].pkm[0].atk_iv & 1)*8 + (cpu_trainers[buf8].pkm[0].def_iv & 1)*4 + (cpu_trainers[buf8].pkm[0].speed_iv & 1)*2 + (cpu_trainers[buf8].pkm[0].spc_iv & 1);
+        ui->spinBox_IV_HP_1->setValue(cpu_trainers[buf8].pkm[0].hp_iv);
     }
 }
 void MainWindow::on_spinBox_IV_Defense_2_valueChanged(int) {
     if(not_in_init){
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_pkm_iv_def[buf8][1] = ui->spinBox_IV_Defense_2->value();
-        cpu_pkm_iv_hp[buf8][1] = (cpu_pkm_iv_atk[buf8][1] & 1)*8 + (cpu_pkm_iv_def[buf8][1] & 1)*4 + (cpu_pkm_iv_speed[buf8][1] & 1)*2 + (cpu_pkm_iv_spc[buf8][1] & 1);
-        ui->spinBox_IV_HP_2->setValue(cpu_pkm_iv_hp[buf8][1]);
+        cpu_trainers[buf8].pkm[1].def_iv = ui->spinBox_IV_Defense_2->value();
+        cpu_trainers[buf8].pkm[1].hp_iv = (cpu_trainers[buf8].pkm[1].atk_iv & 1)*8 + (cpu_trainers[buf8].pkm[1].def_iv & 1)*4 + (cpu_trainers[buf8].pkm[1].speed_iv & 1)*2 + (cpu_trainers[buf8].pkm[1].spc_iv & 1);
+        ui->spinBox_IV_HP_2->setValue(cpu_trainers[buf8].pkm[1].hp_iv);
     }
 }
 void MainWindow::on_spinBox_IV_Defense_3_valueChanged(int) {
     if(not_in_init){
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_pkm_iv_def[buf8][2] = ui->spinBox_IV_Defense_3->value();
-        cpu_pkm_iv_hp[buf8][2] = (cpu_pkm_iv_atk[buf8][2] & 1)*8 + (cpu_pkm_iv_def[buf8][2] & 1)*4 + (cpu_pkm_iv_speed[buf8][2] & 1)*2 + (cpu_pkm_iv_spc[buf8][2] & 1);
-        ui->spinBox_IV_HP_3->setValue(cpu_pkm_iv_hp[buf8][2]);
+        cpu_trainers[buf8].pkm[2].def_iv = ui->spinBox_IV_Defense_3->value();
+        cpu_trainers[buf8].pkm[2].hp_iv = (cpu_trainers[buf8].pkm[2].atk_iv & 1)*8 + (cpu_trainers[buf8].pkm[2].def_iv & 1)*4 + (cpu_trainers[buf8].pkm[2].speed_iv & 1)*2 + (cpu_trainers[buf8].pkm[2].spc_iv & 1);
+        ui->spinBox_IV_HP_3->setValue(cpu_trainers[buf8].pkm[2].hp_iv);
     }
 }
 void MainWindow::on_spinBox_IV_Defense_4_valueChanged(int) {
     if(not_in_init){
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_pkm_iv_def[buf8][3] = ui->spinBox_IV_Defense_4->value();
-        cpu_pkm_iv_hp[buf8][3] = (cpu_pkm_iv_atk[buf8][3] & 1)*8 + (cpu_pkm_iv_def[buf8][3] & 1)*4 + (cpu_pkm_iv_speed[buf8][3] & 1)*2 + (cpu_pkm_iv_spc[buf8][3] & 1);
-        ui->spinBox_IV_HP_4->setValue(cpu_pkm_iv_hp[buf8][3]);
+        cpu_trainers[buf8].pkm[3].def_iv = ui->spinBox_IV_Defense_4->value();
+        cpu_trainers[buf8].pkm[3].hp_iv = (cpu_trainers[buf8].pkm[3].atk_iv & 1)*8 + (cpu_trainers[buf8].pkm[3].def_iv & 1)*4 + (cpu_trainers[buf8].pkm[3].speed_iv & 1)*2 + (cpu_trainers[buf8].pkm[3].spc_iv & 1);
+        ui->spinBox_IV_HP_4->setValue(cpu_trainers[buf8].pkm[3].hp_iv);
     }
 }
 void MainWindow::on_spinBox_IV_Defense_5_valueChanged(int) {
     if(not_in_init){
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_pkm_iv_def[buf8][4] = ui->spinBox_IV_Defense_5->value();
-        cpu_pkm_iv_hp[buf8][4] = (cpu_pkm_iv_atk[buf8][4] & 1)*8 + (cpu_pkm_iv_def[buf8][4] & 1)*4 + (cpu_pkm_iv_speed[buf8][4] & 1)*2 + (cpu_pkm_iv_spc[buf8][4] & 1);
-        ui->spinBox_IV_HP_5->setValue(cpu_pkm_iv_hp[buf8][4]);
+        cpu_trainers[buf8].pkm[4].def_iv = ui->spinBox_IV_Defense_5->value();
+        cpu_trainers[buf8].pkm[4].hp_iv = (cpu_trainers[buf8].pkm[4].atk_iv & 1)*8 + (cpu_trainers[buf8].pkm[4].def_iv & 1)*4 + (cpu_trainers[buf8].pkm[4].speed_iv & 1)*2 + (cpu_trainers[buf8].pkm[4].spc_iv & 1);
+        ui->spinBox_IV_HP_5->setValue(cpu_trainers[buf8].pkm[4].hp_iv);
     }
 }
 void MainWindow::on_spinBox_IV_Defense_6_valueChanged(int) {
     if(not_in_init){
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_pkm_iv_def[buf8][5] = ui->spinBox_IV_Defense_6->value();
-        cpu_pkm_iv_hp[buf8][5] = (cpu_pkm_iv_atk[buf8][5] & 1)*8 + (cpu_pkm_iv_def[buf8][5] & 1)*4 + (cpu_pkm_iv_speed[buf8][5] & 1)*2 + (cpu_pkm_iv_spc[buf8][5] & 1);
-        ui->spinBox_IV_HP_6->setValue(cpu_pkm_iv_hp[buf8][5]);
+        cpu_trainers[buf8].pkm[5].def_iv = ui->spinBox_IV_Defense_6->value();
+        cpu_trainers[buf8].pkm[5].hp_iv = (cpu_trainers[buf8].pkm[5].atk_iv & 1)*8 + (cpu_trainers[buf8].pkm[5].def_iv & 1)*4 + (cpu_trainers[buf8].pkm[5].speed_iv & 1)*2 + (cpu_trainers[buf8].pkm[5].spc_iv & 1);
+        ui->spinBox_IV_HP_6->setValue(cpu_trainers[buf8].pkm[5].hp_iv);
     }
 }
 
 void MainWindow::on_spinBox_IV_Special_1_valueChanged(int) {
     if(not_in_init){
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_pkm_iv_spc[buf8][0] = ui->spinBox_IV_Special_1->value();
-        cpu_pkm_iv_hp[buf8][0] = (cpu_pkm_iv_atk[buf8][0] & 1)*8 + (cpu_pkm_iv_def[buf8][0] & 1)*4 + (cpu_pkm_iv_speed[buf8][0] & 1)*2 + (cpu_pkm_iv_spc[buf8][0] & 1);
-        ui->spinBox_IV_HP_1->setValue(cpu_pkm_iv_hp[buf8][0]);
+        cpu_trainers[buf8].pkm[0].spc_iv = ui->spinBox_IV_Special_1->value();
+        cpu_trainers[buf8].pkm[0].hp_iv = (cpu_trainers[buf8].pkm[0].atk_iv & 1)*8 + (cpu_trainers[buf8].pkm[0].def_iv & 1)*4 + (cpu_trainers[buf8].pkm[0].speed_iv & 1)*2 + (cpu_trainers[buf8].pkm[0].spc_iv & 1);
+        ui->spinBox_IV_HP_1->setValue(cpu_trainers[buf8].pkm[0].hp_iv);
     }
 }
 void MainWindow::on_spinBox_IV_Special_2_valueChanged(int) {
     if(not_in_init){
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_pkm_iv_spc[buf8][1] = ui->spinBox_IV_Special_2->value();
-        cpu_pkm_iv_hp[buf8][1] = (cpu_pkm_iv_atk[buf8][1] & 1)*8 + (cpu_pkm_iv_def[buf8][1] & 1)*4 + (cpu_pkm_iv_speed[buf8][1] & 1)*2 + (cpu_pkm_iv_spc[buf8][1] & 1);
-        ui->spinBox_IV_HP_2->setValue(cpu_pkm_iv_hp[buf8][1]);
+        cpu_trainers[buf8].pkm[1].spc_iv = ui->spinBox_IV_Special_2->value();
+        cpu_trainers[buf8].pkm[1].hp_iv = (cpu_trainers[buf8].pkm[1].atk_iv & 1)*8 + (cpu_trainers[buf8].pkm[1].def_iv & 1)*4 + (cpu_trainers[buf8].pkm[1].speed_iv & 1)*2 + (cpu_trainers[buf8].pkm[1].spc_iv & 1);
+        ui->spinBox_IV_HP_2->setValue(cpu_trainers[buf8].pkm[1].hp_iv);
     }
 }
 void MainWindow::on_spinBox_IV_Special_3_valueChanged(int) {
     if(not_in_init){
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_pkm_iv_spc[buf8][2] = ui->spinBox_IV_Special_3->value();
-        cpu_pkm_iv_hp[buf8][2] = (cpu_pkm_iv_atk[buf8][2] & 1)*8 + (cpu_pkm_iv_def[buf8][2] & 1)*4 + (cpu_pkm_iv_speed[buf8][2] & 1)*2 + (cpu_pkm_iv_spc[buf8][2] & 1);
-        ui->spinBox_IV_HP_3->setValue(cpu_pkm_iv_hp[buf8][2]);
+        cpu_trainers[buf8].pkm[2].spc_iv = ui->spinBox_IV_Special_3->value();
+        cpu_trainers[buf8].pkm[2].hp_iv = (cpu_trainers[buf8].pkm[2].atk_iv & 1)*8 + (cpu_trainers[buf8].pkm[2].def_iv & 1)*4 + (cpu_trainers[buf8].pkm[2].speed_iv & 1)*2 + (cpu_trainers[buf8].pkm[2].spc_iv & 1);
+        ui->spinBox_IV_HP_3->setValue(cpu_trainers[buf8].pkm[2].hp_iv);
     }
 }
 void MainWindow::on_spinBox_IV_Special_4_valueChanged(int) {
     if(not_in_init){
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_pkm_iv_spc[buf8][3] = ui->spinBox_IV_Special_4->value();
-        cpu_pkm_iv_hp[buf8][3] = (cpu_pkm_iv_atk[buf8][3] & 1)*8 + (cpu_pkm_iv_def[buf8][3] & 1)*4 + (cpu_pkm_iv_speed[buf8][3] & 1)*2 + (cpu_pkm_iv_spc[buf8][3] & 1);
-        ui->spinBox_IV_HP_4->setValue(cpu_pkm_iv_hp[buf8][3]);
+        cpu_trainers[buf8].pkm[3].spc_iv = ui->spinBox_IV_Special_4->value();
+        cpu_trainers[buf8].pkm[3].hp_iv = (cpu_trainers[buf8].pkm[3].atk_iv & 1)*8 + (cpu_trainers[buf8].pkm[3].def_iv & 1)*4 + (cpu_trainers[buf8].pkm[3].speed_iv & 1)*2 + (cpu_trainers[buf8].pkm[3].spc_iv & 1);
+        ui->spinBox_IV_HP_4->setValue(cpu_trainers[buf8].pkm[3].hp_iv);
     }
 }
 void MainWindow::on_spinBox_IV_Special_5_valueChanged(int) {
     if(not_in_init){
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_pkm_iv_spc[buf8][4] = ui->spinBox_IV_Special_5->value();
-        cpu_pkm_iv_hp[buf8][4] = (cpu_pkm_iv_atk[buf8][4] & 1)*8 + (cpu_pkm_iv_def[buf8][4] & 1)*4 + (cpu_pkm_iv_speed[buf8][4] & 1)*2 + (cpu_pkm_iv_spc[buf8][4] & 1);
-        ui->spinBox_IV_HP_5->setValue(cpu_pkm_iv_hp[buf8][4]);
+        cpu_trainers[buf8].pkm[4].spc_iv = ui->spinBox_IV_Special_5->value();
+        cpu_trainers[buf8].pkm[4].hp_iv = (cpu_trainers[buf8].pkm[4].atk_iv & 1)*8 + (cpu_trainers[buf8].pkm[4].def_iv & 1)*4 + (cpu_trainers[buf8].pkm[4].speed_iv & 1)*2 + (cpu_trainers[buf8].pkm[4].spc_iv & 1);
+        ui->spinBox_IV_HP_5->setValue(cpu_trainers[buf8].pkm[4].hp_iv);
     }
 }
 void MainWindow::on_spinBox_IV_Special_6_valueChanged(int) {
     if(not_in_init){
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_pkm_iv_spc[buf8][5] = ui->spinBox_IV_Special_6->value();
-        cpu_pkm_iv_hp[buf8][5] = (cpu_pkm_iv_atk[buf8][5] & 1)*8 + (cpu_pkm_iv_def[buf8][5] & 1)*4 + (cpu_pkm_iv_speed[buf8][5] & 1)*2 + (cpu_pkm_iv_spc[buf8][5] & 1);
-        ui->spinBox_IV_HP_6->setValue(cpu_pkm_iv_hp[buf8][5]);
+        cpu_trainers[buf8].pkm[5].spc_iv = ui->spinBox_IV_Special_6->value();
+        cpu_trainers[buf8].pkm[5].hp_iv = (cpu_trainers[buf8].pkm[5].atk_iv & 1)*8 + (cpu_trainers[buf8].pkm[5].def_iv & 1)*4 + (cpu_trainers[buf8].pkm[5].speed_iv & 1)*2 + (cpu_trainers[buf8].pkm[5].spc_iv & 1);
+        ui->spinBox_IV_HP_6->setValue(cpu_trainers[buf8].pkm[5].hp_iv);
     }
 }
 
 void MainWindow::on_spinBox_IV_Speed_1_valueChanged(int) {
     if(not_in_init){
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_pkm_iv_speed[buf8][0] = ui->spinBox_IV_Speed_1->value();
-        cpu_pkm_iv_hp[buf8][0] = (cpu_pkm_iv_atk[buf8][0] & 1)*8 + (cpu_pkm_iv_def[buf8][0] & 1)*4 + (cpu_pkm_iv_speed[buf8][0] & 1)*2 + (cpu_pkm_iv_spc[buf8][0] & 1);
-        ui->spinBox_IV_HP_1->setValue(cpu_pkm_iv_hp[buf8][0]);
+        cpu_trainers[buf8].pkm[0].speed_iv = ui->spinBox_IV_Speed_1->value();
+        cpu_trainers[buf8].pkm[0].hp_iv = (cpu_trainers[buf8].pkm[0].atk_iv & 1)*8 + (cpu_trainers[buf8].pkm[0].def_iv & 1)*4 + (cpu_trainers[buf8].pkm[0].speed_iv & 1)*2 + (cpu_trainers[buf8].pkm[0].spc_iv & 1);
+        ui->spinBox_IV_HP_1->setValue(cpu_trainers[buf8].pkm[0].hp_iv);
     }
 }
 void MainWindow::on_spinBox_IV_Speed_2_valueChanged(int) {
     if(not_in_init){
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_pkm_iv_speed[buf8][1] = ui->spinBox_IV_Speed_2->value();
-        cpu_pkm_iv_hp[buf8][1] = (cpu_pkm_iv_atk[buf8][1] & 1)*8 + (cpu_pkm_iv_def[buf8][1] & 1)*4 + (cpu_pkm_iv_speed[buf8][1] & 1)*2 + (cpu_pkm_iv_spc[buf8][1] & 1);
-        ui->spinBox_IV_HP_2->setValue(cpu_pkm_iv_hp[buf8][1]);
+        cpu_trainers[buf8].pkm[1].speed_iv = ui->spinBox_IV_Speed_2->value();
+        cpu_trainers[buf8].pkm[1].hp_iv = (cpu_trainers[buf8].pkm[1].atk_iv & 1)*8 + (cpu_trainers[buf8].pkm[1].def_iv & 1)*4 + (cpu_trainers[buf8].pkm[1].speed_iv & 1)*2 + (cpu_trainers[buf8].pkm[1].spc_iv & 1);
+        ui->spinBox_IV_HP_2->setValue(cpu_trainers[buf8].pkm[1].hp_iv);
     }
 }
 void MainWindow::on_spinBox_IV_Speed_3_valueChanged(int) {
     if(not_in_init){
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_pkm_iv_speed[buf8][2] = ui->spinBox_IV_Speed_3->value();
-        cpu_pkm_iv_hp[buf8][2] = (cpu_pkm_iv_atk[buf8][2] & 1)*8 + (cpu_pkm_iv_def[buf8][2] & 1)*4 + (cpu_pkm_iv_speed[buf8][2] & 1)*2 + (cpu_pkm_iv_spc[buf8][2] & 1);
-        ui->spinBox_IV_HP_3->setValue(cpu_pkm_iv_hp[buf8][2]);
+        cpu_trainers[buf8].pkm[2].speed_iv = ui->spinBox_IV_Speed_3->value();
+        cpu_trainers[buf8].pkm[2].hp_iv = (cpu_trainers[buf8].pkm[2].atk_iv & 1)*8 + (cpu_trainers[buf8].pkm[2].def_iv & 1)*4 + (cpu_trainers[buf8].pkm[2].speed_iv & 1)*2 + (cpu_trainers[buf8].pkm[2].spc_iv & 1);
+        ui->spinBox_IV_HP_3->setValue(cpu_trainers[buf8].pkm[2].hp_iv);
     }
 }
 void MainWindow::on_spinBox_IV_Speed_4_valueChanged(int) {
     if(not_in_init){
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_pkm_iv_speed[buf8][3] = ui->spinBox_IV_Speed_4->value();
-        cpu_pkm_iv_hp[buf8][3] = (cpu_pkm_iv_atk[buf8][3] & 1)*8 + (cpu_pkm_iv_def[buf8][3] & 1)*4 + (cpu_pkm_iv_speed[buf8][3] & 1)*2 + (cpu_pkm_iv_spc[buf8][3] & 1);
-        ui->spinBox_IV_HP_4->setValue(cpu_pkm_iv_hp[buf8][3]);
+        cpu_trainers[buf8].pkm[3].speed_iv = ui->spinBox_IV_Speed_4->value();
+        cpu_trainers[buf8].pkm[3].hp_iv = (cpu_trainers[buf8].pkm[3].atk_iv & 1)*8 + (cpu_trainers[buf8].pkm[3].def_iv & 1)*4 + (cpu_trainers[buf8].pkm[3].speed_iv & 1)*2 + (cpu_trainers[buf8].pkm[3].spc_iv & 1);
+        ui->spinBox_IV_HP_4->setValue(cpu_trainers[buf8].pkm[3].hp_iv);
     }
 }
 void MainWindow::on_spinBox_IV_Speed_5_valueChanged(int) {
     if(not_in_init){
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_pkm_iv_speed[buf8][4] = ui->spinBox_IV_Speed_5->value();
-        cpu_pkm_iv_hp[buf8][4] = (cpu_pkm_iv_atk[buf8][4] & 1)*8 + (cpu_pkm_iv_def[buf8][4] & 1)*4 + (cpu_pkm_iv_speed[buf8][4] & 1)*2 + (cpu_pkm_iv_spc[buf8][4] & 1);
-        ui->spinBox_IV_HP_5->setValue(cpu_pkm_iv_hp[buf8][4]);
+        cpu_trainers[buf8].pkm[4].speed_iv = ui->spinBox_IV_Speed_5->value();
+        cpu_trainers[buf8].pkm[4].hp_iv = (cpu_trainers[buf8].pkm[4].atk_iv & 1)*8 + (cpu_trainers[buf8].pkm[4].def_iv & 1)*4 + (cpu_trainers[buf8].pkm[4].speed_iv & 1)*2 + (cpu_trainers[buf8].pkm[4].spc_iv & 1);
+        ui->spinBox_IV_HP_5->setValue(cpu_trainers[buf8].pkm[4].hp_iv);
     }
 }
 void MainWindow::on_spinBox_IV_Speed_6_valueChanged(int) {
     if(not_in_init){
         buf8 = ui->comboBox_CPU_Trainer->currentIndex();
-        cpu_pkm_iv_speed[buf8][5] = ui->spinBox_IV_Speed_6->value();
-        cpu_pkm_iv_hp[buf8][5] = (cpu_pkm_iv_atk[buf8][5] & 1)*8 + (cpu_pkm_iv_def[buf8][5] & 1)*4 + (cpu_pkm_iv_speed[buf8][5] & 1)*2 + (cpu_pkm_iv_spc[buf8][5] & 1);
-        ui->spinBox_IV_HP_6->setValue(cpu_pkm_iv_hp[buf8][5]);
+        cpu_trainers[buf8].pkm[5].speed_iv = ui->spinBox_IV_Speed_6->value();
+        cpu_trainers[buf8].pkm[5].hp_iv = (cpu_trainers[buf8].pkm[5].atk_iv & 1)*8 + (cpu_trainers[buf8].pkm[5].def_iv & 1)*4 + (cpu_trainers[buf8].pkm[5].speed_iv & 1)*2 + (cpu_trainers[buf8].pkm[5].spc_iv & 1);
+        ui->spinBox_IV_HP_6->setValue(cpu_trainers[buf8].pkm[5].hp_iv);
     }
 }
 
