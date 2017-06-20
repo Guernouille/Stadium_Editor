@@ -107,12 +107,7 @@ public:
     std::array<Trainer, 256> cpu_trainers;
     quint8  cpu_cup_offset[256];
     quint8  cpu_ivs_min = 2;
-    quint8  cpu_ivs_max = 15;/*
-    quint8  cpu_pkm_iv_hp[256][6];
-    quint8  cpu_pkm_iv_atk[256][6];
-    quint8  cpu_pkm_iv_def[256][6];
-    quint8  cpu_pkm_iv_spc[256][6];
-    quint8  cpu_pkm_iv_speed[256][6];*/
+    quint8  cpu_ivs_max = 15;
     quint8  cpu_pkm_move_1[256][6];
     quint8  cpu_pkm_move_2[256][6];
     quint8  cpu_pkm_move_3[256][6];
