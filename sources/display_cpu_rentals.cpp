@@ -119,30 +119,30 @@ void MainWindow::display_cpu_trainer_pkmn(quint8 cpu_trainer_id)
     ui->comboBox_Move3_6->setCurrentIndex(cpu_trainers[cpu_trainer_id].pkm[5].move_3);
     ui->comboBox_Move4_6->setCurrentIndex(cpu_trainers[cpu_trainer_id].pkm[5].move_4);
 
-    ui->spinBox_PPUp1_1->setValue(cpu_pkm_ppup_1[cpu_trainer_id][0]);
-    ui->spinBox_PPUp2_1->setValue(cpu_pkm_ppup_2[cpu_trainer_id][0]);
-    ui->spinBox_PPUp3_1->setValue(cpu_pkm_ppup_3[cpu_trainer_id][0]);
-    ui->spinBox_PPUp4_1->setValue(cpu_pkm_ppup_4[cpu_trainer_id][0]);
-    ui->spinBox_PPUp1_2->setValue(cpu_pkm_ppup_1[cpu_trainer_id][1]);
-    ui->spinBox_PPUp2_2->setValue(cpu_pkm_ppup_2[cpu_trainer_id][1]);
-    ui->spinBox_PPUp3_2->setValue(cpu_pkm_ppup_3[cpu_trainer_id][1]);
-    ui->spinBox_PPUp4_2->setValue(cpu_pkm_ppup_4[cpu_trainer_id][1]);
-    ui->spinBox_PPUp1_3->setValue(cpu_pkm_ppup_1[cpu_trainer_id][2]);
-    ui->spinBox_PPUp2_3->setValue(cpu_pkm_ppup_2[cpu_trainer_id][2]);
-    ui->spinBox_PPUp3_3->setValue(cpu_pkm_ppup_3[cpu_trainer_id][2]);
-    ui->spinBox_PPUp4_3->setValue(cpu_pkm_ppup_4[cpu_trainer_id][2]);
-    ui->spinBox_PPUp1_4->setValue(cpu_pkm_ppup_1[cpu_trainer_id][3]);
-    ui->spinBox_PPUp2_4->setValue(cpu_pkm_ppup_2[cpu_trainer_id][3]);
-    ui->spinBox_PPUp3_4->setValue(cpu_pkm_ppup_3[cpu_trainer_id][3]);
-    ui->spinBox_PPUp4_4->setValue(cpu_pkm_ppup_4[cpu_trainer_id][3]);
-    ui->spinBox_PPUp1_5->setValue(cpu_pkm_ppup_1[cpu_trainer_id][4]);
-    ui->spinBox_PPUp2_5->setValue(cpu_pkm_ppup_2[cpu_trainer_id][4]);
-    ui->spinBox_PPUp3_5->setValue(cpu_pkm_ppup_3[cpu_trainer_id][4]);
-    ui->spinBox_PPUp4_5->setValue(cpu_pkm_ppup_4[cpu_trainer_id][4]);
-    ui->spinBox_PPUp1_6->setValue(cpu_pkm_ppup_1[cpu_trainer_id][5]);
-    ui->spinBox_PPUp2_6->setValue(cpu_pkm_ppup_2[cpu_trainer_id][5]);
-    ui->spinBox_PPUp3_6->setValue(cpu_pkm_ppup_3[cpu_trainer_id][5]);
-    ui->spinBox_PPUp4_6->setValue(cpu_pkm_ppup_4[cpu_trainer_id][5]);
+    ui->spinBox_PPUp1_1->setValue(cpu_trainers[cpu_trainer_id].pkm[0].ppup_1);
+    ui->spinBox_PPUp2_1->setValue(cpu_trainers[cpu_trainer_id].pkm[0].ppup_2);
+    ui->spinBox_PPUp3_1->setValue(cpu_trainers[cpu_trainer_id].pkm[0].ppup_3);
+    ui->spinBox_PPUp4_1->setValue(cpu_trainers[cpu_trainer_id].pkm[0].ppup_4);
+    ui->spinBox_PPUp1_2->setValue(cpu_trainers[cpu_trainer_id].pkm[1].ppup_1);
+    ui->spinBox_PPUp2_2->setValue(cpu_trainers[cpu_trainer_id].pkm[1].ppup_2);
+    ui->spinBox_PPUp3_2->setValue(cpu_trainers[cpu_trainer_id].pkm[1].ppup_3);
+    ui->spinBox_PPUp4_2->setValue(cpu_trainers[cpu_trainer_id].pkm[1].ppup_4);
+    ui->spinBox_PPUp1_3->setValue(cpu_trainers[cpu_trainer_id].pkm[2].ppup_1);
+    ui->spinBox_PPUp2_3->setValue(cpu_trainers[cpu_trainer_id].pkm[2].ppup_2);
+    ui->spinBox_PPUp3_3->setValue(cpu_trainers[cpu_trainer_id].pkm[2].ppup_3);
+    ui->spinBox_PPUp4_3->setValue(cpu_trainers[cpu_trainer_id].pkm[2].ppup_4);
+    ui->spinBox_PPUp1_4->setValue(cpu_trainers[cpu_trainer_id].pkm[3].ppup_1);
+    ui->spinBox_PPUp2_4->setValue(cpu_trainers[cpu_trainer_id].pkm[3].ppup_2);
+    ui->spinBox_PPUp3_4->setValue(cpu_trainers[cpu_trainer_id].pkm[3].ppup_3);
+    ui->spinBox_PPUp4_4->setValue(cpu_trainers[cpu_trainer_id].pkm[3].ppup_4);
+    ui->spinBox_PPUp1_5->setValue(cpu_trainers[cpu_trainer_id].pkm[4].ppup_1);
+    ui->spinBox_PPUp2_5->setValue(cpu_trainers[cpu_trainer_id].pkm[4].ppup_2);
+    ui->spinBox_PPUp3_5->setValue(cpu_trainers[cpu_trainer_id].pkm[4].ppup_3);
+    ui->spinBox_PPUp4_5->setValue(cpu_trainers[cpu_trainer_id].pkm[4].ppup_4);
+    ui->spinBox_PPUp1_6->setValue(cpu_trainers[cpu_trainer_id].pkm[5].ppup_1);
+    ui->spinBox_PPUp2_6->setValue(cpu_trainers[cpu_trainer_id].pkm[5].ppup_2);
+    ui->spinBox_PPUp3_6->setValue(cpu_trainers[cpu_trainer_id].pkm[5].ppup_3);
+    ui->spinBox_PPUp4_6->setValue(cpu_trainers[cpu_trainer_id].pkm[5].ppup_4);
 }
 
 

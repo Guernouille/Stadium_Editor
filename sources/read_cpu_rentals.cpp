@@ -191,10 +191,10 @@ void MainWindow::read_cpu_rentals(QFile &romfile)
                     cpu_trainers[i].pkm[j].hp_iv = (cpu_trainers[i].pkm[j].atk_iv & 1)*8 + (cpu_trainers[i].pkm[j].def_iv & 1)*4 + (cpu_trainers[i].pkm[j].speed_iv & 1)*2 + (cpu_trainers[i].pkm[j].spc_iv & 1);
 
                     // CPU Pokémon PP Ups
-                    cpu_pkm_ppup_1[i][j] = cpu_trainers[i].pkm[j].pp_1 >> 6;
-                    cpu_pkm_ppup_2[i][j] = cpu_trainers[i].pkm[j].pp_2 >> 6;
-                    cpu_pkm_ppup_3[i][j] = cpu_trainers[i].pkm[j].pp_3 >> 6;
-                    cpu_pkm_ppup_4[i][j] = cpu_trainers[i].pkm[j].pp_4 >> 6;
+                    cpu_trainers[i].pkm[j].ppup_1 = cpu_trainers[i].pkm[j].pp_1 >> 6;
+                    cpu_trainers[i].pkm[j].ppup_2 = cpu_trainers[i].pkm[j].pp_2 >> 6;
+                    cpu_trainers[i].pkm[j].ppup_3 = cpu_trainers[i].pkm[j].pp_3 >> 6;
+                    cpu_trainers[i].pkm[j].ppup_4 = cpu_trainers[i].pkm[j].pp_4 >> 6;
                 }
             }
             current_cpu_trainers_cup++;

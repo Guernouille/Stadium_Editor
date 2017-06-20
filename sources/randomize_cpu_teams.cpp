@@ -1518,7 +1518,7 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
             // Gambler
             if(gambler_luck_moves && cpu_trainers[cpu_trainer_id].sprite_id==0x22){
                 // Move 1
-                cpu_pkm_ppup_1[cpu_trainer_id][i] = 3;
+                cpu_trainers[cpu_trainer_id].pkm[i].ppup_1 = 3;
                 if(gambler_moves_ids_vector.size()>0){
                     if(gambler_moves_ids_vector[0]!=0x78 || learns_explosion==false){
                         cpu_trainers[cpu_trainer_id].pkm[i].move_1 = gambler_moves_ids_vector[0];
@@ -1570,7 +1570,7 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
 
                 // Move 2
                 if(gambler_moves_ids_vector.size()>1){
-                    cpu_pkm_ppup_2[cpu_trainer_id][i] = 3;
+                    cpu_trainers[cpu_trainer_id].pkm[i].ppup_2 = 3;
                     if(gambler_moves_ids_vector[1]!=0x78 || learns_explosion==false){
                         cpu_trainers[cpu_trainer_id].pkm[i].move_2 = gambler_moves_ids_vector[1];
                         if(move_power[cpu_trainers[cpu_trainer_id].pkm[i].move_2]>1){
@@ -1589,13 +1589,13 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
                     }
                 }
                 else{
-                    cpu_pkm_ppup_2[cpu_trainer_id][i] = 0;
+                    cpu_trainers[cpu_trainer_id].pkm[i].ppup_2 = 0;
                     cpu_trainers[cpu_trainer_id].pkm[i].move_2 = 0;
                 }
 
                 // Move 3
                 if(gambler_moves_ids_vector.size()>2){
-                    cpu_pkm_ppup_3[cpu_trainer_id][i] = 3;
+                    cpu_trainers[cpu_trainer_id].pkm[i].ppup_3 = 3;
                     if(gambler_moves_ids_vector[2]!=0x78 || learns_explosion==false){
                         cpu_trainers[cpu_trainer_id].pkm[i].move_3 = gambler_moves_ids_vector[2];
                         if(move_power[cpu_trainers[cpu_trainer_id].pkm[i].move_3]>1){
@@ -1614,13 +1614,13 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
                     }
                 }
                 else{
-                    cpu_pkm_ppup_3[cpu_trainer_id][i] = 0;
+                    cpu_trainers[cpu_trainer_id].pkm[i].ppup_3 = 0;
                     cpu_trainers[cpu_trainer_id].pkm[i].move_3 = 0;
                 }
 
                 // Move 4
                 if(gambler_moves_ids_vector.size()>3){
-                    cpu_pkm_ppup_4[cpu_trainer_id][i] = 3;
+                    cpu_trainers[cpu_trainer_id].pkm[i].ppup_4 = 3;
                     offset_vector_move = 3;
                     // Force STAB move
                     if(have_stab_move && got_stab_move==false && learns_stab_move==true){
@@ -1650,7 +1650,7 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
                     }
                 }
                 else{
-                    cpu_pkm_ppup_4[cpu_trainer_id][i] = 0;
+                    cpu_trainers[cpu_trainer_id].pkm[i].ppup_4 = 0;
                     cpu_trainers[cpu_trainer_id].pkm[i].move_4 = 0;
                 }
             }
@@ -1667,10 +1667,10 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
                     || ((cpu_trainer_id==87 || cpu_trainer_id==213) && i<4)))
             {
                 // PP Ups
-                cpu_pkm_ppup_1[cpu_trainer_id][i] = 3;
-                cpu_pkm_ppup_2[cpu_trainer_id][i] = 3;
-                cpu_pkm_ppup_3[cpu_trainer_id][i] = 3;
-                cpu_pkm_ppup_4[cpu_trainer_id][i] = 3;
+                cpu_trainers[cpu_trainer_id].pkm[i].ppup_1 = 3;
+                cpu_trainers[cpu_trainer_id].pkm[i].ppup_2 = 3;
+                cpu_trainers[cpu_trainer_id].pkm[i].ppup_3 = 3;
+                cpu_trainers[cpu_trainer_id].pkm[i].ppup_4 = 3;
 
                 // Pokémon IDs only need to be set once
                 if(i==0){
@@ -2033,7 +2033,7 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
                     || cpu_trainers[cpu_trainer_id].cup_id==40 || cpu_trainers[cpu_trainer_id].cup_id==41 || cpu_trainers[cpu_trainer_id].cup_id==42)
             {
                 // Move 1
-                cpu_pkm_ppup_1[cpu_trainer_id][i] = 3;
+                cpu_trainers[cpu_trainer_id].pkm[i].ppup_1 = 3;
                 if(strong_moves_ids_vector.size()>0){
                     if(strong_moves_ids_vector[0]!=0x78 || learns_explosion==false){
                         cpu_trainers[cpu_trainer_id].pkm[i].move_1 = strong_moves_ids_vector[0];
@@ -2069,7 +2069,7 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
 
                 // Move 2
                 if(strong_moves_ids_vector.size()>1){
-                    cpu_pkm_ppup_2[cpu_trainer_id][i] = 3;
+                    cpu_trainers[cpu_trainer_id].pkm[i].ppup_2 = 3;
                     if(strong_moves_ids_vector[1]!=0x78 || learns_explosion==false){
                         cpu_trainers[cpu_trainer_id].pkm[i].move_2 = strong_moves_ids_vector[1];
                         if(move_power[cpu_trainers[cpu_trainer_id].pkm[i].move_2]>1){
@@ -2088,7 +2088,7 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
                     }
                 }
                 else if(moves_ids_vector.size()>1){
-                    cpu_pkm_ppup_2[cpu_trainer_id][i] = 3;
+                    cpu_trainers[cpu_trainer_id].pkm[i].ppup_2 = 3;
                     cpu_trainers[cpu_trainer_id].pkm[i].move_2 = moves_ids_vector[1];
                     if(move_power[cpu_trainers[cpu_trainer_id].pkm[i].move_2]>1){
                         got_offensive_move = true;
@@ -2098,14 +2098,14 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
                     }
                 }
                 else{
-                    cpu_pkm_ppup_2[cpu_trainer_id][i] = 0;
+                    cpu_trainers[cpu_trainer_id].pkm[i].ppup_2 = 0;
                     cpu_trainers[cpu_trainer_id].pkm[i].move_2 = 0;
                 }
 
 
                 // Move 3
                 if(strong_moves_ids_vector.size()>2){
-                    cpu_pkm_ppup_3[cpu_trainer_id][i] = 3;
+                    cpu_trainers[cpu_trainer_id].pkm[i].ppup_3 = 3;
                     offset_vector_move = 2;
                     // Force STAB move
                     if(have_stab_move && got_stab_move==false && learns_stab_move==true){
@@ -2135,7 +2135,7 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
                     }
                 }
                 else if(moves_ids_vector.size()>2){
-                    cpu_pkm_ppup_3[cpu_trainer_id][i] = 3;
+                    cpu_trainers[cpu_trainer_id].pkm[i].ppup_3 = 3;
                     cpu_trainers[cpu_trainer_id].pkm[i].move_3 = moves_ids_vector[2];
                     if(move_power[cpu_trainers[cpu_trainer_id].pkm[i].move_3]>1){
                         got_offensive_move = true;
@@ -2145,14 +2145,14 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
                     }
                 }
                 else{
-                    cpu_pkm_ppup_3[cpu_trainer_id][i] = 0;
+                    cpu_trainers[cpu_trainer_id].pkm[i].ppup_3 = 0;
                     cpu_trainers[cpu_trainer_id].pkm[i].move_3 = 0;
                 }
 
 
                 // Move 4
                 if(strong_moves_ids_vector.size()>3){
-                    cpu_pkm_ppup_4[cpu_trainer_id][i] = 3;
+                    cpu_trainers[cpu_trainer_id].pkm[i].ppup_4 = 3;
                     if(offset_vector_move != 2) offset_vector_move = 2;
                     else offset_vector_move++;
                     if(learns_recover && pkm_base_atk[buf8]<60
@@ -2204,7 +2204,7 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
                     cpu_trainers[cpu_trainer_id].pkm[i].move_4 = 0x99;
                 }
                 else if(moves_ids_vector.size()>3){
-                    cpu_pkm_ppup_4[cpu_trainer_id][i] = 3;
+                    cpu_trainers[cpu_trainer_id].pkm[i].ppup_4 = 3;
                     offset_vector_move = 3;
                     // Force STAB move
                     if(have_stab_move && got_stab_move==false && learns_stab_move==true){
@@ -2229,7 +2229,7 @@ void MainWindow::randomize_cpu_moves(std::mt19937 &mt_rand)
                     cpu_trainers[cpu_trainer_id].pkm[i].move_4 = moves_ids_vector[offset_vector_move];
                 }
                 else{
-                    cpu_pkm_ppup_4[cpu_trainer_id][i] = 0;
+                    cpu_trainers[cpu_trainer_id].pkm[i].ppup_4 = 0;
                     cpu_trainers[cpu_trainer_id].pkm[i].move_4 = 0;
                 }
             }

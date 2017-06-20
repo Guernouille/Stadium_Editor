@@ -310,21 +310,21 @@ void MainWindow::write_cpu_rentals(QFile &romfile)
                         cpu_trainers[i].pkm[j].pp_4 = move_pp[cpu_trainers[i].pkm[j].move_4];
                         cpu_trainers[i].pkm[j].pp_4 &= 0x3F;
                     }
-                    if(cpu_pkm_ppup_1[i][j] > 0){
-                        cpu_trainers[i].pkm[j].pp_1 += (move_pp[cpu_trainers[i].pkm[j].move_1]*cpu_pkm_ppup_1[i][j]) / 5;
-                        cpu_trainers[i].pkm[j].pp_1 += cpu_pkm_ppup_1[i][j] << 6;
+                    if(cpu_trainers[i].pkm[j].ppup_1 > 0){
+                        cpu_trainers[i].pkm[j].pp_1 += (move_pp[cpu_trainers[i].pkm[j].move_1]*cpu_trainers[i].pkm[j].ppup_1) / 5;
+                        cpu_trainers[i].pkm[j].pp_1 += cpu_trainers[i].pkm[j].ppup_1 << 6;
                     }
-                    if(cpu_pkm_ppup_2[i][j] > 0){
-                        cpu_trainers[i].pkm[j].pp_2 += (move_pp[cpu_trainers[i].pkm[j].move_2]*cpu_pkm_ppup_2[i][j]) / 5;
-                        cpu_trainers[i].pkm[j].pp_2 += cpu_pkm_ppup_2[i][j] << 6;
+                    if(cpu_trainers[i].pkm[j].ppup_2 > 0){
+                        cpu_trainers[i].pkm[j].pp_2 += (move_pp[cpu_trainers[i].pkm[j].move_2]*cpu_trainers[i].pkm[j].ppup_2) / 5;
+                        cpu_trainers[i].pkm[j].pp_2 += cpu_trainers[i].pkm[j].ppup_2 << 6;
                     }
-                    if(cpu_pkm_ppup_3[i][j] > 0){
-                        cpu_trainers[i].pkm[j].pp_3 += (move_pp[cpu_trainers[i].pkm[j].move_3]*cpu_pkm_ppup_3[i][j]) / 5;
-                        cpu_trainers[i].pkm[j].pp_3 += cpu_pkm_ppup_3[i][j] << 6;
+                    if(cpu_trainers[i].pkm[j].ppup_3 > 0){
+                        cpu_trainers[i].pkm[j].pp_3 += (move_pp[cpu_trainers[i].pkm[j].move_3]*cpu_trainers[i].pkm[j].ppup_3) / 5;
+                        cpu_trainers[i].pkm[j].pp_3 += cpu_trainers[i].pkm[j].ppup_3 << 6;
                     }
-                    if(cpu_pkm_ppup_4[i][j] > 0){
-                        cpu_trainers[i].pkm[j].pp_4 += (move_pp[cpu_trainers[i].pkm[j].move_4]*cpu_pkm_ppup_4[i][j]) / 5;
-                        cpu_trainers[i].pkm[j].pp_4 += cpu_pkm_ppup_4[i][j] << 6;
+                    if(cpu_trainers[i].pkm[j].ppup_4 > 0){
+                        cpu_trainers[i].pkm[j].pp_4 += (move_pp[cpu_trainers[i].pkm[j].move_4]*cpu_trainers[i].pkm[j].ppup_4) / 5;
+                        cpu_trainers[i].pkm[j].pp_4 += cpu_trainers[i].pkm[j].ppup_4 << 6;
                     }
                     write<<cpu_trainers[i].pkm[j].pp_1;
                     write<<cpu_trainers[i].pkm[j].pp_2;
