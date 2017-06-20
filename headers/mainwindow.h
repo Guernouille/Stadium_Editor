@@ -108,11 +108,6 @@ public:
     quint8  cpu_cup_offset[256];
     quint8  cpu_ivs_min = 2;
     quint8  cpu_ivs_max = 15;
-    quint16 cpu_pkm_stat_hp[256][6];
-    quint16 cpu_pkm_stat_atk[256][6];
-    quint16 cpu_pkm_stat_def[256][6];
-    quint16 cpu_pkm_stat_spc[256][6];
-    quint16 cpu_pkm_stat_speed[256][6];
     quint16 cpu_stat_exp_min = 25600;
     quint16 cpu_stat_exp_max = 65535;
 

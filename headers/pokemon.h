@@ -38,6 +38,12 @@ struct Pokemon
     quint8 ppup_2;
     quint8 ppup_3;
     quint8 ppup_4;
+
+    quint16 hp_stat;
+    quint16 atk_stat;
+    quint16 def_stat;
+    quint16 spc_stat;
+    quint16 speed_stat;
 };
 
 #endif // POKEMON_H

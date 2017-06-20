@@ -245,21 +245,21 @@ void MainWindow::write_cpu_rentals(QFile &romfile)
                     // Stat Exp : E = floor(min(255, floor(√(max(0, Stat Experience - 1)) + 1)) / 4)
                     // HP       : (((Base + IV) * 2 + E) * Level) / 100 + Level + 10
                     // Stats    : (((Base + IV) * 2 + E) * Level) / 100 + 5
-                    cpu_pkm_stat_hp[i][j] = floor(sqrt(std::max(0,cpu_trainers[i].pkm[j].hp_ev-1))+1);
-                    cpu_pkm_stat_hp[i][j] = floor(std::min(quint16(255),cpu_pkm_stat_hp[i][j])/4);
-                    cpu_pkm_stat_hp[i][j] = floor((((pkm_base_hp[cpu_trainers[i].pkm[j].id] + cpu_trainers[i].pkm[j].hp_iv)*2 + cpu_pkm_stat_hp[i][j]) * cpu_trainers[i].pkm[j].lvl / 100) + cpu_trainers[i].pkm[j].lvl+10);
-                    cpu_pkm_stat_atk[i][j] = floor(sqrt(std::max(0,cpu_trainers[i].pkm[j].atk_ev-1))+1);
-                    cpu_pkm_stat_atk[i][j] = floor(std::min(quint16(255),cpu_pkm_stat_atk[i][j])/4);
-                    cpu_pkm_stat_atk[i][j] = floor((((pkm_base_atk[cpu_trainers[i].pkm[j].id] + cpu_trainers[i].pkm[j].atk_iv)*2 + cpu_pkm_stat_atk[i][j]) * cpu_trainers[i].pkm[j].lvl / 100) + 5);
-                    cpu_pkm_stat_def[i][j] = floor(sqrt(std::max(0,cpu_trainers[i].pkm[j].def_ev-1))+1);
-                    cpu_pkm_stat_def[i][j] = floor(std::min(quint16(255),cpu_pkm_stat_def[i][j])/4);
-                    cpu_pkm_stat_def[i][j] = floor((((pkm_base_def[cpu_trainers[i].pkm[j].id] + cpu_trainers[i].pkm[j].def_iv)*2 + cpu_pkm_stat_def[i][j]) * cpu_trainers[i].pkm[j].lvl / 100) + 5);
-                    cpu_pkm_stat_speed[i][j] = floor(sqrt(std::max(0,cpu_trainers[i].pkm[j].speed_ev-1))+1);
-                    cpu_pkm_stat_speed[i][j] = floor(std::min(quint16(255),cpu_pkm_stat_speed[i][j])/4);
-                    cpu_pkm_stat_speed[i][j] = floor((((pkm_base_speed[cpu_trainers[i].pkm[j].id] + cpu_trainers[i].pkm[j].speed_iv)*2 + cpu_pkm_stat_speed[i][j]) * cpu_trainers[i].pkm[j].lvl / 100) + 5);
-                    cpu_pkm_stat_spc[i][j] = floor(sqrt(std::max(0,cpu_trainers[i].pkm[j].spc_ev-1))+1);
-                    cpu_pkm_stat_spc[i][j] = floor(std::min(quint16(255),cpu_pkm_stat_spc[i][j])/4);
-                    cpu_pkm_stat_spc[i][j] = floor((((pkm_base_spc[cpu_trainers[i].pkm[j].id] + cpu_trainers[i].pkm[j].spc_iv)*2 + cpu_pkm_stat_spc[i][j]) * cpu_trainers[i].pkm[j].lvl / 100) + 5);
+                    cpu_trainers[i].pkm[j].hp_stat = floor(sqrt(std::max(0,cpu_trainers[i].pkm[j].hp_ev-1))+1);
+                    cpu_trainers[i].pkm[j].hp_stat = floor(std::min(quint16(255),cpu_trainers[i].pkm[j].hp_stat)/4);
+                    cpu_trainers[i].pkm[j].hp_stat = floor((((pkm_base_hp[cpu_trainers[i].pkm[j].id] + cpu_trainers[i].pkm[j].hp_iv)*2 + cpu_trainers[i].pkm[j].hp_stat) * cpu_trainers[i].pkm[j].lvl / 100) + cpu_trainers[i].pkm[j].lvl+10);
+                    cpu_trainers[i].pkm[j].atk_stat = floor(sqrt(std::max(0,cpu_trainers[i].pkm[j].atk_ev-1))+1);
+                    cpu_trainers[i].pkm[j].atk_stat = floor(std::min(quint16(255),cpu_trainers[i].pkm[j].atk_stat)/4);
+                    cpu_trainers[i].pkm[j].atk_stat = floor((((pkm_base_atk[cpu_trainers[i].pkm[j].id] + cpu_trainers[i].pkm[j].atk_iv)*2 + cpu_trainers[i].pkm[j].atk_stat) * cpu_trainers[i].pkm[j].lvl / 100) + 5);
+                    cpu_trainers[i].pkm[j].def_stat = floor(sqrt(std::max(0,cpu_trainers[i].pkm[j].def_ev-1))+1);
+                    cpu_trainers[i].pkm[j].def_stat = floor(std::min(quint16(255),cpu_trainers[i].pkm[j].def_stat)/4);
+                    cpu_trainers[i].pkm[j].def_stat = floor((((pkm_base_def[cpu_trainers[i].pkm[j].id] + cpu_trainers[i].pkm[j].def_iv)*2 + cpu_trainers[i].pkm[j].def_stat) * cpu_trainers[i].pkm[j].lvl / 100) + 5);
+                    cpu_trainers[i].pkm[j].speed_stat = floor(sqrt(std::max(0,cpu_trainers[i].pkm[j].speed_ev-1))+1);
+                    cpu_trainers[i].pkm[j].speed_stat = floor(std::min(quint16(255),cpu_trainers[i].pkm[j].speed_stat)/4);
+                    cpu_trainers[i].pkm[j].speed_stat = floor((((pkm_base_speed[cpu_trainers[i].pkm[j].id] + cpu_trainers[i].pkm[j].speed_iv)*2 + cpu_trainers[i].pkm[j].speed_stat) * cpu_trainers[i].pkm[j].lvl / 100) + 5);
+                    cpu_trainers[i].pkm[j].spc_stat = floor(sqrt(std::max(0,cpu_trainers[i].pkm[j].spc_ev-1))+1);
+                    cpu_trainers[i].pkm[j].spc_stat = floor(std::min(quint16(255),cpu_trainers[i].pkm[j].spc_stat)/4);
+                    cpu_trainers[i].pkm[j].spc_stat = floor((((pkm_base_spc[cpu_trainers[i].pkm[j].id] + cpu_trainers[i].pkm[j].spc_iv)*2 + cpu_trainers[i].pkm[j].spc_stat) * cpu_trainers[i].pkm[j].lvl / 100) + 5);
 
                     // Write to ROM
                     rom_offset = 0x89803C + (i-current_cpu_trainers_number)*560 + j*84 + *set_iter;
@@ -268,7 +268,7 @@ void MainWindow::write_cpu_rentals(QFile &romfile)
 
                     rom_offset = 0x89803E + (i-current_cpu_trainers_number)*560 + j*84 + *set_iter;
                     romfile.seek(rom_offset);
-                    write<<cpu_pkm_stat_hp[i][j];
+                    write<<cpu_trainers[i].pkm[j].hp_stat;
                     write<<cpu_trainers[i].pkm[j].lvl;
 
                     rom_offset = 0x898045 + (i-current_cpu_trainers_number)*560 + j*84 + *set_iter;
@@ -335,11 +335,11 @@ void MainWindow::write_cpu_rentals(QFile &romfile)
 
                     rom_offset = 0x898062 + (i-current_cpu_trainers_number)*560 + j*84 + *set_iter;
                     romfile.seek(rom_offset);
-                    write<<cpu_pkm_stat_hp[i][j];
-                    write<<cpu_pkm_stat_atk[i][j];
-                    write<<cpu_pkm_stat_def[i][j];
-                    write<<cpu_pkm_stat_speed[i][j];
-                    write<<cpu_pkm_stat_spc[i][j];
+                    write<<cpu_trainers[i].pkm[j].hp_stat;
+                    write<<cpu_trainers[i].pkm[j].atk_stat;
+                    write<<cpu_trainers[i].pkm[j].def_stat;
+                    write<<cpu_trainers[i].pkm[j].speed_stat;
+                    write<<cpu_trainers[i].pkm[j].spc_stat;
 
                     // CPU Trainer Pokémon nickname
                     rom_offset = 0x89806C + (i-current_cpu_trainers_number)*560 + j*84 + *set_iter;

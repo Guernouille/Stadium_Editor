@@ -166,11 +166,11 @@ void MainWindow::read_cpu_rentals(QFile &romfile)
 
                     rom_offset = 0x898062 + (i-current_cpu_trainers_number)*560 + j*84 + *set_iter;
                     romfile.seek(rom_offset);
-                    read>>cpu_pkm_stat_hp[i][j];
-                    read>>cpu_pkm_stat_atk[i][j];
-                    read>>cpu_pkm_stat_def[i][j];
-                    read>>cpu_pkm_stat_spc[i][j];
-                    read>>cpu_pkm_stat_speed[i][j];
+                    read>>cpu_trainers[i].pkm[j].hp_stat;
+                    read>>cpu_trainers[i].pkm[j].atk_stat;
+                    read>>cpu_trainers[i].pkm[j].def_stat;
+                    read>>cpu_trainers[i].pkm[j].spc_stat;
+                    read>>cpu_trainers[i].pkm[j].speed_stat;
 
                     // CPU Trainer Pokémon nickname
                     rom_offset = 0x89806C + (i-current_cpu_trainers_number)*560 + j*84 + *set_iter;
