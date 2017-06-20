@@ -28,6 +28,11 @@ struct Pokemon
     quint8 move_2;
     quint8 move_3;
     quint8 move_4;
+
+    quint8 pp_1;
+    quint8 pp_2;
+    quint8 pp_3;
+    quint8 pp_4;
 };
 
 #endif // POKEMON_H

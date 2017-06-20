@@ -159,10 +159,10 @@ void MainWindow::read_cpu_rentals(QFile &romfile)
                     read>>cpu_trainers[i].pkm[j].speed_ev;
                     read>>cpu_trainers[i].pkm[j].spc_ev;
                     read>>cpu_trainers[i].pkm[j].ivs;
-                    read>>cpu_pkm_pp_1[i][j];
-                    read>>cpu_pkm_pp_2[i][j];
-                    read>>cpu_pkm_pp_3[i][j];
-                    read>>cpu_pkm_pp_4[i][j];
+                    read>>cpu_trainers[i].pkm[j].pp_1;
+                    read>>cpu_trainers[i].pkm[j].pp_2;
+                    read>>cpu_trainers[i].pkm[j].pp_3;
+                    read>>cpu_trainers[i].pkm[j].pp_4;
 
                     rom_offset = 0x898062 + (i-current_cpu_trainers_number)*560 + j*84 + *set_iter;
                     romfile.seek(rom_offset);
@@ -191,10 +191,10 @@ void MainWindow::read_cpu_rentals(QFile &romfile)
                     cpu_trainers[i].pkm[j].hp_iv = (cpu_trainers[i].pkm[j].atk_iv & 1)*8 + (cpu_trainers[i].pkm[j].def_iv & 1)*4 + (cpu_trainers[i].pkm[j].speed_iv & 1)*2 + (cpu_trainers[i].pkm[j].spc_iv & 1);
 
                     // CPU Pokémon PP Ups
-                    cpu_pkm_ppup_1[i][j] = cpu_pkm_pp_1[i][j] >> 6;
-                    cpu_pkm_ppup_2[i][j] = cpu_pkm_pp_2[i][j] >> 6;
-                    cpu_pkm_ppup_3[i][j] = cpu_pkm_pp_3[i][j] >> 6;
-                    cpu_pkm_ppup_4[i][j] = cpu_pkm_pp_4[i][j] >> 6;
+                    cpu_pkm_ppup_1[i][j] = cpu_trainers[i].pkm[j].pp_1 >> 6;
+                    cpu_pkm_ppup_2[i][j] = cpu_trainers[i].pkm[j].pp_2 >> 6;
+                    cpu_pkm_ppup_3[i][j] = cpu_trainers[i].pkm[j].pp_3 >> 6;
+                    cpu_pkm_ppup_4[i][j] = cpu_trainers[i].pkm[j].pp_4 >> 6;
                 }
             }
             current_cpu_trainers_cup++;
