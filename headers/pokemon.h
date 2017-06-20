@@ -16,6 +16,8 @@ struct Pokemon
     quint16 def_ev;
     quint16 spc_ev;
     quint16 speed_ev;
+
+    quint16 ivs;
 };
 
 #endif // POKEMON_H

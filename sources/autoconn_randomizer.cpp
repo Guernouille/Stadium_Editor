@@ -1050,7 +1050,7 @@ void MainWindow::on_pushButton_Maximize_CPU_EVsIVs_pressed()
             cpu_trainers[i].pkm[j].def_ev = 0xFFFF;
             cpu_trainers[i].pkm[j].spc_ev = 0xFFFF;
             cpu_trainers[i].pkm[j].speed_ev = 0xFFFF;
-            cpu_pkm_ivs[i][j] = 0xFFFF;
+            cpu_trainers[i].pkm[j].ivs = 0xFFFF;
             cpu_pkm_iv_hp[i][j] = 0xF;
             cpu_pkm_iv_atk[i][j] = 0xF;
             cpu_pkm_iv_def[i][j] = 0xF;

@@ -287,11 +287,11 @@ void MainWindow::write_cpu_rentals(QFile &romfile)
                     write<<cpu_trainers[i].pkm[j].speed_ev;
                     write<<cpu_trainers[i].pkm[j].spc_ev;
 
-                    cpu_pkm_ivs[i][j] = cpu_pkm_iv_atk[i][j] << 12;
-                    cpu_pkm_ivs[i][j] += cpu_pkm_iv_def[i][j] << 8;
-                    cpu_pkm_ivs[i][j] += cpu_pkm_iv_speed[i][j] << 4;
-                    cpu_pkm_ivs[i][j] += cpu_pkm_iv_spc[i][j];
-                    write<<cpu_pkm_ivs[i][j];
+                    cpu_trainers[i].pkm[j].ivs = cpu_pkm_iv_atk[i][j] << 12;
+                    cpu_trainers[i].pkm[j].ivs += cpu_pkm_iv_def[i][j] << 8;
+                    cpu_trainers[i].pkm[j].ivs += cpu_pkm_iv_speed[i][j] << 4;
+                    cpu_trainers[i].pkm[j].ivs += cpu_pkm_iv_spc[i][j];
+                    write<<cpu_trainers[i].pkm[j].ivs;
 
                     // CPU Moves PPs
                     if(move_pp[cpu_pkm_move_1[i][j]] > 0){
