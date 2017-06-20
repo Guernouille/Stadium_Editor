@@ -970,10 +970,10 @@ void MainWindow::on_pushButton_CPU_Metronome_pressed()
 {
     for(short i=0;i<256;i++){
         for(short j=0;j<6;j++){
-            cpu_pkm_move_1[i][j] = 0x76;
-            cpu_pkm_move_2[i][j] = 0x76;
-            cpu_pkm_move_3[i][j] = 0x76;
-            cpu_pkm_move_4[i][j] = 0x76;
+            cpu_trainers[i].pkm[j].move_1 = 0x76;
+            cpu_trainers[i].pkm[j].move_2 = 0x76;
+            cpu_trainers[i].pkm[j].move_3 = 0x76;
+            cpu_trainers[i].pkm[j].move_4 = 0x76;
         }
     }
     ui->comboBox_Move1_1->setCurrentIndex(0x76);

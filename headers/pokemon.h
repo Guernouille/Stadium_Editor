@@ -23,6 +23,11 @@ struct Pokemon
     quint8 def_iv;
     quint8 spc_iv;
     quint8 speed_iv;
+
+    quint8 move_1;
+    quint8 move_2;
+    quint8 move_3;
+    quint8 move_4;
 };
 
 #endif // POKEMON_H

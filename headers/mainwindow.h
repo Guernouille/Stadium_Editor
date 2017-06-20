@@ -108,10 +108,6 @@ public:
     quint8  cpu_cup_offset[256];
     quint8  cpu_ivs_min = 2;
     quint8  cpu_ivs_max = 15;
-    quint8  cpu_pkm_move_1[256][6];
-    quint8  cpu_pkm_move_2[256][6];
-    quint8  cpu_pkm_move_3[256][6];
-    quint8  cpu_pkm_move_4[256][6];
     quint8  cpu_pkm_pp_1[256][6];
     quint8  cpu_pkm_pp_2[256][6];
     quint8  cpu_pkm_pp_3[256][6];
